@@ -10,7 +10,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -28,12 +27,12 @@ import { FormOfUsePage } from '../pages/form-of-use/form-of-use';
 import { PayOptionsPage } from '../pages/pay-options/pay-options';
 import { ProductDetailsPage } from '../pages/product-details/product-details';
 import { PopupPage } from '../pages/popup/popup';
+import { EnterPage } from '../pages/enter/enter';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
     ContactPage,
     HomePage,
     TabsPage,
@@ -50,7 +49,8 @@ import { PopupPage } from '../pages/popup/popup';
     FormOfUsePage,
     PayOptionsPage,
     ProductDetailsPage,
-    PopupPage
+    PopupPage,
+    EnterPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +60,6 @@ import { PopupPage } from '../pages/popup/popup';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
     ContactPage,
     HomePage,
     TabsPage,
@@ -77,7 +76,8 @@ import { PopupPage } from '../pages/popup/popup';
     FormOfUsePage,
     PayOptionsPage,
     ProductDetailsPage,
-    PopupPage
+    PopupPage,
+    EnterPage
   ],
   providers: [
     StatusBar,
