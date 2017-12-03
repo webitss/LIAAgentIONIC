@@ -24,6 +24,10 @@ import { AllPackagesPage } from '../pages/all-packages/all-packages';
 import { CustomersPage } from '../pages/customers/customers';
 import { CartPage } from '../pages/cart/cart';
 import { PackageSelectedPage } from '../pages/package-selected/package-selected';
+import { FormOfUsePage } from '../pages/form-of-use/form-of-use';
+import { PayOptionsPage } from '../pages/pay-options/pay-options';
+import { ProductDetailsPage } from '../pages/product-details/product-details';
+import { PopupPage } from '../pages/popup/popup';
 
 
 @NgModule({
@@ -42,7 +46,11 @@ import { PackageSelectedPage } from '../pages/package-selected/package-selected'
     CartPage,
     PackageSelectedPage,
     PersonalFormPage,
-    BusinessFormPage
+    BusinessFormPage,
+    FormOfUsePage,
+    PayOptionsPage,
+    ProductDetailsPage,
+    PopupPage
   ],
   imports: [
     BrowserModule,
@@ -65,7 +73,11 @@ import { PackageSelectedPage } from '../pages/package-selected/package-selected'
     CartPage,
     PackageSelectedPage,
     PersonalFormPage,
-    BusinessFormPage
+    BusinessFormPage,
+    FormOfUsePage,
+    PayOptionsPage,
+    ProductDetailsPage,
+    PopupPage
   ],
   providers: [
     StatusBar,
