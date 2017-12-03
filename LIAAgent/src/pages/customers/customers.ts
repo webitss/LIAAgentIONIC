@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
+import { CartPage } from '../cart/cart';
 
 /**
  * Generated class for the CustomersPage page.
@@ -26,6 +27,8 @@ export class CustomersPage {
     this.allowDetails=!this.allowDetails;
     this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
     }
- 
+    routeToCart(){
+      
+    }
 
 }

@@ -1,0 +1,41 @@
+<!--
+  Generated template for the PackageSelectedPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>packageSelected</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="container-lia container"> 
+    <page-package [package]="nowPackage">
+         <div *ngIf="!this.service.isPackageProductDetailed" class="bg-yellow ParentProduct" >
+         <div class="ParentProduct-inner">
+                 <div *ngFor="let p of this.nowPackage?.Products" class="ParentProductId">
+                                 <div (click)="details(p)">
+                                        <span> {{p.ProductName}}</span>
+                                        <i class="icon-arrow-left-03"></i>
+                                 </div>
+                 </div>
+         </div>        
+         </div>
+
+         <div *ngIf="this.service.isPackageProductDetailed">
+         <p> {{this.product.ProductId}}</p>
+         <p> {{this.product.ProductName}}</p>
+         <img [src]="this.product.PictureUrl"/>
+         <input *ngIf="this.product.VideoUrl" type="button" value="לצפיה"  (click)="updateThisProduct()" class="btn-white" />
+        <button (click)="details()"> <i class="icon-arrow-right-02"></i></button>
+        <button ><i class="icon-icon-x_Artboard-2-01 "></i></button>
+         </div>
+    </page-package>
+   </div> 
+</ion-content>

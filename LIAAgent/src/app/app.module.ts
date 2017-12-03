@@ -1,3 +1,5 @@
+import { BusinessFormPage } from './../pages/business-form/business-form';
+import { PersonalFormPage } from './../pages/personal-form/personal-form';
 import { ProductsPage } from './../pages/products/products';
 import { LiaProxy } from './../providers/proxy';
 
@@ -21,6 +23,8 @@ import { PackagePage } from '../pages/package/package';
 import { AllPackagesPage } from '../pages/all-packages/all-packages';
 import { CustomersPage } from '../pages/customers/customers';
 import { CartPage } from '../pages/cart/cart';
+import { PackageSelectedPage } from '../pages/package-selected/package-selected';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +39,10 @@ import { CartPage } from '../pages/cart/cart';
     AllPackagesPage,
     ProductsPage,
     CustomersPage,
-    CartPage
+    CartPage,
+    PackageSelectedPage,
+    PersonalFormPage,
+    BusinessFormPage
   ],
   imports: [
     BrowserModule,
@@ -55,7 +62,10 @@ import { CartPage } from '../pages/cart/cart';
     AllPackagesPage,
     ProductsPage,
     CustomersPage,
-    CartPage
+    CartPage,
+    PackageSelectedPage,
+    PersonalFormPage,
+    BusinessFormPage
   ],
   providers: [
     StatusBar,
