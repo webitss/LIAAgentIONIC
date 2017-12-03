@@ -1,0 +1,47 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{service.nowComponent}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+   
+    <ion-content padding *ngIf="galleryPictures"> 
+          
+        <ion-slides pager="false" style="direction: ltr" class="image-slider" loop="false" slidesPerView="1">
+          <ion-slide *ngFor="let img of galleryPictures">
+            <img src="{{img}}" class="thumb-img" imageViewer/>
+          </ion-slide>
+        </ion-slides>
+
+        <div>
+            <button id="notification-button" ion-button clear>
+                <ion-icon name="notifications">
+                  <ion-badge id="notifications-badge" color="danger">5</ion-badge>
+                </ion-icon>              
+            </button>
+        </div>
+        
+    </ion-content>
+    <!-- <div class="container-lia container">
+      <div class="col-md-2 arrow-img-galery">
+      
+      <i class="icon-arrow-right-02" (click)='changePicture(true)'></i>
+      </div>
+  
+      <div class="myDiv col-md-8">
+       <div><img class="slide-img-galery" [src]=service.galeryPictures[i]></div>
+       </div>
+  
+      <div class="col-md-2 arrow-img-galery">
+      <i class="icon-arrow-left-03" (click)="changePicture(false)"></i>
+      </div>
+      
+  
+  </div> -->
+
+
+

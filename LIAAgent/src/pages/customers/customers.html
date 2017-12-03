@@ -1,0 +1,46 @@
+<!--
+  Generated template for the CustomersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{service.nowComponent}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="container-lia container">
+    <div class="col-md-6 col-xs-6">
+              <div class="t-center"><i class="icon-arrow-up-05 t-center green f-size-icon"></i></div>
+              <div class="border-bottam-table green" *ngFor="let p of this.service.customers">
+                          <div (click)="customerClicked()">
+                              <span class="col-md-3 col-xs-3">{{p.name}}</span>
+                              <span class="col-md-4 col-xs-4">{{p.address}}</span>
+                              <span class="col-md-4 col-xs-4">{{p.num}}</span>
+                              <span class="col-md-1 col-xs-1"><i class="icon-arrow-left-03 green f-size-icon"></i></span>
+                          </div>
+              </div>
+                <div *ngIf="this.allowDetails"> <p>uuuuuuuuu</p> </div>
+                <div class="t-center"><i class="icon-arrow-down-04 t-center green f-size-icon"></i></div>
+   </div>
+
+  <div class="col-md-6 col-xs-6">
+          <div class="container-lia container">
+                <div class="col-md-8 col-md-offset-2">
+                            <div>
+                            <input placeholder="חיפוש לקוח קיים"/>
+                            </div>
+                      <button class="btn btn-width bg-green" >{{this.valueButton}}</button>
+                </div>
+        </div>
+  </div>
+
+
+
+</div>
+</ion-content>
