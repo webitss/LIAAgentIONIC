@@ -22,7 +22,9 @@
 }
 @include makeIcon(icon-gallery, '\e908');
 @include makeIcon(icon-packages, '\e909');
-
+@include makeIcon(icon-product, '\e904');
+@include makeIcon(icon-customer, '\e90a');
+@include makeIcon(icon-cart, '\e906');
 [class^="icon-"] {
 	font-family: 'icomoon' !important;
 	speak: none;
@@ -86,17 +88,13 @@
 		content: "\e903";
 	}
 }
-.icon-bag-08 {
-	&:before {
-		content: "\e904";
-	}
-}
+
 .icon-bell-15 {
 	&:before {
 		content: "\e905";
 	}
 }
-.icon-Cart-06 {
+.icon-cart {
 	&:before {
 		content: "\e906";
 	}
@@ -111,16 +109,22 @@
 		content: "\e908";
 	}
 }
+.icon-product {
+	&:before {
+		content: "\e904";
+	}
+}
+.icon-customer {
+	&:before {
+		content: "\e90a";
+	}
+}
 .icon-menu-09 {
 	&:before {
 		content: "\e909";
 	}
 }
-.icon-people-07 {
-	&:before {
-		content: "\e90a";
-	}
-}
+
 .icon-star-14 {
 	&:before {
 		content: "\e90b";
