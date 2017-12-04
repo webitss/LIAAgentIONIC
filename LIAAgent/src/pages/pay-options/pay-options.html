@@ -15,18 +15,18 @@
 
 <ion-content padding>
   <div *ngIf="!service.isTerminateOrdered">
-    <div *ngIf="!service.isPayed">     
-    <button (click)="service.isPayed=true">אשראי</button>
-    <button (click)="service.isPayed=true">צקים</button>
-    <button (click)="service.isPayed=true">מזומן</button>
-    </div>   
-    <div *ngIf="service.isPayed">   
-    <input type="checkbox"/>  
+    <div *ngIf="!service.isPayed">
+    <button ion-button (click)="service.isPayed=true">אשראי</button>
+    <button ion-button (click)="service.isPayed=true">צקים</button>
+    <button ion-button (click)="service.isPayed=true">מזומן</button>
+    </div>
+    <div *ngIf="service.isPayed">
+    <input type="checkbox"/>
     <a routerLink="formOfUse">הריני מאשר את תקנון השימוש</a>
     <textarea></textarea>
     <textarea></textarea>
-    <button (click)="service.isTerminateOrdered=true">המשך</button>
-    </div>   
+    <button ion-button (click)="service.isTerminateOrdered=true">המשך</button>
+    </div>
     </div>
     <div *ngIf="service.isTerminateOrdered">
     ההזמנה בוצעה בהצלחה</div>

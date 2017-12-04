@@ -33,33 +33,6 @@ export class LiaService {
     packagesOfCart: any[];
     isPayed: boolean;
     isTerminateOrdered: boolean;
-<<<<<<< HEAD
-
-    frmPersonal = new FormGroup({
-        first_name: new FormControl("", Validators.required),
-        id: new FormControl("", Validators.required),
-        phoneNumber: new FormControl("", Validators.required),
-        address: new FormControl("", Validators.required),
-        email: new FormControl("", Validators.required),
-        callPhone: new FormControl()
-    })
-
-    frmBusiness = new FormGroup({
-        name: new FormControl("", Validators.required),
-        PrivatelyHeldCompany: new FormControl("", Validators.required),
-        phone: new FormControl("", Validators.required),
-        address: new FormControl("", Validators.required),
-        websiteAddress: new FormControl("", Validators.required),
-        category: new FormControl("", Validators.required)
-    })
-    frmMoredetails = new FormGroup({
-        logo: new FormControl(),
-        OpeningHours: new FormControl(),
-    })
-
-=======
-   
->>>>>>> 0a7622d4a97807e91f3edb0ec44cfc885e0d8580
     anotherDetails: boolean;
     routeOrStay: string;
 
@@ -72,7 +45,7 @@ export class LiaService {
         this.customers[1] = { "name": "aaaaaaaaa", "address": "t", "num": 6, "another": "jjjjj" };
         this.customers[2] = { "name": "ddddddddddddd", "address": "5pp", "num": 2, "another": "jjjjj" };
         this.customers[3] = { "name": "ttt", "address": "t", "num": 1, "another": "jjjjj" };
-        
+
         this.packages = new Array();
         this.productsOfCart = new Array();
         // this.post("GetGaleryPictures");
@@ -99,7 +72,7 @@ export class LiaService {
             });
             //this.galeryPictures=pictures;
             //console.log(pictures);
-            
+
         } catch (ex) {
             console.log(`ex: ${ex}`);
         }
@@ -126,7 +99,7 @@ export class LiaService {
              return this.proxy.post("GetGaleryPictures").then((res)=>{
              return res.Result;
          }).catch(() => console.log("error"));
-        
+
     }
 
 
