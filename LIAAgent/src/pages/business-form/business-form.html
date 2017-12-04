@@ -14,66 +14,63 @@
 
 
 <ion-content padding>
-
-  
-  
-
-  <div class="container-lia container">
+  <button (click) = "onGoToPayOptionsPage()"> Push </button>
+ <div class="container-lia container">
     <div class="col-md-12 col-xs-12">
         <h3 class="blue"> פרטי עסק</h3></div>
-  
-  
-        <div *ngIf="!service.anotherDetails" >
-        <form [formGroup]="service.frmBusiness" (ngSubmit)="service.submitFrmBusiness(this.service.frmBusiness.value)">
-  
+
+
+         <div *ngIf="!service.anotherDetails" >
+        <form [formGroup]="frmBusiness" (ngSubmit)="service.submitFrmBusiness(frmBusiness.value)">
+
         <div class="col-md-3 col-xs-3"><input class="input-difult blue" placeholder="שם העסק" formControlName="name"/></div>
         <div class="col-md-3 col-xs-3"><input class="input-difult blue" placeholder='ח"פ' formControlName="PrivatelyHeldCompany"/></div>
         <div class="col-md-3 col-xs-3"><input class="input-difult blue" placeholder='טלפון בית העסק' formControlName="phone"/></div>
-  
+
         <div  class="col-md-3 col-xs-3 pull-right">
-         <button  class="btn btn-width bg-blue height-78" [disabled]="!service.frmBusiness.valid">המשך</button>
+         <button  class="btn btn-width bg-blue height-78" [disabled]="!frmBusiness.valid">המשך</button>
         </div>
-  
+
         <div class="col-md-3 col-xs-3"><input class="input-difult blue" placeholder='כתובת בית העסק' formControlName="address"/></div>
         <div class="col-md-3 col-xs-3"><input class="input-difult blue" placeholder="כתובת אתר העסק" formControlName="websiteAddress"/></div>
         <div class="col-md-3 col-xs-3"><input class="input-difult blue" placeholder="קטגורית עסק" formControlName="category"/></div>
 
-        </form>      
+        </form>
         </div>
-        
+
           <div *ngIf="service.anotherDetails">
-  
-          <form [formGroup]="service.frmMoredetails" (ngSubmit)="service.submitFrmBusiness()">
-  
-          
+
+          <form [formGroup]="frmMoredetails" (ngSubmit)="service.submitFrmBusiness()">
+
+
           <a (click)="this.f()">לוגו</a>
           <br><br>
           <label class="uploader" ondragover="return false;"
-              [class.loaded]="loaded" 
+              [class.loaded]="loaded"
               [style.outlineColor]="dragging ? activeColor : baseColor"
               (dragenter)="handleDragEnter()"
               (dragleave)="handleDragLeave()"
               (drop)="handleDrop($event)">
-              
-              <i class="icon icon-upload" 
-                  [style.color]="dragging 
+
+              <i class="icon icon-upload"
+                  [style.color]="dragging
                       ? ((imageSrc.length > 0) ? overlayColor : activeColor)
                       : ((imageSrc.length > 0) ? overlayColor : baseColor)">
               </i>
-              
-              <img 
-                  [src]="imageSrc" 
-                  (load)="handleImageLoad()" 
-                  [class.loaded]="imageLoaded"/>              
+
+              <img
+                  [src]="imageSrc"
+                  (load)="handleImageLoad()"
+                  [class.loaded]="imageLoaded"/>
           </label>
           <input type="file" accept=".jpg, .jpeg, .png"  id="file"  name="file" style="display:none" (change)="this.handleInputChange($event)" (load)="this.handleImageLoad()"  formControlName="logo">
           <img />
           <input placeholder="שעות פתיחה" formControlName="OpeningHours"/>
-  
+
           <a >
-          <input type="submit" value="המשך" [disabled]="!service.frmMoredetails.valid" />
+          <input type="submit" value="המשך" [disabled]="!frmMoredetails.valid" />
           </a>
-          </form> 
+          </form>
               </div>
 
 
@@ -102,33 +99,33 @@
       <div class="col-md-3 col-xs-3"><input class="input-difult blue" placeholder='כתובת בית העסק' formControlName="address"/></div>
       <div class="col-md-3 col-xs-3"><input class="input-difult blue" placeholder="כתובת אתר העסק" formControlName="websiteAddress"/></div>
       <div class="col-md-3 col-xs-3"><input class="input-difult blue" placeholder="קטגורית עסק" formControlName="category"/></div>
-      </form>      
+      </form>
       </div>
-      
+
         <div *ngIf="this.service.anotherDetails">
 
         <form [formGroup]="service.frmMoredetails" (ngSubmit)="service.submitFrmBusiness()">
 
-        
+
         <a (click)="this.f()">לוגו</a>
         <br><br>
         <label class="uploader" ondragover="return false;"
-            [class.loaded]="loaded" 
+            [class.loaded]="loaded"
             [style.outlineColor]="dragging ? activeColor : baseColor"
             (dragenter)="handleDragEnter()"
             (dragleave)="handleDragLeave()"
             (drop)="handleDrop($event)">
-            
-            <i class="icon icon-upload" 
-                [style.color]="dragging 
+
+            <i class="icon icon-upload"
+                [style.color]="dragging
                     ? ((imageSrc.length > 0) ? overlayColor : activeColor)
                     : ((imageSrc.length > 0) ? overlayColor : baseColor)">
             </i>
-            
-            <img 
-                [src]="imageSrc" 
-                (load)="handleImageLoad()" 
-                [class.loaded]="imageLoaded"/>              
+
+            <img
+                [src]="imageSrc"
+                (load)="handleImageLoad()"
+                [class.loaded]="imageLoaded"/>
         </label>
         <input type="file" accept=".jpg, .jpeg, .png"  id="file"  name="file" style="display:none" (change)="this.handleInputChange($event)" (load)="this.handleImageLoad()"  formControlName="logo">
         <img />
@@ -137,5 +134,5 @@
         <a >
         <input type="submit" value="המשך" [disabled]="!service.frmMoredetails.valid" />
         </a>
-        </form> 
+        </form>
             </div> -->

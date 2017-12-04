@@ -3,6 +3,9 @@ import { LiaProxy } from "./proxy";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+
+
+
 enum screen{
     גלריה,
     חבילות
@@ -30,6 +33,7 @@ export class LiaService {
     packagesOfCart: any[];
     isPayed: boolean;
     isTerminateOrdered: boolean;
+<<<<<<< HEAD
 
     frmPersonal = new FormGroup({
         first_name: new FormControl("", Validators.required),
@@ -53,6 +57,9 @@ export class LiaService {
         OpeningHours: new FormControl(),
     })
 
+=======
+   
+>>>>>>> 0a7622d4a97807e91f3edb0ec44cfc885e0d8580
     anotherDetails: boolean;
     routeOrStay: string;
 
@@ -162,7 +169,7 @@ export class LiaService {
     }
 
     submitFrmPersonal(frm) {
-        // this.router.navigate(['../businessForm']);
+       console.log(frm);
     }
 
     submitFrmBusiness() {

@@ -1,6 +1,10 @@
 import { LiaService } from './../../providers/lia.service';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { PayOptionsPage } from '../pay-options/pay-options';
+import { PopupPage } from '../popup/popup';
+
 
 /**
  * Generated class for the BusinessFormPage page.
@@ -18,16 +22,33 @@ export class BusinessFormPage {
   activeColor: string = 'green';
   baseColor: string = '#ccc';
   overlayColor: string = 'rgba(255,255,255,0.5)';
-  
+
   dragging: boolean = false;
   loaded: boolean = false;
   imageLoaded: boolean = false;
   imageSrc: string = '';
   iconColor:any;
   borderColor:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
+
+  frmBusiness = new FormGroup({
+    name: new FormControl("", Validators.required),
+    PrivatelyHeldCompany: new FormControl("", Validators.required),
+    phone: new FormControl("", Validators.required),
+    address: new FormControl("", Validators.required),
+    websiteAddress: new FormControl("", Validators.required),
+    category: new FormControl("", Validators.required)
+})
+
+frmMoredetails = new FormGroup({
+    logo: new FormControl(),
+    OpeningHours: new FormControl(),
+})
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService){
+    // ) {
     service.routeOrStay="businessForm";
-    service.anotherDetails=true;
+    service.anotherDetails = false;
   }
 
   f()
@@ -35,25 +56,25 @@ export class BusinessFormPage {
     document.getElementById('file').click();
   }
 
+   onGoToPayOptionsPage(){
+   // this.navCtrl.push(PopupPage);
+       this.navCtrl.push(PayOptionsPage);
+   }
 
-
-
-  
-  
   handleDragEnter() {
       this.dragging = true;
   }
-  
+
   handleDragLeave() {
       this.dragging = false;
   }
-  
+
   handleDrop(e) {
       e.preventDefault();
       this.dragging = false;
       this.handleInputChange(e);
   }
-  
+
   handleImageLoad() {
       this.imageLoaded = true;
       this.iconColor = this.overlayColor;
@@ -75,20 +96,20 @@ export class BusinessFormPage {
       reader.onload = this._handleReaderLoaded.bind(this);
       reader.readAsDataURL(file);
   }
-  
+
   _handleReaderLoaded(e) {
       var reader = e.target;
       this.imageSrc = reader.result;
       this.loaded = true;
   }
-  
+
   _setActive() {
       this.borderColor = this.activeColor;
       if (this.imageSrc.length === 0) {
           this.iconColor = this.activeColor;
       }
   }
-  
+
   _setInactive() {
       this.borderColor = this.baseColor;
       if (this.imageSrc.length === 0) {
