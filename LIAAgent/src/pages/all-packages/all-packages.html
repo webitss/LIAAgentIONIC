@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>allPackages</ion-title>
+    <ion-title>{{service.nowComponent}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,16 +17,10 @@
   <div class="container-lia container"> 
     <div class="">
     <table style="width:100%;">
-    <tr>
-    <td>
-    <page-package  [package]="service.packages[0]"  ></page-package>
+    <tr *ngIf="service.packages">
+    <td  *ngFor="let p of service.packages">
+    <page-package  [package]="p"  ></page-package>
     </td>
-    <td>
-    <page-package  [package]="service.packages[1]" ></page-package>
-    </td>
-    <td>
-      <page-package  [package]="service.packages[2]" ></page-package>
-      </td>
     </tr>
     </table>
     </div>
