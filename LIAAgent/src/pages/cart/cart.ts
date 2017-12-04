@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
+import { PersonalFormPage } from '../personal-form/personal-form';
+
 
 /**
  * Generated class for the CartPage page.
@@ -20,6 +22,8 @@ export class CartPage {
     service.nowComponent="סל";
   }
 
- 
+  onGoToPersonalFormPage(){
+    this.navCtrl.push(PersonalFormPage);
+  }
 
 }
