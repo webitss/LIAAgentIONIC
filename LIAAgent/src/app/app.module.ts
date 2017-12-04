@@ -16,7 +16,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { LoginComponent } from '../pages/login/login.component';
 import { LiaService } from '../providers/lia.service';
 import { PackagePage } from '../pages/package/package';
 import { AllPackagesPage } from '../pages/all-packages/all-packages';
@@ -28,6 +27,7 @@ import { PayOptionsPage } from '../pages/pay-options/pay-options';
 import { ProductDetailsPage } from '../pages/product-details/product-details';
 import { PopupPage } from '../pages/popup/popup';
 import { EnterPage } from '../pages/enter/enter';
+import { LoginPage } from '../pages/login/login';
 
 
 @NgModule({
@@ -37,7 +37,6 @@ import { EnterPage } from '../pages/enter/enter';
     HomePage,
     TabsPage,
     GalleryPage,
-    LoginComponent,
     PackagePage,
     AllPackagesPage,
     ProductsPage,
@@ -50,12 +49,13 @@ import { EnterPage } from '../pages/enter/enter';
     PayOptionsPage,
     ProductDetailsPage,
     PopupPage,
-    EnterPage
+    EnterPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp), 
-     HttpClientModule    
+    IonicModule.forRoot(MyApp),
+     HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -64,7 +64,6 @@ import { EnterPage } from '../pages/enter/enter';
     HomePage,
     TabsPage,
     GalleryPage,
-    LoginComponent,
     PackagePage,
     AllPackagesPage,
     ProductsPage,
@@ -77,7 +76,8 @@ import { EnterPage } from '../pages/enter/enter';
     PayOptionsPage,
     ProductDetailsPage,
     PopupPage,
-    EnterPage
+    EnterPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
