@@ -11,6 +11,7 @@ import { CartPage } from '../cart/cart';
 import { BusinessFormPage } from '../business-form/business-form';
 import { EnterPage } from '../enter/enter';
 import { Tabs, NavParams } from 'ionic-angular';
+import { LoginPage } from '../login/login';
 
 
 
@@ -25,8 +26,9 @@ export class TabsPage {
   tab3Root = ProductsPage;
   tab4Root = CustomersPage;
   tab5Root = CartPage;
+  tab6Root = LoginPage;
   constructor(private nav : NavController,public navP: NavParams) {
-   
+
      //this.nav.push(GalleryPage);
   }
 }

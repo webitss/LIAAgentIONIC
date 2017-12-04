@@ -19,25 +19,24 @@ import { PersonalFormPage } from '../personal-form/personal-form';
 })
 export class CartPage {
   TabsEnum: typeof TabsEnum = TabsEnum;
-  
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     service.nowComponent="סל";
   }
 
-<<<<<<< HEAD
+
   routeToProducts()
   {
     this.navCtrl.parent.select(TabsEnum.products);
-=======
+  }
   onGoToPersonalFormPage(){
     this.navCtrl.push(PersonalFormPage);
->>>>>>> 0a7622d4a97807e91f3edb0ec44cfc885e0d8580
   }
 
   routeToPackages(){
     this.navCtrl.parent.select(TabsEnum.packages);
   }
-  
+
   ionViewWillEnter()
   {
     this.service.nowComponent = "סל";
