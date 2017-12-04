@@ -30,6 +30,7 @@ export class LiaService {
     packagesOfCart: any[];
     isPayed: boolean;
     isTerminateOrdered: boolean;
+
     frmPersonal = new FormGroup({
         first_name: new FormControl("", Validators.required),
         id: new FormControl("", Validators.required),
@@ -64,6 +65,7 @@ export class LiaService {
         this.customers[1] = { "name": "aaaaaaaaa", "address": "t", "num": 6, "another": "jjjjj" };
         this.customers[2] = { "name": "ddddddddddddd", "address": "5pp", "num": 2, "another": "jjjjj" };
         this.customers[3] = { "name": "ttt", "address": "t", "num": 1, "another": "jjjjj" };
+        
         this.packages = new Array();
         this.productsOfCart = new Array();
         // this.post("GetGaleryPictures");
@@ -80,6 +82,22 @@ export class LiaService {
         console.log(this.products);
         console.log(this.productsOfCart);
     }
+
+    async load() {
+        try {
+            await this.proxy.load().then(res=>{
+                this.getData = res;
+                this.galeryPictures = this.getData.Result;
+                console.log(this.galeryPictures);
+            });
+            //this.galeryPictures=pictures;
+            //console.log(pictures);
+            
+        } catch (ex) {
+            console.log(`ex: ${ex}`);
+        }
+    }
+
 
     async post(func: string): Promise<any> {
         await this.proxy.post(func).then((res) => {
@@ -98,7 +116,7 @@ export class LiaService {
     }
 
     getGalleryPictures(){
-         return this.proxy.post("GetGaleryPictures").then((res)=>{
+             return this.proxy.post("GetGaleryPictures").then((res)=>{
              return res.Result;
          }).catch(() => console.log("error"));
         

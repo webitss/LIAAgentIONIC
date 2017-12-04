@@ -87,9 +87,10 @@ $colors: (
 // http://ionicframework.com/docs/ionicons/
 
 $ionicons-font-path: "../assets/fonts";
-@import "ionic.ionicons";
-@import "icomoon";
 
+@import "icomoon";
+// @import "ionic.ionicons";
+@import "ionicons";
 // Fonts
 // --------------------------------------------------
 

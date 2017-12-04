@@ -15,10 +15,18 @@ export class LiaProxy {
 
     post(func: string): Promise<any> {
         console.log(`http://ws.webit-track.com/LiaWS_QA/Service1.svc/GetPackages`);
-        return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Service1.svc/${func}`, {
+        return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/${func}`, {
                 "iUserId": "1",
                 "nvGuide": "45D49511-BED0-483E-9A50-789612BD6F8C"
             }
         ).toPromise();
     }
+
+
+    load()  { 
+        return this.http.get(`https://api.myjson.com/bins/1f2zdf`).toPromise();
+    }
+
+   
+    
 }
