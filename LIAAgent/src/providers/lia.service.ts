@@ -133,21 +133,6 @@ export class LiaService {
     }).catch(() => console.log("error"));
   }
 
-  getGalleryPictures() {
-    return this.proxy.post("GetGaleryPictures").then((res) => {
-      return res.Result;
-    }).catch(() => console.log("error"));
-
-  }
-
-
-  getPackageById(id: number): any {
-    console.log(this.packages.length);
-    for (let i = 0; i < this.packages.length; i++)
-      if (this.packages[i].ProductId == id)
-        return this.packages[i];
-
-  }
 
   getProductById(id: number) {
     for (let i = 0; i < this.products.length; i++) {
