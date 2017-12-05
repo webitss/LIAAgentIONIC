@@ -1,3 +1,5 @@
+import { LoginPage } from './../pages/login/login';
+import { SignaturePage } from './../pages/signature/signature';
 import { BusinessFormPage } from './../pages/business-form/business-form';
 import { PersonalFormPage } from './../pages/personal-form/personal-form';
 import { ProductsPage } from './../pages/products/products';
@@ -30,7 +32,11 @@ import { PayOptionsPage } from '../pages/pay-options/pay-options';
 import { ProductDetailsPage } from '../pages/product-details/product-details';
 import { PopupPage } from '../pages/popup/popup';
 import { EnterPage } from '../pages/enter/enter';
-import { LoginPage } from '../pages/login/login';
+import { SignaturePadModule } from 'angular2-signaturepad';
+import { HeaderPage } from '../pages/header/header';
+import { Popup2Page } from '../pages/popup2/popup2';
+//import { LoginPage } from '../pages/login/login';
+
 
 
 @NgModule({
@@ -46,6 +52,7 @@ import { LoginPage } from '../pages/login/login';
     CustomersPage,
     CartPage,
     PackageSelectedPage,
+    SignaturePage,
     PersonalFormPage,
     BusinessFormPage,
     FormOfUsePage,
@@ -53,12 +60,15 @@ import { LoginPage } from '../pages/login/login';
     ProductDetailsPage,
     PopupPage,
     EnterPage,
+    HeaderPage,
+    Popup2Page,
     LoginPage
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,SignaturePadModule,
     IonicModule.forRoot(MyApp),
      HttpClientModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -73,6 +83,7 @@ import { LoginPage } from '../pages/login/login';
     CustomersPage,
     CartPage,
     PackageSelectedPage,
+    SignaturePage,
     PersonalFormPage,
     BusinessFormPage,
     FormOfUsePage,
@@ -80,8 +91,10 @@ import { LoginPage } from '../pages/login/login';
     ProductDetailsPage,
     PopupPage,
     EnterPage,
+    HeaderPage,
+    Popup2Page,
     LoginPage
-  ],
+     ],
   providers: [
     StatusBar,
     SplashScreen,

@@ -1,6 +1,8 @@
 import { TabsEnum } from './../../models/tabs-enum';
 import { Component } from '@angular/core';
+
 import {  NavController, NavParams } from 'ionic-angular';
+
 import { LiaService } from '../../providers/lia.service';
 import { PersonalFormPage } from '../personal-form/personal-form';
 
@@ -25,12 +27,16 @@ export class CartPage {
   }
 
 
+
+
   routeToProducts()
   {
     this.navCtrl.parent.select(TabsEnum.products);
   }
+
   onGoToPersonalFormPage(){
     this.navCtrl.push(PersonalFormPage);
+
   }
 
   routeToPackages(){

@@ -1,3 +1,4 @@
+import { SignaturePad } from 'angular2-signaturepad/signature-pad';
 import { Injectable } from '@angular/core';
 import { LiaProxy } from "./proxy";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
@@ -6,14 +7,11 @@ import 'rxjs/add/operator/toPromise';
 
 
 
-enum screen{
-    גלריה,
-    חבילות
-}
+
 @Injectable()
 
 export class LiaService {
-    nowScreen:screen;
+
     package: any;
     packages: any[];
     public galeryPictures: any[];
@@ -21,7 +19,7 @@ export class LiaService {
     getData: any;
     products: any[];
     customers: any[];
-    nowComponent: String;
+    nowComponent: string;
     product: any;
     thisProductDetails: any;
     isOuter: boolean;
@@ -33,6 +31,7 @@ export class LiaService {
     packagesOfCart: any[];
     isPayed: boolean;
     isTerminateOrdered: boolean;
+
     anotherDetails: boolean;
     routeOrStay: string;
 
@@ -45,6 +44,8 @@ export class LiaService {
         this.customers[1] = { "name": "aaaaaaaaa", "address": "t", "num": 6, "another": "jjjjj" };
         this.customers[2] = { "name": "ddddddddddddd", "address": "5pp", "num": 2, "another": "jjjjj" };
         this.customers[3] = { "name": "ttt", "address": "t", "num": 1, "another": "jjjjj" };
+        this.nowComponent="menu";
+
 
         this.packages = new Array();
         this.productsOfCart = new Array();
@@ -94,6 +95,7 @@ export class LiaService {
             // }
         }).catch(() => console.log("error"));
     }
+    _signature:string;
 
     getGalleryPictures(){
              return this.proxy.post("GetGaleryPictures").then((res)=>{
@@ -147,6 +149,7 @@ export class LiaService {
 
     submitFrmBusiness() {
         this.anotherDetails = true;
+
     }
 
     //    goTo(pr:number)
