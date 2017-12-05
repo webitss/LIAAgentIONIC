@@ -43,6 +43,7 @@ export class BusinessFormPage {
 frmMoredetails = new FormGroup({
     logo: new FormControl(),
     OpeningHours: new FormControl(),
+    min: new FormControl()
 })
 
 
@@ -58,7 +59,6 @@ frmMoredetails = new FormGroup({
   }
 
    onGoToPayOptionsPage(){
-   // this.navCtrl.push(PopupPage);
        this.navCtrl.push(PayOptionsPage);
    }
 
