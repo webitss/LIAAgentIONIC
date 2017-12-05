@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+
+
 
 @Component({
   selector: 'page-login',
@@ -9,10 +11,14 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 export class LoginPage {
   // isClassBig: boolean;
   // isClassMini: boolean;
+  imageURI:any;
+  imageFileName:any;
 
   constructor(public navCtrl: NavController,
-     public navParams: NavParams,
-     public loadingCtrl: LoadingController) {
+    private transfer: FileTransfer,
+    public loadingCtrl: LoadingController,
+    public toastCtrl: ToastController) {
+
     // this.isClassMini = false;
     // this.isClassBig = true;
   }
@@ -40,10 +46,10 @@ export class LoginPage {
       headers: {}
     }
 
-    fileTransfer.upload(this.imageURI, 'http://192.168.0.7:8080/api/uploadImage', options)
+    fileTransfer.upload(this.imageURI, 'http://www.webit-sys.com/img/projects/project-3.jpg', options)
       .then((data) => {
       console.log(data+" Uploaded Successfully");
-      this.imageFileName = "http://192.168.0.7:8080/static/images/ionicfile.jpg"
+      this.imageFileName = "http://www.webit-sys.com/img/projects/project-3.jpg"
       loader.dismiss();
       this.presentToast("Image uploaded successfully");
     }, (err) => {
@@ -51,6 +57,20 @@ export class LoginPage {
       loader.dismiss();
       this.presentToast(err);
     });
+  }
+
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 3000,
+      position: 'bottom'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
   // mini() {
   //   this.isClassMini = !this.isClassMini;
