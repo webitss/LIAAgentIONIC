@@ -1,4 +1,3 @@
-import { LoginPage } from './../pages/login/login';
 import { SignaturePage } from './../pages/signature/signature';
 import { BusinessFormPage } from './../pages/business-form/business-form';
 import { PersonalFormPage } from './../pages/personal-form/personal-form';

@@ -20,7 +20,7 @@ export class PayOptionsPage {
   }
   // openSignature()
   // {
-  //   let modal = this.modalController.create(SignaturePage);
+    //iocordova platform add android//   let modal = this.modalController.create(SignaturePage);
   //   modal.present();
   // }
   openSignatureModel(){
