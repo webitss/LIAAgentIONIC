@@ -16,31 +16,55 @@
     </div>
 
           <form [formGroup]="frmPersonal" (ngSubmit)="service.submitFrmPersonal(frmPersonal.value); onGoToBusinessFormPage()" >
+
+              <ion-grid>
+                  <ion-row>
+                  <ion-col>
               <ion-item>
                 <ion-input type="text" placeholder="שם לקוח"  formControlName="first_name" [pattern]="this.pattern" ></ion-input>
               </ion-item>
+                  </ion-col>
 
+             <ion-col>
               <ion-item>
                   <ion-input type="text" placeholder='ת"ז'  formControlName="id" ></ion-input>
                 </ion-item>
+                  </ion-col>
 
+                  <ion-col >
                 <ion-item>
                     <ion-input type="text" placeholder="טלפון"  formControlName="phoneNumber" pattern="[0-9]*"></ion-input>
                   </ion-item>
+                </ion-col>
+                </ion-row>
 
+                <ion-row>
+                  <ion-col>
                   <ion-item>
                       <ion-input type="text" placeholder="כתובת"  formControlName="address"></ion-input>
                     </ion-item>
+                  </ion-col>
 
+                   <ion-col>
                     <ion-item>
                         <ion-input type="text" placeholder="מייל"  formControlName="email"></ion-input>
                       </ion-item>
+                    </ion-col>
 
+                    <ion-col>
                       <ion-item>
                           <ion-input type="text" placeholder="נייד"  formControlName="callPhone" pattern="[0-9]*"></ion-input>
                         </ion-item>
+                      </ion-col>
 
-              <button ion-button type="submit" block>המשך</button>
+                      <ion-col >
+                          <button ion-button type="submit" block>המשך</button>
+                        </ion-col>
+
+                      </ion-row>
+
+              </ion-grid>
             </form>
           </div>
+
 </ion-content>

@@ -1,36 +1,34 @@
 <ion-header>
 
-  <!-- <ion-navbar>
-    <ion-title>
-       
-    </ion-title>
+  <ion-navbar>
+      <page-header></page-header>
   </ion-navbar>
-   -->
-   <page-header></page-header>
+
+
 </ion-header>
 
 
 <!-- {{service.galeryPictures}} -->
 <ion-content padding>
-   
+
   <ion-slides #slider style="direction: ltr" class="image-slider" loop="false" slidesPerView="1" zoom="true" speed="200" pager="true">
-    
+
     <ion-slide *ngFor="let img of service.galeryPictures" >
-        
+
             <!-- <button ion-button  (click)="slidePrev()" [hidden]="prevDisabled" large round color="light">
                 <ion-icon name="arrow-dropleft"></ion-icon>
               </button> -->
-           
+
       <img src="{{img}}" class="thumb-img" imageViewer/>
-      
+
           <!-- <button ion-button (click)="slideNext()" [hidden]="nextDisabled" large round color="light">
               <ion-icon name="arrow-dropright"></ion-icon>
           </button> -->
-         
+
     </ion-slide>
-    
+
   </ion-slides>
-  
+
   <!-- <div>
     <button id="notification-button" ion-button clear>
       <ion-icon name="notifications">
@@ -38,5 +36,5 @@
       </ion-icon>
     </button>
   </div> -->
- 
+
 </ion-content>
