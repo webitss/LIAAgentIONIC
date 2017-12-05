@@ -40,6 +40,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -69,7 +70,6 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     BrowserModule,SignaturePadModule,
     IonicModule.forRoot(MyApp), 
      HttpClientModule    
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -102,10 +102,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     LiaProxy,
     LiaService,
     ScreenOrientation,
-    //FileUploadOptions,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FileTransfer,
-    //FileTransferObject,
     File,
   ]
 })

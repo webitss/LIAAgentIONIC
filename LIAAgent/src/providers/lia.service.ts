@@ -1,3 +1,4 @@
+import { SignaturePad } from 'angular2-signaturepad/signature-pad';
 import { Injectable } from '@angular/core';
 import { LiaProxy } from "./proxy";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
@@ -7,11 +8,10 @@ import 'rxjs/add/operator/toPromise';
 
 
 
-
 @Injectable()
 
 export class LiaService {
-    
+
     package: any;
     packages: any[];
     public galeryPictures: any[];
@@ -95,7 +95,7 @@ export class LiaService {
         }).catch(() => console.log("error"));
     }
     _signature:string;
-    
+
     getGalleryPictures(){
              return this.proxy.post("GetGaleryPictures").then((res)=>{
              return res.Result;
@@ -161,6 +161,7 @@ export class LiaService {
 
     submitFrmBusiness() {
         this.anotherDetails = true;
+
         
     } 
    

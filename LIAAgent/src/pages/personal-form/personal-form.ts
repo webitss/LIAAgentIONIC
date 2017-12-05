@@ -18,13 +18,15 @@ import { BusinessFormPage } from '../business-form/business-form';
 })
 export class PersonalFormPage {
 
+  pattern =/^[a-zA-Zא-ת\s]*$/;
+
    frmPersonal = new FormGroup({
     first_name: new FormControl("", Validators.required),
-    id: new FormControl("", Validators.required),
-    phoneNumber: new FormControl("", Validators.required),
-    address: new FormControl("", Validators.required),
-    email: new FormControl("", Validators.required),
-    callPhone: new FormControl()
+    id: new FormControl("", [Validators.maxLength(9), Validators.minLength(9)]),
+    phoneNumber: new FormControl("", [Validators.required, Validators.maxLength(9), Validators.minLength(9)]),
+    address: new FormControl(),
+    email: new FormControl("", Validators.email),
+    callPhone: new FormControl("",[ Validators.required, Validators.maxLength(10), Validators.minLength(10)])
 })
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
@@ -32,6 +34,7 @@ export class PersonalFormPage {
   }
 
   onGoToBusinessFormPage(){
+  if(this.frmPersonal.valid)
     this.navCtrl.push(BusinessFormPage);
   }
 
