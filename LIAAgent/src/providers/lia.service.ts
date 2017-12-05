@@ -32,7 +32,6 @@ export class LiaService {
     isPayed: boolean;
     isTerminateOrdered: boolean;
 
-
     anotherDetails: boolean;
     routeOrStay: string;
 
@@ -46,6 +45,8 @@ export class LiaService {
         this.customers[2] = { "name": "ddddddddddddd", "address": "5pp", "num": 2, "another": "jjjjj" };
         this.customers[3] = { "name": "ttt", "address": "t", "num": 1, "another": "jjjjj" };
         this.nowComponent="menu";
+
+
         this.packages = new Array();
         this.productsOfCart = new Array();
         // this.post("GetGaleryPictures");
@@ -72,7 +73,7 @@ export class LiaService {
             });
             //this.galeryPictures=pictures;
             //console.log(pictures);
-            
+
         } catch (ex) {
             console.log(`ex: ${ex}`);
         }
@@ -100,7 +101,7 @@ export class LiaService {
              return this.proxy.post("GetGaleryPictures").then((res)=>{
              return res.Result;
          }).catch(() => console.log("error"));
-        
+
     }
 
 

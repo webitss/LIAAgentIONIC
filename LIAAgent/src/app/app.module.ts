@@ -1,3 +1,4 @@
+import { LoginPage } from './../pages/login/login';
 import { SignaturePage } from './../pages/signature/signature';
 import { BusinessFormPage } from './../pages/business-form/business-form';
 import { PersonalFormPage } from './../pages/personal-form/personal-form';
@@ -11,13 +12,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { LoginComponent } from '../pages/login/login.component';
 import { LiaService } from '../providers/lia.service';
 import { PackagePage } from '../pages/package/package';
 import { AllPackagesPage } from '../pages/all-packages/all-packages';
@@ -32,6 +35,9 @@ import { EnterPage } from '../pages/enter/enter';
 import { SignaturePadModule } from 'angular2-signaturepad';
 import { HeaderPage } from '../pages/header/header';
 import { Popup2Page } from '../pages/popup2/popup2';
+import { LoginPage } from '../pages/login/login';
+
+
 
 @NgModule({
   declarations: [
@@ -40,7 +46,6 @@ import { Popup2Page } from '../pages/popup2/popup2';
     HomePage,
     TabsPage,
     GalleryPage,
-    LoginComponent,
     PackagePage,
     AllPackagesPage,
     ProductsPage,
@@ -56,12 +61,14 @@ import { Popup2Page } from '../pages/popup2/popup2';
     PopupPage,
     EnterPage,
     HeaderPage,
-    Popup2Page
+    Popup2Page,
+    LoginPage
   ],
   imports: [
     BrowserModule,SignaturePadModule,
     IonicModule.forRoot(MyApp), 
      HttpClientModule    
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -70,7 +77,6 @@ import { Popup2Page } from '../pages/popup2/popup2';
     HomePage,
     TabsPage,
     GalleryPage,
-    LoginComponent,
     PackagePage,
     AllPackagesPage,
     ProductsPage,
@@ -86,14 +92,19 @@ import { Popup2Page } from '../pages/popup2/popup2';
     PopupPage,
     EnterPage,
     HeaderPage,
-    Popup2Page
-  ],
+    Popup2Page,
+    LoginPage
+     ],
   providers: [
     StatusBar,
     SplashScreen,
     LiaProxy,
     LiaService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    //FileUploadOptions,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FileTransfer,
+    //FileTransferObject,
+    File,
   ]
 })
 export class AppModule {}
