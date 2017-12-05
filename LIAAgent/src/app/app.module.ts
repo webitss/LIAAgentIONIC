@@ -1,3 +1,4 @@
+import { SignaturePage } from './../pages/signature/signature';
 import { BusinessFormPage } from './../pages/business-form/business-form';
 import { PersonalFormPage } from './../pages/personal-form/personal-form';
 import { ProductsPage } from './../pages/products/products';
@@ -28,7 +29,9 @@ import { PayOptionsPage } from '../pages/pay-options/pay-options';
 import { ProductDetailsPage } from '../pages/product-details/product-details';
 import { PopupPage } from '../pages/popup/popup';
 import { EnterPage } from '../pages/enter/enter';
-
+import { SignaturePadModule } from 'angular2-signaturepad';
+import { HeaderPage } from '../pages/header/header';
+import { Popup2Page } from '../pages/popup2/popup2';
 
 @NgModule({
   declarations: [
@@ -44,16 +47,19 @@ import { EnterPage } from '../pages/enter/enter';
     CustomersPage,
     CartPage,
     PackageSelectedPage,
+    SignaturePage,
     PersonalFormPage,
     BusinessFormPage,
     FormOfUsePage,
     PayOptionsPage,
     ProductDetailsPage,
     PopupPage,
-    EnterPage
+    EnterPage,
+    HeaderPage,
+    Popup2Page
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,SignaturePadModule,
     IonicModule.forRoot(MyApp), 
      HttpClientModule    
   ],
@@ -71,13 +77,16 @@ import { EnterPage } from '../pages/enter/enter';
     CustomersPage,
     CartPage,
     PackageSelectedPage,
+    SignaturePage,
     PersonalFormPage,
     BusinessFormPage,
     FormOfUsePage,
     PayOptionsPage,
     ProductDetailsPage,
     PopupPage,
-    EnterPage
+    EnterPage,
+    HeaderPage,
+    Popup2Page
   ],
   providers: [
     StatusBar,

@@ -1,3 +1,4 @@
+import { CartPage } from './../cart/cart';
 import { Component, ViewChild } from '@angular/core';
 import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
@@ -7,10 +8,10 @@ import { PackagePage } from '../package/package';
 import { AllPackagesPage } from '../all-packages/all-packages';
 import { ProductsPage } from '../products/products';
 import { CustomersPage } from '../customers/customers';
-import { CartPage } from '../cart/cart';
 import { BusinessFormPage } from '../business-form/business-form';
 import { EnterPage } from '../enter/enter';
 import { Tabs, NavParams } from 'ionic-angular';
+import { Popup2Page } from '../popup2/popup2';
 
 
 

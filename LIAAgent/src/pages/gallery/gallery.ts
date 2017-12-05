@@ -2,6 +2,7 @@ import { LiaService } from './../../providers/lia.service';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides } from 'ionic-angular';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { HeaderPage } from '../header/header';
 
 
 
@@ -23,6 +24,7 @@ export class GalleryPage implements OnInit {
   ionViewWillEnter()
   {
     this.service.nowComponent = "גלריה";
+    
   }
   ngOnInit() {
 
