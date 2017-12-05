@@ -20,11 +20,11 @@ export class PersonalFormPage {
 
    frmPersonal = new FormGroup({
     first_name: new FormControl("", Validators.required),
-    id: new FormControl("", Validators.required),
+    id: new FormControl("", [Validators.maxLength(9), Validators.minLength(9)]),
     phoneNumber: new FormControl("", Validators.required),
-    address: new FormControl("", Validators.required),
-    email: new FormControl("", Validators.required),
-    callPhone: new FormControl()
+    address: new FormControl(),
+    email: new FormControl("", Validators.email),
+    callPhone: new FormControl("",[ Validators.required, Validators.maxLength(10),Validators.pattern("")])
 })
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
@@ -32,6 +32,7 @@ export class PersonalFormPage {
   }
 
   onGoToBusinessFormPage(){
+if(this.frmPersonal.valid)
     this.navCtrl.push(BusinessFormPage);
   }
 
