@@ -23,6 +23,7 @@ export class BusinessFormPage {
   baseColor: string = '#ccc';
   overlayColor: string = 'rgba(255,255,255,0.5)';
 
+
   dragging: boolean = false;
   loaded: boolean = false;
   imageLoaded: boolean = false;
@@ -33,7 +34,7 @@ export class BusinessFormPage {
   frmBusiness = new FormGroup({
     name: new FormControl("", Validators.required),
     PrivatelyHeldCompany: new FormControl("", Validators.required),
-    phone: new FormControl("", Validators.required),
+    phone: new FormControl("", [Validators.required, Validators.minLength(9), Validators.maxLength(10)]),
     address: new FormControl("", Validators.required),
     websiteAddress: new FormControl("", Validators.required),
     category: new FormControl("", Validators.required)
@@ -42,6 +43,7 @@ export class BusinessFormPage {
 frmMoredetails = new FormGroup({
     logo: new FormControl(),
     OpeningHours: new FormControl(),
+    min: new FormControl()
 })
 
 
@@ -57,7 +59,6 @@ frmMoredetails = new FormGroup({
   }
 
    onGoToPayOptionsPage(){
-   // this.navCtrl.push(PopupPage);
        this.navCtrl.push(PayOptionsPage);
    }
 

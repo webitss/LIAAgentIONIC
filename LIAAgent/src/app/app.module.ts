@@ -34,7 +34,8 @@ import { EnterPage } from '../pages/enter/enter';
 import { SignaturePadModule } from 'angular2-signaturepad';
 import { HeaderPage } from '../pages/header/header';
 import { Popup2Page } from '../pages/popup2/popup2';
-import { LoginPage } from '../pages/login/login';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 
 
 
@@ -65,9 +66,8 @@ import { LoginPage } from '../pages/login/login';
   ],
   imports: [
     BrowserModule,SignaturePadModule,
-    IonicModule.forRoot(MyApp), 
-     HttpClientModule    
-
+    IonicModule.forRoot(MyApp),
+     HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -99,10 +99,9 @@ import { LoginPage } from '../pages/login/login';
     SplashScreen,
     LiaProxy,
     LiaService,
-    //FileUploadOptions,
+    ScreenOrientation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FileTransfer,
-    //FileTransferObject,
     File,
   ]
 })
