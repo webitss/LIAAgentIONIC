@@ -1,17 +1,5 @@
-import { Component, Input, trigger, transition, animate } from '@angular/core';
+import { Component ,EventEmitter, Input, Output, trigger, transition, style, animate } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Output } from '@angular/core';
-import { EventEmitter } from '@angular/core';
-import { style } from '@angular/core';
-
-/**
- * Generated class for the PopupPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-
 @Component({
   selector: 'page-popup',
   templateUrl: 'popup.html',
@@ -32,18 +20,33 @@ export class PopupPage {
   @Input() visible: boolean;
   @Output() visibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-
- ngOnInit() { }
-
- close() {
-
-     this.visible = false;
-      this.visibleChange.emit(this.visible);
-  }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.visible=false;
   }
 
+  ionViewDidLoad() {
+   
+  }
+  close() {
+    
+           this.visible = false;
+            this.visibleChange.emit(this.visible);
+        }
+}
+
+
+
+
  
 
-}
+
+    
+
+   
+   
+        
+   
+
+   
+
+

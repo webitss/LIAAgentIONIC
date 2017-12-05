@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{service.nowComponent}}</ion-title>
+    <page-header></page-header>
   </ion-navbar>
 
 </ion-header>
@@ -17,7 +17,19 @@
   <div class="container-lia container">
     <div class="col-md-6 col-xs-6">
               <div class="t-center"><i class="icon-arrow-up-05 t-center green f-size-icon"></i></div>
-              <div class="border-bottam-table green" *ngFor="let p of this.service.customers">
+              <ion-list class="border-bottam-table green"  sliding="true">
+                <ion-item-sliding *ngFor="let p of this.service.customers">
+                    <ion-item>
+                        <span class="col-md-3 col-xs-3">{{p.name}}</span>
+                        <span class="col-md-4 col-xs-4">{{p.address}}</span>
+                        <span class="col-md-4 col-xs-4">{{p.num}}</span>
+                        <span class="col-md-1 col-xs-1"><i class="icon-arrow-left-03 green f-size-icon"></i></span>
+                    </ion-item>
+                </ion-item-sliding>
+               
+                
+              </ion-list>
+              <!-- <div class="border-bottam-table green" *ngFor="let p of this.service.customers">
                           <div (click)="customerClicked()">
                               <span class="col-md-3 col-xs-3">{{p.name}}</span>
                               <span class="col-md-4 col-xs-4">{{p.address}}</span>
@@ -26,6 +38,14 @@
                               <div *ngIf="this.allowDetails"> {{p.another}} </div>
                           </div>
 
+<<<<<<< HEAD
+=======
+                          
+              </div> -->
+              
+
+
+>>>>>>> d1b25315bce4dfbce3a32d96b4db62bc4e91e9e0
               </div>
 
                 <div class="t-center"><i class="icon-arrow-down-04 t-center green f-size-icon"></i></div>
@@ -35,7 +55,9 @@
           <div class="container-lia container">
                 <div class="col-md-8 col-md-offset-2">
                             <div>
-                            <input placeholder="חיפוש לקוח קיים"/>
+                                <ion-searchbar >
+                              </ion-searchbar>
+                            <!-- <input placeholder="חיפוש לקוח קיים"/> -->
                             </div>
                       <button ion-button class="btn btn-width bg-green" (click)="routeToCart()">{{this.valueButton}}</button>
                 </div>
@@ -44,5 +66,11 @@
 
 
 
-</div>
+
 </ion-content>
+
+
+<!-- [(ngModel)]="myInput"
+[showCancelButton]="shouldShowCancel"
+(ionInput)="onInput($event)"
+(ionCancel)="onCancel($event)" -->
