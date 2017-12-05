@@ -1,6 +1,6 @@
 import { TabsEnum } from './../../models/tabs-enum';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {  NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
 import { PersonalFormPage } from '../personal-form/personal-form';
 

@@ -10,6 +10,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -84,7 +87,11 @@ import { LoginPage } from '../pages/login/login';
     SplashScreen,
     LiaProxy,
     LiaService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    //FileUploadOptions,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FileTransfer,
+    //FileTransferObject,
+    File,
   ]
 })
 export class AppModule {}
