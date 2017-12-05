@@ -2,6 +2,7 @@ import { Input } from '@angular/core';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
+import { PackageSelectedPage } from '../package-selected/package-selected';
 
 /**
  * Generated class for the PackagePage page.
@@ -16,12 +17,14 @@ import { LiaService } from '../../providers/lia.service';
   templateUrl: 'package.html',
 })
 export class PackagePage {
-  @Input()package; 
+  @Input()package;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     service.nowComponent="חבילות";
   }
 
- 
+  select(){
+    this.navCtrl.push(PackageSelectedPage,{ packageId: this.package.PackageId });
+  }
 
 }

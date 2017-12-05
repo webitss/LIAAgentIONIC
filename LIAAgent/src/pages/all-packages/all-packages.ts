@@ -21,6 +21,7 @@ export class AllPackagesPage {
     this.service.isOuter=true;
     this.service.isInner=false;
     this.service.isPackageProductDetailed=false;
+    this.service.getPackages();
   }
 
   ionViewWillEnter()
