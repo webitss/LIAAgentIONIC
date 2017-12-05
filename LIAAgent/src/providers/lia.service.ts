@@ -117,21 +117,6 @@ export class LiaService {
     });
   }
 
-  async post(func: string): Promise<any> {
-    await this.proxy.post(func).then((res) => {
-      this.getData = res;
-      // for (let i = 0; i < this.getData.Result.length; i++) {
-      switch (func) {
-        case "GetAdditionalProducts":
-          this.products = this.getData.Result;
-          break;
-        case "GetPackages":
-          this.packages = this.getData.Result;
-          break;
-      }
-      // }
-    }).catch(() => console.log("error"));
-  }
 
 
   getProductById(id: number) {
@@ -157,21 +142,22 @@ export class LiaService {
       }
 
     }
+  }
 
 
     submitFrmBusiness() {
         this.anotherDetails = true;
 
-        
-    } 
-   
+
+    }
+
 
   submitFrmPersonal(frm) {
     console.log(frm);
   }
 
-  
-  
+
+
 }
 
 
