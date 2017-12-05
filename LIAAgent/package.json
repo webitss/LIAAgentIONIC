@@ -1,8 +1,8 @@
 {
-  "name": "LIAAgent",
+  "name": "LIA",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Webit",
+  "homepage": "http://webit-sys.com/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -21,11 +21,15 @@
     "@angular/platform-browser": "5.0.3",
     "@angular/platform-browser-dynamic": "5.0.3",
     "@ionic-native/core": "4.4.0",
+    "@ionic-native/file": "^4.4.2",
+    "@ionic-native/file-transfer": "^4.4.2",
     "@ionic-native/splash-screen": "4.4.0",
     "@ionic-native/status-bar": "4.4.0",
     "@ionic/storage": "2.1.3",
     "cordova-android": "6.3.0",
     "cordova-plugin-device": "1.1.4",
+    "cordova-plugin-file": "^5.0.0",
+    "cordova-plugin-file-transfer": "^1.7.0",
     "cordova-plugin-ionic-webview": "^1.1.11",
     "cordova-plugin-splashscreen": "^4.0.3",
     "cordova-plugin-whitelist": "^1.3.1",
@@ -41,14 +45,16 @@
     "@ionic/app-scripts": "nightly",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project",
+  "description": "LIA  אוטוטו מיליונר",
   "cordova": {
     "plugins": {
       "ionic-plugin-keyboard": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {}
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-file": {},
+      "cordova-plugin-file-transfer": {}
     },
     "platforms": [
       "android"

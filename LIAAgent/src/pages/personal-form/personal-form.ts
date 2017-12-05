@@ -34,7 +34,7 @@ export class PersonalFormPage {
   }
 
   onGoToBusinessFormPage(){
-//if(this.frmPersonal.valid)
+  if(this.frmPersonal.valid)
     this.navCtrl.push(BusinessFormPage);
   }
 
