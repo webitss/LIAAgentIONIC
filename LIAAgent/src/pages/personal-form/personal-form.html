@@ -21,11 +21,11 @@
 
           <form [formGroup]="frmPersonal" (ngSubmit)="service.submitFrmPersonal(frmPersonal.value); onGoToBusinessFormPage()" >
               <ion-item>
-                <ion-input type="text" placeholder="שם לקוח"  formControlName="first_name" pattern="[a-zA-Z ]*" ></ion-input>
+                <ion-input type="text" placeholder="שם לקוח"  formControlName="first_name" [pattern]="this.pattern" ></ion-input>
               </ion-item>
 
               <ion-item>
-                  <ion-input type="text" placeholder='ת"ז'  formControlName="id" pattern="[0-9]*"></ion-input>
+                  <ion-input type="text" placeholder='ת"ז'  formControlName="id" ></ion-input>
                 </ion-item>
 
                 <ion-item>

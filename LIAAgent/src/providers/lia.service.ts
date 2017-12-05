@@ -149,7 +149,6 @@ export class LiaService {
 
     submitFrmBusiness() {
         this.anotherDetails = true;
-        this.routeOrStay = "../pay";
     }
 
     //    goTo(pr:number)

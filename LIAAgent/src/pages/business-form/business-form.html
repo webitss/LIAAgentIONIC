@@ -21,7 +21,36 @@
 
 
          <div *ngIf="!service.anotherDetails" >
-        <form [formGroup]="frmBusiness" (ngSubmit)="service.submitFrmBusiness(frmBusiness.value)">
+
+            <form [formGroup]="frmBusiness" (ngSubmit)="service.submitFrmBusiness(frmBusiness.value)">
+                <ion-item>
+                    <ion-input type="text" placeholder="שם העסק"  formControlName="name"  ></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-input type="text" placeholder='ח"פ'  formControlName="PrivatelyHeldCompany" pattern="[0-9]*" ></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-input type="text" placeholder="טלפון בית העסק"  formControlName="phone" pattern="[0-9]*" ></ion-input>
+                      </ion-item>
+
+                      <ion-item>
+                          <ion-input type="text" placeholder="כתובת בית העסק"  formControlName="address"  ></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-input type="text" placeholder="כתובת אתר העסק"  formControlName="websiteAddress" ></ion-input>
+                          </ion-item>
+
+                          <ion-item>
+                              <ion-input type="text" placeholder="קטגורית עסק"  formControlName="category"  ></ion-input>
+                            </ion-item>
+
+                            <button ion-button type="submit" [disabled]="!frmBusiness.valid" block>המשך</button>
+            </form>
+
+        <!-- <form [formGroup]="frmBusiness" (ngSubmit)="service.submitFrmBusiness(frmBusiness.value)">
 
         <div class="col-md-3 col-xs-3"><input class="input-difult blue" placeholder="שם העסק" formControlName="name"/></div>
         <div class="col-md-3 col-xs-3"><input class="input-difult blue" placeholder='ח"פ' formControlName="PrivatelyHeldCompany"/></div>
@@ -35,7 +64,7 @@
         <div class="col-md-3 col-xs-3"><input class="input-difult blue" placeholder="כתובת אתר העסק" formControlName="websiteAddress"/></div>
         <div class="col-md-3 col-xs-3"><input class="input-difult blue" placeholder="קטגורית עסק" formControlName="category"/></div>
 
-        </form>
+        </form> -->
         </div>
 
           <div *ngIf="service.anotherDetails">
