@@ -33,11 +33,6 @@ export class LiaService {
     packagesOfCart: any[];
     isPayed: boolean;
     isTerminateOrdered: boolean;
-<<<<<<< HEAD
-=======
-
-
->>>>>>> b8e3317c0d31bb0c5ee91f8d0bcb5382ef722bb5
     anotherDetails: boolean;
     routeOrStay: string;
 
