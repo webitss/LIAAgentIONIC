@@ -31,7 +31,6 @@ export class LiaService {
     packagesOfCart: any[];
     isPayed: boolean;
     isTerminateOrdered: boolean;
-
     anotherDetails: boolean;
     routeOrStay: string;
 
@@ -110,57 +109,54 @@ export class LiaService {
         for (let i = 0; i < this.packages.length; i++)
             if (this.packages[i].ProductId == id)
                 return this.packages[i];
+   }
+  async getPackages() {
+    await this.proxy.getPackages().then(res => {
+      this.getData = res;
+      this.packages = this.getData.Result;
+    });
+  }
+
+
+
+  getProductById(id: number) {
+    for (let i = 0; i < this.products.length; i++) {
+
+      if (this.products[i].ProductId == id) {
+        this.thisProductDetails = this.products[i];
+        i = this.products.length;
+      }
+    }
+  }
+
+  clickAddToCart(pr) {
+    this.cart++;
+    this.productsOfCart.push(pr);
+  }
+
+  clickDeleteFromCart(pr) {
+    let j;
+    for (let i = 0; i < this.productsOfCart.length; i++) {
+      if (this.productsOfCart[i] == pr) {
+        j = i;
+      }
 
     }
+  }
 
-    getProductById(id: number) {
-        for (let i = 0; i < this.products.length; i++) {
-
-            if (this.products[i].ProductId == id) {
-                this.thisProductDetails = this.products[i];
-                i = this.products.length;
-            }
-        }
-    }
-
-    clickAddToCart(pr) {
-        this.cart++;
-        this.productsOfCart.push(pr);
-    }
-
-    clickDeleteFromCart(pr) {
-        let j;
-        for (let i = 0; i < this.productsOfCart.length; i++) {
-            if (this.productsOfCart[i] == pr) {
-                j = i;
-            }
-
-        }
-        console.log(j);
-        this.productsOfCart.splice(j, 1);
-        if (this.cart > 0)
-            this.cart--;
-        console.log(this.productsOfCart);
-    }
-
-    submitFrmPersonal(frm) {
-       console.log(frm);
-    }
 
     submitFrmBusiness() {
         this.anotherDetails = true;
 
+
     }
 
-    //    goTo(pr:number)
-    //    {
-    //        for(let i=0; i< this.products.length; i++){
-    //            if(this.products[i].ProductId === pr)
-    //            this.thisProductDetails = this.products[i];
-    //        }
 
-    //        this.router.navigate(['menu/productDetails']);
-    //    }
+  submitFrmPersonal(frm) {
+    console.log(frm);
+  }
+
+
 
 }
 

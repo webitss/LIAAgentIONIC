@@ -14,15 +14,34 @@
 
 
 <ion-content padding>
-  <div class="container-lia container"> 
+
+    <!-- <ion-grid>
+        <ion-row *ngFor="let row of grid">
+          <ion-col width-50 *ngFor="let file_uri of row">
+            <img [src]="file_uri">
+          </ion-col>
+        </ion-row>
+      </ion-grid> -->
+  <ion-grid *ngIf="service.packages" >
+    <ion-row  > <!--justify-content-center align-items-center-->
+
+        <ion-col width-30 *ngFor="let p of service.packages">
+
+          <page-package [package]="p"></page-package>
+
+        </ion-col>
+
+    </ion-row>
+  </ion-grid>
+    <!-- <div class="container-lia container">
     <div class="">
-    <table style="width:100%;">
-    <tr *ngIf="service.packages">
-    <td  *ngFor="let p of service.packages">
-    <page-package  [package]="p"  ></page-package>
-    </td>
-    </tr>
-    </table>
+      <table style="width:100%;">
+        <tr *ngIf="service.packages">
+          <td *ngFor="let p of service.packages">
+              <page-package [package]="p"></page-package>
+          </td>
+        </tr>
+      </table>
     </div>
-  </div>
+  </div> -->
 </ion-content>

@@ -17,9 +17,14 @@ import { LiaService } from '../../providers/lia.service';
 export class PackageSelectedPage {
   nowPackage:any;
   product:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
+  packageId:any;
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public service:LiaService) {
     service.isOuter=false;
     service.isInner=true;
+    this.packageId= navParams.data.packageId;
+    console.log(this.packageId);
   }
 
   details(product?)

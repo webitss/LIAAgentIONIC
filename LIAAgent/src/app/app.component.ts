@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,6 +18,7 @@ export class MyApp {
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     private alertCtrl: AlertController,
+    private screenOrientation: ScreenOrientation,
     public app:App
   ) {
     platform.ready().then(() => {
@@ -25,6 +27,12 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       platform.setDir('rtl', true);
+
+      if(platform.is('mobileweb')) {
+        console.log(platform);
+        //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+      }
+
       platform.registerBackButtonAction(() => {
         let nav = this.app.getActiveNav();
         if (nav.canGoBack()) {
