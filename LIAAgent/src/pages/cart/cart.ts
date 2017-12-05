@@ -1,3 +1,4 @@
+import { TabsEnum } from './../../models/tabs-enum';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
@@ -17,13 +18,27 @@ import { PersonalFormPage } from '../personal-form/personal-form';
   templateUrl: 'cart.html',
 })
 export class CartPage {
+  TabsEnum: typeof TabsEnum = TabsEnum;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     service.nowComponent="סל";
   }
 
+
+  routeToProducts()
+  {
+    this.navCtrl.parent.select(TabsEnum.products);
+  }
   onGoToPersonalFormPage(){
     this.navCtrl.push(PersonalFormPage);
   }
 
+  routeToPackages(){
+    this.navCtrl.parent.select(TabsEnum.packages);
+  }
+
+  ionViewWillEnter()
+  {
+    this.service.nowComponent = "סל";
+  }
 }

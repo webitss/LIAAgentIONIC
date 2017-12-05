@@ -25,6 +25,9 @@
 @include makeIcon(icon-product, '\e904');
 @include makeIcon(icon-customer, '\e90a');
 @include makeIcon(icon-cart, '\e906');
+@include makeIcon(icon-circle-left, '\ea44');
+@include makeIcon(icon-circle-right, '\ea42');
+
 [class^="icon-"] {
 	font-family: 'icomoon' !important;
 	speak: none;
@@ -119,6 +122,13 @@
 		content: "\e90a";
 	}
 }
+.icon-circle-left:before {
+	content: "\ea44";
+  }
+  .icon-circle-right:before {
+	content: "\ea42";
+  }
+
 .icon-menu-09 {
 	&:before {
 		content: "\e909";

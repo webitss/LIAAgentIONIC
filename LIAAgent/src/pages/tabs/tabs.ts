@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
 import { NavController } from 'ionic-angular/navigation/nav-controller';
@@ -10,6 +10,8 @@ import { CustomersPage } from '../customers/customers';
 import { CartPage } from '../cart/cart';
 import { BusinessFormPage } from '../business-form/business-form';
 import { EnterPage } from '../enter/enter';
+import { Tabs, NavParams } from 'ionic-angular';
+import { LoginPage } from '../login/login';
 
 
 
@@ -18,14 +20,15 @@ import { EnterPage } from '../enter/enter';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
+  @ViewChild("menutTabs") menuTabs: Tabs;
   tab1Root = GalleryPage;
   tab2Root = AllPackagesPage;
   tab3Root = ProductsPage;
   tab4Root = CustomersPage;
   tab5Root = CartPage;
-  constructor(private nav : NavController) {
-   
+  tab6Root = LoginPage;
+  constructor(private nav : NavController,public navP: NavParams) {
+
      //this.nav.push(GalleryPage);
   }
 }

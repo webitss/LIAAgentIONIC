@@ -21,5 +21,8 @@ export class ProductsPage {
   }
 
  
-
+  ionViewWillEnter()
+  {
+    this.service.nowComponent = "מוצרים";
+  }
 }

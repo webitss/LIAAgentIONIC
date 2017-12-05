@@ -1,4 +1,3 @@
-
 <ion-header>
 
   <ion-navbar>
@@ -8,40 +7,33 @@
 </ion-header>
 
 
+{{service.galeryPictures}}
+<ion-content padding>
    
-    <ion-content padding *ngIf="galleryPictures"> 
-          
-        <ion-slides pager="false" style="direction: ltr" class="image-slider" loop="false" slidesPerView="1">
-          <ion-slide *ngFor="let img of galleryPictures">
-            <img src="{{img}}" class="thumb-img" imageViewer/>
-          </ion-slide>
-        </ion-slides>
-
-        <div>
-            <button id="notification-button" ion-button clear>
-                <ion-icon name="notifications">
-                  <ion-badge id="notifications-badge" color="danger">5</ion-badge>
-                </ion-icon>              
-            </button>
-        </div>
+  <ion-slides #slider style="direction: ltr" class="image-slider" loop="false" slidesPerView="1" zoom="true" speed="200" pager="true">
+    
+    <ion-slide *ngFor="let img of service.galeryPictures" >
         
-    </ion-content>
-    <!-- <div class="container-lia container">
-      <div class="col-md-2 arrow-img-galery">
+            <!-- <button ion-button  (click)="slidePrev()" [hidden]="prevDisabled" large round color="light">
+                <ion-icon name="arrow-dropleft"></ion-icon>
+              </button> -->
+           
+      <img src="{{img}}" class="thumb-img" imageViewer/>
       
-      <i class="icon-arrow-right-02" (click)='changePicture(true)'></i>
-      </div>
+          <!-- <button ion-button (click)="slideNext()" [hidden]="nextDisabled" large round color="light">
+              <ion-icon name="arrow-dropright"></ion-icon>
+          </button> -->
+         
+    </ion-slide>
+    
+  </ion-slides>
   
-      <div class="myDiv col-md-8">
-       <div><img class="slide-img-galery" [src]=service.galeryPictures[i]></div>
-       </div>
-  
-      <div class="col-md-2 arrow-img-galery">
-      <i class="icon-arrow-left-03" (click)="changePicture(false)"></i>
-      </div>
-      
-  
+  <!-- <div>
+    <button id="notification-button" ion-button clear>
+      <ion-icon name="notifications">
+        <ion-badge id="notifications-badge" color="danger">5</ion-badge>
+      </ion-icon>
+    </button>
   </div> -->
-
-
-
+ 
+</ion-content>

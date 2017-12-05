@@ -23,6 +23,9 @@ export class AllPackagesPage {
     this.service.isPackageProductDetailed=false;
   }
 
-  
+  ionViewWillEnter()
+  {
+    this.service.nowComponent = "חבילות";
+  }
 
 }
