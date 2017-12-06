@@ -21,10 +21,11 @@ export class GalleryPage implements OnInit {
     public navParams: NavParams, public service: LiaService) {
     //service.nowComponent = "גלריה";
 
-    service.load();
+    //service.load();
   }
   ionViewWillEnter()
   {
+    this.service.load();
     this.service.nowComponent = "גלריה";
 
   }

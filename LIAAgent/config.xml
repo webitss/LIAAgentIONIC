@@ -8,7 +8,6 @@
     <access launch-external="yes" origin="tel:*" />
     <allow-navigation href="*" />
     <allow-navigation href="http://*/*" />
-
     <allow-navigation href="data:*" />
     <allow-intent href="*" />
     <allow-intent href="http://*/*" />
@@ -25,11 +24,11 @@
     <allow-intent href="geo:*" />
     <preference name="loadUrlTimeoutValue" value="700000" />
     <preference name="ScrollEnabled" value="false" />
- 	<preference name="webviewbounce" value="false" />
+    <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
-  <preference name="FadeSplashScreenDuration" value="3000" />
-<preference name="loadUrlTimeoutValue" value="90000" />
+    <preference name="FadeSplashScreenDuration" value="3000" />
+    <preference name="loadUrlTimeoutValue" value="90000" />
     <hook src="hooks/copy-fonts.js" type="after_prepare" />
     <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />
@@ -39,8 +38,7 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <platform name="android">
-		<preference name="ShowSplashScreenSpinner" value="true" />
-        
+        <preference name="ShowSplashScreenSpinner" value="true" />
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
