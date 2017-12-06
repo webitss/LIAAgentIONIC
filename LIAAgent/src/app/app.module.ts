@@ -1,4 +1,4 @@
-import { LoginPage } from './../pages/login/login';
+import { HeaderPage } from './../pages/header/header';
 import { SignaturePage } from './../pages/signature/signature';
 import { BusinessFormPage } from './../pages/business-form/business-form';
 import { PersonalFormPage } from './../pages/personal-form/personal-form';
@@ -33,7 +33,6 @@ import { ProductDetailsPage } from '../pages/product-details/product-details';
 import { PopupPage } from '../pages/popup/popup';
 import { EnterPage } from '../pages/enter/enter';
 import { SignaturePadModule } from 'angular2-signaturepad';
-import { HeaderPage } from '../pages/header/header';
 import { Popup2Page } from '../pages/popup2/popup2';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LoginPage } from '../pages/login/login';
@@ -54,7 +53,6 @@ import { LoginPage } from '../pages/login/login';
     CustomersPage,
     CartPage,
     PackageSelectedPage,
-    SignaturePage,
     PersonalFormPage,
     BusinessFormPage,
     FormOfUsePage,
@@ -62,9 +60,10 @@ import { LoginPage } from '../pages/login/login';
     ProductDetailsPage,
     PopupPage,
     EnterPage,
-    HeaderPage,
     Popup2Page,
-    LoginPage
+    LoginPage,
+    HeaderPage,
+    SignaturePage
   ],
   imports: [
     BrowserModule,SignaturePadModule,
@@ -84,7 +83,6 @@ import { LoginPage } from '../pages/login/login';
     CustomersPage,
     CartPage,
     PackageSelectedPage,
-    SignaturePage,
     PersonalFormPage,
     BusinessFormPage,
     FormOfUsePage,
@@ -92,9 +90,10 @@ import { LoginPage } from '../pages/login/login';
     ProductDetailsPage,
     PopupPage,
     EnterPage,
-    HeaderPage,
     Popup2Page,
-    LoginPage
+    LoginPage,
+    HeaderPage,
+    SignaturePage
      ],
   providers: [
     StatusBar,
@@ -104,7 +103,7 @@ import { LoginPage } from '../pages/login/login';
     ScreenOrientation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FileTransfer,
-    File,
+    File
   ]
 })
 export class AppModule {}
