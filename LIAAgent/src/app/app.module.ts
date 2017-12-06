@@ -35,6 +35,7 @@ import { SignaturePadModule } from 'angular2-signaturepad';
 import { HeaderPage } from '../pages/header/header';
 import { Popup2Page } from '../pages/popup2/popup2';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { LoginPage } from '../pages/login/login';
 
 
 
