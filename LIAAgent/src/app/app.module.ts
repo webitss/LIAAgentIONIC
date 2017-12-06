@@ -1,4 +1,4 @@
-import { LoginPage } from './../pages/login/login';
+//import { LoginPage } from './../pages/login/login';
 import { SignaturePage } from './../pages/signature/signature';
 import { BusinessFormPage } from './../pages/business-form/business-form';
 import { PersonalFormPage } from './../pages/personal-form/personal-form';
@@ -37,6 +37,8 @@ import { HeaderPage } from '../pages/header/header';
 import { Popup2Page } from '../pages/popup2/popup2';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LoginPage } from '../pages/login/login';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -69,7 +71,7 @@ import { LoginPage } from '../pages/login/login';
   imports: [
     BrowserModule,SignaturePadModule,
     IonicModule.forRoot(MyApp),
-     HttpClientModule
+     HttpClientModule, FormsModule,ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

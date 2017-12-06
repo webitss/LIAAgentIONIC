@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 
 
@@ -13,6 +14,10 @@ export class LoginPage {
   // isClassMini: boolean;
   imageURI:any;
   imageFileName:any;
+  frmLogin = new FormGroup({
+    userName: new FormControl("",Validators.required),
+    password: new FormControl("",Validators.required)
+})
 
   constructor(public navCtrl: NavController,
     private transfer: FileTransfer,
