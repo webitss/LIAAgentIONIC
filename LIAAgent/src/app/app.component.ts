@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { Events } from 'ionic-angular/util/events';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,8 +20,12 @@ export class MyApp {
     splashScreen: SplashScreen,
     private alertCtrl: AlertController,
     private screenOrientation: ScreenOrientation,
-    public app:App
+    public app:App,
+    public events:Events
   ) {
+    events.subscribe('user:login', () => {
+      this.showAlert();
+    });
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -32,7 +37,7 @@ export class MyApp {
         console.log(platform);
         //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
       }
-
+      
       platform.registerBackButtonAction(() => {
         let nav = this.app.getActiveNav();
         if (nav.canGoBack()) {
@@ -48,7 +53,7 @@ export class MyApp {
       });
     });
   }
-
+  
   showAlert() {
     this.alert = this.alertCtrl.create({
       title: 'לצאת?',
@@ -71,4 +76,7 @@ export class MyApp {
     });
     this.alert.present();
   }
+
+
+  
 }

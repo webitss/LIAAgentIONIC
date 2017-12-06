@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
+import { Events } from 'ionic-angular/util/events';
 
 @Component({
   selector: 'page-header',
@@ -10,7 +11,7 @@ import { AlertController } from 'ionic-angular/components/alert/alert-controller
 })
 export class HeaderPage {
 
-    constructor(public navCtrl: NavController,public service:LiaService,public atrCtrl:AlertController) {
+    constructor(public navCtrl: NavController,public service:LiaService,public atrCtrl:AlertController,public events:Events) {
       this.userWantOut=false;
     }
     userWantOut:boolean;
@@ -18,7 +19,7 @@ export class HeaderPage {
         //some auth strategy and then
         this.navCtrl.popToRoot();
     }
-
+    // npm 
     wantOut()
     {
       this.userWantOut=true;
@@ -28,26 +29,27 @@ export class HeaderPage {
     }
 
     showConfirmAlert() {
-      let alertConfirm = this.atrCtrl.create({
-        title: 'התנתקות',
-        message: 'האם אתה בטוח רוצה לצאת מהאפליקציה?',
-        buttons: [
-          {
-            text: 'לא',
-            role: 'cancel',
-            handler: () => {
-              console.log('No clicked');
-            }
-          },
-          {
-            text: 'כן',
-            handler: () => {
-              console.log('Yes clicked');
-            }
-          }
-        ]
-      });
-      alertConfirm.present();
+      this.events.publish('user:login');
+      // let alertConfirm = this.atrCtrl.create({
+      //   title: 'התנתקות',
+      //   message: 'האם אתה בטוח רוצה לצאת מהאפליקציה?',
+      //   buttons: [
+      //     {
+      //       text: 'לא',
+      //       role: 'cancel',
+      //       handler: () => {
+      //         console.log('No clicked');
+      //       }
+      //     },
+      //     {
+      //       text: 'כן',
+      //       handler: () => {
+              
+      //       }
+      //     }
+      //   ]
+      // });
+      // alertConfirm.present();
     }
         
 }
