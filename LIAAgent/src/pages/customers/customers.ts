@@ -21,12 +21,9 @@ export class CustomersPage {
   items1 = [];
   items1Filter=[];
   TabsEnum: typeof TabsEnum = TabsEnum;
-<<<<<<< HEAD
-  
-=======
+
   customersFilter: any[];
 
->>>>>>> da0ece09e472cdc0708bf90117081a12004016e4
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
@@ -34,7 +31,7 @@ export class CustomersPage {
     service.nowComponent="לקוחות";
     this.allowDetails=false;
     this.items1 = [1,2,3,4,5,6,7,8,9,10,10];
-    this.items1Filter=this.service.customers;
+    this.customersFilter=this.service.customers;
   }
 
   customerClicked(){
@@ -56,12 +53,10 @@ export class CustomersPage {
     }
     onSearchInput(event)
     {
-      let a:string="aaa";
-      console.log(event.target.value);
-      console.log(a.includes(event.target.value));
-      this.items1Filter=this.service.customers.filter(i=>i.name.includes(event.target.value));
+     
+      this.customersFilter=this.service.customers.filter(i=>i.name.includes(event.target.value));
   
-    console.log(this.items1Filter);
+   
     }
-//this.visitData.actionType = ActionType.EndCashier;
+
 }

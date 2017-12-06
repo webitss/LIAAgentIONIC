@@ -14,111 +14,30 @@
 <ion-row>
 <ion-col>
 
-<<<<<<< HEAD
     <ion-list>
-        <ion-item *ngFor="let c of items1Filter">
-=======
-    <ion-scroll scrollY="true" style="height: 200px">
-        <ion-item *ngFor="let c of this.service.customers">
->>>>>>> da0ece09e472cdc0708bf90117081a12004016e4
+        <ion-item *ngFor="let c of customersFilter">
         {{c.num}}{{c.name}}{{c.address}}
-<div>
-<details (click)="customerClicked()">
-פרטים של הלקוח
-<ion-scroll scrollY="true" style="height: 50px">
-    fffffffffffff
-    <br>
-    kkkkkkkkkkkk
-    <br>
-    ggggggggg
-      </ion-scroll>
-</details>
-</div>
         </ion-item>
-      </ion-scroll>
+        </ion-list>
+
+    <ion-scroll scrollY="true" style="height: 200px">
+        <ion-item *ngFor="let c of customersFilter">
+            {{c.num}}{{c.name}}{{c.address}}
+            </ion-item>
+          </ion-scroll>
 
 </ion-col>
 
 <ion-col>
 
     <form>
-<<<<<<< HEAD
-        <!-- <ion-toolbar color='primary'>
-            <ion-buttons start>
-              <button ion-button icon-only (click)='onCancel()'>
-                <ion-icon name="close"></ion-icon>
-              </button>
-            </ion-buttons>
-            <ion-searchbar (input)="onSearchInput()"></ion-searchbar>
-            <ion-buttons end>
-              <button ion-button icon-only (click)='onDismiss()'>
-                <ion-icon name="add"></ion-icon>
-              </button>
-            </ion-buttons>
-          </ion-toolbar> -->
-        <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים"  (input)="onSearchInput($event)"></ion-searchbar>
+        <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים"  (input)="search($event)" ></ion-searchbar>
         <button ion-button type="button" (click)="routeToCart()" block>לקוח חדש</button>
-=======
-        <ion-input type="search" placeholder=" חיפוש לקוח קיים" (input)="this.search($event)" ></ion-input>
-        <button ion-button type="button" (click)="routeToCart()" block>{{this.valueButton}}</button>
->>>>>>> da0ece09e472cdc0708bf90117081a12004016e4
     </form>
 
 </ion-col>
 </ion-row>
 </ion-grid>
-
-<<<<<<< HEAD
-
-  <!-- <ion-scroll style="height: 300px">
-    <ion-list>
-       <ion-item *ngFor="let item of items1" >{{item}}</ion-item>
-    </ion-list>
-  </ion-scroll>
-
-
-<ion-list [virtualScroll]="this.items1" >
-
-    <ion-item-divider *virtualHeader="let header">
-        Header: {{ header }}
-      </ion-item-divider>
-
-    <ion-item *virtualItem="let item" >
-      {{ item }}
-    </ion-item>
-
-  </ion-list>
-
-
-
-<ion-slides >
-<ion-slide *ngFor="let item of items1">
-{{item}}
-</ion-slide>
-</ion-slides>
-
-<ion-scroll scrollX="true">
-    <ion-item *ngFor="let c of this.service.customers">
-        {{c.num}}{{c.name}}{{c.address}}
-        </ion-item>
-  </ion-scroll>
-<br>
-  <ion-scroll scrollY="true" style="height: 50px">
-fffffffffffff
-<br>
-kkkkkkkkkkkk
-<br>
-ggggggggg
-  </ion-scroll> --> 
-<!-- <br>
-  <ion-scroll scrollX="true" scrollY="true">
-kkkkkkkkkkkkkkkkkk
-  </ion-scroll> -->
-
-
-
-=======
->>>>>>> da0ece09e472cdc0708bf90117081a12004016e4
 </ion-content>
 
-
+  

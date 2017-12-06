@@ -19,13 +19,17 @@
       <div class="container-lia container">
       <div class="t-center"><i class="icon-arrow-up-05 t-center blue f-size-icon"></i></div>
 
-      <div class="border-bottam-table blue" *ngFor="let pr of service.productsOfCart">
+      <!-- <div class="border-bottam-table blue" *ngFor="let pr of service.productsOfCart">
       <span class="col-md-3 col-xs-3">  {{pr.Duration}}  </span>
       <span class="col-md-4 col-xs-4">  {{pr.DurationText}} </span>
       <span class="col-md-4 col-xs-4">  {{pr.Price}}</span>
       <span class="col-md-1 col-xs-1"><i (click)=" service.clickDeleteFromCart(pr.ProductId)">x</i></span>
-      </div>
-
+      </div> -->
+      <ion-scroll scrollY="true" style="height: 200px">
+          <ion-item *ngFor="let c of service.customers">
+              {{c.num}}{{c.name}}{{c.address}}
+              </ion-item>
+            </ion-scroll>
       <div class="t-center"><i class="icon-arrow-down-04 t-center blue f-size-icon"></i></div>
       </div>
       </div>
