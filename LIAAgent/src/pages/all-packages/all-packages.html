@@ -1,21 +1,15 @@
-
 <ion-header>
      <page-header></page-header>
-  </ion-header>
+</ion-header>
 
 
 <ion-content padding>
   <br><br>
     <ion-grid *ngIf="service.packages" >
     <ion-row> 
-
         <ion-col width-30 *ngFor="let p of service.packages">
-
           <page-package [package]="p"></page-package>
-
         </ion-col>
-
     </ion-row>
   </ion-grid>
-   
 </ion-content>
