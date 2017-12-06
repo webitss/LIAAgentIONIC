@@ -1,18 +1,19 @@
+import { TabsPage } from './../pages/tabs/tabs';
+import { LoginPage } from './../pages/login/login';
 import { Component } from '@angular/core';
 import { Platform, AlertController, App, Alert } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { TabsPage } from '../pages/tabs/tabs';
-import { LoginPage } from '../pages/login/login';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Events } from 'ionic-angular/util/events';
+import { EnterPage } from '../pages/enter/enter';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage:any = LoginPage;
+
  // @ViewChild(Nav) nav: Nav;
   alert: Alert;
   constructor(public platform: Platform,

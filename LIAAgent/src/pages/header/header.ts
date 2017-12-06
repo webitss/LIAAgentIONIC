@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { Events } from 'ionic-angular/util/events';
+import { EnterPage } from '../enter/enter';
 
 @Component({
   selector: 'page-header',
@@ -25,7 +26,7 @@ export class HeaderPage {
       this.userWantOut=true;
     }
     routeToHome(){
-     this.navCtrl.push(HomePage);
+     this.navCtrl.push(EnterPage);
     }
 
     showConfirmAlert() {

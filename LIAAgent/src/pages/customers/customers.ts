@@ -19,8 +19,9 @@ export class CustomersPage {
   valueButton:string;
   allowDetails:boolean;
   items1 = [];
+  items1Filter=[];
   TabsEnum: typeof TabsEnum = TabsEnum;
-  items1 = [];
+  
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
@@ -28,6 +29,7 @@ export class CustomersPage {
     service.nowComponent="לקוחות";
     this.allowDetails=false;
     this.items1 = [1,2,3,4,5,6,7,8,9,10,10];
+    this.items1Filter=this.service.customers;
   }
 
   customerClicked(){
@@ -42,6 +44,15 @@ export class CustomersPage {
     ionViewWillEnter()
     {
       this.service.nowComponent = "לקוחות";
+    }
+    onSearchInput(event)
+    {
+      let a:string="aaa";
+      console.log(event.target.value);
+      console.log(a.includes(event.target.value));
+      this.items1Filter=this.service.customers.filter(i=>i.name.includes(event.target.value));
+  
+    console.log(this.items1Filter);
     }
 //this.visitData.actionType = ActionType.EndCashier;
 }

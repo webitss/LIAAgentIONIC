@@ -15,7 +15,7 @@
 <ion-col>
 
     <ion-list>
-        <ion-item *ngFor="let c of this.service.customers">
+        <ion-item *ngFor="let c of items1Filter">
         {{c.num}}{{c.name}}{{c.address}}
         </ion-item>
         </ion-list>
@@ -33,7 +33,20 @@
 <ion-col>
 
     <form>
-        <ion-input type="search" placeholder=" חיפוש לקוח קיים"  ></ion-input>
+        <!-- <ion-toolbar color='primary'>
+            <ion-buttons start>
+              <button ion-button icon-only (click)='onCancel()'>
+                <ion-icon name="close"></ion-icon>
+              </button>
+            </ion-buttons>
+            <ion-searchbar (input)="onSearchInput()"></ion-searchbar>
+            <ion-buttons end>
+              <button ion-button icon-only (click)='onDismiss()'>
+                <ion-icon name="add"></ion-icon>
+              </button>
+            </ion-buttons>
+          </ion-toolbar> -->
+        <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים"  (input)="onSearchInput($event)"></ion-searchbar>
         <button ion-button type="button" (click)="routeToCart()" block>לקוח חדש</button>
     </form>
 
@@ -42,7 +55,7 @@
 </ion-grid>
 
 
-  <ion-scroll style="height: 300px">
+  <!-- <ion-scroll style="height: 300px">
     <ion-list>
        <ion-item *ngFor="let item of items1" >{{item}}</ion-item>
     </ion-list>
@@ -81,7 +94,7 @@ fffffffffffff
 kkkkkkkkkkkk
 <br>
 ggggggggg
-  </ion-scroll> -->
+  </ion-scroll> --> 
 <!-- <br>
   <ion-scroll scrollX="true" scrollY="true">
 kkkkkkkkkkkkkkkkkk
