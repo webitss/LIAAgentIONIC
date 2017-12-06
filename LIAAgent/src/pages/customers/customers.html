@@ -9,6 +9,79 @@
 
 
 <ion-content padding>
+<ion-grid>
+<ion-row>
+<ion-col>
+
+    <ion-list>
+        <ion-item *ngFor="let c of this.service.customers">
+        {{c.num}}{{c.name}}{{c.address}}
+        </ion-item>
+        </ion-list>
+
+    <ion-scroll scrollY="true" style="height: 50px">
+        fffffffffffff
+        <br>
+        kkkkkkkkkkkk
+        <br>
+        ggggggggg
+          </ion-scroll>
+
+</ion-col>
+
+<ion-col>
+
+    <form>
+        <ion-input type="search" placeholder=" חיפוש לקוח קיים"  ></ion-input>
+        <button ion-button type="button" (click)="routeToCart()" block>לקוח חדש</button>
+    </form>
+
+</ion-col>
+</ion-row>
+</ion-grid>
+
+<!-- <ion-scroll style="height: 300px">
+    <ion-list>
+       <ion-item *ngFor="let item of items1" >{{item}}</ion-item>
+    </ion-list>
+  </ion-scroll>
+
+<ion-list [virtualScroll]="this.items1" >
+
+    <ion-item-divider *virtualHeader="let header">
+        Header: {{ header }}
+      </ion-item-divider>
+
+    <ion-item *virtualItem="let item" >
+      {{ item }}
+    </ion-item>
+
+  </ion-list>
+
+
+<ion-slides >
+<ion-slide *ngFor="let item of items1">
+{{item}}
+</ion-slide>
+</ion-slides>
+
+<ion-scroll scrollX="true">
+    <ion-item *ngFor="let c of this.service.customers">
+        {{c.num}}{{c.name}}{{c.address}}
+        </ion-item>
+  </ion-scroll>
+<br>
+  <ion-scroll scrollY="true" style="height: 50px">
+fffffffffffff
+<br>
+kkkkkkkkkkkk
+<br>
+ggggggggg
+  </ion-scroll> -->
+<!-- <br>
+  <ion-scroll scrollX="true" scrollY="true">
+kkkkkkkkkkkkkkkkkk
+  </ion-scroll> -->
 
 
 </ion-content>
