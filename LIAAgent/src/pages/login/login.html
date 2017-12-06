@@ -16,21 +16,21 @@
     <ion-grid >
       <ion-row>
         <ion-col>
-          <form (submit)="doLogin()" id="container">
+          <form  [formGroup]="frmLogin" (submit)="doLogin()" id="container" >
             <ion-list>
 
               <ion-item id="rounded">
                 <ion-label floating>שם</ion-label>
-                <ion-input type="name" name="name"></ion-input>
+                <ion-input type="name" name="name"  formControlName="userName"></ion-input>
               </ion-item>
 
               <ion-item id="rounded">
                 <ion-label floating>סיסמא</ion-label>
-                <ion-input type="password" name="password"></ion-input>
+                <ion-input type="password" name="password" formControlName="password"></ion-input>
               </ion-item>
 
               <div padding>
-                <button ion-button color="primary" block>כניסה</button>
+                <button ion-button color="primary" block [disabled] = "!frmLogin.valid">כניסה</button>
               </div>
 
             </ion-list>

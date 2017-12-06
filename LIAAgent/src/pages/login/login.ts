@@ -3,6 +3,8 @@ import { NavController, NavParams, LoadingController, ToastController } from 'io
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { LiaService } from '../../providers/lia.service';
 import { Events } from 'ionic-angular/util/events';
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+
 
 
 
@@ -13,7 +15,14 @@ import { Events } from 'ionic-angular/util/events';
 export class LoginPage {
   // isClassBig: boolean;
   // isClassMini: boolean;
- 
+
+  imageURI:any;
+  imageFileName:any;
+  frmLogin = new FormGroup({
+    userName: new FormControl("",Validators.required),
+    password: new FormControl("",Validators.required)
+})
+
 
   constructor(public navCtrl: NavController,
     private transfer: FileTransfer,
