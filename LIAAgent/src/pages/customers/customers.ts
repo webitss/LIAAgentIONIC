@@ -20,7 +20,8 @@ export class CustomersPage {
   allowDetails:boolean;
   items1 = [];
   TabsEnum: typeof TabsEnum = TabsEnum;
-  items1 = [];
+  customersFilter: any[];
+
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
@@ -31,13 +32,17 @@ export class CustomersPage {
   }
 
   customerClicked(){
-    this.allowDetails=!this.allowDetails;
+    //this.allowDetails=!this.allowDetails;
     this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
     }
 
     routeToCart(){
       this.navCtrl.parent.select(this.TabsEnum.cart);
     }
+
+    search(event) {
+      this.customersFilter = this.service.customers.filter(c => c.name.includes(event.target.value));
+  }
 
     ionViewWillEnter()
     {
