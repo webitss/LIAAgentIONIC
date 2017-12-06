@@ -30,26 +30,6 @@ export class HeaderPage {
 
     showConfirmAlert() {
       this.events.publish('user:login');
-      // let alertConfirm = this.atrCtrl.create({
-      //   title: 'התנתקות',
-      //   message: 'האם אתה בטוח רוצה לצאת מהאפליקציה?',
-      //   buttons: [
-      //     {
-      //       text: 'לא',
-      //       role: 'cancel',
-      //       handler: () => {
-      //         console.log('No clicked');
-      //       }
-      //     },
-      //     {
-      //       text: 'כן',
-      //       handler: () => {
-              
-      //       }
-      //     }
-      //   ]
-      // });
-      // alertConfirm.present();
     }
         
 }

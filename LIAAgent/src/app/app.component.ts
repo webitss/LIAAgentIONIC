@@ -32,11 +32,7 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       platform.setDir('rtl', true);
-
-      if(platform.is('mobileweb')) {
-        console.log(platform);
-        //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-      }
+ 
       
       platform.registerBackButtonAction(() => {
         let nav = this.app.getActiveNav();

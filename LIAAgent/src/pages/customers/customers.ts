@@ -18,6 +18,7 @@ import {TabsEnum} from '../../models/tabs-enum';
 export class CustomersPage {
   valueButton:string;
   allowDetails:boolean;
+  items1 = [];
   TabsEnum: typeof TabsEnum = TabsEnum;
   items1 = [];
 
