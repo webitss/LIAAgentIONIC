@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
 import {SignaturePage} from '../signature/signature'
+import { Events } from 'ionic-angular/util/events';
 
 
 @Component({
@@ -11,9 +12,13 @@ import {SignaturePage} from '../signature/signature'
 export class PayOptionsPage {
   public signatureImage : any;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService,public modalController:ModalController) {
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams,
+     public service:LiaService,
+     public modalController:ModalController,public events:Events) {
     service.nowComponent="תשלום";
-    this.signatureImage = navParams.get('signatureImage');;
+    this.signatureImage = navParams.get('signatureImage');
+    
   }
   ionViewWillEnter(){
     // this.openSignature();

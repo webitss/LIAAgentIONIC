@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>personalForm</ion-title>
+      <page-header></page-header>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +15,7 @@
           <h3 class="blue"> פרטים אישיים</h3>
     </div>
 
-          <form [formGroup]="frmPersonal" (ngSubmit)="service.submitFrmPersonal(frmPersonal.value); onGoToBusinessFormPage()" >
+          <form [formGroup]="frmPersonal" (ngSubmit)="service.submitFrmPersonal(frmPersonal.value); onGoToBusinessFormPage(frmPersonal.value)" >
 
               <ion-grid>
                   <ion-row>

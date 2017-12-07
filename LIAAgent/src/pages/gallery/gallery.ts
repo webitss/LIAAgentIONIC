@@ -1,3 +1,4 @@
+import { EnterPage } from './../enter/enter';
 import { LiaService } from './../../providers/lia.service';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides } from 'ionic-angular';
@@ -22,6 +23,7 @@ export class GalleryPage implements OnInit {
     //service.nowComponent = "גלריה";
 
     //service.load();
+    navCtrl.push(EnterPage);
   }
   ionViewWillEnter()
   {
