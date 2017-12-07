@@ -12,6 +12,7 @@ import { TabsPage } from '../tabs/tabs';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
+  styles:['login.scss'],
 })
 export class LoginPage {
   isClassBig: boolean;

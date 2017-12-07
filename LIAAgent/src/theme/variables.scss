@@ -77,7 +77,7 @@ $colors: (
 // then be future customized. This import comes last
 // so that the above variables are used and Ionic's
 // default are overridden.
-
+@import "lia";
 @import "ionic.theme.default";
 
 
