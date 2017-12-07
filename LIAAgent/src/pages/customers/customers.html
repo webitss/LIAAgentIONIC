@@ -15,10 +15,12 @@
 <ion-col>
 
     <ion-scroll scrollY="true" style="height: 200px">
-        <ion-item *ngFor="let c of this.service.customers">
+<div (click)="customerClicked()">
+        <ion-item *ngFor="let c of this.service.customers" >
         {{c.num}}{{c.name}}{{c.address}}
-<div>
-<details (click)="customerClicked()">
+
+<!-- <details (click)="customerClicked()"> -->
+<div *ngIf="this.allowDetails">
 פרטים של הלקוח
 <ion-scroll scrollY="true" style="height: 50px">
     fffffffffffff
@@ -27,9 +29,10 @@
     <br>
     ggggggggg
       </ion-scroll>
-</details>
-</div>
+    </div>
+<!-- </details> -->
         </ion-item>
+      </div>
       </ion-scroll>
 
 </ion-col>

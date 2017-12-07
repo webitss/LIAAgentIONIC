@@ -32,7 +32,7 @@ export class CustomersPage {
   }
 
   customerClicked(){
-    //this.allowDetails=!this.allowDetails;
+    this.allowDetails=!this.allowDetails;
     this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
     }
 
