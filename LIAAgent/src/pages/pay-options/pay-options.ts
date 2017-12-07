@@ -1,3 +1,4 @@
+import { FormOfUsePage } from './../form-of-use/form-of-use';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
@@ -19,6 +20,10 @@ export class PayOptionsPage {
     service.nowComponent="תשלום";
     this.signatureImage = navParams.get('signatureImage');
     
+  }
+  routeToFormofuse()
+  {
+    this.navCtrl.push(FormOfUsePage);
   }
   ionViewWillEnter(){
     // this.openSignature();
