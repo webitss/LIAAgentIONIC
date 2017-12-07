@@ -61,7 +61,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     Popup2Page,
     LoginPage,
     HeaderPage,
-    SignaturePage
+    SignaturePage,
+    FormOfUsePage
   ],
   imports: [
     BrowserModule,SignaturePadModule,
@@ -90,7 +91,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     Popup2Page,
     LoginPage,
     HeaderPage,
-    SignaturePage
+    SignaturePage,
+    FormOfUsePage
      ],
   providers: [
     StatusBar,
