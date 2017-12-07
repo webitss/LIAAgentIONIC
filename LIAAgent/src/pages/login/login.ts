@@ -11,8 +11,7 @@ import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html',
-  styles:['login.scss'],
+  templateUrl: 'login.html'
 })
 export class LoginPage {
   isClassBig: boolean;
@@ -53,6 +52,7 @@ ionViewDidEnter(){
       body = document.getElementById("body");
       body.style.width = "50%";
       body.style.cssFloat = "right";
+      // body.style.transition="width 0.5s";
     }
     else {
       body = document.getElementById("body");
