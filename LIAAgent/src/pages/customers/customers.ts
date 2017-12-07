@@ -19,7 +19,9 @@ export class CustomersPage {
   valueButton:string;
   allowDetails:boolean;
   items1 = [];
+  items1Filter=[];
   TabsEnum: typeof TabsEnum = TabsEnum;
+
   customersFilter: any[];
 
 
@@ -29,6 +31,7 @@ export class CustomersPage {
     service.nowComponent="לקוחות";
     this.allowDetails=false;
     this.items1 = [1,2,3,4,5,6,7,8,9,10,10];
+    this.customersFilter=this.service.customers;
   }
 
   customerClicked(){
@@ -48,5 +51,12 @@ export class CustomersPage {
     {
       this.service.nowComponent = "לקוחות";
     }
-//this.visitData.actionType = ActionType.EndCashier;
+    onSearchInput(event)
+    {
+     
+      this.customersFilter=this.service.customers.filter(i=>i.name.includes(event.target.value));
+  
+   
+    }
+
 }

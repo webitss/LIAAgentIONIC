@@ -1,6 +1,5 @@
 import { CartPage } from './../cart/cart';
 import { Component, ViewChild } from '@angular/core';
-import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
 import { NavController } from 'ionic-angular/navigation/nav-controller';
 import { GalleryPage } from './../gallery/gallery';
@@ -17,6 +16,7 @@ import { LoginPage } from '../login/login';
 
 
 
+
 @Component({
   selector:'tabs',
   templateUrl: 'tabs.html'
@@ -28,7 +28,7 @@ export class TabsPage {
   tab3Root = ProductsPage;
   tab4Root = CustomersPage;
   tab5Root = CartPage;
-  tab6Root = LoginPage;
+  // tab6Root = LoginPage;
   constructor(private nav : NavController,public navP: NavParams) {
 
      //this.nav.push(GalleryPage);

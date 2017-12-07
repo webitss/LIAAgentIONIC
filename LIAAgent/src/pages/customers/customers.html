@@ -34,20 +34,17 @@
         </ion-item>
       </div>
       </ion-scroll>
-
 </ion-col>
 
 <ion-col>
 
     <form>
-        <ion-input type="search" placeholder=" חיפוש לקוח קיים" (input)="this.search($event)" ></ion-input>
-        <button ion-button type="button" (click)="routeToCart()" block>{{this.valueButton}}</button>
+        <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים"  (input)="search($event)" ></ion-searchbar>
+        <button ion-button type="button" (click)="routeToCart()" block>לקוח חדש</button>
     </form>
 
 </ion-col>
 </ion-row>
 </ion-grid>
-
 </ion-content>
-
 

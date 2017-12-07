@@ -1,7 +1,7 @@
-body {
-	overflow: hidden;
-	margin: 0;
-	width: 100%;
+
+.scroll-content {
+   
+	overflow-y: auto;
 }
 
 .container-lia {
@@ -120,47 +120,7 @@ body {
 	height: 78px;
 }
 
-.bg-login {
-	background-color: #11106f;
-	height: 100vh;
-	width: 100%;
-}
 
-.logo-login {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.logo-login-mini {
-	position: absolute;
-	top: 50%;
-	left: 75%;
-	transform: translate(-50%, -50%);
-}
-
-.arrow-login-open {
-	background: none;
-	border: none;
-	color: white;
-	font-size: 3em;
-	position: absolute;
-	top: 50%;
-	left: 5%;
-	transform: translate(-50%, -50%);
-}
-
-.arrow-login-open-mini {
-	background: none;
-	border: none;
-	color: white;
-	font-size: 3em;
-	position: absolute;
-	top: 50%;
-	left: 55%;
-	transform: translate(-50%, -50%);
-}
 
 .myHeader {
 	background-color: crimson;
