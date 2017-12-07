@@ -1,8 +1,8 @@
 <ion-tabs #menuTabs  [selectedIndex]="tabsIndex" preloadTabs="false">
   <ion-tab [root]="tab1Root" tabIcon="icon-gallery" ></ion-tab>
   <ion-tab [root]="tab2Root" tabIcon="icon-packages"></ion-tab>
-  <ion-tab [root]="tab3Root" tabIcon="icon-product"></ion-tab>
+  <ion-tab [root]="tab3Root" tabIcon="icon-product" ></ion-tab>
   <ion-tab [root]="tab4Root" tabIcon="icon-customer"></ion-tab>
-  <ion-tab [root]="tab5Root" tabIcon="icon-cart"></ion-tab>
+  <ion-tab [root]="tab5Root" tabIcon="icon-cart" [rootParams]="tab5Params"></ion-tab>
   <!-- <ion-tab [root]="tab6Root" tabIcon="person"></ion-tab> -->
 </ion-tabs>
