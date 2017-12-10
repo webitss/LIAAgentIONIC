@@ -45,28 +45,21 @@ page-package {
           width: 80%;
           border-bottom: 2px solid #f1bf1c;
           border-top: 2px solid #f1bf1c;
-          margin: 20px auto;
+          margin: 20px auto;}
 
           
-        }
+        
         
           ion-item:nth-child(3){
           font-size: 5rem;
-          text-align: center;
-         }
-         
-        
+          text-align: center;}   
   }
 
-              // span:nth-child(2){
-              //   font-size: 3em;
-              //   display: inline-block;
-              //   vertical-align: middle;
-          }
+              
 
         }
 
-  }
+
 
   .rotate {
     /* Safari */
@@ -102,5 +95,5 @@ page-package {
     background-color: #f1bf1b;
   }
 
- }
+
 }
