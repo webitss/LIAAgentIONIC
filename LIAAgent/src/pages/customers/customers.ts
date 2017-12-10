@@ -19,7 +19,6 @@ import { ViewChild } from '@angular/core/src/metadata/di';
   templateUrl: 'customers.html',
 })
 export class CustomersPage {
-
   valueButton:string;
   allowDetails:boolean;
   items1 = [];

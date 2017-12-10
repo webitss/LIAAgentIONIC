@@ -22,20 +22,15 @@
     </div>
     <div *ngIf="service.isPayed">
     <input type="checkbox"/>
-    <a routerLink="formOfUse">הריני מאשר את תקנון השימוש</a>
-    <textarea></textarea>
-    <textarea></textarea>
+    <a (click)="routeToFormofuse()">הריני מאשר את תקנון השימוש</a>
+    <!-- <button ion-button full (click)="openSignatureModel()"> Open Signature</button>  -->
+        <div class="div" (click)="openSignatureModel()"><img [src]="signatureImage" *ngIf="signatureImage" /></div><br/><br/>
+        <div class="div" (click)="openSignatureModel()"><img [src]="signatureImage" *ngIf="signatureImage" /></div>
     <button ion-button (click)="service.isTerminateOrdered=true">המשך</button>
     </div>
     </div>
-    <div *ngIf="service.isTerminateOrdered">
-    ההזמנה בוצעה בהצלחה</div>
+    <div *ngIf="service.isTerminateOrdered"> ההזמנה בוצעה בהצלחה</div>
 
-    <button ion-button full (click)="openSignatureModel()">
-      Open Signature
-      </button> 
-      <div>
-      <img [src]="signatureImage" *ngIf="signatureImage" /></div>
-      
-     
+         
 </ion-content>
+

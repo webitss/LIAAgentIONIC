@@ -28,6 +28,7 @@ export class TabsPage {
   tab3Root = ProductsPage;
   tab4Root = CustomersPage;
   tab5Root = CartPage;
+  tab5Params = { id: 1 };
   // tab6Root = LoginPage;
   constructor(private nav : NavController,public navP: NavParams) {
 

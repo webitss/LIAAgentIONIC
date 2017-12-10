@@ -23,7 +23,9 @@ export class GalleryPage implements OnInit {
     //service.nowComponent = "גלריה";
 
     //service.load();
+    
     navCtrl.push(EnterPage);
+    
   }
   ionViewWillEnter()
   {

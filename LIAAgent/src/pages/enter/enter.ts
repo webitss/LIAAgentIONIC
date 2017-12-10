@@ -24,6 +24,7 @@ export class EnterPage {
     this.events.publish('user:login');
   }
   constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events) {
+
     this.hour= this.date.getHours();
   
              if(this.hour>6&&this.hour<12 )
@@ -36,6 +37,8 @@ export class EnterPage {
                  this.Congratulations="Good night";
   }
 
-  
+  ionViewWillEnter(){
+    //this.navCtrl.parent.select(5);
+  }
 
 }

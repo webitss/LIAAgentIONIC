@@ -14,7 +14,7 @@
 <ion-content text-center class="vertical-align-content" >
 
        <div class="bg-login" id="body">
-          <div  [ngClass]="{'logo-login': isClassBig, 'logo-login-mini': isClassMini}">
+          <div transition="normal" [ngClass]="{'logo-login': isClassBig, 'logo-login-mini': isClassMini}">
           <img src="assets/imgs/logo-login.png" />
           </div>
               <button routerLink="/login" (click)="mini()" [ngClass]="{'arrow-login-open': isClassBig, 'arrow-login-open-mini': isClassMini}">
@@ -31,12 +31,12 @@
 
               <ion-item id="rounded">
                 <ion-label floating>שם</ion-label>
-                <ion-input type="name" name="name"  formControlName="userName"></ion-input>
+                <ion-input class="input-difult" type="name" name="name"  formControlName="userName"></ion-input>
               </ion-item>
 
               <ion-item id="rounded">
                 <ion-label floating>סיסמא</ion-label>
-                <ion-input type="password" name="password" formControlName="password"></ion-input>
+                <ion-input  class="input-difult" type="password" name="password" formControlName="password"></ion-input>
               </ion-item>
 
               <div padding>

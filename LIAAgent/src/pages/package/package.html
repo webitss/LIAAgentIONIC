@@ -10,20 +10,23 @@
 
 <ion-content padding text-center class="vertical-align-content">
 
-  <ion-grid (click)=select()>
-    <ion-row >
-      <ion-col col-5 >
+  <ion-grid (click)=select()  >
+    <ion-row class="package">
+      <ion-col col-5 class="package-right gold">
         <div class="rotate">
           {{package?.PackageName}}
         </div>
       </ion-col>
-      <ion-col col-7>
+      <ion-col col-7 class="package-left">
         <div>
           <ion-item>
             {{package?.TicketsNum}}
           </ion-item>
           <ion-item>
-            {{package?.TicketCost}}
+            <span float-right>{{package?.TicketCost}}</span>
+            <span item-left float-left>שקל
+             <br/> לכרטיס
+             <br/>בודד</span>
           </ion-item>
           <ion-item>
             {{package?.Price}}
@@ -31,6 +34,8 @@
         </div>
       </ion-col>
     </ion-row>
+
+
     <ion-row>
       <ion-col>
         <input type="button" class="center-center btn-white" value="הוסף לסל" (click)="this.service.clickAddToCart()">

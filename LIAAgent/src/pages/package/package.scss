@@ -1,4 +1,51 @@
 page-package {
+
+  .package{
+    height: calc(81vh - 140px);
+    position: relative;
+
+     .package-right {
+
+     div{
+      color: #ffffff;
+      font-size: 5em;
+      line-height: 0px;
+      font-weight: bold;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) rotate(90deg);
+      top: 50%;
+    }
+  }
+     .package-left {
+      border: 1px solid #f1bf1c;
+      border-bottom-left-radius: 30px;
+      border-top-left-radius: 30px;
+      text-align: center;
+
+
+          ion-item:nth-child(1){
+          font-size: 5rem
+          }
+
+          ion-item:nth-child(2){
+          width: 80%;
+          border-bottom: 2px solid #f1bf1c;
+          border-top: 2px solid #f1bf1c;
+          margin: 20px auto;
+
+              // span:nth-child(2){
+              //   font-size: 3em;
+              //   display: inline-block;
+              //   vertical-align: middle;
+          }
+
+        }
+
+  }
+
+
+
   .rotate {
     /* Safari */
     -webkit-transform: rotate(90deg);
@@ -12,24 +59,36 @@ page-package {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
     justify-content: center;
 
-    // }
-  }
+    }
+
+
+
+
+
   .vertical-align-content > *
   {
        display: flex!important;
        align-content: center!important;
        align-items: center!important;
   }
+
+
+
+
+
+
+
+
   .scroll-content {
     overflow-y: hidden;
   }
   .bronze {
-    background-color: red;
+    background-color: #e12468;
   }
   .silver {
-    background-color: green;
+    background-color: #7ec141;
   }
   .gold {
-    background-color: yellow;
+    background-color: #f1bf1b;
   }
 }

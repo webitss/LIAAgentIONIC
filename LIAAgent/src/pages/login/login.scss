@@ -1,5 +1,19 @@
 page-login {
   
+
+
+  .bg-login{
+    background-color: #11106f;
+    height: 100vh;
+    width: 100%;
+  }
+
+        * {
+          
+          transition:$transition-normal;
+
+        }
+  
   // .overlay {
   //   position: fixed;
   //   width: 100%;
@@ -21,34 +35,28 @@ page-login {
 //     margin-bottom: 10px;
 // }
 
-// #container {
-//     width: 300px;
-//     margin-left:auto;
-//     margin-right: auto;
-// }
+
   .vertical-align-content > *
   {
        display: flex!important;
        align-content: center!important;
        align-items: center!important;
   }
-  .logo-login-mini {
-    position: absolute;
-    top: 50%;
-    left: 75%;
-    transform: translate(-50%, -50%);
-  }
-
-  .bg-login {
-    background-color: #11106f;
-    height: 100vh;
-    width: 100%;
-  }
+  
+ 
+  
   
   .logo-login {
     position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .logo-login-mini {
+    position: absolute;
+    top: 50%;
+    left: 75%;
     transform: translate(-50%, -50%);
   }
   
