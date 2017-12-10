@@ -13,13 +13,14 @@
 <ion-grid>
 <ion-row>
 <ion-col>
-
-    <ion-scroll scrollY="true" style="height: 200px">
+    <div class="t-center"><i class="icon-arrow-up-05 t-center blue f-size-icon"></i></div>
+    <ion-scroll scrollY="true" style="height: 200px" >
 <div (click)="customerClicked()">
-        <ion-item *ngFor="let c of this.service.customers" >
+        <ion-item *ngFor="let c of customersFilter" >
         {{c.num}}{{c.name}}{{c.address}}
 
 <!-- <details (click)="customerClicked()"> -->
+<ion-icon [ngClass]="{'close-circle': allowDetails, 'icon-arrow-left-03': !allowDetails}"></ion-icon>
 <div *ngIf="this.allowDetails">
 פרטים של הלקוח
 <ion-scroll scrollY="true" style="height: 50px">
@@ -34,17 +35,20 @@
         </ion-item>
       </div>
       </ion-scroll>
+      <br>
+      <div class="t-center"><i class="icon-arrow-down-04 t-center blue f-size-icon"></i></div>
 </ion-col>
 
 <ion-col>
 
     <form>
-        <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים"  (input)="search($event)" ></ion-searchbar>
+        <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים"  (input)="onSearchInput($event)" ></ion-searchbar>
         <button ion-button type="button" (click)="routeToCart()" block>לקוח חדש</button>
     </form>
 
 </ion-col>
 </ion-row>
 </ion-grid>
+
 </ion-content>
 
