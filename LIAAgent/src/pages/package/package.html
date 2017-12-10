@@ -8,9 +8,8 @@
 
 
 
-<ion-content padding text-center class="vertical-align-content">
 
-  <ion-grid (click)=select()  >
+  <ion-grid (click)="select()" >
     <ion-row class="package">
       <ion-col col-5 class="package-right gold">
         <div class="rotate">
@@ -28,8 +27,11 @@
             <span item-left float-left>שקל
              <br/> לכרטיס
              <br/>בודד</span>
+             <ion-content></ion-content>
           </ion-item>
           <ion-item>
+             
+                  
             {{package?.Price}}
           </ion-item>
         </div>
@@ -37,18 +39,11 @@
     </ion-row>
 
 
-    <ion-row>
-      <ion-col>
-        <input type="button" class="center-center btn-white" value="הוסף לסל" (click)="this.service.clickAddToCart()">
-        <button ion-button class="pull-right btn-font">
-          <i class="icon-icon-x_Artboard-2-01 "></i>
-        </button>
-      </ion-col>
-    </ion-row>
+   
   </ion-grid>
 
 
 
 
 
-</ion-content>
+
