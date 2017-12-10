@@ -5,8 +5,7 @@ page-package {
     position: relative;
 
      .package-right {
-       
-       
+
      div{
       color: #ffffff;
       font-size: 5em;
@@ -23,7 +22,7 @@ page-package {
       border-bottom-left-radius: 30px;
       border-top-left-radius: 30px;
       text-align: center;
-      
+
 
        ion-item:nth-child(1){
           font-size: 5rem;
@@ -47,6 +46,7 @@ page-package {
           border-bottom: 2px solid #f1bf1c;
           border-top: 2px solid #f1bf1c;
           margin: 20px auto;
+
           
         }
         
@@ -56,6 +56,16 @@ page-package {
          }
          
         
+  }
+
+              // span:nth-child(2){
+              //   font-size: 3em;
+              //   display: inline-block;
+              //   vertical-align: middle;
+          }
+
+        }
+
   }
 
   .rotate {
@@ -71,13 +81,13 @@ page-package {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
     justify-content: center;}
 
-  .vertical-align-content > *{
-  
+
+  .vertical-align-content > *
+  {
        display: flex!important;
        align-content: center!important;
-       align-items: center!important;}
-  
-
+       align-items: center!important;
+  }
 
   .scroll-content {
     overflow-y: hidden;
