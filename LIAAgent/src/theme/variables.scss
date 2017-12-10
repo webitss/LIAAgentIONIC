@@ -46,8 +46,25 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+
+  -yellow:    #f1bf1b,
+  -green :    #7ec141,
+  -blue:      #16264e,
+  -blue-2 :   #2e3092,
+  -pink :     #e12468,
+
+  
+  
+  
 );
+
+
+$list-md-border-color:transparent;
+
+$item-md-divider-background:red;
+$item-md-sliding-content-background:yellow;
+$item-wp-divider-background:green;
 
 // App iOS Variables
 // --------------------------------------------------
