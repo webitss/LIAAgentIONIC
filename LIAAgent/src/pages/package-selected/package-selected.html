@@ -15,9 +15,10 @@
     
     <ion-grid>
      <ion-row>
-       <ion-col col-7>
+       <ion-col >
         <page-package [package]="nowPackage"> </page-package>
        </ion-col>
+
          <ion-col *ngIf="!service.isPackageProductDetailed" class="bg-yellow ParentProduct" >
          <div class="ParentProduct-inner">
 
@@ -31,8 +32,9 @@
                 
          </div>
          </ion-col>
-         <ion-col>
-         <div *ngIf="service.isPackageProductDetailed">
+
+         <ion-col *ngIf="service.isPackageProductDetailed">
+         <div >
          <p> {{product.ProductId}}</p>
          <p> {{product.ProductName}}</p>
          <img [src]="product.PictureUrl"/>

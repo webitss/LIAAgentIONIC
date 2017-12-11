@@ -8,21 +8,21 @@
   <ion-grid (click)="select()" >
     <ion-row class="package">
       <!--  -->
-      <ion-col *ngIf="service.isOuter" col-5 class="package-right gold">
+      <ion-col  col-5 class="package-right gold">
         <div class="rotate">
           {{package?.PackageName}}
         </div>
       </ion-col>
       <!--  -->
        <!--  -->
-       <ion-col *ngIf="service.isInner" col-2 class="package-right gold">
+       <!-- <ion-col *ngIf="service.isInner" col-2 class="package-right gold">
           <div class="rotate">
             {{package?.PackageName}}
           </div>
-        </ion-col>
+        </ion-col> -->
         <!--  -->
         <!--  -->
-      <ion-col *ngIf="service.isOuter" col-7 class="package-left">
+      <ion-col  col-7 class="package-left">
         <div>
           <ion-item>
             {{package?.TicketsNum}}
@@ -41,7 +41,7 @@
         </div>
       </ion-col>
       <!--  -->
-      <ion-col *ngIf="service.isInner" col-4 class="package-left">
+      <!-- <ion-col *ngIf="service.isInner" col-4 class="package-left">
           <div>
             <ion-item>
               {{package?.TicketsNum}}
@@ -58,7 +58,7 @@
                 {{package?.Price}}
             </ion-item>
           </div>
-        </ion-col>
+        </ion-col> -->
         <!--  -->
     </ion-row>
 
