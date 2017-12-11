@@ -15,10 +15,13 @@ import { LiaService } from '../../providers/lia.service';
   templateUrl: 'product-details.html',
 })
 export class ProductDetailsPage {
-
+  productId:number;
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
-    
+    this.productId= navParams.data.productId;
+   
   }
 
-  
+  ionViewDidEnter(){
+    this.service.nowComponent="מוצרים";
+  }
 }

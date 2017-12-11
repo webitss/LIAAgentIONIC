@@ -1,3 +1,4 @@
+import { LiaService } from './../../providers/lia.service';
 import { CartPage } from './../cart/cart';
 import { Component, ViewChild } from '@angular/core';
 import { HomePage } from '../home/home';
@@ -28,9 +29,9 @@ export class TabsPage {
   tab3Root = ProductsPage;
   tab4Root = CustomersPage;
   tab5Root = CartPage;
-  tab5Params = { id: 1 };
+  // tab5Params = { id: 1 };
   // tab6Root = LoginPage;
-  constructor(private nav : NavController,public navP: NavParams) {
+  constructor(private nav : NavController,public navP: NavParams,public service: LiaService) {
 
      //this.nav.push(GalleryPage);
   }

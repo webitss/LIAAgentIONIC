@@ -24,7 +24,8 @@ export class PackageSelectedPage {
     service.isOuter=false;
     service.isInner=true;
     this.packageId= navParams.data.packageId;
-    console.log(this.packageId);
+    this.nowPackage=this.service.getPackageById(this.packageId);
+    this.service.nowComponent="חבילות";
   }
 
   details(product?)
