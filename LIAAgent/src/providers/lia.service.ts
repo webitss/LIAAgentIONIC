@@ -125,7 +125,7 @@ export class LiaService {
         i = this.products.length;
       }
     }
-  }
+
 
 
   clickAddToCart(pr) {
