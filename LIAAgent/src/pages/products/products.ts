@@ -20,10 +20,10 @@ export class ProductsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     service.nowComponent="מוצרים";
   }
-  select(){
-    this.navCtrl.push(ProductDetailsPage,{ productId: 1 });
+  select(productId){
+    this.navCtrl.push(ProductDetailsPage,{ productId: productId});
   }
- 
+
   ionViewWillEnter()
   {
     this.service.nowComponent = "מוצרים";

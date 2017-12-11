@@ -33,6 +33,8 @@ import { Popup2Page } from '../pages/popup2/popup2';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LoginPage } from '../pages/login/login';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VideoPage } from '../pages/video/video';
+
 
 
 
@@ -61,7 +63,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginPage,
     HeaderPage,
     SignaturePage,
-    FormOfUsePage
+    FormOfUsePage,
+    VideoPage
   ],
   imports: [
     BrowserModule,SignaturePadModule,
@@ -91,7 +94,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginPage,
     HeaderPage,
     SignaturePage,
-    FormOfUsePage
+    FormOfUsePage,
+    VideoPage
      ],
   providers: [
     StatusBar,

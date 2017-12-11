@@ -15,21 +15,24 @@
 
 <ion-content padding>
 
-  <!-- <a *ngIf="service.thisProductDetails.VideoUrl" >לצפיה</a>
+<!-- בינתיים עד שיהיה שרת -->
+<!-- <a (click)="this.goToVideo()">לצפיה</a> -->
+
+  <a *ngIf="service.thisProductDetails.VideoUrl" (click)="this.goToVideo()">לצפיה</a>
   <img [src]="service.thisProductDetails.PictureUrl"/>
   <h1>{{service.thisProductDetails.Duration}}
-  {{service.thisProductDetails.DurationText}}    
+  {{service.thisProductDetails.DurationText}}
   </h1>
-  <br>  
+  <br>
   <h2>
   מחיר:
-  {{service.thisProductDetails.Price}} 
+  {{service.thisProductDetails.Price}}
   </h2>
 
   <input type="button" value="הוסף לסל" (click)="service.clickAddToCart(service.thisProductDetails)">
 
   <div class="div">
 
-    </div> -->
+    </div>
 
 </ion-content>

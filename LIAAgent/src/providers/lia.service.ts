@@ -18,7 +18,9 @@ export class LiaService {
     source: String;
     getData: any;
     products: any;
-    customers: any[];
+
+    customers: any;
+
     nowComponent: string;
     product: any;
     thisProductDetails: any;
@@ -173,10 +175,8 @@ export class LiaService {
 //   }
 
 
-
   getProductById(id: number) {
-    for (let i = 0; i < this.products.length; i++) {
-
+    for (let i = 0; i < this.products.length; i++)
       if (this.products[i].ProductId == id) {
         this.thisProductDetails = this.products[i];
         i = this.products.length;
@@ -184,36 +184,37 @@ export class LiaService {
     }
   }
 
-  clickAddToCart(pr) {
-    this.countProductsInCart++;
-    this.productsOfCart.push(pr);
-  }
 
-  clickDeleteFromCart(pr) {
-    let j;
-    for (let i = 0; i < this.productsOfCart.length; i++) {
-      if (this.productsOfCart[i] == pr) {
-        j = i;
-      }
+//   clickAddToCart(pr) {
+//     this.countProductsInCart++;
+//     this.productsOfCart.push(pr);
+//   }
 
-    }
-  }
+//   clickDeleteFromCart(pr) {
+//     let j;
+//     for (let i = 0; i < this.productsOfCart.length; i++) {
+//       if (this.productsOfCart[i] == pr) {
+//         j = i;
+//       }
 
-
-    submitFrmBusiness() {
-        this.anotherDetails = true;
+//     }
+//   }
 
 
-    }
+//     submitFrmBusiness() {
+//         this.anotherDetails = true;
 
 
-  submitFrmPersonal(frm) {
-    console.log(frm);
-  }
+//     }
+
+
+//   submitFrmPersonal(frm) {
+//     console.log(frm);
+//   }
 
 
 
-}
+
 
 
 
