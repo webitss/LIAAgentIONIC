@@ -14,9 +14,9 @@ page-package {
       position: absolute;
       left: 50%;
       transform: translateX(-50%) rotate(90deg);
-      top: 50%;
+      top: 50%;}
+    
     }
-  }
      .package-left {
       border: 1px solid #f1bf1c;
       border-bottom-left-radius: 30px;
@@ -24,25 +24,40 @@ page-package {
       text-align: center;
 
 
-          ion-item:nth-child(1){
-          font-size: 5rem
+       ion-item:nth-child(1){
+          font-size: 5rem;
+          text-align: center;
+         
+          
+              .nth-child-span{ 
+              left: 15%;
+              -webkit-transform: translateX(-50%) rotate(90deg);
+              transform: translateX(-50%) rotate(-90deg);
+              top: 42%;
+              color: #f1bf1c;
+              position: absolute;
+              font-size: 1.5rem;}
+          
           }
+        
 
           ion-item:nth-child(2){
           width: 80%;
           border-bottom: 2px solid #f1bf1c;
           border-top: 2px solid #f1bf1c;
-          margin: 20px auto;
+          margin: 20px auto;}
 
-              // span:nth-child(2){
-              //   font-size: 3em;
-              //   display: inline-block;
-              //   vertical-align: middle;
-          }
+          
+        
+        
+          ion-item:nth-child(3){
+          font-size: 5rem;
+          text-align: center;}   
+  }
+
+              
 
         }
-
-  }
 
 
 
@@ -57,12 +72,7 @@ page-package {
     -o-transform: rotate(90deg);
     /* Internet Explorer */
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-    justify-content: center;
-
-    }
-
-
-
+    justify-content: center;}
 
 
   .vertical-align-content > *
@@ -72,15 +82,8 @@ page-package {
        align-items: center!important;
   }
 
-
-
-
-
-
-
-
   .scroll-content {
-    overflow-y: hidden;
+    overflow-y: auto;
   }
   .bronze {
     background-color: #e12468;
@@ -91,4 +94,8 @@ page-package {
   .gold {
     background-color: #f1bf1b;
   }
+
+
+
 }
+

@@ -26,7 +26,7 @@ export class LiaService {
     isInner: boolean;
     isPackageProductDetailed: boolean;
     packageProduct: any;
-    cart: number = 0;
+    countProductsInCart: number = 0;
     productsOfCart: any[];
     packagesOfCart: any[];
     isPayed: boolean;
@@ -130,7 +130,7 @@ export class LiaService {
   }
 
   clickAddToCart(pr) {
-    this.cart++;
+    this.countProductsInCart++;
     this.productsOfCart.push(pr);
   }
 

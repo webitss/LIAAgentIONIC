@@ -50,7 +50,7 @@ export class SignaturePage {
   }
 
   canvasResize() {
-    let canvas = document.querySelector('canvas');
+     let canvas = document.querySelector('canvas');
     this.signaturePad.set('minWidth', 1);
     this.signaturePad.set('canvasWidth', canvas.offsetWidth);
     this.signaturePad.set('canvasHeight', canvas.offsetHeight);

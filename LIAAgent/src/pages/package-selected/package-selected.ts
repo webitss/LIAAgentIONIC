@@ -23,10 +23,15 @@ export class PackageSelectedPage {
     public service:LiaService) {
     service.isOuter=false;
     service.isInner=true;
+    service.isPackageProductDetailed=false;
     this.packageId= navParams.data.packageId;
-    console.log(this.packageId);
+    this.nowPackage=this.service.getPackageById(this.packageId);
+    this.service.nowComponent="חבילות";
   }
-
+  ionViewWillEnter(){
+    this.service.isPackageProductDetailed=false;
+    console.log("isPackageProductDetailed "+this.service.isPackageProductDetailed)
+  }
   details(product?)
   {
      this.service.isPackageProductDetailed=!this.service.isPackageProductDetailed;
