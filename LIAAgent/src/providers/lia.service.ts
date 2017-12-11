@@ -64,7 +64,7 @@ export class LiaService {
         this.productsOfCart = this.products;
         this.isPayed = false;
         this.isTerminateOrdered = false;
-        
+
     }
 
     // async load() {
@@ -104,14 +104,14 @@ export class LiaService {
         }).catch(() => console.log("error"));
     }
 
-   
-        
-           
-          
+
+
+
+
     async postPackageProd(packageId:Number): Promise<any> {
          await this.proxy.postPackageProd(packageId).then((res) => {
             console.log(packageId);
-            this.getData = res;   
+            this.getData = res;
             switch(packageId)
             {
                 case 1:this.packageProd1=this.getData.Result;
@@ -150,13 +150,13 @@ export class LiaService {
             case 3:
                 this.nowpackage1= this.packages[2];
                 break;
-            
+
         }
         return this.nowpackage1;
    }
    nowpackage:any;
    getPackageProductsById(id: number): any {
-    
+
             switch(id)
             {
                 case 1:
@@ -168,7 +168,7 @@ export class LiaService {
                 case 3:
                     this.nowpackage= this.packageProd3;
                     break;
-                
+
             }
             return this.nowpackage;
    }
@@ -188,7 +188,6 @@ export class LiaService {
         i = this.products.length;
       }
     }
-  
 
 
         clickAddToCart(pr) {

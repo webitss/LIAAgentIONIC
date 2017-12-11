@@ -117,7 +117,18 @@ page-package {
        align-items: center!important;
   }
 
-  
+  page-all-packages .grid, page-all-packages .row {
+    height: auto;
+}
+
+  .item-md {
+   background: color($colors,  transpare);
+  }
+
+   .bg-yellow {
+    background: color($colors, yellow-color);
+  }
+
   .bronze {
     background-color: #e12468;
   }
