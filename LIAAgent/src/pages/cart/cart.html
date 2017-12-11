@@ -14,6 +14,8 @@
 
 
 <ion-content padding>
+    <ion-grid>
+<ion-row>
   <div>
     <div class="col-md-6">
       <div class="container-lia container">
@@ -25,35 +27,37 @@
       <span class="col-md-4 col-xs-4">  {{pr.Price}}</span>
       <span class="col-md-1 col-xs-1"><i (click)=" service.clickDeleteFromCart(pr.ProductId)">x</i></span>
       </div> -->
+      <ion-col>
       <ion-scroll scrollY="true" style="height: 200px">
           <ion-item *ngFor="let c of service.customers">
               {{c.num}}{{c.name}}{{c.address}}
               </ion-item>
             </ion-scroll>
+          </ion-col>
       <div class="t-center"><i class="icon-arrow-down-04 t-center blue f-size-icon"></i></div>
       </div>
       </div>
 
+      <ion-col>
+      <div class="col-md-6 bg-gray">
+      <div class="container-lia container">
+      <div class="col-md-8 col col-md-offset-2">
 
-     <ion-grid>
-       <ion-col>
-        <a >
-          <button  ion-button class="btn btn-width bg-light-blue" (click)="routeToPackages()">הוסף / שנה חבילה </button>
-          </a>
-       </ion-col>
-       <ion-col>
-        <a>
-          <button ion-button class="btn btn-width bg-pink" (click)="this.routeToProducts()">הוסף מוצר </button>
-        </a>
-       </ion-col>
-       <ion-col>
-        <button ion-button class="btn btn-width bg-green">המשך תשלום לקוח קיים </button>
-       </ion-col>
-       <ion-col>
-        <button ion-button class="btn btn-width bg-blue"  (click)="onGoToPersonalFormPage()" >המשך לתשלום</button>
-       </ion-col>
-     </ion-grid>
-     
-     </div>
-     
+      <a >
+      <button  ion-button class="btn btn-width bg-light-blue" (click)="routeToPackages()">הוסף / שנה חבילה </button>
+      </a>
+      <a >
+      <button ion-button class="btn btn-width bg-pink" (click)="this.routeToProducts()">הוסף מוצר </button>
+      </a>
+      <button ion-button class="btn btn-width bg-green">המשך תשלום לקוח קיים </button>
+      <button ion-button class="btn btn-width bg-blue"  (click)="onGoToPersonalFormPage()" >המשך לתשלום</button>
+
+      </div>
+      </div>
+    </div>
+  </ion-col>
+    </div>
+  </ion-row>
+</ion-grid>
+
 </ion-content>

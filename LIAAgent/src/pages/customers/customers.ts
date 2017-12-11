@@ -3,6 +3,9 @@ import { NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
 import { CartPage } from '../cart/cart';
 import {TabsEnum} from '../../models/tabs-enum';
+import { NgZone } from '@angular/core';
+import { ViewChild } from '@angular/core/src/metadata/di';
+
 /**
  * Generated class for the CustomersPage page.
  *
@@ -21,8 +24,9 @@ export class CustomersPage {
   items1 = [];
   items1Filter=[];
   TabsEnum: typeof TabsEnum = TabsEnum;
-
   customersFilter: any[];
+
+
 
 
 
@@ -35,7 +39,7 @@ export class CustomersPage {
   }
 
   customerClicked(){
-    //this.allowDetails=!this.allowDetails;
+    this.allowDetails=!this.allowDetails;
     this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
     }
 
@@ -43,20 +47,22 @@ export class CustomersPage {
       this.navCtrl.parent.select(this.TabsEnum.cart);
     }
 
-    search(event) {
-      this.customersFilter = this.service.customers.filter(c => c.name.includes(event.target.value));
-  }
-
     ionViewWillEnter()
     {
       this.service.nowComponent = "לקוחות";
     }
+
     onSearchInput(event)
     {
-     
-      this.customersFilter=this.service.customers.filter(i=>i.name.includes(event.target.value));
-  
-   
+      this.customersFilter=this.service.customers.filter(i => i.name.includes(event.target.value));
+
     }
 
+
+
+    // ngAfterViewInit() {
+    //   this.content.ionScrollEnd.subscribe((data)=>{
+    //     //... do things
+    //   });
+    // }
 }

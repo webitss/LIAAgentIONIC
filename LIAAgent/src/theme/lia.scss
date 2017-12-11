@@ -38,61 +38,35 @@ $transition-normal:all 1s ease;
 	height: 40px;
 }
 
-.yellow {
-	color: #f1bf1b;
-}
+// bg-color
 
 .bg-yellow {
-	background: #f1bf1b;
+	background: color($colors, yellow-color);
 }
-
-.green {
-	color: #7ec141;
-}
-
 .bg-green {
-	background: #7ec141;
+	background: color($colors, green-color);
 }
-
-.blue {
-	color: #16264e;
-}
-
 .bg-blue {
-	background: #16264e;
+	background: color($colors, blue-color);
 }
-
-.blue-2 {
-	color: #2e3092;
-}
-
 .bg-blue-2 {
-	background: #2e3092;
+	background: color($colors, blue-2-color);
 }
-
-.pink {
-	color: #e12468;
-}
-
 .bg-pink {
-	background: #e12468;
+	background: color($colors, pink-color);
 }
-
-.light-blue {
-	color: #49bbd3;
-}
-
 .bg-light-blue {
-	background: #49bbd3;
+	background: color($colors, light-blue-color);
 }
-
 .bg-red {
-	background: #ed1c24;
+	background: color($colors, red-color);
+}
+.bg-gray {
+	background: color($colors, gray-color);
 }
 
-.bg-gray {
-	background: #f3f3f3;
-}
+// bg-color
+
 
 .btn-width {
 	width: 100%;

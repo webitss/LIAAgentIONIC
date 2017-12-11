@@ -11,14 +11,15 @@
 
 <ion-content padding>
 
-  <div class="container-lia container">
+  <div class="">
     <page-package [package]="nowPackage">
          <div *ngIf="!service.isPackageProductDetailed" class="bg-yellow ParentProduct" >
          <div class="ParentProduct-inner">
-           
+
                  <div *ngFor="let p of nowPackage?.Products" class="ParentProductId">
                                  <div (click)="details(p)">
                                         <span> {{p.ProductName}}</span>
+                                        
                                         <i class="icon-arrow-left-03"></i>
                                  </div>
                  </div>
@@ -27,8 +28,10 @@
          </div>
 
          <div *ngIf="service.isPackageProductDetailed">
+
         <p> {{product.ProductId}}</p>
          <p> {{product.ProductName}}</p>
+
          <img [src]="product.PictureUrl"/>
          <input *ngIf="product.VideoUrl" type="button" value="לצפיה"  (click)="updateThisProduct()" class="btn-white" />
         <button ion-button (click)="details()"> <i class="icon-arrow-right-02"></i></button>
@@ -39,7 +42,6 @@
     {{service.isPackageProductDetailed}}
    </div>
 
-<ion-grid>
    <ion-row>
     <ion-col>
       <input type="button" class="center-center btn-white" value="הוסף לסל" (click)="service.clickAddToCart()">
@@ -48,6 +50,5 @@
       </button>
     </ion-col>
   </ion-row>
-</ion-grid>
 
 </ion-content>
