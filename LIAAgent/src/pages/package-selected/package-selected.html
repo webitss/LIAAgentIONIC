@@ -22,21 +22,21 @@
         <page-package [package]="nowPackage"> </page-package>
        </ion-col>
        
-         <ion-col *ngIf="!service.isPackageProductDetailed" class="bg-yellow ParentProduct" >
-         <div class="ParentProduct-inner">
+         <ion-col *ngIf="!service.isPackageProductDetailed"  class="bg-yellow ParentProduct" >
+            <div class="ParentProduct-inner">
 
-                 <div *ngFor="let p of products" class="ParentProductId">
-                                 <div (click)="details(p)">
-                                        <span> {{p.ProductLongName}}</span>
-                                        <span> {{p.Count}}</span>
-                                        <i class="icon-arrow-left-03"></i>
-                                 </div>
-                 </div>
-                
-         </div>
+                    <div *ngFor="let p of products" class="ParentProductId">
+                                    <div (click)="details(p)">
+                                            <span> {{p.ProductLongName}}</span>
+                                            <span> {{p.Count}}</span>
+                                            <i class="icon-arrow-left-03"></i>
+                                    </div>
+                    </div>
+                    
+            </div>
          </ion-col>
 
-         <ion-col *ngIf="service.isPackageProductDetailed">
+         <!-- <ion-col *ngIf="service.isPackageProductDetailed">
          <div >
          <p> {{product.ProductId}}</p>
          <p> {{product.ProductName}}</p>
@@ -46,7 +46,7 @@
         <button ion-button ><i class="icon-icon-x_Artboard-2-01 "></i></button>
         </div>
         {{service.isPackageProductDetailed}}
-        </ion-col>
+        </ion-col> -->
 
    
         <ion-col>

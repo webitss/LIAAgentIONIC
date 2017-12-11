@@ -23,7 +23,7 @@ export class AllPackagesPage {
     this.service.isOuter=true;
     this.service.isInner=false;
   }
-  select(PackageId:number)
+  select(PackageId:any)
   {
     this.navCtrl.push(PackageSelectedPage,{ PackageId: PackageId });
   }

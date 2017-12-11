@@ -143,10 +143,13 @@ export class LiaService {
         {
             case 1:
                 this.nowpackage1= this.packages[0];
+                break;
             case 2:
                 this.nowpackage1= this.packages[1];
+                break;
             case 3:
                 this.nowpackage1= this.packages[2];
+                break;
             
         }
         return this.nowpackage1;
@@ -158,10 +161,13 @@ export class LiaService {
             {
                 case 1:
                     this.nowpackage= this.packageProd1;
+                    break;
                 case 2:
                     this.nowpackage= this.packageProd2;
+                    break;
                 case 3:
                     this.nowpackage= this.packageProd3;
+                    break;
                 
             }
             return this.nowpackage;
@@ -182,14 +188,14 @@ export class LiaService {
         i = this.products.length;
       }
     }
-  }
+  
 
 
-//   clickAddToCart(pr) {
-//     this.countProductsInCart++;
-//     this.productsOfCart.push(pr);
-//   }
-
+        clickAddToCart(pr) {
+            this.countProductsInCart++;
+            this.productsOfCart.push(pr);
+        }
+    }
 //   clickDeleteFromCart(pr) {
 //     let j;
 //     for (let i = 0; i < this.productsOfCart.length; i++) {
