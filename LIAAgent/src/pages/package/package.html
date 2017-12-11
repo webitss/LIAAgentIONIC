@@ -5,15 +5,24 @@
 
 
 
-  <ion-grid (click)="select()" >
+  <ion-grid  >
     <ion-row class="package">
-
-      <ion-col col-5 class="package-right gold">
+      <!--  -->
+      <ion-col  col-5 class="package-right gold">
         <div class="rotate">
           {{package?.PackageName}}
         </div>
       </ion-col>
-      <ion-col col-7 class="package-left">
+      <!--  -->
+       <!--  -->
+       <!-- <ion-col *ngIf="service.isInner" col-2 class="package-right gold">
+          <div class="rotate">
+            {{package?.PackageName}}
+          </div>
+        </ion-col> -->
+        <!--  -->
+        <!--  -->
+      <ion-col  col-7 class="package-left">
         <div>
           <ion-item>
             {{package?.TicketsNum}}
@@ -27,12 +36,30 @@
              <ion-content></ion-content>
           </ion-item>
           <ion-item>
-             
-                  
-            {{package?.Price}}
+              {{package?.Price}}
           </ion-item>
         </div>
       </ion-col>
+      <!--  -->
+      <!-- <ion-col *ngIf="service.isInner" col-4 class="package-left">
+          <div>
+            <ion-item>
+              {{package?.TicketsNum}}
+              <span class="nth-child-span">כרטיסים</span>
+            </ion-item>
+            <ion-item>
+              <span float-right>{{package?.TicketCost}}</span>
+              <span item-left float-left>שקל
+               <br/> לכרטיס
+               <br/>בודד</span>
+               <ion-content></ion-content>
+            </ion-item>
+            <ion-item>
+                {{package?.Price}}
+            </ion-item>
+          </div>
+        </ion-col> -->
+        <!--  -->
     </ion-row>
 
 

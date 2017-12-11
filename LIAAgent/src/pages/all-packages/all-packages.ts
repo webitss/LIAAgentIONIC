@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
-
-/**
- * Generated class for the AllPackagesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
+import { PackageSelectedPage } from './../package-selected/package-selected';
 
 @Component({
   selector: 'page-all-packages',
@@ -21,12 +14,18 @@ export class AllPackagesPage {
     this.service.isOuter=true;
     this.service.isInner=false;
     this.service.isPackageProductDetailed=false;
-    this.service.getPackages();
+    // this.service.getPackages();
   }
 
   ionViewWillEnter()
   {
     this.service.nowComponent = "חבילות";
+    this.service.isOuter=true;
+    this.service.isInner=false;
+  }
+  select(PackageId:any)
+  {
+    this.navCtrl.push(PackageSelectedPage,{ PackageId: PackageId });
   }
 
 }

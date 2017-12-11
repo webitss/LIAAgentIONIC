@@ -1,0 +1,21 @@
+ <ion-header>
+
+    <ion-navbar>
+      <ion-title>video</ion-title>
+    </ion-navbar>
+
+  </ion-header>
+
+
+  <ion-content>
+
+    <div>
+      <input type="button" value="x" (click)="this.navCtrl.pop(this.navCtrl)">
+      <video width="1500" height="700" autoplay>
+
+          <!-- <source src="../../assets/2017-11-01-VIDEO-00000908.mp4" type="video/mp4 "> -->
+            <source [src]="this.service.thisProductDetails.VideoUrl" type="video/mp4 ">
+      </video>
+  </div>
+
+  </ion-content>
