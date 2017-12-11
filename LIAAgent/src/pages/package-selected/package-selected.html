@@ -10,51 +10,40 @@
 
 
  <ion-content padding>
-
- 
-  
-    <ion-grid>
-      
+  <ion-grid>
      <ion-row>
-      
-       <ion-col >
-         
-        <page-package [package]="nowPackage"> </page-package>
-       </ion-col>
-       
-         <ion-col *ngIf="!service.isPackageProductDetailed"  class="bg-yellow ParentProduct" >
-            <div class="ParentProduct-inner">
 
-                    <div *ngFor="let p of products" class="ParentProductId">
-                                    <div (click)="details(p)">
-                                            <span> {{p.ProductLongName}}</span>
-                                            <span> {{p.Count}}</span>
-                                            <i class="icon-arrow-left-03"></i>
-                                    </div>
-                    </div>
-                    
+          <ion-col ><page-package [package]="nowPackage"> </page-package></ion-col>
+              <ion-col *ngIf="!service.isPackageProductDetailed"  class="bg-yellow ParentProduct" col-5 >
+                <div class="ParentProduct-inner" >
+
+                        <div *ngFor="let p of products" class="ParentProductId">
+                                        <div (click)="details(p)">
+                                                <span> {{p.ProductLongName}}</span>
+                                                <i class="icon-arrow-left-03"></i>
+                                        </div>
+                         </div>
+                        
+                 </div>
+            </ion-col>
+
+            <ion-col *ngIf="service.isPackageProductDetailed">
+            <div >
+            <p> {{product.ProductLongName}}</p>
+            <p> {{product.ProductName}}</p>
+            <img [src]="product.PictureUrl"/>
+            <input *ngIf="product.VideoUrl" type="button" value="לצפיה"  (click)="routeToVideo()" class="btn-white" />
             </div>
-         </ion-col>
-
-         <ion-col *ngIf="service.isPackageProductDetailed">
-         <div >
-         <p> {{product.ProductId}}</p>
-         <p> {{product.ProductName}}</p>
-         <img [src]="product.PictureUrl"/>
-         <input *ngIf="product.VideoUrl" type="button" value="לצפיה"  (click)="routeToVideo()" class="btn-white" />
-        </div>
-        </ion-col>
-<!-- <button ion-button (click)="details()"> <i class="icon-arrow-right-02"></i></button>
-        <button ion-button (click)="details()"><i class="icon-icon-x_Artboard-2-01 "></i></button> -->
+            </ion-col>
    
-        <ion-col>
-          <input type="button" *ngIf="!service.isPackageProductDetailed" class="center-center btn-white" value="הוסף לסל" (click)="service.clickAddToCart()">
-          <button ion-button class="pull-right btn-font" (click)="navCtrl.pop(navCtrl)" >
-            <i class="icon-icon-x_Artboard-2-01 "></i>
-          </button>
-          <button ion-button *ngIf="service.isPackageProductDetailed" (click)="details()"> <i class="icon-arrow-right-02"></i></button>
-        </ion-col>
-      </ion-row>
+            <ion-col>
+              <input type="button" *ngIf="!service.isPackageProductDetailed" class="center-center btn-white" value="הוסף לסל" (click)="service.clickAddToCart()">
+              <button ion-button class="pull-right btn-font" (click)="navCtrl.pop(navCtrl)" >
+                <i class="icon-icon-x_Artboard-2-01 "></i>
+              </button>
+              <button ion-button *ngIf="service.isPackageProductDetailed" (click)="details()"> <i class="icon-arrow-right-02"></i></button>
+            </ion-col>
 
+      </ion-row>
 </ion-grid>
 </ion-content> 

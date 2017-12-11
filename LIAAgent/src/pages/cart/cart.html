@@ -14,50 +14,50 @@
 
 
 <ion-content padding>
-    <ion-grid>
-<ion-row>
-  <div>
-    <div class="col-md-6">
-      <div class="container-lia container">
-      <div class="t-center"><i class="icon-arrow-up-05 t-center blue f-size-icon"></i></div>
-
-      <!-- <div class="border-bottam-table blue" *ngFor="let pr of service.productsOfCart">
-      <span class="col-md-3 col-xs-3">  {{pr.Duration}}  </span>
-      <span class="col-md-4 col-xs-4">  {{pr.DurationText}} </span>
-      <span class="col-md-4 col-xs-4">  {{pr.Price}}</span>
-      <span class="col-md-1 col-xs-1"><i (click)=" service.clickDeleteFromCart(pr.ProductId)">x</i></span>
-      </div> -->
-      <ion-col>
-      <ion-scroll scrollY="true" style="height: 200px">
-          <ion-item *ngFor="let c of service.customers">
-              {{c.num}}{{c.name}}{{c.address}}
-              </ion-item>
-            </ion-scroll>
+<ion-grid>
+    <ion-row>
+        <ion-col>
+          <div class="col-md-6">
+            <div class="container-lia container">
+            <div class="t-center"><i class="icon-arrow-up-05 t-center blue f-size-icon"></i></div>
+               <ion-scroll scrollY="true" style="height: 200px">
+                <ion-item *ngFor="let c of service.customers">
+                    {{c.num}}{{c.name}}{{c.address}}
+                    </ion-item>
+                  </ion-scroll>
+              
+            <div class="t-center"><i class="icon-arrow-down-04 t-center blue f-size-icon"></i></div>
+            </div>
+            </div>
           </ion-col>
-      <div class="t-center"><i class="icon-arrow-down-04 t-center blue f-size-icon"></i></div>
-      </div>
-      </div>
+            <ion-col>
+            <div class="col-md-6 bg-gray">
+            <div class="container-lia container">
+            <div class="col-md-8 col col-md-offset-2">
 
-      <ion-col>
-      <div class="col-md-6 bg-gray">
-      <div class="container-lia container">
-      <div class="col-md-8 col col-md-offset-2">
+            <a >
+            <button  ion-button class="btn btn-width bg-light-blue" (click)="routeToPackages()">הוסף / שנה חבילה </button>
+            </a>
+            <a >
+            <button ion-button class="btn btn-width bg-pink" (click)="this.routeToProducts()">הוסף מוצר </button>
+            </a>
+            <button ion-button class="btn btn-width bg-green">המשך תשלום לקוח קיים </button>
+            <button ion-button class="btn btn-width bg-blue"  (click)="onGoToPersonalFormPage()" >המשך לתשלום</button>
 
-      <a >
-      <button  ion-button class="btn btn-width bg-light-blue" (click)="routeToPackages()">הוסף / שנה חבילה </button>
-      </a>
-      <a >
-      <button ion-button class="btn btn-width bg-pink" (click)="this.routeToProducts()">הוסף מוצר </button>
-      </a>
-      <button ion-button class="btn btn-width bg-green">המשך תשלום לקוח קיים </button>
-      <button ion-button class="btn btn-width bg-blue"  (click)="onGoToPersonalFormPage()" >המשך לתשלום</button>
-
-      </div>
-      </div>
-    </div>
-  </ion-col>
-    </div>
+            </div>
+            </div>
+          </div>
+        </ion-col>
+          
   </ion-row>
 </ion-grid>
 
 </ion-content>
+
+
+ <!-- <div class="border-bottam-table blue" *ngFor="let pr of service.productsOfCart">
+            <span class="col-md-3 col-xs-3">  {{pr.Duration}}  </span>
+            <span class="col-md-4 col-xs-4">  {{pr.DurationText}} </span>
+            <span class="col-md-4 col-xs-4">  {{pr.Price}}</span>
+            <span class="col-md-1 col-xs-1"><i (click)=" service.clickDeleteFromCart(pr.ProductId)">x</i></span>
+            </div> -->

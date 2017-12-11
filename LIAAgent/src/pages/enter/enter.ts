@@ -40,5 +40,5 @@ export class EnterPage {
   ionViewWillEnter(){
     //this.navCtrl.parent.select(5);
   }
-
+  
 }

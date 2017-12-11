@@ -2,26 +2,14 @@
 </ion-header>
 
 
-
-
-
   <ion-grid  >
     <ion-row class="package">
-      <!--  -->
-      <ion-col  col-5 class="package-right gold">
+       <ion-col  col-5 class="package-right gold">
         <div class="rotate">
           {{package?.PackageName}}
         </div>
       </ion-col>
-      <!--  -->
-       <!--  -->
-       <!-- <ion-col *ngIf="service.isInner" col-2 class="package-right gold">
-          <div class="rotate">
-            {{package?.PackageName}}
-          </div>
-        </ion-col> -->
-        <!--  -->
-        <!--  -->
+     
       <ion-col  col-7  [ngClass]="{'package-left':!service.isInner,'package-left-2':service.isInner}">
         <div>
           <ion-item>
@@ -40,7 +28,23 @@
           </ion-item>
         </div>
       </ion-col>
-      <!--  -->
+      
+     </ion-row>
+ </ion-grid>
+
+ <!--  -->
+       <!--  -->
+       <!-- <ion-col *ngIf="service.isInner" col-2 class="package-right gold">
+          <div class="rotate">
+            {{package?.PackageName}}
+          </div>
+        </ion-col> -->
+        <!--  -->
+        <!--  -->
+
+
+
+     <!--  -->
       <!-- <ion-col *ngIf="service.isInner" col-4 class="package-left">
           <div>
             <ion-item>
@@ -60,14 +64,3 @@
           </div>
         </ion-col> -->
         <!--  -->
-    </ion-row>
-
-
-
-  </ion-grid>
-
-
-
-
-
-
