@@ -38,32 +38,35 @@ $transition-normal:all 1s ease;
 	height: 40px;
 }
 
+// bg-color
+
 .bg-yellow {
-	background: $yellow-color;
+	background: color($colors, yellow-color);
 }
 .bg-green {
-	background: $green-color;
+	background: color($colors, green-color);
 }
 .bg-blue {
-	background: $blue-color;
+	background: color($colors, blue-color);
 }
 .bg-blue-2 {
-	background:$blue-2-color;
+	background: color($colors, blue-2-color);
 }
 .bg-pink {
-	background:$pink-color;
+	background: color($colors, pink-color);
 }
 .bg-light-blue {
-	background: $light-blue-color;
+	background: color($colors, light-blue-color);
 }
-
 .bg-red {
-	background: #ed1c24;
+	background: color($colors, red-color);
+}
+.bg-gray {
+	background: color($colors, gray-color);
 }
 
-.bg-gray {
-	background: #f3f3f3;
-}
+// bg-color
+
 
 .btn-width {
 	width: 100%;
