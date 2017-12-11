@@ -1,8 +1,8 @@
 
+
 .scroll-content {
-   
-	overflow-y: auto;
-}
+    overflow-y: auto!important;
+  }
 
 .list-md .item-block .item-inner {
     border-bottom:none;
@@ -62,7 +62,7 @@ $transition-normal:all 1s ease;
 	background: color($colors, red-color);
 }
 .bg-gray {
-	background: color($colors, gray-color);
+	background: color($colors,gray-color);
 }
 
 // bg-color

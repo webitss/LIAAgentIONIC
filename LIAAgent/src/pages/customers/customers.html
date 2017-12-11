@@ -13,15 +13,37 @@
 <ion-grid>
 <ion-row>
 <ion-col>
-    <div class="t-center"><i class="icon-arrow-up-05 t-center blue f-size-icon"></i></div>
-    <ion-scroll scrollY="true" style="height: 200px" >
-<div (click)="customerClicked()">
-        <ion-item *ngFor="let c of customersFilter" >
-        {{c.num}}{{c.name}}{{c.address}}
 
+        <ion-list>
+                <ion-list-header>
+                        <i class="icon-arrow-up-05 t-center  f-size-icon"></i>
+                      </ion-list-header>
+                      
+                <ion-item  *ngFor="let c of customersFilter" (click)="customerClicked()">
+                        <p float-start >{{c.num}}{{c.name}}{{c.address}}</p>
+                        <i float-end class="icon-arrow-down-04 t-center  f-size-icon "></i>
+                          
+                </ion-item>  
+                
+                <ion-list-header>
+                        <i class="icon-arrow-up-05 t-center  f-size-icon"></i>
+                      </ion-list-header>
+              </ion-list>
+    
+
+    <!-- <div class="t-center"><i class="icon-arrow-up-05 t-center  f-size-icon"></i></div>
+
+    <ion-scroll scrollY="true" style="height: 200px" >
+<div (click)="customerClicked()" *ngFor="let c of customersFilter">
+    
+        <ion-item float-right>
+        {{c.num}}{{c.name}}{{c.address}}
+        </ion-item> -->
 <!-- <details (click)="customerClicked()"> -->
-<ion-icon [ngClass]="{'close-circle': allowDetails, 'icon-arrow-left-03': !allowDetails}"></ion-icon>
-<div *ngIf="this.allowDetails">
+
+        <!-- <ion-icon float-left [ngClass]="{'close-circle': allowDetails, 'icon-arrow-left-03': !allowDetails}"></ion-icon> -->
+
+<!-- <div *ngIf="this.allowDetails">
 פרטים של הלקוח
 <ion-scroll scrollY="true" style="height: 50px">
     fffffffffffff
@@ -30,20 +52,22 @@
     <br>
     ggggggggg
       </ion-scroll>
-    </div>
+    </div> -->
 <!-- </details> -->
-        </ion-item>
-      </div>
+       
+      <!-- </div>
       </ion-scroll>
+
       <br>
-      <div class="t-center"><i class="icon-arrow-down-04 t-center blue f-size-icon"></i></div>
+      <div class="t-center"><i class="icon-arrow-down-04 t-center  f-size-icon"></i></div> -->
+
 </ion-col>
 
 <ion-col>
 
     <form>
         <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים"  (input)="onSearchInput($event)" ></ion-searchbar>
-        <button ion-button type="button" (click)="routeToCart()" block>לקוח חדש</button>
+        <button ion-button type="button"  small (click)="routeToCart()" >לקוח חדש</button>
     </form>
 
 </ion-col>

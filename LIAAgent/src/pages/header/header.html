@@ -9,25 +9,24 @@
   </ion-header> -->
 <ion-header align-title="center">
   <ion-navbar >
-     
-      <ion-buttons left>
-      <button ion-button block  (click)="showConfirmAlert()">
-          לצאת מהאפליקציה
-       </button>     
-      </ion-buttons>
-      <ion-title >
-       {{service.nowComponent}}
-        </ion-title>
-       <ion-buttons end>
+
+      <ion-buttons float-start>
           <button ion-button   (click)="routeToHome()">
               דף הבית
             </button>
+        </ion-buttons> 
+     
+      <ion-title >
+       {{service.nowComponent}}
+        </ion-title>
+      
+        
+        <ion-buttons float-end>
+            <button ion-button block  (click)="showConfirmAlert()">
+                לצאת מהאפליקציה
+             </button>     
+            </ion-buttons>
 
-
-           
-           
-
-        </ion-buttons>  
      </ion-navbar>
   </ion-header>
 
