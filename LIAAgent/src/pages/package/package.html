@@ -22,7 +22,7 @@
         </ion-col> -->
         <!--  -->
         <!--  -->
-      <ion-col  col-7 class="package-left">
+      <ion-col  col-7  [ngClass]="{'package-left':!service.isInner,'package-left-2':service.isInner}">
         <div>
           <ion-item>
             {{package?.TicketsNum}}
