@@ -12,20 +12,23 @@
  <ion-content padding>
 
  
-    
+  
     <ion-grid>
+      
      <ion-row>
+      
        <ion-col >
+         
         <page-package [package]="nowPackage"> </page-package>
        </ion-col>
-
+       
          <ion-col *ngIf="!service.isPackageProductDetailed" class="bg-yellow ParentProduct" >
          <div class="ParentProduct-inner">
 
-                 <div *ngFor="let p of nowPackage?.Products" class="ParentProductId">
+                 <div *ngFor="let p of products" class="ParentProductId">
                                  <div (click)="details(p)">
-                                        <span> {{p.ProductName}}</span>
-                                        
+                                        <span> {{p.ProductLongName}}</span>
+                                        <span> {{p.Count}}</span>
                                         <i class="icon-arrow-left-03"></i>
                                  </div>
                  </div>

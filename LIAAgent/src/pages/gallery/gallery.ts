@@ -29,7 +29,7 @@ export class GalleryPage implements OnInit {
   }
   ionViewWillEnter()
   {
-    this.service.load();
+    //this.service.load();
     this.service.nowComponent = "גלריה";
 
   }
