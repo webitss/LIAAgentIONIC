@@ -29,6 +29,8 @@ export class PackageSelectedPage {
     this.service.nowComponent="חבילות";
   }
   ionViewWillEnter(){
+    this.service.isOuter=false;
+    this.service.isInner=true;
     this.service.isPackageProductDetailed=false;
     console.log("isPackageProductDetailed "+this.service.isPackageProductDetailed)
   }

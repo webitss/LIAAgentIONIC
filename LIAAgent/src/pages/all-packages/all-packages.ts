@@ -27,6 +27,8 @@ export class AllPackagesPage {
   ionViewWillEnter()
   {
     this.service.nowComponent = "חבילות";
+    this.service.isOuter=true;
+    this.service.isInner=false;
   }
 
 }
