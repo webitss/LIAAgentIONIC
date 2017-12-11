@@ -15,8 +15,8 @@
 <ion-col>
 
         <ion-list>
-                <ion-list-header>
-                        <i class="icon-arrow-up-05 t-center  f-size-icon"></i>
+                <ion-list-header text-center>
+                        <i class="icon-arrow-up-05 f-size-icon"></i>
                       </ion-list-header>
                       
                 <ion-item  *ngFor="let c of customersFilter" (click)="customerClicked()">
@@ -24,13 +24,7 @@
                         <i float-end class="icon-arrow-down-04 t-center  f-size-icon "></i>
                           
                 </ion-item>  
-                
-                <ion-list-header>
-                        <i class="icon-arrow-up-05 t-center  f-size-icon"></i>
-                      </ion-list-header>
-              </ion-list>
-    
-
+      
     <!-- <div class="t-center"><i class="icon-arrow-up-05 t-center  f-size-icon"></i></div>
 
     <ion-scroll scrollY="true" style="height: 200px" >
@@ -43,7 +37,7 @@
 
         <!-- <ion-icon float-left [ngClass]="{'close-circle': allowDetails, 'icon-arrow-left-03': !allowDetails}"></ion-icon> -->
 
-<!-- <div *ngIf="this.allowDetails">
+<div *ngIf="this.allowDetails">
 פרטים של הלקוח
 <ion-scroll scrollY="true" style="height: 50px">
     fffffffffffff
@@ -52,7 +46,12 @@
     <br>
     ggggggggg
       </ion-scroll>
-    </div> -->
+    </div>
+
+    <ion-list-header text-center>
+            <i class="icon-arrow-up-05 f-size-icon" ></i>
+          </ion-list-header>
+  </ion-list>
 <!-- </details> -->
        
       <!-- </div>
