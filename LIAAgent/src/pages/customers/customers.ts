@@ -5,6 +5,7 @@ import { CartPage } from '../cart/cart';
 import {TabsEnum} from '../../models/tabs-enum';
 import { NgZone } from '@angular/core';
 import { ViewChild } from '@angular/core/src/metadata/di';
+import {ItemSliding, Item} from 'ionic-angular';
 
 /**
  * Generated class for the CustomersPage page.
@@ -58,11 +59,4 @@ export class CustomersPage {
 
     }
 
-
-
-    // ngAfterViewInit() {
-    //   this.content.ionScrollEnd.subscribe((data)=>{
-    //     //... do things
-    //   });
-    // }
 }
