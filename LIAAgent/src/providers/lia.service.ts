@@ -13,12 +13,12 @@ import 'rxjs/add/operator/toPromise';
 export class LiaService {
 
     package: any;
-    packages: any[];
-    public galeryPictures: any[];
+    packages: any;
+    public galeryPictures: any;
     source: String;
     getData: any;
-    products: any[];
-    customers: any[];
+    products: any;
+    customers: any;
     nowComponent: string;
     product: any;
     thisProductDetails: any;
@@ -118,16 +118,15 @@ export class LiaService {
   }
 
 
-
   getProductById(id: number) {
-    for (let i = 0; i < this.products.length; i++) {
-
+    for (let i = 0; i < this.products.length; i++)
       if (this.products[i].ProductId == id) {
         this.thisProductDetails = this.products[i];
         i = this.products.length;
       }
     }
   }
+
 
   clickAddToCart(pr) {
     this.countProductsInCart++;

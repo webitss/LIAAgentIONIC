@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
+import { VideoPage } from '../video/video';
 
 /**
  * Generated class for the ProductDetailsPage page.
@@ -16,12 +17,20 @@ import { LiaService } from '../../providers/lia.service';
 })
 export class ProductDetailsPage {
   productId:number;
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     this.productId= navParams.data.productId;
-   
+    this.service.getProductById(this.productId);
   }
 
   ionViewDidEnter(){
     this.service.nowComponent="מוצרים";
   }
+
+
+ goToVideo(){
+ this.navCtrl.push(VideoPage,{ productId: this.productId } );
+ }
+
 }
