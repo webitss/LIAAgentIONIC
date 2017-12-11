@@ -23,8 +23,8 @@ export class PackagePage {
     service.nowComponent="חבילות";
   }
 
-  select(){
-    this.navCtrl.push(PackageSelectedPage,{ packageId: this.package.PackageId });
-  }
+  // select(){
+  //   this.navCtrl.push(PackageSelectedPage,{ packageId: this.package.PackageId });
+  // }
 
 }

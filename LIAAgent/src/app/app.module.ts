@@ -5,7 +5,6 @@ import { BusinessFormPage } from './../pages/business-form/business-form';
 import { PersonalFormPage } from './../pages/personal-form/personal-form';
 import { ProductsPage } from './../pages/products/products';
 import { LiaProxy } from './../providers/proxy';
-
 import { HttpClientModule } from '@angular/common/http';
 import { GalleryPage } from './../pages/gallery/gallery';
 import { NgModule, ErrorHandler } from '@angular/core';

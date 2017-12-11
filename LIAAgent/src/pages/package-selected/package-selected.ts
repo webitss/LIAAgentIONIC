@@ -1,14 +1,7 @@
+import { VideoPage } from './../video/video';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
-
-/**
- * Generated class for the PackageSelectedPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 
 @Component({
   selector: 'page-package-selected',
@@ -16,23 +9,30 @@ import { LiaService } from '../../providers/lia.service';
 })
 export class PackageSelectedPage {
   nowPackage:any;
+  products:any;
   product:any;
-  packageId:any;
+  PackageId:any;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public service:LiaService) {
     service.isOuter=false;
     service.isInner=true;
+    this.nowPackage=new Array();
     service.isPackageProductDetailed=false;
-    this.packageId= navParams.data.packageId;
-    this.nowPackage=this.service.getPackageById(this.packageId);
+    this.PackageId= navParams.data.PackageId;
+    this.nowPackage=this.service.getPackageById(this.PackageId);
+    console.log(this.nowPackage);
+    this.products=this.service.getPackageProductsById(this.PackageId);
     this.service.nowComponent="חבילות";
   }
   ionViewWillEnter(){
     this.service.isOuter=false;
     this.service.isInner=true;
-    this.service.isPackageProductDetailed=false;
-    console.log("isPackageProductDetailed "+this.service.isPackageProductDetailed)
+    // this.PackageId= this.navParams.data.PackageId;
+    this.nowPackage=this.service.getPackageById(this.PackageId);
+    this.products=this.service.getPackageProductsById(this.PackageId);
+    console.log(" this.packageId "+ this.PackageId);
+    console.log(" this.nowPackage "+ this.nowPackage);
   }
   details(product?)
   {
@@ -40,9 +40,9 @@ export class PackageSelectedPage {
      this.product=product;
      console.log(this.product);
   }
-  updateThisProduct()
+  routeToVideo()
   {
-    this.service.packageProduct=this.product;
+    this.navCtrl.push(VideoPage,{productId:this.product.ProductId});
   }
 
 }
