@@ -22,7 +22,7 @@ export class LiaService {
   isPackageProductDetailed: boolean;
   packageProduct: any;
   countProductsInCart: number = 0;
-  productsOfCart: any[];
+  productsOfCart: any;
   packagesOfCart: any[];
   isPayed: boolean;
   isTerminateOrdered: boolean;
@@ -56,9 +56,7 @@ export class LiaService {
     this.productsOfCart = this.products;
     this.isPayed = false;
     this.isTerminateOrdered = false;
-    
   }
-
 
   async post(func: string): Promise<any> {
     await this.proxy
@@ -114,22 +112,19 @@ export class LiaService {
       .catch(() => console.log("error"));
   }
 
-
-
   async postStoreDetails(storeId: Number): Promise<any> {
     await this.proxy
       .postStoreDetails(storeId)
       .then(res => {
         console.log(storeId);
         console.log(this.getData.Result);
-       return  this.getData = res;
-        
+        return (this.getData = res);
       })
       .catch(() => console.log("error"));
   }
   _signature: string;
 
-   nowpackage1: any;
+  nowpackage1: any;
   getPackageById(id: number): any {
     switch (id) {
       case 1:
@@ -167,38 +162,45 @@ export class LiaService {
       }
   }
 
-        clickAddToCart(pr) {
-            this.countProductsInCart++;
-            this.productsOfCart.push(pr);
-        }
-    submitFrmBusiness() {
-        this.anotherDetails = true;
+  clickAddToCart(pr) {
+    this.countProductsInCart++;
+    this.productsOfCart.push(pr);
+  }
 
+  clickDeleteToCart(id) {
+    let index: number;
+    for (let i = 0; i < this.productsOfCart.length; i++)
+      if (this.productsOfCart[i].ProductId == id) {
+        index = i;
+        i=this.productsOfCart.length;
+      }
+console.log(index);
+    this.productsOfCart.splice(index, 1);
+if(this.countProductsInCart > 0)
+this.countProductsInCart--;
+  }
 
-    }
+  submitFrmBusiness() {
+    this.anotherDetails = true;
+  }
   submitFrmPersonal(frm) {
     console.log(frm);
   }
 }
 
+// getGalleryPictures(){
+//          return this.proxy.post("GetGaleryPictures").then((res)=>{
+//          return res.Result;
+//      }).catch(() => console.log("error"));
 
+// }
 
-
- // getGalleryPictures(){
-  //          return this.proxy.post("GetGaleryPictures").then((res)=>{
-  //          return res.Result;
-  //      }).catch(() => console.log("error"));
-
-  // }
-
-
-
- //   async getPackages() {
-  //     await this.proxy.getPackages().then(res => {
-  //       this.getData = res;
-  //       this.packages = this.getData.Result;
-  //     });
-  //   }
+//   async getPackages() {
+//     await this.proxy.getPackages().then(res => {
+//       this.getData = res;
+//       this.packages = this.getData.Result;
+//     });
+//   }
 
 //   clickDeleteFromCart(pr) {
 //     let j;
@@ -259,18 +261,17 @@ export class LiaService {
 
    } */
 
+// async load() {
+//     try {
+//         await this.proxy.load().then(res=>{
+//             this.getData = res;
+//             this.galeryPictures = this.getData.Result;
+//             console.log(this.galeryPictures);
+//         });
+//         //this.galeryPictures=pictures;
+//         //console.log(pictures);
 
-    // async load() {
-  //     try {
-  //         await this.proxy.load().then(res=>{
-  //             this.getData = res;
-  //             this.galeryPictures = this.getData.Result;
-  //             console.log(this.galeryPictures);
-  //         });
-  //         //this.galeryPictures=pictures;
-  //         //console.log(pictures);
-
-  //     } catch (ex) {
-  //         console.log(`ex: ${ex}`);
-  //     }
-  // }
+//     } catch (ex) {
+//         console.log(`ex: ${ex}`);
+//     }
+// }

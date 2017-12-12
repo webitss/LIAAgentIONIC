@@ -20,6 +20,7 @@ import { PersonalFormPage } from '../personal-form/personal-form';
 export class CartPage {
   TabsEnum: typeof TabsEnum = TabsEnum;
   id:number;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     service.nowComponent="סל";
     this.id = navParams.get('id');
