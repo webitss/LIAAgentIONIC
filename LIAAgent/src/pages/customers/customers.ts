@@ -69,14 +69,14 @@ export class CustomersPage {
 
     scrollingFun(e){}
 
-    ionViewDidEnterDown(e) {
+    ionViewDidEnterDown() {
       // let dimensions = this.contentHandle.getContentDimensions();
       // this.contentHandle.scrollTo(0, dimensions.contentHeight+100, 100);
     console.log(this.contentHandle.scrollTop);
       this.contentHandle.scrollTo((this.contentHandle.scrollTop)+10,(this.contentHandle.scrollTop)+10);
     }
 
-    ionViewDidEnterUp(e) {
+    ionViewDidEnterUp() {
     console.log(this.contentHandle.scrollTop);
       this.contentHandle.scrollTo((this.contentHandle.scrollTop)-10,(this.contentHandle.scrollTop)-10);
     }
