@@ -42,10 +42,12 @@ export class CustomersPage {
     customerClicked(StoreId:number){
           if(!this.allowDetails)
           {
-              this.customerDetails=this.service.postStoreDetails(StoreId);
+            
+            this.service.postStoreDetails(StoreId);
           }
     this.allowDetails=!this.allowDetails;
     this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
+    console.log(this.customerDetails);
     }
 
     routeToCart(){

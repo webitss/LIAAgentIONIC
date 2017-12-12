@@ -105,4 +105,35 @@ $ionicons-font-path: "../assets/fonts";
 @import "noto-sans";
 
 
-@import "lia";
+// @import "lia";
+
+// bg-color
+
+.bg-yellow {
+	background: color($colors, yellow-color);
+}
+.bg-green {
+	background: color($colors, green-color);
+}
+.bg-blue {
+	background: color($colors, blue-color);
+}
+.bg-blue-2 {
+	background: color($colors, blue-2-color);
+}
+.bg-pink {
+	background: color($colors, pink-color);
+}
+.bg-light-blue {
+	background: color($colors, light-blue-color);
+}
+.bg-red {
+	background: color($colors, red-color);
+}
+.bg-gray {
+	background: color($colors,gray-color);
+}
+
+// bg-color
+
+$transition-normal:all 1s ease;

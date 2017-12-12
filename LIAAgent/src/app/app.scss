@@ -1,3 +1,4 @@
+
 // http://ionicframework.com/docs/theming/
 
 
@@ -16,3 +17,11 @@
 // automatically applied to the <body> element in the app.
 
 
+.scroll-content {
+    overflow-y: auto;
+  }
+
+.ion-page > ion-content
+{
+   top: 52px;//your headers height
+}

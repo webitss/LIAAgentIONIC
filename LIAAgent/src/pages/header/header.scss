@@ -13,4 +13,30 @@ page-header {
         transform: translatey(0%) scale(0.7);
         
     }
+
+    .toolbar-background-md {
+        border-color: #b2b2b2;
+        background: #ff5a5a;}
+
+    .user-name {
+        float: left;
+        margin-left: 6%;
+        color: white;
+        font-size: 2rem;
+        // line-height: 11vh;
+    }
+
+    .header-name {
+        color: #fff;
+        text-align: center;
+        font-size: 1.4em;
+        // line-height: 11vh;
+        margin: 0;
+    }
+
+    .header-name span {
+        border-left: 1px solid #fff;
+        padding: 0 40px;
+        border-right: 1px solid #fff;
+    }
 }

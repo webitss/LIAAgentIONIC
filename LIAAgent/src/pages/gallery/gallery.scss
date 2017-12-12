@@ -32,4 +32,24 @@ page-gallery {
         right: -3px;
         border-radius: 100%;
     }
+
+    .slide-img-galery {
+        width: 650px;
+        height: auto;
+        animation-name: slideRight;
+        -webkit-animation-name: slideRight;
+        animation-duration: 1s;
+        -webkit-animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        -webkit-animation-timing-function: ease-in-out;
+        margin: auto;
+    }
+    
+    .arrow-img-galery {
+        text-align: center;
+        color: #f1bf1b;
+        font-size: 3em;
+        line-height: calc(81vh - 140px);
+    }
+    
 }
