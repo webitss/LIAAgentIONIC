@@ -15,9 +15,6 @@
 
 <ion-content padding>
 
-<!-- בינתיים עד שיהיה שרת -->
-<!-- <a (click)="this.goToVideo()">לצפיה</a> -->
-
   <a *ngIf="service.thisProductDetails.VideoUrl" (click)="this.goToVideo()">לצפיה</a>
   <img [src]="service.thisProductDetails.PictureUrl"/>
   <h1>{{service.thisProductDetails.Duration}}

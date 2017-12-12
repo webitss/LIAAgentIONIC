@@ -25,7 +25,7 @@ export class LiaService {
             isPackageProductDetailed: boolean;
             packageProduct: any;
             countProductsInCart: number = 0;
-            productsOfCart: any[];
+            productsOfCart: any;
             packagesOfCart: any[];
             isPayed: boolean;
             isTerminateOrdered: boolean;
@@ -34,6 +34,8 @@ export class LiaService {
             packageProd1: any;
             packageProd2: any;
             packageProd3: any;
+
+
 
   //#endregion
    constructor(private proxy: LiaProxy) {
@@ -97,8 +99,9 @@ export class LiaService {
             }
 
 
+
 //#endregion
- 
+
 //#region postPackageProd
 async postPackageProd(packageId: Number): Promise<any> {
     await this.proxy
@@ -126,8 +129,9 @@ async postPackageProd(packageId: Number): Promise<any> {
       .catch(() => console.log("error"));
   }
 
+
 //#endregion
-  
+
 //#region postStoreDetails
     async postStoreDetails(storeId: Number): Promise<any> {
         await this.proxy
@@ -137,7 +141,7 @@ async postPackageProd(packageId: Number): Promise<any> {
             console.log(storeId);
             console.log(this.getData.Result);
          this.customerDetails= this.getData.Result;
-            
+
         })
         .catch(() => console.log("error"));
     }
@@ -179,9 +183,10 @@ async postPackageProd(packageId: Number): Promise<any> {
             return this.nowpackage;
         }
   //#endregion
- 
-  
+
+
 //#region getProductById
+
   getProductById(id: number) {
     for (let i = 0; i < this.products.length; i++)
       if (this.products[i].ProductId == id) {
@@ -189,6 +194,7 @@ async postPackageProd(packageId: Number): Promise<any> {
         i = this.products.length;
       }
   }
+
 
   //#endregion
        
@@ -202,6 +208,18 @@ async postPackageProd(packageId: Number): Promise<any> {
         submitFrmPersonal(frm) {
             console.log(frm);
         }
+        clickDeleteToCart(id) {
+            let index: number;
+            for (let i = 0; i < this.productsOfCart.length; i++)
+              if (this.productsOfCart[i].ProductId == id) {
+                index = i;
+                i=this.productsOfCart.length;
+              }
+        console.log(index);
+            this.productsOfCart.splice(index, 1);
+        if(this.countProductsInCart > 0)
+        this.countProductsInCart--;
+          }
         
 }
 
@@ -210,14 +228,27 @@ async postPackageProd(packageId: Number): Promise<any> {
 
 
 
+  
+
+
+
+
+
 //#region garbage-things
 
-                                    // getGalleryPictures(){
-                                //          return this.proxy.post("GetGaleryPictures").then((res)=>{
-                                //          return res.Result;
-                                //      }).catch(() => console.log("error"));
+                              
 
-                                // }
+
+
+// getGalleryPictures(){
+//          return this.proxy.post("GetGaleryPictures").then((res)=>{
+//          return res.Result;
+//      }).catch(() => console.log("error"));
+
+// }
+
+
+
 
 
 
@@ -237,6 +268,7 @@ async postPackageProd(packageId: Number): Promise<any> {
 
                                 //     }
                                 //   }
+
 
                                 /*packages: any[];
                                     //ListShell<ProductAdditionalObj>
@@ -304,3 +336,4 @@ async postPackageProd(packageId: Number): Promise<any> {
                                 // }
 //#endregion
  
+
