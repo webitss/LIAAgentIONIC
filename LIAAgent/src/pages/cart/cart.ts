@@ -3,6 +3,10 @@ import { Component } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
 import { PersonalFormPage } from '../personal-form/personal-form';
+import { ViewChild } from '@angular/core';
+import {Content} from 'ionic-angular';
+import { ViewController } from 'ionic-angular/navigation/view-controller';
+
 
 
 /**
@@ -18,6 +22,7 @@ import { PersonalFormPage } from '../personal-form/personal-form';
   templateUrl: 'cart.html',
 })
 export class CartPage {
+  @ViewChild("contentRef") contentHandle: Content;
   TabsEnum: typeof TabsEnum = TabsEnum;
   id:number;
 
@@ -27,8 +32,24 @@ export class CartPage {
     console.log(this.id);
   }
 
+  ionViewWillEnter()
+  {
+    this.service.nowComponent = "סל";
+  }
 
+  scrollingFun(e){}
 
+  ionViewDidEnterDown() {
+    // let dimensions = this.contentHandle.getContentDimensions();
+    // this.contentHandle.scrollTo(0, dimensions.contentHeight+100, 100);
+  console.log(this.contentHandle.scrollTop);
+    this.contentHandle.scrollTo((this.contentHandle.scrollTop)+10,(this.contentHandle.scrollTop)+10);
+  }
+
+  ionViewDidEnterUp() {
+    console.log(this.contentHandle.scrollTop);
+      this.contentHandle.scrollTo((this.contentHandle.scrollTop)-10,(this.contentHandle.scrollTop)-10);
+    }
 
   routeToProducts()
   {
@@ -44,8 +65,6 @@ export class CartPage {
     this.navCtrl.parent.select(TabsEnum.packages);
   }
 
-  ionViewWillEnter()
-  {
-    this.service.nowComponent = "סל";
-  }
+
+
 }
