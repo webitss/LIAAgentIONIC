@@ -35,8 +35,8 @@ export class CustomersPage {
     this.valueButton="לקוח חדש";
     service.nowComponent="לקוחות";
     this.allowDetails=false;
-    this.items1 = [1,2,3,4,5,6,7,8,9,10,10];
     this.customersFilter=this.service.customers;
+    this.items1 = [1,2,3,4,5,6,7,8,9,10,10];
   }
 
   customerClicked(){
