@@ -22,11 +22,10 @@ import {ItemSliding, Item} from 'ionic-angular';
 export class CustomersPage {
   valueButton:string;
   allowDetails:boolean;
-  items1 = [];
-  items1Filter=[];
+  tems1Filter=[];
   TabsEnum: typeof TabsEnum = TabsEnum;
   customersFilter: any[];
-
+  customersByIdlist:any;
 
 
 
@@ -36,10 +35,15 @@ export class CustomersPage {
     service.nowComponent="לקוחות";
     this.allowDetails=false;
     this.customersFilter=this.service.customers;
-    this.items1 = [1,2,3,4,5,6,7,8,9,10,10];
+    this.customersByIdlist=new Array();
+    this.customerDetails=new Array();
   }
-
-  customerClicked(){
+    customerDetails:any;
+    customerClicked(StoreId:number){
+          if(!this.allowDetails)
+          {
+              this.customerDetails=this.service.postStoreDetails(StoreId);
+          }
     this.allowDetails=!this.allowDetails;
     this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
     }

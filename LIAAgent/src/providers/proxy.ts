@@ -13,6 +13,17 @@ export class LiaProxy {
     this.body = {};
   }
 
+
+  postStoreDetails(iStoreId:Number): Promise<any> {
+    return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/GetStore`, {
+      "iStoreId": iStoreId,
+      "iUserId": "372",
+      "nvGuide": "98A42241-C752-45E9-A97C-568F7CC5D234"
+    }
+    ).toPromise();
+   }
+
+  
   postPackageProd(iPackageId:Number): Promise<any> {
     return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/GetPackageProducts`, {
       "iPackageId": iPackageId,
@@ -29,10 +40,11 @@ export class LiaProxy {
     }
     ).toPromise();
   }
+}
 
- 
 
-  // load() {
+
+ // load() {
   //   return this.http.get(`https://api.myjson.com/bins/1f2zdf`).toPromise();
   // }
 
@@ -40,5 +52,3 @@ export class LiaProxy {
   //   return this.http.get(`https://api.myjson.com/bins/k0ud3`).toPromise();
   // }
 
-
-}
