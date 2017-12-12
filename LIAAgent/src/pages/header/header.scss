@@ -5,4 +5,12 @@ page-header {
     ion-title{
         text-align: center;
     }
+
+    .logo-header {
+        // top: 50%;
+        // position: absolute;
+        -webkit-transform: translatey(0%) scale(0.7);
+        transform: translatey(0%) scale(0.7);
+        
+    }
 }
