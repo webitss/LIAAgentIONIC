@@ -1,3 +1,4 @@
+import { TabsEnum } from './../../models/tabs-enum';
 import { Events } from 'ionic-angular/util/events';
 import { LiaService } from './../../providers/lia.service';
 import { CartPage } from './../cart/cart';
@@ -25,22 +26,17 @@ import { LoginPage } from '../login/login';
 })
 export class TabsPage {
   @ViewChild("menutTabs") menuTabs: Tabs;
+  TabsEnum: typeof TabsEnum = TabsEnum;
   tab1Root = GalleryPage;
   tab2Root = AllPackagesPage;
   tab3Root = ProductsPage;
   tab4Root = CustomersPage;
   tab5Root = CartPage;
-  // tab5Params = { id: 1 };
-  // tab6Root = LoginPage;
   constructor(private nav : NavController,public navP: NavParams,public service: LiaService,public events: Events) {
-
-     //this.nav.push(GalleryPage);
   }
 
   clearHistory(ev:any){
-    console.log("tab2");
-    
-    ev.popToRoot();
+     ev.popToRoot();
   }
 
   showConfirmAlert() {
@@ -49,6 +45,8 @@ export class TabsPage {
 
   routeToHome()
   {
+    
+    //this.menuTabs.selectedIndex=TabsEnum.gallery;
    // this.nav.push(EnterPage);
   }
 }
