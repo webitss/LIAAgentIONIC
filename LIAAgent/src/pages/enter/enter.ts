@@ -2,6 +2,7 @@ import { Events } from 'ionic-angular/util/events';
 import { Component } from '@angular/core';
 import {NavController, NavParams } from 'ionic-angular';
 import { Header } from 'ionic-angular/components/toolbar/toolbar-header';
+import { LiaService } from '../../providers/lia.service';
 
 /**
  * Generated class for the EnterPage page.
@@ -23,8 +24,8 @@ export class EnterPage {
   showConfirmAlert() {
     this.events.publish('user:login');
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events) {
-
+  constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events,public service:LiaService) {
+this.service.nowComponent="דף הבית";
     this.hour= this.date.getHours();
   
              if(this.hour>6&&this.hour<12 )
