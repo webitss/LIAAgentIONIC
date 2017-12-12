@@ -1,3 +1,4 @@
+
 // http://ionicframework.com/docs/theming/
 
 
@@ -19,3 +20,8 @@
 .scroll-content {
     overflow-y: auto;
   }
+
+.ion-page > ion-content
+{
+   top: 52px;//your headers height
+}

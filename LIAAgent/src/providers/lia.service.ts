@@ -7,15 +7,15 @@ import "rxjs/add/operator/toPromise";
 
 @Injectable()
 export class LiaService {
+          //#region  variables
   package: any;
   packages: any;
-  public galeryPictures: any;
+  galeryPictures: any;
   source: String;
   getData: any;
   products: any;
-
   customers: any;
-
+  customerDetails:any;
   nowComponent: string;
   product: any;
   thisProductDetails: any;
@@ -34,76 +34,71 @@ export class LiaService {
   packageProd2: any;
   packageProd3: any;
 
-  constructor(private proxy: LiaProxy) {
-    this.galeryPictures = new Array();
-    this.products = new Array();
-    this.customers = new Array();
-    this.packageProd1 = new Array();
-    this.packageProd2 = new Array();
-    this.packageProd3 = new Array();
-    this.customers[3] = { name: "ttt", address: "t", num: 1, another: "jjjjj" };
-    this.nowComponent = "menu";
-    this.packages = new Array();
-    this.productsOfCart = new Array();
-    this.post("GetGaleryPictures");
-    this.post("GetAdditionalProducts");
-    this.post("GetPackages");
-    this.post("GetBaseStores");
-    this.postPackageProd(1);
-    this.postPackageProd(2);
-    this.postPackageProd(3);
-    this.isPackageProductDetailed = false;
-    this.isOuter = true;
-    this.isInner = false;
-    this.productsOfCart = this.products;
-    this.isPayed = false;
-    this.isTerminateOrdered = false;
-  }
+  //#endregion
+   constructor(private proxy: LiaProxy) {
+          //#region initialize
+       this.galeryPictures = new Array();
+       this.products = new Array();
+       this.customers = new Array();
+       this.packageProd1 = new Array();
+       this.packageProd2 = new Array();
+       this.packageProd3 = new Array();
+       this.customers[3] = { name: "ttt", address: "t", num: 1, another: "jjjjj" };
+       this.nowComponent = "menu";
+       this.packages = new Array();
+       this.productsOfCart = new Array();
+       this.post("GetGaleryPictures");
+       this.post("GetAdditionalProducts");
+       this.post("GetPackages");
+       this.post("GetBaseStores");
+       this.postPackageProd(1);
+       this.postPackageProd(2);
+       this.postPackageProd(3);
+       this.isPackageProductDetailed = false;
+       this.isOuter = true;
+       this.isInner = false;
+       this.productsOfCart = this.products;
+       this.isPayed = false;
+       this.isTerminateOrdered = false;
+       this.customerDetails=new Array();
+       //#endregion
+    }
 
-  // async load() {
-  //     try {
-  //         await this.proxy.load().then(res=>{
-  //             this.getData = res;
-  //             this.galeryPictures = this.getData.Result;
-  //             console.log(this.galeryPictures);
-  //         });
-  //         //this.galeryPictures=pictures;
-  //         //console.log(pictures);
+//#region post
 
-  //     } catch (ex) {
-  //         console.log(`ex: ${ex}`);
-  //     }
-  // }
+            async post(func: string): Promise<any> {
+                await this.proxy
+                .post(func)
+                .then(res => {
+                    this.getData = res;
+                    // for (let i = 0; i < this.getData.Result.length; i++) {
+                    switch (func) {
+                    case "GetAdditionalProducts":
+                        this.products = this.getData.Result;
+                        console.log(this.products.Result);
+                        console.log(this.getData);
+                        break;
+                    case "GetPackages":
+                        this.packages = this.getData.Result;
+                        break;
+                    case "GetGaleryPictures":
+                        this.galeryPictures = this.getData.Result;
+                        break;
+                    case "GetBaseStores":
+                        this.customers = this.getData.Result;
+                        console.log(this.customers);
+                        break;
+                    }
+                    // }
+                })
+                .catch(() => console.log("error"));
+            }
 
-  async post(func: string): Promise<any> {
-    await this.proxy
-      .post(func)
-      .then(res => {
-        this.getData = res;
-        // for (let i = 0; i < this.getData.Result.length; i++) {
-        switch (func) {
-          case "GetAdditionalProducts":
-            this.products = this.getData.Result;
-            console.log(this.products.Result);
-            console.log(this.getData);
-            break;
-          case "GetPackages":
-            this.packages = this.getData.Result;
-            break;
-          case "GetGaleryPictures":
-            this.galeryPictures = this.getData.Result;
-            break;
-          case "GetBaseStores":
-            this.customers = this.getData.Result;
-            console.log(this.customers);
-            break;
-        }
-        // }
-      })
-      .catch(() => console.log("error"));
-  }
 
-  async postPackageProd(packageId: Number): Promise<any> {
+//#endregion
+ 
+//#region postPackageProd
+async postPackageProd(packageId: Number): Promise<any> {
     await this.proxy
       .postPackageProd(packageId)
       .then(res => {
@@ -128,53 +123,63 @@ export class LiaService {
       })
       .catch(() => console.log("error"));
   }
-  _signature: string;
 
-  // getGalleryPictures(){
-  //          return this.proxy.post("GetGaleryPictures").then((res)=>{
-  //          return res.Result;
-  //      }).catch(() => console.log("error"));
-
-  // }
-
-  nowpackage1: any;
-  getPackageById(id: number): any {
-    switch (id) {
-      case 1:
-        this.nowpackage1 = this.packages[0];
-        break;
-      case 2:
-        this.nowpackage1 = this.packages[1];
-        break;
-      case 3:
-        this.nowpackage1 = this.packages[2];
-        break;
+//#endregion
+  
+//#region postStoreDetails
+    async postStoreDetails(storeId: Number): Promise<any> {
+        await this.proxy
+        .postStoreDetails(storeId)
+        .then(res => {
+            this.getData = res;
+            console.log(storeId);
+            console.log(this.getData.Result);
+         this.customerDetails= this.getData.Result;
+            
+        })
+        .catch(() => console.log("error"));
     }
-    return this.nowpackage1;
-  }
-  nowpackage: any;
-  getPackageProductsById(id: number): any {
-    switch (id) {
-      case 1:
-        this.nowpackage = this.packageProd1;
-        break;
-      case 2:
-        this.nowpackage = this.packageProd2;
-        break;
-      case 3:
-        this.nowpackage = this.packageProd3;
-        break;
-    }
-    return this.nowpackage;
-  }
+//#endregion
 
-  //   async getPackages() {
-  //     await this.proxy.getPackages().then(res => {
-  //       this.getData = res;
-  //       this.packages = this.getData.Result;
-  //     });
-  //   }
+//#region getPackageById
+        _signature: string;
+        nowpackage1: any;
+        getPackageById(id: number): any {
+        switch (id) {
+            case 1:
+            this.nowpackage1 = this.packages[0];
+            break;
+            case 2:
+            this.nowpackage1 = this.packages[1];
+            break;
+            case 3:
+            this.nowpackage1 = this.packages[2];
+            break;
+        }
+        return this.nowpackage1;
+        }
+  //#endregion
 
+//#region getPackageProductsById
+        nowpackage: any;
+        getPackageProductsById(id: number): any {
+            switch (id) {
+            case 1:
+                this.nowpackage = this.packageProd1;
+                break;
+            case 2:
+                this.nowpackage = this.packageProd2;
+                break;
+            case 3:
+                this.nowpackage = this.packageProd3;
+                break;
+            }
+            return this.nowpackage;
+        }
+  //#endregion
+ 
+  
+//#region getProductById
   getProductById(id: number) {
     for (let i = 0; i < this.products.length; i++)
       if (this.products[i].ProductId == id) {
@@ -183,11 +188,37 @@ export class LiaService {
       }
   }
 
-        clickAddToCart(pr) {
+  //#endregion
+       clickAddToCart(pr) {
             this.countProductsInCart++;
             this.productsOfCart.push(pr);
         }
+        submitFrmBusiness() {
+            this.anotherDetails = true;
+        }
+        submitFrmPersonal(frm) {
+            console.log(frm);
+        }
+}
 
+
+
+
+ // getGalleryPictures(){
+  //          return this.proxy.post("GetGaleryPictures").then((res)=>{
+  //          return res.Result;
+  //      }).catch(() => console.log("error"));
+
+  // }
+
+
+
+ //   async getPackages() {
+  //     await this.proxy.getPackages().then(res => {
+  //       this.getData = res;
+  //       this.packages = this.getData.Result;
+  //     });
+  //   }
 
 //   clickDeleteFromCart(pr) {
 //     let j;
@@ -198,30 +229,6 @@ export class LiaService {
 
 //     }
 //   }
-
-
-    submitFrmBusiness() {
-        this.anotherDetails = true;
-
-
-    }
-
-
-  submitFrmPersonal(frm) {
-    console.log(frm);
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
 
 /*packages: any[];
     //ListShell<ProductAdditionalObj>
@@ -271,3 +278,19 @@ export class LiaService {
         }
 
    } */
+
+
+    // async load() {
+  //     try {
+  //         await this.proxy.load().then(res=>{
+  //             this.getData = res;
+  //             this.galeryPictures = this.getData.Result;
+  //             console.log(this.galeryPictures);
+  //         });
+  //         //this.galeryPictures=pictures;
+  //         //console.log(pictures);
+
+  //     } catch (ex) {
+  //         console.log(`ex: ${ex}`);
+  //     }
+  // }

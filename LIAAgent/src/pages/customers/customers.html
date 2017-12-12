@@ -1,6 +1,9 @@
 
+
     <page-header></page-header>
-  
+
+
+
 <ion-content padding>
 
   <ion-grid>
@@ -13,26 +16,20 @@
         <ion-scroll style="height: 400px">
           <ion-list>
 
-            <ion-item *ngFor="let c of customersFilter" (click)="customerClicked()">
+            <ion-item *ngFor="let c of customersFilter" (click)="customerClicked(c.StoreId)">
               <p float-start>{{c.StoreName}}</p>
               <i float-end class="icon-arrow-down-04 t-center  f-size-icon "></i>
-
               <div *ngIf="this.allowDetails">
-                פרטים של הלקוח
-                <ion-scroll scrollY="true" style="height: 50px">
+               
+                <!-- <ion-scroll scrollY="true" style="height: 50px"> -->
+                 <br>
+                  <br>{{service.customerDetails?.Address}}
+                  <br>{{service.customerDetails?.City}}
+                  <br>{{service.customerDetails?.Category}}
                   <br>
-                  <br> {{c.Address}}
-                  <br>
-                  <br> {{c.PackageId}}
-                  <br>
-                  <br>{{c.StoreId}}
-                </ion-scroll>
+               <!-- </ion-scroll> -->
               </div>
-
             </ion-item>
-
-        
-
           </ion-list>
         </ion-scroll>
 
@@ -43,13 +40,13 @@
      <ion-col>
        <form>
           <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים" (input)="onSearchInput($event)"></ion-searchbar>
-          <button ion-button type="button" small (click)="routeToCart()">לקוח חדש</button>
+          <button ion-button type="button" small (click)="routeToCart()">{{valueButton}}</button>
         </form>
 
       </ion-col>
     </ion-row>
   </ion-grid>
-
+  
 </ion-content>
 
 
