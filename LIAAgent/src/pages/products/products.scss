@@ -1,1 +1,32 @@
+page-products{
+        .app-products {
+            display: inline-block;
+            margin: 3%;
+            vertical-align: top;
+        }
 
+        .app-products p {
+            font-size: 1.2em;
+            width: 100px;
+            text-align: center;
+            margin: 0;
+            hyphens: none;
+        }
+
+        .bg-icon-app-products {
+            height: 100px;
+            width: 100px;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .bg-icon-app-products i {
+            font-size: 3em;
+            line-height: 100px;
+            color: white;
+        }
+
+        .bg-icon-app-products img {
+            height: 100px;
+        }
+}

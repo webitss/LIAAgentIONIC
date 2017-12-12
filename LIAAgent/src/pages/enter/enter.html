@@ -1,34 +1,14 @@
 
-<ion-header>
+<ion-header hideBackButton>
 
-  <ion-navbar hideBackButton >
-  
-      <ion-buttons float-start>
-          <button ion-button  >
-             לוגו
-            </button>
-        </ion-buttons> 
-     
-      <ion-title >
-      
-        </ion-title>
-      
-        
-        <ion-buttons float-end>
-            <button ion-button block  (click)="showConfirmAlert()">
-                לצאת מהאפליקציה
-             </button>     
-            </ion-buttons>
-
-          
-  </ion-navbar>
+  <page-header></page-header>
 
 </ion-header>
 
 
 <ion-content padding>
 
-  <div >
+<div >
     {{this.Congratulations}}
     {{this.loginName}}
 </div>
