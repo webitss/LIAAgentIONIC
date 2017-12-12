@@ -1,4 +1,4 @@
-<ion-header align-title="center">
+<ion-header *ngIf="!service.isNowInPageLogin" align-title="center"  >
         <ion-navbar >
          <ion-buttons float-start>
                 <button ion-button   (click)="routeToHome()" >
@@ -14,6 +14,5 @@
                    </button>     
                   </ion-buttons>
                  </ion-navbar>
-        </ion-header>
-        
-<ion-nav [root]="rootPage"></ion-nav>
+</ion-header>
+ <ion-nav [root]="rootPage"></ion-nav>

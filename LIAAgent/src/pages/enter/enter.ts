@@ -26,6 +26,7 @@ export class EnterPage {
   }
   constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events,public service:LiaService) {
 this.service.nowComponent="דף הבית";
+this.service.isNowInPageLogin=false;
     this.hour= this.date.getHours();
   
              if(this.hour>6&&this.hour<12 )

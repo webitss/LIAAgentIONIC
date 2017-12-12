@@ -1,3 +1,4 @@
+
 import { LiaService } from './../providers/lia.service';
 import { TabsPage } from './../pages/tabs/tabs';
 import { LoginPage } from './../pages/login/login';
@@ -23,8 +24,11 @@ export class MyApp {
     private alertCtrl: AlertController,
     private screenOrientation: ScreenOrientation,
     public app:App,
-    public events:Events,public service:LiaService
+    public events:Events,
+    public service:LiaService
   ) {
+    
+  
     events.subscribe('user:login', () => {
       this.showAlert();
     });
@@ -74,9 +78,13 @@ export class MyApp {
     });
     this.alert.present();
   }
-
+ 
+  activePageNow:any;
   routeToHome(){
     // this.navCtrl.push(EnterPage);
+    //console.log(this.navCtrl.getActive().name);
+    console.log(this.app.getActiveNav().getViews()[0].name);
+    
    }
 
   
