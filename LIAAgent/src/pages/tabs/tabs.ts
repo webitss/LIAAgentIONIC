@@ -35,4 +35,10 @@ export class TabsPage {
 
      //this.nav.push(GalleryPage);
   }
+
+  clearHistory(ev:any){
+    console.log("tab2");
+    
+    ev.popToRoot();
+  }
 }

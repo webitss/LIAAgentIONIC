@@ -183,11 +183,12 @@ export class LiaService {
       }
   }
 
-  clickAddToCart(pr) {
-    this.countProductsInCart++;
-    this.productsOfCart.push(pr);
-  }
-}
+        clickAddToCart(pr) {
+            this.countProductsInCart++;
+            this.productsOfCart.push(pr);
+        }
+
+
 //   clickDeleteFromCart(pr) {
 //     let j;
 //     for (let i = 0; i < this.productsOfCart.length; i++) {
@@ -198,14 +199,29 @@ export class LiaService {
 //     }
 //   }
 
-//     submitFrmBusiness() {
-//         this.anotherDetails = true;
 
-//     }
+    submitFrmBusiness() {
+        this.anotherDetails = true;
 
-//   submitFrmPersonal(frm) {
-//     console.log(frm);
-//   }
+
+    }
+
+
+  submitFrmPersonal(frm) {
+    console.log(frm);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /*packages: any[];
     //ListShell<ProductAdditionalObj>

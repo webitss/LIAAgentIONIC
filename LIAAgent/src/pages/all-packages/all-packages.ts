@@ -22,6 +22,7 @@ export class AllPackagesPage {
     this.service.nowComponent = "חבילות";
     this.service.isOuter=true;
     this.service.isInner=false;
+    this.service.isPackageProductDetailed=false;
   }
   select(PackageId:any)
   {
