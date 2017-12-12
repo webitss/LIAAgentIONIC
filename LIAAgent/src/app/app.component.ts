@@ -1,3 +1,4 @@
+import { LiaService } from './../providers/lia.service';
 import { TabsPage } from './../pages/tabs/tabs';
 import { LoginPage } from './../pages/login/login';
 import { Component } from '@angular/core';
@@ -22,7 +23,7 @@ export class MyApp {
     private alertCtrl: AlertController,
     private screenOrientation: ScreenOrientation,
     public app:App,
-    public events:Events
+    public events:Events,public service:LiaService
   ) {
     events.subscribe('user:login', () => {
       this.showAlert();
@@ -74,6 +75,10 @@ export class MyApp {
     this.alert.present();
   }
 
+  routeToHome(){
+    // this.navCtrl.push(EnterPage);
+   }
 
+  
   
 }
