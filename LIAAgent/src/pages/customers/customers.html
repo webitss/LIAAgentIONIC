@@ -1,4 +1,3 @@
-
 <ion-header>
 
   <ion-navbar>
@@ -10,68 +9,71 @@
 
 <ion-content padding>
 
-<ion-grid>
-<ion-row>
-<ion-col>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list-header text-center Large>
+          <i class="icon-arrow-up-05 f-size-icon"></i>
+        </ion-list-header>
 
-        <ion-list>
-                <ion-list-header text-center Large>
-                        <i class="icon-arrow-up-05 f-size-icon"></i>
-                      </ion-list-header>
-                      
-                <ion-item  *ngFor="let c of customersFilter" (click)="customerClicked()">
-                        <p float-start >{{c.num}}{{c.name}}{{c.address}}</p>
-                        <i float-end class="icon-arrow-down-04 t-center  f-size-icon "></i>
-                          
-                </ion-item>  
-      
-    <!-- <div class="t-center"><i class="icon-arrow-up-05 t-center  f-size-icon"></i></div>
+        <ion-scroll style="height: 400px">
+          <ion-list>
+
+            <ion-item *ngFor="let c of customersFilter" (click)="customerClicked()">
+              <p float-start>{{c.StoreName}}</p>
+              <i float-end class="icon-arrow-down-04 t-center  f-size-icon "></i>
+
+              <div *ngIf="this.allowDetails">
+                פרטים של הלקוח
+                <ion-scroll scrollY="true" style="height: 50px">
+                  <br>
+                  <br> {{c.Address}}
+                  <br>
+                  <br> {{c.PackageId}}
+                  <br>
+                  <br>{{c.StoreId}}
+                </ion-scroll>
+              </div>
+
+            </ion-item>
+
+            <!-- <div class="t-center"><i class="icon-arrow-up-05 t-center  f-size-icon"></i></div>
 
     <ion-scroll scrollY="true" style="height: 200px" >
 <div (click)="customerClicked()" *ngFor="let c of customersFilter">
-    
+
         <ion-item float-right>
         {{c.num}}{{c.name}}{{c.address}}
         </ion-item> -->
-<!-- <details (click)="customerClicked()"> -->
+            <!-- <details (click)="customerClicked()"> -->
 
-        <!-- <ion-icon float-left [ngClass]="{'close-circle': allowDetails, 'icon-arrow-left-03': !allowDetails}"></ion-icon> -->
+            <!-- <ion-icon float-left [ngClass]="{'close-circle': allowDetails, 'icon-arrow-left-03': !allowDetails}"></ion-icon> -->
 
-<div *ngIf="this.allowDetails">
-פרטים של הלקוח
-<ion-scroll scrollY="true" style="height: 50px">
-    fffffffffffff
-    <br>
-    kkkkkkkkkkkk
-    <br>
-    ggggggggg
-      </ion-scroll>
-    </div>
+          </ion-list>
+        </ion-scroll>
 
-    <ion-list-header text-center>
-            <i class="icon-arrow-up-05 f-size-icon" ></i>
-          </ion-list-header>
-  </ion-list>
-<!-- </details> -->
-       
-      <!-- </div>
+        <ion-list-header text-center>
+          <i class="icon-arrow-up-05 f-size-icon"></i>
+        </ion-list-header>
+        <!-- </details> -->
+
+        <!-- </div>
       </ion-scroll>
 
       <br>
       <div class="t-center"><i class="icon-arrow-down-04 t-center  f-size-icon"></i></div> -->
 
-</ion-col>
+      </ion-col>
 
-<ion-col>
+      <ion-col>
 
-    <form>
-        <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים"  (input)="onSearchInput($event)" ></ion-searchbar>
-        <button ion-button type="button"  small (click)="routeToCart()" >לקוח חדש</button>
-    </form>
+        <form>
+          <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים" (input)="onSearchInput($event)"></ion-searchbar>
+          <button ion-button type="button" small (click)="routeToCart()">לקוח חדש</button>
+        </form>
 
-</ion-col>
-</ion-row>
-</ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
-
