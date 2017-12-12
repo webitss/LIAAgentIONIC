@@ -55,7 +55,7 @@ export class CustomersPage {
 
     onSearchInput(event)
     {
-      this.customersFilter=this.service.customers.filter(i => i.name.includes(event.target.value));
+      this.customersFilter=this.service.customers.filter(i => i.StoreName.includes(event.target.value));
 
     }
 

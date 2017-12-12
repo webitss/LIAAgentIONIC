@@ -37,7 +37,30 @@
 
             </ion-item>
 
-            <!-- <div class="t-center"><i class="icon-arrow-up-05 t-center  f-size-icon"></i></div>
+        
+
+          </ion-list>
+        </ion-scroll>
+
+        <ion-list-header text-center>
+          <i class="icon-arrow-up-05 f-size-icon"></i>
+        </ion-list-header>
+        </ion-col>
+     <ion-col>
+       <form>
+          <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים" (input)="onSearchInput($event)"></ion-searchbar>
+          <button ion-button type="button" small (click)="routeToCart()">לקוח חדש</button>
+        </form>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+
+
+    <!-- <div class="t-center"><i class="icon-arrow-up-05 t-center  f-size-icon"></i></div>
 
     <ion-scroll scrollY="true" style="height: 200px" >
 <div (click)="customerClicked()" *ngFor="let c of customersFilter">
@@ -49,31 +72,12 @@
 
             <!-- <ion-icon float-left [ngClass]="{'close-circle': allowDetails, 'icon-arrow-left-03': !allowDetails}"></ion-icon> -->
 
-          </ion-list>
-        </ion-scroll>
 
-        <ion-list-header text-center>
-          <i class="icon-arrow-up-05 f-size-icon"></i>
-        </ion-list-header>
-        <!-- </details> -->
+
+              <!-- </details> -->
 
         <!-- </div>
       </ion-scroll>
 
       <br>
       <div class="t-center"><i class="icon-arrow-down-04 t-center  f-size-icon"></i></div> -->
-
-      </ion-col>
-
-      <ion-col>
-
-        <form>
-          <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים" (input)="onSearchInput($event)"></ion-searchbar>
-          <button ion-button type="button" small (click)="routeToCart()">לקוח חדש</button>
-        </form>
-
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-</ion-content>
