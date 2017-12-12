@@ -1,3 +1,4 @@
+import { Events } from 'ionic-angular/util/events';
 import { LiaService } from './../../providers/lia.service';
 import { CartPage } from './../cart/cart';
 import { Component, ViewChild } from '@angular/core';
@@ -31,7 +32,7 @@ export class TabsPage {
   tab5Root = CartPage;
   // tab5Params = { id: 1 };
   // tab6Root = LoginPage;
-  constructor(private nav : NavController,public navP: NavParams,public service: LiaService) {
+  constructor(private nav : NavController,public navP: NavParams,public service: LiaService,public events: Events) {
 
      //this.nav.push(GalleryPage);
   }
@@ -40,5 +41,14 @@ export class TabsPage {
     console.log("tab2");
     
     ev.popToRoot();
+  }
+
+  showConfirmAlert() {
+    this.events.publish('user:login');
+  }
+
+  routeToHome()
+  {
+   // this.nav.push(EnterPage);
   }
 }
