@@ -29,8 +29,7 @@ export class CartPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     service.nowComponent="סל";
     this.id = navParams.get('id');
-    console.log(this.id);
-  }
+    }
 
   ionViewWillEnter()
   {
@@ -42,12 +41,11 @@ export class CartPage {
   ionViewDidEnterDown() {
     // let dimensions = this.contentHandle.getContentDimensions();
     // this.contentHandle.scrollTo(0, dimensions.contentHeight+100, 100);
-  console.log(this.contentHandle.scrollTop);
-    this.contentHandle.scrollTo((this.contentHandle.scrollTop)+10,(this.contentHandle.scrollTop)+10);
+      this.contentHandle.scrollTo((this.contentHandle.scrollTop)+10,(this.contentHandle.scrollTop)+10);
   }
 
   ionViewDidEnterUp() {
-    console.log(this.contentHandle.scrollTop);
+    
       this.contentHandle.scrollTo((this.contentHandle.scrollTop)-10,(this.contentHandle.scrollTop)-10);
     }
 

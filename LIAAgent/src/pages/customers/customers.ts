@@ -42,15 +42,14 @@ export class CustomersPage {
     this.customerDetails=new Array();
   }
     customerDetails:any;
+
     customerClicked(StoreId:number){
           if(!this.allowDetails)
           {
-
             this.service.postStoreDetails(StoreId);
           }
     this.allowDetails=!this.allowDetails;
     this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
-    console.log(this.customerDetails);
     }
 
     routeToCart(){
@@ -72,12 +71,12 @@ export class CustomersPage {
     ionViewDidEnterDown() {
       // let dimensions = this.contentHandle.getContentDimensions();
       // this.contentHandle.scrollTo(0, dimensions.contentHeight+100, 100);
-    console.log(this.contentHandle.scrollTop);
+   
       this.contentHandle.scrollTo((this.contentHandle.scrollTop)+10,(this.contentHandle.scrollTop)+10);
     }
 
     ionViewDidEnterUp() {
-    console.log(this.contentHandle.scrollTop);
+   
       this.contentHandle.scrollTo((this.contentHandle.scrollTop)-10,(this.contentHandle.scrollTop)-10);
     }
 

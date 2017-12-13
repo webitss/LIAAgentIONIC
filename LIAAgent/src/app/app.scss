@@ -10,11 +10,7 @@
 // to import other Sass files to be included in the output CSS.
 //
 // Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+
 
 
 .scroll-content {
@@ -31,11 +27,15 @@ ion-input, ion-textarea {
     padding-right: 3px;
 }
 
+
+
+
 .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
     border-bottom-color: #ffffff00;
     -webkit-box-shadow: #ffffff00;
     box-shadow: #ffffff00;
 }
+
 
 
 .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,

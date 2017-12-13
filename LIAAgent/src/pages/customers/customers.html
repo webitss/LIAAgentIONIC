@@ -24,9 +24,9 @@
               <div *ngIf="this.allowDetails">
                 <ion-scroll scrollY="true" style="height: 100px">
                  <br>
-                  <br>{{service.customerDetails?.Address}}
-                  <br>{{service.customerDetails?.City}}
-                  <br>{{service.customerDetails?.Category}}
+                  <br>{{service.customerDetails[1]?.Address}}
+                  <br>{{service.customerDetails[1]?.City}}
+                  <br>{{service.customerDetails[1]?.Category}}
                   <br>
                </ion-scroll>
               </div>

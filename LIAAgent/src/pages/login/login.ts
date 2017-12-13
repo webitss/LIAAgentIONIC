@@ -37,10 +37,10 @@ export class LoginPage {
     
 }
 ionViewDidEnter(){
-  console.log("send login to service");
+
 }
   doLogin() {
-    console.log("send login to service");
+   
   }
 
   

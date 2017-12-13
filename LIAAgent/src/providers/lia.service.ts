@@ -8,6 +8,8 @@ import "rxjs/add/operator/toPromise";
 @Injectable()
 export class LiaService {
           //#region  variables
+           customerDetailsArray:any;
+            indexCustomer:number=0;
             isNowInPageLogin:boolean;
             package: any;
             packages: any;
@@ -65,6 +67,8 @@ export class LiaService {
             this.isPayed = false;
             this.isTerminateOrdered = false;
             this.customerDetails=new Array();
+            this.customerDetailsArray=new Array();
+            this.indexCustomer=0;
        //#endregion
     }
 
@@ -79,8 +83,6 @@ export class LiaService {
                     switch (func) {
                     case "GetAdditionalProducts":
                         this.products = this.getData.Result;
-                        console.log(this.products.Result);
-                        console.log(this.getData);
                         break;
                     case "GetPackages":
                         this.packages = this.getData.Result;
@@ -90,7 +92,6 @@ export class LiaService {
                         break;
                     case "GetBaseStores":
                         this.customers = this.getData.Result;
-                        console.log(this.customers);
                         break;
                     }
                     // }
@@ -107,22 +108,16 @@ async postPackageProd(packageId: Number): Promise<any> {
     await this.proxy
       .postPackageProd(packageId)
       .then(res => {
-        console.log(packageId);
-        this.getData = res;
+         this.getData = res;
         switch (packageId) {
           case 1:
             this.packageProd1 = this.getData.Result;
-            console.log(packageId);
-            console.log(this.packageProd1);
-            console.log(this.getData);
             break;
           case 2:
             this.packageProd2 = this.getData.Result;
-            console.log(this.packageProd2);
             break;
           case 2:
             this.packageProd3 = this.getData.Result;
-            console.log(this.packageProd3);
             break;
         }
       })
@@ -133,18 +128,50 @@ async postPackageProd(packageId: Number): Promise<any> {
 //#endregion
 
 //#region postStoreDetails
-    async postStoreDetails(storeId: Number): Promise<any> {
-        await this.proxy
-        .postStoreDetails(storeId)
-        .then(res => {
-            this.getData = res;
-            console.log(storeId);
-            console.log(this.getData.Result);
-         this.customerDetails= this.getData.Result;
 
-        })
-        .catch(() => console.log("error"));
+fill(){
+    
+     this.customerDetailsArray[this.indexCustomer][1]=this.customerDetails[1];
+     this.indexCustomer++;
+}
+    async postStoreDetails1(storeId: Number): Promise<any> {
+             await this.proxy
+            .postStoreDetails(storeId)
+            .then(res => {
+                this.getData = res;
+                this.customerDetails[0]=storeId;
+                this.customerDetailsArray[this.indexCustomer][0]=storeId;
+                this.customerDetailsArray[this.indexCustomer][1]=new Array();
+                this.customerDetails[1]= this.getData.Result;
+                this.fill();
+           
+            
+            })
+                .catch(() => console.log("error"));
+      
+       console.log(this.customerDetailsArray);
     }
+
+    postStoreDetails(storeId: Number)
+    {
+        let flag=false;
+        for(let i=0;i<this.customerDetailsArray.length;i++)
+        {
+            if(this.customerDetailsArray[i][0]==storeId)
+            {
+                    this.customerDetails= this.customerDetailsArray[i];
+                    flag=true;
+                    break;
+            }
+        }
+        if(flag==false)
+        {
+             this.customerDetailsArray[this.indexCustomer]=new Array();
+             this.postStoreDetails1(storeId);
+        }
+    
+    }
+   
 //#endregion
 
 //#region getPackageById
