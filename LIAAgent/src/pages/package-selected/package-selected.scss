@@ -1,3 +1,49 @@
 page-package-selected {
 
+.part-4{
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    border-right: 1px solid white;}
+
+    .part-3 {
+        height: calc(81vh - 140px);
+        border-left: 1px solid #fff;
+        position: relative;
+    
+    
+        .part-3-inner {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            width: 100%;
+        
+        
+            div {
+                padding: 1%;
+                padding-right: 15%;
+
+                i {
+                    font-size: 1.8em;
+                    color: white;
+                    vertical-align: middle;
+                    float: left;
+                    margin-left: 6%;
+                }
+                
+                span {
+                    font-size: 1.8em;
+                    color: white;
+                }
+            }
+        }
+
+
+    }
+    
+    .ParentProductId:not(:last-child) {
+        border-bottom: 1px solid white;
+    }
+    
+
 }

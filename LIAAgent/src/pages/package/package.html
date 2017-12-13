@@ -1,8 +1,5 @@
-<!-- <ion-header hideBackButton>
-</ion-header> -->
 
-
-  <ion-grid  >
+  <ion-grid>
     <ion-row class="package">
        <ion-col  col-5 class="package-right gold">
         <div class="rotate">
@@ -10,7 +7,7 @@
         </div>
       </ion-col>
      
-      <ion-col  col-7  [ngClass]="{'package-left':!service.isInner,'package-left-2':service.isInner}">
+      <ion-col col-7 [ngClass]="{'package-left':!service.isInner,'package-left-2':service.isInner}">
         <div>
           <ion-item>
             {{package?.TicketsNum}}
@@ -31,6 +28,7 @@
 
      </ion-row>
  </ion-grid>
+
 
  <!--  -->
        <!--  -->
