@@ -13,14 +13,17 @@
         <ion-col>
           <div class="col-md-6">
             <div class="container-lia container">
-            <div class="t-center"><i class="icon-arrow-up-05 t-center blue f-size-icon"></i></div>
-               <ion-scroll scrollY="true" style="height: 200px">
-                <ion-item *ngFor="let c of service.customers">
-                    {{c.num}}{{c.name}}{{c.address}}
+            <div class="t-center"><i class="icon-arrow-up-05 t-center blue f-size-icon" (click)="this.ionViewDidEnterUp()"></i></div>
+
+                  <ion-content padding #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 300px">
+                <ion-item *ngFor="let p of service.productsOfCart">
+{{p.ProductId}}
+<i float-end class="icon-arrow-down-04 t-center  f-size-icon " (click)="service.clickDeleteToCart(p.ProductId)"></i>
                     </ion-item>
-                  </ion-scroll>
-              
-            <div class="t-center"><i class="icon-arrow-down-04 t-center blue f-size-icon"></i></div>
+                  </ion-content>
+
+
+            <div class="t-center" ><i class="icon-arrow-down-04 t-center blue f-size-icon" (click)="this.ionViewDidEnterDown()"></i></div>
             </div>
             </div>
           </ion-col>
@@ -42,7 +45,7 @@
             </div>
           </div>
         </ion-col>
-          
+
   </ion-row>
 </ion-grid>
 

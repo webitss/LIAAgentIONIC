@@ -1,21 +1,23 @@
+
 import { LiaService } from './../providers/lia.service';
 import { TabsPage } from './../pages/tabs/tabs';
 import { LoginPage } from './../pages/login/login';
 import { Component } from '@angular/core';
-import { Platform, AlertController, App, Alert } from 'ionic-angular';
+import { Platform, AlertController, App, Alert,Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Events } from 'ionic-angular/util/events';
 import { EnterPage } from '../pages/enter/enter';
+import { ViewChild } from '@angular/core';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = LoginPage;
+  @ViewChild(Nav) nav: Nav;
 
- // @ViewChild(Nav) nav: Nav;
   alert: Alert;
   constructor(public platform: Platform,
     statusBar: StatusBar,
@@ -23,8 +25,11 @@ export class MyApp {
     private alertCtrl: AlertController,
     private screenOrientation: ScreenOrientation,
     public app:App,
-    public events:Events,public service:LiaService
+    public events:Events,
+    public service:LiaService
   ) {
+    
+  
     events.subscribe('user:login', () => {
       this.showAlert();
     });
@@ -74,10 +79,14 @@ export class MyApp {
     });
     this.alert.present();
   }
-
-  routeToHome(){
-    // this.navCtrl.push(EnterPage);
-   }
+ 
+  activePageNow:any;
+  // routeToHome(){
+  //    this.nav.push(EnterPage);
+  //   //console.log(this.navCtrl.getActive().name);
+  //   // console.log(this.app.getActiveNav().getViews()[0].name);
+    
+  //  }
 
   
   

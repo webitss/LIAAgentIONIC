@@ -4,8 +4,10 @@ import { LiaService } from '../../providers/lia.service';
 import { CartPage } from '../cart/cart';
 import {TabsEnum} from '../../models/tabs-enum';
 import { NgZone } from '@angular/core';
-import { ViewChild } from '@angular/core/src/metadata/di';
 import {ItemSliding, Item} from 'ionic-angular';
+import { ViewChild } from '@angular/core';
+import {Content} from 'ionic-angular';
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 
 /**
  * Generated class for the CustomersPage page.
@@ -20,6 +22,7 @@ import {ItemSliding, Item} from 'ionic-angular';
   templateUrl: 'customers.html',
 })
 export class CustomersPage {
+  @ViewChild("contentRef") contentHandle: Content;
   valueButton:string;
   allowDetails:boolean;
   tems1Filter=[];
@@ -42,7 +45,7 @@ export class CustomersPage {
     customerClicked(StoreId:number){
           if(!this.allowDetails)
           {
-            
+
             this.service.postStoreDetails(StoreId);
           }
     this.allowDetails=!this.allowDetails;
@@ -62,7 +65,20 @@ export class CustomersPage {
     onSearchInput(event)
     {
       this.customersFilter=this.service.customers.filter(i => i.StoreName.includes(event.target.value));
+    }
 
+    scrollingFun(e){}
+
+    ionViewDidEnterDown() {
+      // let dimensions = this.contentHandle.getContentDimensions();
+      // this.contentHandle.scrollTo(0, dimensions.contentHeight+100, 100);
+    console.log(this.contentHandle.scrollTop);
+      this.contentHandle.scrollTo((this.contentHandle.scrollTop)+10,(this.contentHandle.scrollTop)+10);
+    }
+
+    ionViewDidEnterUp() {
+    console.log(this.contentHandle.scrollTop);
+      this.contentHandle.scrollTo((this.contentHandle.scrollTop)-10,(this.contentHandle.scrollTop)-10);
     }
 
 }
