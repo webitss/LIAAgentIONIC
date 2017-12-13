@@ -4,11 +4,13 @@ import { LiaProxy } from "./proxy";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
+import { customerModel } from "../models/customer";
+
 
 @Injectable()
 export class LiaService {
           //#region  variables
-           customerDetailsArray:any;
+            customerDetailsArray:any;
             indexCustomer:number=0;
             isNowInPageLogin:boolean;
             package: any;
@@ -17,7 +19,7 @@ export class LiaService {
             source: String;
             getData: any;
             products: any;
-            customers: any;
+            customers: customerModel[];
             customerDetails:any;
             nowComponent: string;
             product: any;
@@ -36,7 +38,7 @@ export class LiaService {
             packageProd1: any;
             packageProd2: any;
             packageProd3: any;
-
+            c:customerModel;
 
 
   //#endregion
@@ -45,11 +47,11 @@ export class LiaService {
             this.isNowInPageLogin=true;
             this.galeryPictures = new Array();
             this.products = new Array();
-            this.customers = new Array();
+            this.customers = [];
             this.packageProd1 = new Array();
             this.packageProd2 = new Array();
             this.packageProd3 = new Array();
-            this.customers[3] = { name: "ttt", address: "t", num: 1, another: "jjjjj" };
+            //this.customers[3] = { name: "ttt", address: "t", num: 1, another: "jjjjj" };
             this.nowComponent = "menu";
             this.packages = new Array();
             this.productsOfCart = new Array();
@@ -69,7 +71,7 @@ export class LiaService {
             this.customerDetails=new Array();
             this.customerDetailsArray=new Array();
             this.indexCustomer=0;
-       //#endregion
+            //#endregion
     }
 
 //#region post
