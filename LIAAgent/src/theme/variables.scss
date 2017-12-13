@@ -56,6 +56,14 @@ $colors: (
 $list-md-border-color:transparent;
 $app-direction: rtl;
 
+
+$tabs-background:color($colors, green-color);
+
+$tabs-md-tab-color-active:color($colors, yellow-color);
+
+.tabs-md .tab-button[aria-selected=true] {
+    border-top: 2px solid red;
+}
 // .item-md.item-block .item-inner {
 // 	border-bottom: none;
 //   }
