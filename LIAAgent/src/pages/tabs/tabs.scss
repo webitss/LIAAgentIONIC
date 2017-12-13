@@ -16,7 +16,49 @@ tabs{
         border-radius: 100%;
     }
 
-    
+    .toolbar-background-md {
+        border-color: #32db64;
+        background: #f50d0d;
+    }
+
+    .toolbar-content-md{
+        text-align: center;
+    }
+
+    ion-title{
+        display: inline-block;
+        width: auto;
+    }
+
+    .logo-header {
+        // top: 50%;
+        // position: absolute;
+        -webkit-transform: translatey(0%) scale(0.7);
+        transform: translatey(0%) scale(0.7);
+        
+    }
+
+    .user-name {
+        float: left;
+        margin-left: 6%;
+        color: white;
+        font-size: 2rem;
+        // line-height: 11vh;
+    }
+
+    .header-name {
+        color: #fff;
+        text-align: center;
+        font-size: 1.4em;
+        // line-height: 11vh;
+        margin: 0;
+    }
+
+    .header-name span {
+        border-left: 1px solid #fff;
+        padding: 0 40px;
+        border-right: 1px solid #fff;
+    }
 }
 button {
    
