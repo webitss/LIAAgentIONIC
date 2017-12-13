@@ -1,3 +1,4 @@
+import { AccordionPage } from './../pages/accordion/accordion';
 import { HeaderPage } from './../pages/header/header';
 //import { LoginPage } from './../pages/login/login';
 import { SignaturePage } from './../pages/signature/signature';
@@ -64,7 +65,8 @@ import { VideoPage } from '../pages/video/video';
     HeaderPage,
     SignaturePage,
     FormOfUsePage,
-    VideoPage
+    VideoPage,
+    AccordionPage
   ],
   imports: [
     BrowserModule,SignaturePadModule,
@@ -95,7 +97,8 @@ import { VideoPage } from '../pages/video/video';
     HeaderPage,
     SignaturePage,
     FormOfUsePage,
-    VideoPage
+    VideoPage,
+    AccordionPage
      ],
   providers: [
     StatusBar,
