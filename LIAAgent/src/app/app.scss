@@ -21,6 +21,29 @@
     overflow-y: auto;
   }
 
+.grid {
+  margin-top: 56px;
+}
+
+ion-input, ion-textarea {
+    border: 1px solid;
+    border-radius: 16px;
+    padding-right: 3px;
+}
+
+.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom-color: #ffffff00;
+    -webkit-box-shadow: #ffffff00;
+    box-shadow: #ffffff00;
+}
+
+
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  border-bottom-color: #ffffff00;
+  -webkit-box-shadow: inset 0 -1px 0 0 #ffffff00;
+  box-shadow: inset 0 -1px 0 0 #ffffff00;
+}
 
 // .ion-page > ion-content
 // {

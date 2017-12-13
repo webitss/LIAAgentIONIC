@@ -3,10 +3,12 @@ page-package-selected {
 .part-4{
     border-bottom-left-radius: 30px;
     border-top-left-radius: 30px;
-    border-right: 1px solid white;}
+    border-right: 1px solid white;
+    padding:1%; 
+}
 
     .part-3 {
-        height: calc(81vh - 140px);
+        // height: calc(81vh - 140px);
         border-left: 1px solid #fff;
         position: relative;
     
@@ -39,6 +41,23 @@ page-package-selected {
         }
 
 
+    }
+
+    .btn-font-transparent {
+        font-size: 1.8em;
+        background: transparent;
+        border: none;
+        color: #fff;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        width: inherit;
+
+        &:hover:not(.disable-hover) {
+            background-color: transparent;
+            color: #565656;
+            box-shadow: none;
+        }
     }
     
     .ParentProductId:not(:last-child) {
