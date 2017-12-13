@@ -57,62 +57,7 @@
 }
 
 
-.menu-footer {
-	position: absolute;
-	bottom: 0px;
-	width: 100%;
-	background: #f1f1f2;
-}
 
-.menu-footer ul, menu, dir {
-	-webkit-padding-start: 0px;
-}
-
-.menu-footer ul {
-	margin: 0;
-}
-
-.btn-footer {
-	background: rgba(255, 255, 255, 0.1);
-	-webkit-transition: -webkit-transform ease-out 0.1s, background 0.2s;
-	-moz-transition: -moz-transform ease-out 0.1s, background 0.2s;
-	transition: transform ease-out 0.1s, background 0.2s;
-	width: 20%;
-	margin: 0 -2px;
-	display: inline-block;
-	height: 8vh;
-	text-align: center;
-	line-height: 8vh;
-	cursor: pointer;
-	position: relative;
-	font-size: 1.3em;
-	border-top: 4px solid #f3f3f3;
-}
-
-.btn-footer:hover {
-	background: rgb(230, 230, 230);
-	-webkit-transform: all;
-	-moz-transform: all;
-	-ms-transform: all;
-	transform: all;
-	color: #000;
-	border-top: 4px solid rgb(230, 230, 230);
-}
-
-.btn-footer:active {
-	border-top: 4px solid red;
-	color: red;
-}
-
-.menu-footer li:not(:last-child):after {
-	content: "";
-	background-color: #59595b;
-	position: absolute;
-	width: 1px;
-	height: 6vh;
-	top: 10px;
-	left: 0%;
-}
 
 .alert-number {
 	height: 20px;
