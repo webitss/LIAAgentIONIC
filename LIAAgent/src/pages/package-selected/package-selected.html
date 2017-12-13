@@ -3,9 +3,9 @@
   <ion-grid>
      <ion-row>
 
-          <ion-col ><page-package [package]="nowPackage"> </page-package></ion-col>
+          <ion-col><page-package [package]="nowPackage"> </page-package></ion-col>
 
-          <ion-col *ngIf="!service.isPackageProductDetailed"  class="bg-yellow part-3" col-7 >
+          <ion-col *ngIf="!service.isPackageProductDetailed"  class="bg-yellow part-3" col-6 >
                   <div class="part-3-inner">
 
                           <div *ngFor="let p of products" >
@@ -18,7 +18,7 @@
                   </div>
           </ion-col>
 
-          <ion-col *ngIf="service.isPackageProductDetailed">
+          <ion-col *ngIf="service.isPackageProductDetailed" class="bg-yellow ">
             <div >
             <p> {{product.ProductLongName}}</p>
             <p> {{product.ProductName}}</p>
@@ -27,12 +27,14 @@
             </div>
           </ion-col>
    
-          <ion-col class="bg-yellow part-4">
+          <ion-col class="bg-yellow part-4" col-2>
               <input type="button" *ngIf="!service.isPackageProductDetailed" class="center-center btn-white" value="הוסף לסל" (click)="service.clickAddToCart()">
-              <button ion-button class="pull-right btn-font" (click)="navCtrl.pop(navCtrl)" >
+              <button ion-button float-left class="btn-font-transparent" (click)="navCtrl.pop(navCtrl)" >
                 <i class="icon-icon-x_Artboard-2-01 "></i>
               </button>
-              <button ion-button *ngIf="service.isPackageProductDetailed" (click)="details()"> <i class="icon-arrow-right-02"></i></button>
+              <button ion-button float-left class="btn-font-transparent" *ngIf="service.isPackageProductDetailed" (click)="details()"> 
+                <i class="icon-arrow-right-02"></i>
+              </button>
           </ion-col>
 
       </ion-row>

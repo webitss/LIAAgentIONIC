@@ -39,7 +39,7 @@ export class LoginPage {
 
 }
 ionViewDidEnter(){
-  console.log("send login to service");
+
 }
 
   mini() {

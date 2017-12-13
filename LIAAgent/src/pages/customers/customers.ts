@@ -29,28 +29,53 @@ export class CustomersPage {
   TabsEnum: typeof TabsEnum = TabsEnum;
   customersFilter: any[];
   customersByIdlist:any;
+  customerDetails:any;
 
-
+  items: any = [];
+  itemExpandHeight: number = 100;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     this.valueButton="לקוח חדש";
     service.nowComponent="לקוחות";
     this.allowDetails=false;
-    this.customersFilter=this.service.customers;
+
     this.customersByIdlist=new Array();
     this.customerDetails=new Array();
+    this.service.customers.forEach(element => {
+      element.expanded=false;
+   });
+   this.customersFilter=this.service.customers;
+    this.items = [
+      {expanded: false},
+      {expanded: false},
+      {expanded: false},
+      {expanded: false},
+      {expanded: false},
+      {expanded: false},
+      {expanded: false},
+      {expanded: false},
+      {expanded: false}
+  ];
   }
-    customerDetails:any;
+  //#region scrol
+  scrollingFun(e){}
+  ionViewDidEnterDown() {
+    this.contentHandle.scrollTo((this.contentHandle.scrollTop)+60,(this.contentHandle.scrollTop)+60);
+  }
+  ionViewDidEnterUp() {
+    this.contentHandle.scrollTo((this.contentHandle.scrollTop)-60,(this.contentHandle.scrollTop)-60);
+  }
+//#endregion
+
+
     customerClicked(StoreId:number){
           if(!this.allowDetails)
           {
-
             this.service.postStoreDetails(StoreId);
           }
     this.allowDetails=!this.allowDetails;
     this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
-    console.log(this.customerDetails);
     }
 
     routeToCart(){
@@ -67,18 +92,30 @@ export class CustomersPage {
       this.customersFilter=this.service.customers.filter(i => i.StoreName.includes(event.target.value));
     }
 
-    scrollingFun(e){}
 
-    ionViewDidEnterDown(e) {
-      // let dimensions = this.contentHandle.getContentDimensions();
-      // this.contentHandle.scrollTo(0, dimensions.contentHeight+100, 100);
-    console.log(this.contentHandle.scrollTop);
-      this.contentHandle.scrollTo((this.contentHandle.scrollTop)+10,(this.contentHandle.scrollTop)+10);
-    }
 
-    ionViewDidEnterUp() {
-    console.log(this.contentHandle.scrollTop);
-      this.contentHandle.scrollTo((this.contentHandle.scrollTop)-10,(this.contentHandle.scrollTop)-10);
-    }
+    expandItem(item){
+
+             this.customersFilter.map((listItem) => {
+
+                 if(item == listItem){
+                     listItem.expanded = !listItem.expanded;
+                     this.service.postStoreDetails(item.StoreId);
+                 } else {
+                     listItem.expanded = false;
+                 }
+
+                // return listItem;
+
+             });
+             this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
+         }
+
 
 }
+
+
+
+
+ // let dimensions = this.contentHandle.getContentDimensions();
+      // this.contentHandle.scrollTo(0, dimensions.contentHeight+100, 100);

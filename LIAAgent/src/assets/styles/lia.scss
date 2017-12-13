@@ -1,22 +1,11 @@
 
 
-
-.list-md .item-block .item-inner {
-    border-bottom:none;
-}
-
-
-
 .container-lia {
 	width: 100%;
 	height: 81vh;
 	padding: 70px;
 	overflow-y: auto;
 	overflow-x: hidden;
-}
-
-.t-center {
-	text-align: center;
 }
 
 .p-none {
@@ -34,36 +23,6 @@
 	line-height: 40px;
 	height: 40px;
 }
-
-// bg-color
-
-// .bg-yellow {
-// 	background: color($colors, yellow-color);
-// }
-// .bg-green {
-// 	background: color($colors, green-color);
-// }
-// .bg-blue {
-// 	background: color($colors, blue-color);
-// }
-// .bg-blue-2 {
-// 	background: color($colors, blue-2-color);
-// }
-// .bg-pink {
-// 	background: color($colors, pink-color);
-// }
-// .bg-light-blue {
-// 	background: color($colors, light-blue-color);
-// }
-// .bg-red {
-// 	background: color($colors, red-color);
-// }
-// .bg-gray {
-// 	background: color($colors,gray-color);
-// }
-
-// bg-color
-
 
 .btn-width {
 	width: 100%;
@@ -90,7 +49,7 @@
 	margin-bottom: 10px;
 	height: 34px;
 	border: 1px solid;
-	padding-right: 3px;
+	
 }
 
 .height-78 {
@@ -98,62 +57,7 @@
 }
 
 
-.menu-footer {
-	position: absolute;
-	bottom: 0px;
-	width: 100%;
-	background: #f1f1f2;
-}
 
-.menu-footer ul, menu, dir {
-	-webkit-padding-start: 0px;
-}
-
-.menu-footer ul {
-	margin: 0;
-}
-
-.btn-footer {
-	background: rgba(255, 255, 255, 0.1);
-	-webkit-transition: -webkit-transform ease-out 0.1s, background 0.2s;
-	-moz-transition: -moz-transform ease-out 0.1s, background 0.2s;
-	transition: transform ease-out 0.1s, background 0.2s;
-	width: 20%;
-	margin: 0 -2px;
-	display: inline-block;
-	height: 8vh;
-	text-align: center;
-	line-height: 8vh;
-	cursor: pointer;
-	position: relative;
-	font-size: 1.3em;
-	border-top: 4px solid #f3f3f3;
-}
-
-.btn-footer:hover {
-	background: rgb(230, 230, 230);
-	-webkit-transform: all;
-	-moz-transform: all;
-	-ms-transform: all;
-	transform: all;
-	color: #000;
-	border-top: 4px solid rgb(230, 230, 230);
-}
-
-.btn-footer:active {
-	border-top: 4px solid red;
-	color: red;
-}
-
-.menu-footer li:not(:last-child):after {
-	content: "";
-	background-color: #59595b;
-	position: absolute;
-	width: 1px;
-	height: 6vh;
-	top: 10px;
-	left: 0%;
-}
 
 .alert-number {
 	height: 20px;
@@ -238,12 +142,7 @@
 	line-height: 15px;
 }
 
-.add-cart {
-	height: calc(81vh - 140px);
-	border-bottom-left-radius: 30px;
-	border-top-left-radius: 30px;
-	padding: 8%;
-}
+
 
 .center-center {
 	position: absolute;
@@ -262,12 +161,7 @@
 	font-size: 1.3em;
 }
 
-.btn-font {
-	font-size: 1.8em;
-	background: transparent;
-	border: none;
-	color: #fff;
-}
+
 
 
 

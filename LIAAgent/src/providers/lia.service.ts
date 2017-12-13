@@ -2,11 +2,14 @@ import { Injectable } from "@angular/core";
 import { LiaProxy } from "./proxy";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
+import { customerModel } from "../models/customer";
 import { LoginModel } from "../models/loginModel";
 
 @Injectable()
 export class LiaService {
   //#region  variables
+  customerDetailsArray:any;
+  indexCustomer:number=0;
   isNowInPageLogin: boolean;
   package: any;
   packages: any;
@@ -35,6 +38,7 @@ export class LiaService {
   packageProd3: any;
   isAuthenticated: any;
   userLogin: LoginModel;
+  c:customerModel;
 
 
   //#endregion
@@ -66,6 +70,8 @@ export class LiaService {
     this.isTerminateOrdered = false;
     this.customerDetails = new Array();
     this.userLogin = new LoginModel;
+    this.customerDetailsArray=new Array();
+    this.indexCustomer=0;
     //#endregion
   }
 
@@ -85,61 +91,51 @@ export class LiaService {
   .catch(() => console.log("error"));
   }
 
-  //#region post
 
-  async post(func: string): Promise<any> {
-    await this.proxy
-      .post(func)
-      .then(res => {
-        this.getData = res;
-        // for (let i = 0; i < this.getData.Result.length; i++) {
-        switch (func) {
-          case "GetAdditionalProducts":
-            this.products = this.getData.Result;
-            console.log(this.products.Result);
-            console.log(this.getData);
-            break;
-          case "GetPackages":
-            this.packages = this.getData.Result;
-            break;
-          case "GetGaleryPictures":
-            this.galeryPictures = this.getData.Result;
-            break;
-          case "GetBaseStores":
-            this.customers = this.getData.Result;
-            console.log(this.customers);
-            break;
-          case "CheckLoginApp":
-            this.isAuthenticated = this.getData;
-        }
-        // }
-      })
-      .catch(() => console.log("error"));
-  }
 
-  //#endregion
+//#region post
+
+            async post(func: string): Promise<any> {
+                await this.proxy
+                .post(func)
+                .then(res => {
+                    this.getData = res;
+                    // for (let i = 0; i < this.getData.Result.length; i++) {
+                    switch (func) {
+                    case "GetAdditionalProducts":
+                        this.products = this.getData.Result;
+                        break;
+                    case "GetPackages":
+                        this.packages = this.getData.Result;
+                        break;
+                    case "GetGaleryPictures":
+                        this.galeryPictures = this.getData.Result;
+                        break;
+                    case "GetBaseStores":
+                        this.customers = this.getData.Result;
+                        break;
+                    }
+                    // }
+                })
+                .catch(() => console.log("error"));
+            }
+
 
   //#region postPackageProd
   async postPackageProd(packageId: Number): Promise<any> {
     await this.proxy
       .postPackageProd(packageId)
       .then(res => {
-        console.log(packageId);
-        this.getData = res;
+         this.getData = res;
         switch (packageId) {
           case 1:
             this.packageProd1 = this.getData.Result;
-            console.log(packageId);
-            console.log(this.packageProd1);
-            console.log(this.getData);
             break;
           case 2:
             this.packageProd2 = this.getData.Result;
-            console.log(this.packageProd2);
             break;
           case 2:
             this.packageProd3 = this.getData.Result;
-            console.log(this.packageProd3);
             break;
         }
       })
@@ -148,37 +144,73 @@ export class LiaService {
 
   //#endregion
 
-  //#region postStoreDetails
-  async postStoreDetails(storeId: Number): Promise<any> {
-    await this.proxy
-      .postStoreDetails(storeId)
-      .then(res => {
-        this.getData = res;
-        console.log(storeId);
-        console.log(this.getData.Result);
-        this.customerDetails = this.getData.Result;
-      })
-      .catch(() => console.log("error"));
-  }
-  //#endregion
 
-  //#region getPackageById
-  _signature: string;
-  nowpackage1: any;
-  getPackageById(id: number): any {
-    switch (id) {
-      case 1:
-        this.nowpackage1 = this.packages[0];
-        break;
-      case 2:
-        this.nowpackage1 = this.packages[1];
-        break;
-      case 3:
-        this.nowpackage1 = this.packages[2];
-        break;
+
+//#region postStoreDetails
+
+fill(){
+
+     this.customerDetailsArray[this.indexCustomer][1]=this.customerDetails[1];
+     this.indexCustomer++;
+}
+    async postStoreDetails1(storeId: Number): Promise<any> {
+             await this.proxy
+            .postStoreDetails(storeId)
+            .then(res => {
+                this.getData = res;
+                this.customerDetails[0]=storeId;
+                this.customerDetailsArray[this.indexCustomer][0]=storeId;
+                this.customerDetailsArray[this.indexCustomer][1]=new Array();
+                this.customerDetails[1]= this.getData.Result;
+                this.fill();
+
+
+            })
+                .catch(() => console.log("error"));
+
+       console.log(this.customerDetailsArray);
     }
-    return this.nowpackage1;
-  }
+
+    postStoreDetails(storeId: Number)
+    {
+        let flag=false;
+        for(let i=0;i<this.customerDetailsArray.length;i++)
+        {
+            if(this.customerDetailsArray[i][0]==storeId)
+            {
+                    this.customerDetails= this.customerDetailsArray[i];
+                    flag=true;
+                    break;
+            }
+        }
+        if(flag==false)
+        {
+             this.customerDetailsArray[this.indexCustomer]=new Array();
+             this.postStoreDetails1(storeId);
+        }
+
+    }
+
+//#endregion
+
+//#region getPackageById
+        _signature: string;
+        nowpackage1: any;
+        getPackageById(id: number): any {
+        switch (id) {
+            case 1:
+            this.nowpackage1 = this.packages[0];
+            break;
+            case 2:
+            this.nowpackage1 = this.packages[1];
+            break;
+            case 3:
+            this.nowpackage1 = this.packages[2];
+            break;
+        }
+        return this.nowpackage1;
+        }
+
   //#endregion
 
   //#region getPackageProductsById
