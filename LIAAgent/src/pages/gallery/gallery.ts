@@ -61,7 +61,16 @@ export class GalleryPage implements OnInit {
 
   }
 
+  slideChanged()
+  {
+    let currIndex = this.slider.getActiveIndex();
+    console.log('Current index is', currIndex);
+   if(currIndex==1)this.prevDisabled=false;
+   if(currIndex==this.service.galeryPictures.length-1)this.nextDisabled=true;
+   else this.nextDisabled=false;
+   if(currIndex==0)this.prevDisabled=true;
 
+  }
 
 
 }

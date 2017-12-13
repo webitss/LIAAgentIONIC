@@ -61,10 +61,10 @@ export class CustomersPage {
   //#region scrol
   scrollingFun(e){}
   ionViewDidEnterDown() {
-    this.contentHandle.scrollTo((this.contentHandle.scrollTop)+10,(this.contentHandle.scrollTop)+10);
+    this.contentHandle.scrollTo((this.contentHandle.scrollTop)+60,(this.contentHandle.scrollTop)+60);
   }
   ionViewDidEnterUp() {
-    this.contentHandle.scrollTo((this.contentHandle.scrollTop)-10,(this.contentHandle.scrollTop)-10);
+    this.contentHandle.scrollTo((this.contentHandle.scrollTop)-60,(this.contentHandle.scrollTop)-60);
   }
 //#endregion
     
