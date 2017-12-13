@@ -26,6 +26,7 @@ import { LoginPage } from '../login/login';
 })
 export class TabsPage {
   @ViewChild("menutTabs") menuTabs: Tabs;
+  tabsIndex:any;
   TabsEnum: typeof TabsEnum = TabsEnum;
   tab1Root = GalleryPage;
   tab2Root = AllPackagesPage;
@@ -45,7 +46,10 @@ export class TabsPage {
 
   routeToHome()
   {
-    
+    //this.menuTabs.select(0);
+    this.nav.setRoot(this.nav.getActive().component);
+   // this.tabsIndex=TabsEnum.gallery;
+    // this.menuTabs.selectedIndex=this.tabsIndex;
     //this.menuTabs.selectedIndex=TabsEnum.gallery;
    // this.nav.push(EnterPage);
   }
