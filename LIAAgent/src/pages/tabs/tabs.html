@@ -6,9 +6,13 @@
               <img src="assets/imgs/logo-header.png"class="logo-header"/>
               </button>
           </ion-buttons> 
-       <ion-title >
+
+       <ion-title class="header-name">
+         <span>
          {{service.nowComponent}}
+        </span>
         </ion-title>
+
            <ion-buttons float-end>
               <button ion-button block  (click)="showConfirmAlert()">
                   לצאת מהאפליקציה
