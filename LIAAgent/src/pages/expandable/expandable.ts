@@ -14,7 +14,7 @@ export class ExpandablePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ExpandablePage');
+    
   }
   ngAfterViewInit(){
     this.renderer.setElementStyle(this.expandWrapper.nativeElement, 'height', this.expandHeight + 'px');   

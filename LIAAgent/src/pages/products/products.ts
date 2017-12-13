@@ -13,23 +13,12 @@ import { ProductDetailsPage } from '../product-details/product-details';
   templateUrl: 'products.html',
 })
 export class ProductsPage  {
-  items: any = [];
-  itemExpandHeight: number = 100;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     service.nowComponent="מוצרים";
     
 
-    this.items = [
-      {expanded: false},
-      {expanded: false},
-      {expanded: false},
-      {expanded: false},
-      {expanded: false},
-      {expanded: false},
-      {expanded: false},
-      {expanded: false},
-      {expanded: false}
-  ];
+   
   }
   select(productId){
     this.navCtrl.push(ProductDetailsPage,{ productId: productId});
@@ -42,22 +31,7 @@ export class ProductsPage  {
   }
 
 
-  expandItem(item){
-    
-           this.items.map((listItem) => {
-    
-               if(item == listItem){
-                   listItem.expanded = !listItem.expanded;
-               } else {
-                   listItem.expanded = false;
-               }
-    
-               return listItem;
-    
-           });
-    
-       }
-
+  
 
  
 }
