@@ -17,10 +17,13 @@
             <ion-content padding #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 400px">
 
                 <ion-list>
+                    
                     <button detail-none (click)="expandItem(item) " ion-item *ngFor="let item of customersFilter">
                       <ion-thumbnail item-start>
                         <!-- <img src="http://placehold.it/100"> -->
+                       
                       </ion-thumbnail>
+                      <button ion-button clear ><i float-end class="icon-arrow-down-04 t-center  f-size-icon "></i></button>
                       <h2>{{item.StoreName}}</h2>
                       <p>{{item.Address}}</p>
                       <page-expandable [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
@@ -28,7 +31,7 @@
                           <br>{{service.customerDetails[1]?.City}}
                           <br>{{service.customerDetails[1]?.Category}}
                       </page-expandable>
-                      <button ion-button clear item-end>View</button>
+                      
                     </button>
                   </ion-list>
           <!-- <ion-list>
