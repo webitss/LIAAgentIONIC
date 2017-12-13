@@ -90,7 +90,25 @@
 
                   </div>
   </ion-grid>
+  <!-- <page-accordion></page-accordion>
   <page-accordion></page-accordion>
-  <page-accordion></page-accordion>
-  <page-accordion></page-accordion>     
+  <page-accordion></page-accordion>      -->
+
+
+
+  <ion-list>
+      <button detail-none (click)="expandItem(item)" ion-item *ngFor="let item of items">
+        <ion-thumbnail item-start>
+          <!-- <img src="http://placehold.it/100"> -->
+        </ion-thumbnail>
+        <h2>My Neighbor Totoro</h2>
+        <p>Hayao Miyazaki • 1988</p>
+        <page-expandable [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
+            Hello people
+        </page-expandable>
+        <button ion-button clear item-end>View</button>
+      </button>
+    </ion-list>
+
+    
 </ion-content>
