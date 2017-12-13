@@ -9,14 +9,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Events } from 'ionic-angular/util/events';
 import { EnterPage } from '../pages/enter/enter';
-import { ViewChild } from '@angular/core';
+//import { ViewChild } from '@angular/core';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = LoginPage;
-  @ViewChild(Nav) nav: Nav;
+  //@ViewChild(Nav) nav: Nav;
 
   alert: Alert;
   constructor(public platform: Platform,
@@ -26,8 +26,7 @@ export class MyApp {
     private screenOrientation: ScreenOrientation,
     public app:App,
     public events:Events,
-    public service:LiaService
-  ) {
+     ) {
     
   
     events.subscribe('user:login', () => {

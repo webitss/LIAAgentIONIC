@@ -18,7 +18,7 @@
           <ion-list>
 
             <ion-item *ngFor="let c of customersFilter" (click)="customerClicked(c.StoreId)">
-              <p float-start>{{c.StoreName}}</p>
+              <p float-start>{{c?.StoreName}}</p>
               <i float-end class="icon-arrow-down-04 t-center  f-size-icon "></i>
               <br>
               <div *ngIf="this.allowDetails">
