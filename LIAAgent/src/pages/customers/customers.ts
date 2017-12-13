@@ -69,7 +69,7 @@ export class CustomersPage {
 
     scrollingFun(e){}
 
-    ionViewDidEnterDown() {
+    ionViewDidEnterDown(e) {
       // let dimensions = this.contentHandle.getContentDimensions();
       // this.contentHandle.scrollTo(0, dimensions.contentHeight+100, 100);
     console.log(this.contentHandle.scrollTop);
