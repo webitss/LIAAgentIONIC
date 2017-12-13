@@ -1,92 +1,96 @@
   
 <ion-content padding>
 
-  <div class="t-center">
+  
 
-        <div class="row">
+  <ion-grid>
+            <div class="t-center">
 
-        <a (click)="select(this.service.products[0].ProductId)" >
-        <div class="app-products">
-        <div class="bg-icon-app-products">
-        <img src="assets/imgs/icon-lia.png"/>
-        </div>
-        <p>אפליקציה</p>
-        </div>
-        </a>
+                  <div class="row">
 
-        <a (click)="select(this.service.products[1].ProductId)">
-        <div class="app-products">
-        <div class="bg-icon-app-products bg-blue-2">
-        <i class="icon-social" ></i>
-        </div>
-        <p>פייסבוק</p>
-        </div>
-        </a>
+                  <a (click)="select(this.service.products[0].ProductId)" >
+                  <div class="app-products">
+                  <div class="bg-icon-app-products">
+                  <img src="assets/imgs/icon-lia.png"/>
+                  </div>
+                  <p>אפליקציה</p>
+                  </div>
+                  </a>
 
-        <a (click)="select(this.service.products[2].ProductId)">
-        <div class="app-products">
-        <div class="bg-icon-app-products bg-light-blue">
-        <i class="icon-social" ></i>
-        </div>
-        <p>קמפין פייסבוק</p>
-        </div>
-        </a>
+                  <a (click)="select(this.service.products[1].ProductId)">
+                  <div class="app-products">
+                  <div class="bg-icon-app-products bg-blue-2">
+                  <i class="icon-social" ></i>
+                  </div>
+                  <p>פייסבוק</p>
+                  </div>
+                  </a>
 
-
-        <a (click)="select(this.service.products[3].ProductId)">
-          <div class="app-products">
-           <div class="bg-icon-app-products bg-yellow">
-           <i class="icon-cart " ></i>
-           </div>
-           <p>אתר החברה</p>
-          </div>
-          </a>
+                  <a (click)="select(this.service.products[2].ProductId)">
+                  <div class="app-products">
+                  <div class="bg-icon-app-products bg-light-blue">
+                  <i class="icon-social" ></i>
+                  </div>
+                  <p>קמפין פייסבוק</p>
+                  </div>
+                  </a>
 
 
-    </div>
-          <div class="row">
-
-          <a (click)="select(this.service.products[4].ProductId)">
-          <div class="app-products">
-          <div class="bg-icon-app-products bg-yellow">
-          <i class="icon-bell-15" ></i>
-          </div>
-          <p>התראה רגילה</p>
-          </div>
-          </a>
+                  <a (click)="select(this.service.products[3].ProductId)">
+                  <div class="app-products">
+                  <div class="bg-icon-app-products bg-yellow">
+                  <i class="icon-cart " ></i>
+                  </div>
+                  <p>אתר החברה</p>
+                  </div>
+                  </a>
 
 
-          <a (click)="select(this.service.products[5].ProductId)">
-          <div class="app-products">
-          <div class="bg-icon-app-products bg-red">
-          <i class="icon-alarm-1" ></i>
-          </div>
-          <p>התראה חמה</p>
-          </div>
-          </a>
+            </div>
+                  <div class="row">
 
-          <a (click)="select(this.service.products[6].ProductId)">
-          <div class="app-products">
-          <div class="bg-icon-app-products bg-green">
-          <i class="icon-music"></i>
-          </div>
-          <p>התראה קופצת</p>
-          </div>
-          </a>
+                  <a (click)="select(this.service.products[4].ProductId)">
+                  <div class="app-products">
+                  <div class="bg-icon-app-products bg-yellow">
+                  <i class="icon-bell-15" ></i>
+                  </div>
+                  <p>התראה רגילה</p>
+                  </div>
+                  </a>
 
-          <a (click)="select(this.service.products[6].ProductId)">
-          <div class="app-products">
-          <div class="bg-icon-app-products bg-pink">
-          <i  class="icon-star-14"></i>
-          </div>
-          <p>מבצעים מועדפים</p>
-          </div>
-          </a>
 
-          </div>
+                  <a (click)="select(this.service.products[5].ProductId)">
+                  <div class="app-products">
+                  <div class="bg-icon-app-products bg-red">
+                  <i class="icon-alarm-1" ></i>
+                  </div>
+                  <p>התראה חמה</p>
+                  </div>
+                  </a>
 
-          </div>
-<page-accordion></page-accordion>
-<page-accordion></page-accordion>
-<page-accordion></page-accordion>       
+                  <a (click)="select(this.service.products[6].ProductId)">
+                  <div class="app-products">
+                  <div class="bg-icon-app-products bg-green">
+                  <i class="icon-music"></i>
+                  </div>
+                  <p>התראה קופצת</p>
+                  </div>
+                  </a>
+
+                  <a (click)="select(this.service.products[6].ProductId)">
+                  <div class="app-products">
+                  <div class="bg-icon-app-products bg-pink">
+                  <i  class="icon-star-14"></i>
+                  </div>
+                  <p>מבצעים מועדפים</p>
+                  </div>
+                  </a>
+
+                  </div>
+
+                  </div>
+  </ion-grid>
+  <page-accordion></page-accordion>
+  <page-accordion></page-accordion>
+  <page-accordion></page-accordion>     
 </ion-content>
