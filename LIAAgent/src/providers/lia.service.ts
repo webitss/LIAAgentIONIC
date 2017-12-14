@@ -1,14 +1,13 @@
-import { SignaturePad } from "angular2-signaturepad/signature-pad";
 import { Injectable } from "@angular/core";
 import { LiaProxy } from "./proxy";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
 import { customerModel } from "../models/customer";
-
+import { LoginModel } from "../models/loginModel";
 
 @Injectable()
 export class LiaService {
+
           //#region  variables
             customerDetailsArray:any;
             indexCustomer:number=0;
@@ -39,10 +38,12 @@ export class LiaService {
             packageProd2: any;
             packageProd3: any;
             categories:any;
+            isAuthenticated: any;
+            userLogin: LoginModel;
+            c:customerModel;
 
-
-  //#endregion
-   constructor(private proxy: LiaProxy) {
+         //#endregion
+        constructor(private proxy: LiaProxy) {
           //#region initialize
             this.isNowInPageLogin=true;
             this.galeryPictures = new Array();
@@ -73,8 +74,30 @@ export class LiaService {
             this.customerDetailsArray=new Array();
             this.indexCustomer=0;
             this.categories=new Array();
+            this.userLogin = new LoginModel;
             //#endregion
     }
+     
+    
+  
+
+  //#login
+  async doLogin(frm): Promise<any> {
+    this.userLogin.Cellphone = frm.userName;
+    this.userLogin.Password = frm.password;
+    console.log(this.userLogin);
+    console.log("send login to service");
+     await this.proxy.postLogin("CheckLoginApp",this.userLogin )
+    .then(res => {
+      this.isAuthenticated = res.Result;
+      console.log(this.isAuthenticated);
+    //  return this.isAuthenticated;
+  })
+  .catch(() => console.log("error"));
+  }
+
+
+
 
 //#region post
             async postCategories(): Promise<any>{
@@ -111,11 +134,8 @@ export class LiaService {
             }
 
 
-
-//#endregion
-
-//#region postPackageProd
-async postPackageProd(packageId: Number): Promise<any> {
+  //#region postPackageProd
+  async postPackageProd(packageId: Number): Promise<any> {
     await this.proxy
       .postPackageProd(packageId)
       .then(res => {
@@ -135,13 +155,14 @@ async postPackageProd(packageId: Number): Promise<any> {
       .catch(() => console.log("error"));
   }
 
+  //#endregion
 
-//#endregion
+
 
 //#region postStoreDetails
 
 fill(){
-    
+
      this.customerDetailsArray[this.indexCustomer][1]=this.customerDetails[1];
      this.indexCustomer++;
 }
@@ -155,11 +176,11 @@ fill(){
                 this.customerDetailsArray[this.indexCustomer][1]=new Array();
                 this.customerDetails[1]= this.getData.Result;
                 this.fill();
-           
-            
+
+
             })
                 .catch(() => console.log("error"));
-      
+
        console.log(this.customerDetailsArray);
     }
 
@@ -180,9 +201,9 @@ fill(){
              this.customerDetailsArray[this.indexCustomer]=new Array();
              this.postStoreDetails1(storeId);
         }
-    
+
     }
-   
+
 //#endregion
 
 //#region getPackageById
@@ -202,28 +223,28 @@ fill(){
         }
         return this.nowpackage1;
         }
+
   //#endregion
 
-//#region getPackageProductsById
-        nowpackage: any;
-        getPackageProductsById(id: number): any {
-            switch (id) {
-            case 1:
-                this.nowpackage = this.packageProd1;
-                break;
-            case 2:
-                this.nowpackage = this.packageProd2;
-                break;
-            case 3:
-                this.nowpackage = this.packageProd3;
-                break;
-            }
-            return this.nowpackage;
-        }
+  //#region getPackageProductsById
+  nowpackage: any;
+  getPackageProductsById(id: number): any {
+    switch (id) {
+      case 1:
+        this.nowpackage = this.packageProd1;
+        break;
+      case 2:
+        this.nowpackage = this.packageProd2;
+        break;
+      case 3:
+        this.nowpackage = this.packageProd3;
+        break;
+    }
+    return this.nowpackage;
+  }
   //#endregion
 
-
-//#region getProductById
+  //#region getProductById
 
   getProductById(id: number) {
     for (let i = 0; i < this.products.length; i++)
@@ -233,50 +254,32 @@ fill(){
       }
   }
 
-
   //#endregion
-       
-        clickAddToCart(pr) {
-            this.countProductsInCart++;
-            this.productsOfCart.push(pr);
-        }
-        submitFrmBusiness() {
-            this.anotherDetails = true;
-        }
-        submitFrmPersonal(frm) {
-            console.log(frm);
-        }
-        clickDeleteToCart(id) {
-            let index: number;
-            for (let i = 0; i < this.productsOfCart.length; i++)
-              if (this.productsOfCart[i].ProductId == id) {
-                index = i;
-                i=this.productsOfCart.length;
-              }
-        console.log(index);
-            this.productsOfCart.splice(index, 1);
-        if(this.countProductsInCart > 0)
-        this.countProductsInCart--;
-          }
-        
+
+  clickAddToCart(pr) {
+    this.countProductsInCart++;
+    this.productsOfCart.push(pr);
+  }
+  submitFrmBusiness() {
+    this.anotherDetails = true;
+  }
+  submitFrmPersonal(frm) {
+    console.log(frm);
+  }
+  clickDeleteToCart(id) {
+    let index: number;
+    for (let i = 0; i < this.productsOfCart.length; i++)
+      if (this.productsOfCart[i].ProductId == id) {
+        index = i;
+        i = this.productsOfCart.length;
+      }
+    console.log(index);
+    this.productsOfCart.splice(index, 1);
+    if (this.countProductsInCart > 0) this.countProductsInCart--;
+  }
 }
 
-
-
-
-
-
-  
-
-
-
-
-
 //#region garbage-things
-
-                              
-
-
 
 // getGalleryPictures(){
 //          return this.proxy.post("GetGaleryPictures").then((res)=>{
@@ -285,30 +288,24 @@ fill(){
 
 // }
 
+//   async getPackages() {
+//     await this.proxy.getPackages().then(res => {
+//       this.getData = res;
+//       this.packages = this.getData.Result;
+//     });
+//   }
 
+//   clickDeleteFromCart(pr) {
+//     let j;
+//     for (let i = 0; i < this.productsOfCart.length; i++) {
+//       if (this.productsOfCart[i] == pr) {
+//         j = i;
+//       }
 
+//     }
+//   }
 
-
-
-                                //   async getPackages() {
-                                //     await this.proxy.getPackages().then(res => {
-                                //       this.getData = res;
-                                //       this.packages = this.getData.Result;
-                                //     });
-                                //   }
-
-                                //   clickDeleteFromCart(pr) {
-                                //     let j;
-                                //     for (let i = 0; i < this.productsOfCart.length; i++) {
-                                //       if (this.productsOfCart[i] == pr) {
-                                //         j = i;
-                                //       }
-
-                                //     }
-                                //   }
-
-
-                                /*packages: any[];
+/*packages: any[];
                                     //ListShell<ProductAdditionalObj>
                                     constructor(private proxy: LiaProxy) {
                                         this.galeryPictures=new Array();
@@ -357,21 +354,18 @@ fill(){
 
                                 } */
 
+// async load() {
+//     try {
+//         await this.proxy.load().then(res=>{
+//             this.getData = res;
+//             this.galeryPictures = this.getData.Result;
+//             console.log(this.galeryPictures);
+//         });
+//         //this.galeryPictures=pictures;
+//         //console.log(pictures);
 
-                                    // async load() {
-                                //     try {
-                                //         await this.proxy.load().then(res=>{
-                                //             this.getData = res;
-                                //             this.galeryPictures = this.getData.Result;
-                                //             console.log(this.galeryPictures);
-                                //         });
-                                //         //this.galeryPictures=pictures;
-                                //         //console.log(pictures);
-
-                                //     } catch (ex) {
-                                //         console.log(`ex: ${ex}`);
-                                //     }
-                                // }
+//     } catch (ex) {
+//         console.log(`ex: ${ex}`);
+//     }
+// }
 //#endregion
- 
-

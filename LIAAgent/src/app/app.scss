@@ -45,6 +45,14 @@ ion-input, ion-textarea {
   box-shadow: inset 0 -1px 0 0 #ffffff00;
 }
 
+.center-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.relative{position: relative;}
+
 // .ion-page > ion-content
 // {
 //    top: 52px;//your headers height

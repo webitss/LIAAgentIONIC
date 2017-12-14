@@ -21,17 +21,21 @@
              </ion-navbar>
 </ion-header>
 
-<ion-tabs #menuTabs  [selectedIndex]="tabsIndex" preloadTabs="false">
+<ion-tabs #menuTabs [tabsPlacement]="bottom" [selectedIndex]="tabsIndex" preloadTabs="false">
   <ion-tab [root]="tab1Root" tabIcon="icon-gallery"  ></ion-tab>
   <ion-tab [root]="tab2Root" tabIcon="icon-packages" (ionSelect)="clearHistory($event)"></ion-tab>
   <ion-tab [root]="tab3Root" tabIcon="icon-product" (ionSelect)="clearHistory($event)" ></ion-tab>>
-  <ion-tab [root]="tab4Root" tabIcon="icon-customer"(ionSelect)="clearHistory($event)" ></ion-tab>>
-  <ion-tab [root]="tab5Root" tabIcon="icon-cart" [rootParams]="params" tabBadge="{{service.countProductsInCart}}" tabBadgeStyle="border-color:royalblue" (ionSelect)="clearHistory($event)" >
+  <ion-tab [root]="tab4Root" tabIcon="icon-customer"(ionSelect)="clearHistory($event)" color="primary"></ion-tab>>
+  <ion-tab [root]="tab5Root" tabIcon="icon-cart" tabBadge="{{service.countProductsInCart}}" tabBadgeStyle="border-color:royalblue" (ionSelect)="clearHistory($event)" >
+
   </ion-tab>
 </ion-tabs>
 
 
-
+<!-- <<<<<<< HEAD
+  <ion-tab [root]="tab4Root" tabIcon="icon-customer"(ionSelect)="clearHistory($event)" ></ion-tab>>
+  <ion-tab [root]="tab5Root" tabIcon="icon-cart" [rootParams]="params" tabBadge="{{service.countProductsInCart}}" tabBadgeStyle="border-color:royalblue" (ionSelect)="clearHistory($event)" >
+======= -->
 <!-- [rootParams]="tab5Params" -->
 <!-- <ion-tab [root]="tab6Root" tabIcon="person"></ion-tab> -->
 <!-- color:danger;border:solid -->

@@ -36,6 +36,7 @@ export class CustomersPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     this.valueButton="לקוח חדש";
     service.nowComponent="לקוחות";
+
     this.customersByIdlist=new Array();
     this.customerDetails=new customerModel;
     this.service.customers.forEach(element => {
@@ -53,7 +54,7 @@ export class CustomersPage {
     this.contentHandle.scrollTo((this.contentHandle.scrollTop)-60,(this.contentHandle.scrollTop)-60);
   }
 //#endregion
-    
+
 
     
 
@@ -74,6 +75,7 @@ export class CustomersPage {
     {
       this.customersFilter=this.service.customers.filter(i => i.StoreName.includes(event.target.value));
     }
+
     customerChoosed:any;
      expandItem(item){
           this.customersFilter.map((listItem) => {
@@ -89,7 +91,6 @@ export class CustomersPage {
          
       }
   
-
 }
 
 
@@ -97,4 +98,3 @@ export class CustomersPage {
 
  // let dimensions = this.contentHandle.getContentDimensions();
       // this.contentHandle.scrollTo(0, dimensions.contentHeight+100, 100);
-   

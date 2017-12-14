@@ -5,7 +5,8 @@ import { LiaService } from '../../providers/lia.service';
 import { Events } from 'ionic-angular/util/events';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { TabsPage } from '../tabs/tabs';
-
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/toPromise";
 
 
 
@@ -16,6 +17,7 @@ import { TabsPage } from '../tabs/tabs';
 export class LoginPage {
   isClassBig: boolean;
   isClassMini: boolean;
+  isAuthenticated: any;
 
   imageURI:any;
   imageFileName:any;
@@ -31,19 +33,15 @@ export class LoginPage {
     public toastCtrl: ToastController,
     public service:LiaService,
     public events:Events) {
-   
+
     this.isClassMini = false;
     this.isClassBig = true;
-    
+
 }
 ionViewDidEnter(){
 
 }
-  doLogin() {
-   
-  }
 
-  
   mini() {
     this.isClassMini = !this.isClassMini;
     this.isClassBig = !this.isClassBig;
@@ -62,8 +60,16 @@ ionViewDidEnter(){
     //this.router.navigate(['/login']);
   }
 
-  routeToTabs(){
-    this.navCtrl.setRoot(TabsPage);
-    // this.navCtrl.push(TabsPage);
+ async routeToTabs(frm): Promise<any>{
+  // this.isAuthenticated = this.service.doLogin(frm);
+await this.service.doLogin(frm).then(()=> {
+this.isAuthenticated = this.service.isAuthenticated;
+  if (this.isAuthenticated != null){
+  console.log(this.isAuthenticated);
+      this.navCtrl.setRoot(TabsPage);
+  }
+  else
+  alert("משתמש לא נמצא");
+    });
   }
 }

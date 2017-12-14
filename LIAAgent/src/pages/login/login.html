@@ -12,11 +12,11 @@
               <div class="gradient-color"></div>
         </div>
 
-  <div *ngIf="isClassMini">
-    <ion-grid >
-      <ion-row>
-        <ion-col>
-          <form  [formGroup]="frmLogin" (submit)="doLogin()" id="container" >
+  <div *ngIf="isClassMini" class="relative width-50">
+    
+      <ion-row class="center-center">
+        <ion-col >
+          <form  [formGroup]="frmLogin" (submit)="routeToTabs(this.frmLogin.value)" id="container" >
             <ion-list>
 
               <ion-item id="rounded">
@@ -30,13 +30,13 @@
               </ion-item>
 
               <div padding>
-                <button ion-button color="light-blue-color"   block [disabled] = "!frmLogin.valid" (click)="routeToTabs()" >כניסה</button>
+                <button ion-button color="light-blue-color"   block [disabled] = "!frmLogin.valid"  >כניסה</button>
               </div>
 
             </ion-list>
           </form>
         </ion-col>
       </ion-row>
-    </ion-grid>
+    
   </div>
 </ion-content>
