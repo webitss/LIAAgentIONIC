@@ -28,7 +28,8 @@ export class EnterPage {
      
 this.service.nowComponent="דף הבית";
 //this.loginName=this.service.isAuthenticated.UserName;
-console.log(this.loginName);
+this.loginName="cfdf";
+//console.log(this.loginName);
 this.service.isNowInPageLogin=false;
     this.hour= this.date.getHours();
   
@@ -44,7 +45,6 @@ this.service.isNowInPageLogin=false;
 
   ionViewWillEnter(){
     //this.navCtrl.parent.select(5);
-   
   }
   
 }

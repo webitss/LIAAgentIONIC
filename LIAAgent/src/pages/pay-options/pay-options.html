@@ -9,6 +9,8 @@
 
 
 <ion-content padding>
+    <br>
+    <br><br>
   <div *ngIf="!service.isTerminateOrdered">
     <div *ngIf="!service.isPayed">
     <button ion-button (click)="service.isPayed=true">אשראי</button>
@@ -19,8 +21,8 @@
     <input type="checkbox"/>
     <a (click)="routeToFormofuse()">הריני מאשר את תקנון השימוש</a>
     <!-- <button ion-button full (click)="openSignatureModel()"> Open Signature</button>  -->
-        <div class="div" (click)="openSignatureModel()"><img [src]="signatureImage" *ngIf="signatureImage" /></div><br/><br/>
-        <div class="div" (click)="openSignatureModel()"><img [src]="signatureImage" *ngIf="signatureImage" /></div>
+        <div class="div" (click)="openSignatureModel()"><img [src]="service.signatureImage" *ngIf="service.signatureImage" /></div><br/><br/>
+        <div class="div" (click)="openSignature1Model()"><img [src]="service.signatureImage1" *ngIf="service.signatureImage1" /></div>
     <button ion-button (click)="service.isTerminateOrdered=true">המשך</button>
     </div>
     </div>

@@ -4,16 +4,56 @@ import { Injectable } from "@angular/core";
 import { LiaProxy } from "./proxy";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
-import { customerModel } from "../models/customer";
+// import { customerModel } from "../models/customer";
 import { LoginModel } from "../models/loginModel";
+import { errorHandler } from "@angular/platform-browser/src/browser";
+import { Response } from '@angular/http';
+import {Observable} from 'rxjs/Rx';
 import { customerDetailsModel } from '../models/customerDetails';
 import { customerCategoriesModel } from '../models/customerCategories';
 import { packageModel } from '../models/packageModel';
 
 @Injectable()
 export class LiaService {
+  //#region  variables
+  // customerDetailsArray:any;
+  // indexCustomer:number=0;
+  // isNowInPageLogin: boolean;
+  // package: any;
+  // packages: any;
+  // galeryPictures: any;
+  // source: String;
+  // getData: any;
+  // products: any;
+  // customers: any;
+  // customerDetails: any;
+  // nowComponent: string;
+  // product: any;
+  // thisProductDetails: any;
+  // isOuter: boolean;
+  // isInner: boolean;
+  // isPackageProductDetailed: boolean;
+  // packageProduct: any;
+  // countProductsInCart: number = 0;
+  // productsOfCart: any;
+  // packagesOfCart: any[];
+  // isPayed: boolean;
+  // isTerminateOrdered: boolean;
+  // anotherDetails: boolean;
+  // routeOrStay: string;
+  // packageProd1: any;
+  // packageProd2: any;
+  // packageProd3: any;
+  // isAuthenticated: any;
+  // userLogin: LoginModel;
+  // c:customerModel;
+  // statusCode:any;
+
+
 
           //#region  variables
+          public signatureImage : any;
+          public signatureImage1 : any;
             customerDetailsArray:customerDetailsModel[];
             customerDetails:customerDetailsModel;
             indexCustomer:number=0;
@@ -46,6 +86,7 @@ export class LiaService {
             isAuthenticated: athenticateModel;
             userLogin: LoginModel;
             c:customerModel;
+            statusCode:any;
 
          //#endregion
         constructor(private proxy: LiaProxy) {
@@ -78,26 +119,84 @@ export class LiaService {
             this.allPosts();
             //#endregion
     }
-     
-    
-  
+
+
+
 
   //#login
-        async doLogin(frm): Promise<any> {
-            this.userLogin.Cellphone = frm.userName;
-            this.userLogin.Password = frm.password;
-            console.log(this.userLogin);
-            console.log("send login to service");
-            await this.proxy.postLogin("CheckLoginApp",this.userLogin )
-            .then(res => {
-            this.isAuthenticated = res.Result;
-            console.log(this.isAuthenticated);
-            this.allPosts();
-            console.log(this.galeryPictures);
-            //  return this.isAuthenticated;
-        })
-        .catch(() => console.log("error"));
-        }
+
+  async doLogin(frm): Promise<any> {
+    this.userLogin.Cellphone = frm.userName;
+    this.userLogin.Password = frm.password;
+    console.log(this.userLogin);
+    console.log("send login to service");
+     await this.proxy
+.postLogin("CheckLoginApp",this.userLogin )
+    .then(res => {
+      this.isAuthenticated = res.Result;
+      this.statusCode = res.Error.ErrorCode;
+      console.log(this.isAuthenticated);
+    //  return this.isAuthenticated;
+  })
+  .catch((error: any) => {console.log("error")
+});
+  }
+
+
+
+//#region post
+
+            async post(func: string): Promise<any> {
+                await this.proxy
+                .post(func)
+                .then(res => {
+                    this.getData = res;
+                    // for (let i = 0; i < this.getData.Result.length; i++) {
+                    switch (func) {
+                    case "GetAdditionalProducts":
+                        this.products = this.getData.Result;
+                        break;
+                    case "GetPackages":
+                        this.packages = this.getData.Result;
+                        break;
+                    case "GetGaleryPictures":
+                        this.galeryPictures = this.getData.Result;
+                        break;
+                    case "GetBaseStores":
+                        this.customers = this.getData.Result;
+                        break;
+                    }
+                    // }
+                })
+                .catch((error) => console.log("error"));
+            }
+
+
+
+ //#region postPackageProd
+ async postPackageProd(packageId: Number): Promise<any> {
+  await this.proxy
+  .postPackageProd(packageId)
+  .then(res => {
+      this.getData = res;
+      switch (packageId) {
+      case 1:
+          this.packageProd1 = this.getData.Result;
+          break;
+      case 2:
+          this.packageProd2 = this.getData.Result;
+          break;
+      case 2:
+          this.packageProd3 = this.getData.Result;
+          break;
+      }
+  })
+  .catch(() => console.log("error"));
+}
+
+//#endregion
+
+
 
 
         allPosts(){
@@ -118,61 +217,11 @@ export class LiaService {
                     }).catch(()=>console.log("error"));
                 }
 
-                    async post(func: string): Promise<any> {
-                        await this.proxy
-                        .post(func)
-                        .then(res => {
-                            this.getData = res;
-                            // for (let i = 0; i < this.getData.Result.length; i++) {
-                            switch (func) {
-                            case "GetAdditionalProducts":
-                                this.products = this.getData.Result;
-                                break;
-                            case "GetPackages":
-                                this.packages = this.getData.Result;
-                                break;
-                            case "GetGaleryPictures":
-                                this.galeryPictures = this.getData.Result;
-                                break;
-                            case "GetBaseStores":
-                                this.customers = this.getData.Result;
-                                break;
-                            }
-                            // }
-                        })
-                        .catch(() => console.log("error"));
-                    }
-
-
-        //#region postPackageProd
-                async postPackageProd(packageId: Number): Promise<any> {
-                    await this.proxy
-                    .postPackageProd(packageId)
-                    .then(res => {
-                        this.getData = res;
-                        switch (packageId) {
-                        case 1:
-                            this.packageProd1 = this.getData.Result;
-                            break;
-                        case 2:
-                            this.packageProd2 = this.getData.Result;
-                            break;
-                        case 2:
-                            this.packageProd3 = this.getData.Result;
-                            break;
-                        }
-                    })
-                    .catch(() => console.log("error"));
-                }
-
-        //#endregion
-
-
 
         //#region postStoreDetails
 
-           
-           
+
+
             async postStoreDetails1(storeId: Number): Promise<any> {
                     await this.proxy
                     .postStoreDetails(storeId)
@@ -193,7 +242,7 @@ export class LiaService {
     postStoreDetails(storeId: Number)
     {
         let flag=false;
-          
+
         console.log(this.customerDetailsArray);
             this.customerDetailsArray.map(element => {
                 console.log(element);
@@ -201,10 +250,10 @@ export class LiaService {
                 {
                     this.customerDetails= element;
                             flag=true;
-                           
+
                 }
             });
-                   
+
         if(flag==false)
         {             this.postStoreDetails1(storeId);     }
 
