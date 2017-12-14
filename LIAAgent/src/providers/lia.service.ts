@@ -14,6 +14,8 @@ import { packageModel } from '../models/packageModel';
 export class LiaService {
 
           //#region  variables
+          public signatureImage : any;
+          public signatureImage1 : any;
             customerDetailsArray:customerDetailsModel[];
             customerDetails:customerDetailsModel;
             indexCustomer:number=0;

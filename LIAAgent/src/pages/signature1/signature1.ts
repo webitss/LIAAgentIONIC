@@ -9,10 +9,10 @@ import { FileTransfer, FileTransferObject, FileUploadOptions } from '@ionic-nati
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 @Component({
-  selector: 'page-signature',
-  templateUrl: 'signature.html',
+  selector: 'page-signature1',
+  templateUrl: 'signature1.html',
 })
-export class SignaturePage {
+export class Signature1Page {
 
   @ViewChild(SignaturePad) public signaturePad : SignaturePad;
 
@@ -21,7 +21,7 @@ export class SignaturePage {
     'canvasWidth': 340,
     'canvasHeight': 200
   };
-  public signatureImage : string;
+  public signature1Image : string;
   
   constructor(public navCtrl: NavController,
     private transfer: FileTransfer,
@@ -38,9 +38,10 @@ export class SignaturePage {
   }
 
    drawComplete() {
-    this.signatureImage = this.signaturePad.toDataURL();
-    this.service._signature=this.signatureImage;
-    this.navCtrl.push(PayOptionsPage, {signatureImage: this.signatureImage});
+    this.signature1Image = this.signaturePad.toDataURL();
+    this.service._signature=this.signature1Image;
+    
+    this.navCtrl.push(PayOptionsPage, {signature1Image: this.signature1Image});
     //this.uploadFile();
   }
 
