@@ -5,6 +5,10 @@ page-package-selected {
     border-top-left-radius: 30px;
     border-right: 1px solid white;
     padding:1%; 
+
+    
+    
+    
 }
 
     .part-3 {
@@ -23,7 +27,7 @@ page-package-selected {
         
             div {
                 padding: 1%;
-                padding-right: 15%;
+                padding-right: 7%;
 
                 i {
                     font-size: 1.8em;
@@ -62,6 +66,16 @@ page-package-selected {
     
     .ParentProductId:not(:last-child) {
         border-bottom: 1px solid white;
+    }
+
+    .btn-white {
+        background: white;
+        border: none;
+        width: 50%;
+        height: 47px;
+        border-radius: 14px;
+        color: #f1bf1c;
+        font-size: 1.3em;
     }
     
 
