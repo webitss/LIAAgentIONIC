@@ -1,8 +1,10 @@
+import { athenticateModel } from './../models/athenticateModel';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
 import { LoginModel } from "../models/loginModel";
+import { LiaService } from "./lia.service";
 
 declare var configWebit: { baseUrl: string };
 
@@ -11,6 +13,7 @@ export class LiaProxy {
   body: any;
 
   constructor(private http: HttpClient) {
+    
     this.body = {};
   }
 
@@ -51,8 +54,8 @@ export class LiaProxy {
   post(func: string): Promise<any> {
     return this.http
       .post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/${func}`, {
-        iUserId: "1",
-        nvGuide: "45D49511-BED0-483E-9A50-789612BD6F8C"
+        iUserId:372 ,
+        nvGuide: "98A42241-C752-45E9-A97C-568F7CC5D234"
       })
       .toPromise();
   }
@@ -65,7 +68,7 @@ export class LiaProxy {
   //           "Cellphone": "0501111111",
   //           "Password": "123456",
   //         }
-
+objLogin:athenticateModel;
 
   postLogin(func: string, obj: LoginModel): Promise<any> {
     return this.http

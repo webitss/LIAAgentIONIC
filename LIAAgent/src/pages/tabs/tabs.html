@@ -1,4 +1,3 @@
-
 <ion-header *ngIf="!service.isNowInPageLogin" align-title="center"  >
     <ion-navbar >
      <ion-buttons float-start>
@@ -21,7 +20,7 @@
              </ion-navbar>
 </ion-header>
 
-<ion-tabs #menuTabs [tabsPlacement]="bottom" [selectedIndex]="tabsIndex" preloadTabs="false">
+<ion-tabs #menuTabs  [selectedIndex]="tabsIndex" preloadTabs="false">
   <ion-tab [root]="tab1Root" tabIcon="icon-gallery"  ></ion-tab>
   <ion-tab [root]="tab2Root" tabIcon="icon-packages" (ionSelect)="clearHistory($event)"></ion-tab>
   <ion-tab [root]="tab3Root" tabIcon="icon-product" (ionSelect)="clearHistory($event)" ></ion-tab>>
@@ -39,3 +38,4 @@
 <!-- [rootParams]="tab5Params" -->
 <!-- <ion-tab [root]="tab6Root" tabIcon="person"></ion-tab> -->
 <!-- color:danger;border:solid -->
+<!-- [tabsPlacement]="bottom" -->

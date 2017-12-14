@@ -35,6 +35,7 @@ export class TabsPage {
   tab5Root = CartPage;
    constructor(private nav : NavController,public params: NavParams,public service: LiaService,public events: Events) {
     this.params = params.data;
+   
   }
 
   clearHistory(ev:any){

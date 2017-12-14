@@ -17,7 +17,7 @@ import { LiaService } from '../../providers/lia.service';
   templateUrl: 'enter.html',
 })
 export class EnterPage {
-  loginName: any = "ayala & chaya";
+  loginName: string ;
   Congratulations: string;
   date = new Date();
   hour:any;
@@ -25,7 +25,10 @@ export class EnterPage {
     this.events.publish('user:login');
   }
   constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events,public service:LiaService) {
+     
 this.service.nowComponent="דף הבית";
+//this.loginName=this.service.isAuthenticated.UserName;
+console.log(this.loginName);
 this.service.isNowInPageLogin=false;
     this.hour= this.date.getHours();
   
@@ -41,6 +44,7 @@ this.service.isNowInPageLogin=false;
 
   ionViewWillEnter(){
     //this.navCtrl.parent.select(5);
+   
   }
   
 }

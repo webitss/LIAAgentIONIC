@@ -1,44 +1,49 @@
+import { productsModel } from './../models/productsModel';
+import { athenticateModel } from './../models/athenticateModel';
 import { Injectable } from "@angular/core";
 import { LiaProxy } from "./proxy";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
 import { customerModel } from "../models/customer";
 import { LoginModel } from "../models/loginModel";
+import { customerDetailsModel } from '../models/customerDetails';
+import { customerCategoriesModel } from '../models/customerCategories';
+import { packageModel } from '../models/packageModel';
 
 @Injectable()
 export class LiaService {
 
           //#region  variables
-            customerDetailsArray:any;
+            customerDetailsArray:customerDetailsModel[];
+            customerDetails:customerDetailsModel;
             indexCustomer:number=0;
             isNowInPageLogin:boolean;
-            package: any;
-            packages: any;
+            package: packageModel;
+            packages: packageModel[];
             galeryPictures: any;
             source: String;
             getData: any;
-            products: any;
+            products: productsModel[];
             customers: customerModel[];
-            customerDetails:any;
             nowComponent: string;
-            product: any;
-            thisProductDetails: any;
+            product: productsModel;
+            thisProductDetails: productsModel;
             isOuter: boolean;
             isInner: boolean;
             isPackageProductDetailed: boolean;
-            packageProduct: any;
+            packageProduct: productsModel;
             countProductsInCart: number = 0;
-            productsOfCart: any;
-            packagesOfCart: any[];
+            productsOfCart: productsModel[];
+            packagesOfCart: packageModel[];
             isPayed: boolean;
             isTerminateOrdered: boolean;
             anotherDetails: boolean;
             routeOrStay: string;
-            packageProd1: any;
-            packageProd2: any;
-            packageProd3: any;
-            categories:any;
-            isAuthenticated: any;
+            packageProd1: productsModel;
+            packageProd2: productsModel;
+            packageProd3: productsModel;
+            categories:customerCategoriesModel[];
+            isAuthenticated: athenticateModel;
             userLogin: LoginModel;
             c:customerModel;
 
@@ -47,19 +52,14 @@ export class LiaService {
           //#region initialize
             this.isNowInPageLogin=true;
             this.galeryPictures = new Array();
-            this.products = new Array();
+            this.products =[];
             this.customers = [];
-            this.packageProd1 = new Array();
-            this.packageProd2 = new Array();
-            this.packageProd3 = new Array();
-            //this.customers[3] = { name: "ttt", address: "t", num: 1, another: "jjjjj" };
+            this.packageProd1 = new productsModel;
+            this.packageProd2 = new productsModel;
+            this.packageProd3 =  new productsModel;
             this.nowComponent = "menu";
-            this.packages = new Array();
-            this.productsOfCart = new Array();
-            this.post("GetGaleryPictures");
-            this.post("GetAdditionalProducts");
-            this.post("GetPackages");
-            this.post("GetBaseStores");
+            this.packages=[];
+            this.productsOfCart = [];
             this.postPackageProd(1);
             this.postPackageProd(2);
             this.postPackageProd(3);
@@ -70,11 +70,12 @@ export class LiaService {
             this.productsOfCart = this.products;
             this.isPayed = false;
             this.isTerminateOrdered = false;
-            this.customerDetails=new Array();
-            this.customerDetailsArray=new Array();
+            this.customerDetails=new customerDetailsModel;
+            this.customerDetailsArray=[];
             this.indexCustomer=0;
-            this.categories=new Array();
+            this.categories=[];
             this.userLogin = new LoginModel;
+            this.allPosts();
             //#endregion
     }
      
@@ -82,104 +83,109 @@ export class LiaService {
   
 
   //#login
-  async doLogin(frm): Promise<any> {
-    this.userLogin.Cellphone = frm.userName;
-    this.userLogin.Password = frm.password;
-    console.log(this.userLogin);
-    console.log("send login to service");
-     await this.proxy.postLogin("CheckLoginApp",this.userLogin )
-    .then(res => {
-      this.isAuthenticated = res.Result;
-      console.log(this.isAuthenticated);
-    //  return this.isAuthenticated;
-  })
-  .catch(() => console.log("error"));
-  }
-
-
-
-
-//#region post
-            async postCategories(): Promise<any>{
-                await this.proxy.postCategories().then(res=>{
-                    this.getData=res;
-                    this.categories=this.getData.Result;
-                    console.log(this.categories);
-                }).catch(()=>console.log("error"));
-            }
-
-            async post(func: string): Promise<any> {
-                await this.proxy
-                .post(func)
-                .then(res => {
-                    this.getData = res;
-                    // for (let i = 0; i < this.getData.Result.length; i++) {
-                    switch (func) {
-                    case "GetAdditionalProducts":
-                        this.products = this.getData.Result;
-                        break;
-                    case "GetPackages":
-                        this.packages = this.getData.Result;
-                        break;
-                    case "GetGaleryPictures":
-                        this.galeryPictures = this.getData.Result;
-                        break;
-                    case "GetBaseStores":
-                        this.customers = this.getData.Result;
-                        break;
-                    }
-                    // }
-                })
-                .catch(() => console.log("error"));
-            }
-
-
-  //#region postPackageProd
-  async postPackageProd(packageId: Number): Promise<any> {
-    await this.proxy
-      .postPackageProd(packageId)
-      .then(res => {
-         this.getData = res;
-        switch (packageId) {
-          case 1:
-            this.packageProd1 = this.getData.Result;
-            break;
-          case 2:
-            this.packageProd2 = this.getData.Result;
-            break;
-          case 2:
-            this.packageProd3 = this.getData.Result;
-            break;
-        }
-      })
-      .catch(() => console.log("error"));
-  }
-
-  //#endregion
-
-
-
-//#region postStoreDetails
-
-fill(){
-
-     this.customerDetailsArray[this.indexCustomer][1]=this.customerDetails[1];
-     this.indexCustomer++;
-}
-    async postStoreDetails1(storeId: Number): Promise<any> {
-             await this.proxy
-            .postStoreDetails(storeId)
+        async doLogin(frm): Promise<any> {
+            this.userLogin.Cellphone = frm.userName;
+            this.userLogin.Password = frm.password;
+            console.log(this.userLogin);
+            console.log("send login to service");
+            await this.proxy.postLogin("CheckLoginApp",this.userLogin )
             .then(res => {
-                this.getData = res;
-                this.customerDetails[0]=storeId;
-                this.customerDetailsArray[this.indexCustomer][0]=storeId;
-                this.customerDetailsArray[this.indexCustomer][1]=new Array();
-                this.customerDetails[1]= this.getData.Result;
-                this.fill();
+            this.isAuthenticated = res.Result;
+            console.log(this.isAuthenticated);
+            this.allPosts();
+            console.log(this.galeryPictures);
+            //  return this.isAuthenticated;
+        })
+        .catch(() => console.log("error"));
+        }
 
 
-            })
-                .catch(() => console.log("error"));
+        allPosts(){
+            this.post("GetGaleryPictures");
+            this.post("GetAdditionalProducts");
+            this.post("GetPackages");
+            this.post("GetBaseStores");
+        }
+
+
+
+        //#region post
+                async postCategories(): Promise<any>{
+                    await this.proxy.postCategories().then(res=>{
+                        this.getData=res;
+                        this.categories=this.getData.Result;
+                        console.log(this.categories);
+                    }).catch(()=>console.log("error"));
+                }
+
+                    async post(func: string): Promise<any> {
+                        await this.proxy
+                        .post(func)
+                        .then(res => {
+                            this.getData = res;
+                            // for (let i = 0; i < this.getData.Result.length; i++) {
+                            switch (func) {
+                            case "GetAdditionalProducts":
+                                this.products = this.getData.Result;
+                                break;
+                            case "GetPackages":
+                                this.packages = this.getData.Result;
+                                break;
+                            case "GetGaleryPictures":
+                                this.galeryPictures = this.getData.Result;
+                                break;
+                            case "GetBaseStores":
+                                this.customers = this.getData.Result;
+                                break;
+                            }
+                            // }
+                        })
+                        .catch(() => console.log("error"));
+                    }
+
+
+        //#region postPackageProd
+                async postPackageProd(packageId: Number): Promise<any> {
+                    await this.proxy
+                    .postPackageProd(packageId)
+                    .then(res => {
+                        this.getData = res;
+                        switch (packageId) {
+                        case 1:
+                            this.packageProd1 = this.getData.Result;
+                            break;
+                        case 2:
+                            this.packageProd2 = this.getData.Result;
+                            break;
+                        case 2:
+                            this.packageProd3 = this.getData.Result;
+                            break;
+                        }
+                    })
+                    .catch(() => console.log("error"));
+                }
+
+        //#endregion
+
+
+
+        //#region postStoreDetails
+
+           
+           
+            async postStoreDetails1(storeId: Number): Promise<any> {
+                    await this.proxy
+                    .postStoreDetails(storeId)
+                    .then(res => {
+                        this.getData = res;
+                        // this.customerDetails[0]=storeId;
+                        // this.customerDetailsArray[this.indexCustomer][0]=storeId;
+                       // this.customerDetailsArray[this.indexCustomer]=[];
+                        this.customerDetails= this.getData.Result;
+                        this.customerDetailsArray[this.indexCustomer]=this.customerDetails;
+                        this.indexCustomer++;
+                      })
+                        .catch(() => console.log("error"));
 
        console.log(this.customerDetailsArray);
     }
@@ -187,20 +193,20 @@ fill(){
     postStoreDetails(storeId: Number)
     {
         let flag=false;
-        for(let i=0;i<this.customerDetailsArray.length;i++)
-        {
-            if(this.customerDetailsArray[i][0]==storeId)
-            {
-                    this.customerDetails= this.customerDetailsArray[i];
-                    flag=true;
-                    break;
-            }
-        }
+          
+        console.log(this.customerDetailsArray);
+            this.customerDetailsArray.map(element => {
+                console.log(element);
+                if(element.StoreId==storeId)
+                {
+                    this.customerDetails= element;
+                            flag=true;
+                           
+                }
+            });
+                   
         if(flag==false)
-        {
-             this.customerDetailsArray[this.indexCustomer]=new Array();
-             this.postStoreDetails1(storeId);
-        }
+        {             this.postStoreDetails1(storeId);     }
 
     }
 

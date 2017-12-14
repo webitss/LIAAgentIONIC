@@ -7,7 +7,7 @@
             <div class="container-lia container">
             <div class="t-center"><i class="icon-arrow-up-05 t-center blue f-size-icon" (click)="this.ionViewDidEnterUp()"></i></div>
 
-                  <ion-content padding #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 300px">
+                  <ion-content padding #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 250px">
                 <ion-item *ngFor="let p of service.productsOfCart">
 {{p.ProductId}}
 <i float-end class="icon-arrow-down-04 t-center  f-size-icon " (click)="service.clickDeleteToCart(p.ProductId)"></i>

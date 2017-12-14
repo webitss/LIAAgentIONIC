@@ -27,9 +27,9 @@
                       <h2>{{item.StoreName}}</h2>
                       <p>{{item.Address}}</p>
                       <page-expandable [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
-                          <br>{{service.customerDetails[1]?.Address}}
-                          <br>{{service.customerDetails[1]?.City}}
-                          <br>{{service.customerDetails[1]?.Category}}
+                          <br>{{service.customerDetails?.Address}}
+                          <br>{{service.customerDetails?.City}}
+                          <br>{{service.customerDetails?.Categories}}
                       </page-expandable>
                       
                     </button>
