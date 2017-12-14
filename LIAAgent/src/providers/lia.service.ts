@@ -4,6 +4,9 @@ import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
 import { customerModel } from "../models/customer";
 import { LoginModel } from "../models/loginModel";
+import { errorHandler } from "@angular/platform-browser/src/browser";
+import { Response } from '@angular/http';
+import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class LiaService {
@@ -39,6 +42,7 @@ export class LiaService {
   isAuthenticated: any;
   userLogin: LoginModel;
   c:customerModel;
+  statusCode:any;
 
 
   //#endregion
@@ -85,10 +89,12 @@ export class LiaService {
 .postLogin("CheckLoginApp",this.userLogin )
     .then(res => {
       this.isAuthenticated = res.Result;
+      this.statusCode = res.Error.ErrorCode;
       console.log(this.isAuthenticated);
     //  return this.isAuthenticated;
   })
-  .catch(() => console.log("error"));
+  .catch((error: any) => {console.log("error")
+});
   }
 
 
@@ -117,7 +123,7 @@ export class LiaService {
                     }
                     // }
                 })
-                .catch(() => console.log("error"));
+                .catch((error) => console.log("error"));
             }
 
 
