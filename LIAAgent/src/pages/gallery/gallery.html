@@ -1,22 +1,15 @@
 
 <ion-content padding>
-    <button ion-button  (click)="slidePrev()" [hidden]="prevDisabled" large round color="light">
+    <button ion-button  (click)="slider.slidePrev()" [hidden]="prevDisabled" large round color="light">
         <ion-icon name="arrow-dropleft"></ion-icon>
       </button>
   <ion-slides #slider style="direction: ltr" class="image-slider" loop="false" slidesPerView="1" zoom="true" speed="200" (ionSlideDidChange)="slideChanged()" >
-     
     <ion-slide *ngFor="let img of service.galeryPictures" >
-
-          
-
-      <img src="{{img}}" class="thumb-img" imageViewer/>
-
-         
+    <img src="{{img}}" class="thumb-img" imageViewer/>
     </ion-slide>
-   
-  </ion-slides>
-  <button ion-button (click)="slideNext()" [hidden]="nextDisabled" large round color="light">
-      <ion-icon name="arrow-dropright"></ion-icon>
+    </ion-slides>
+  <button ion-button (click)="slider.slideNext()" [hidden]="nextDisabled" large round color="light">
+    <ion-icon name="arrow-dropright"></ion-icon>
   </button>
 </ion-content>
 

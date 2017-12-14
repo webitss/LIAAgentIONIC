@@ -16,60 +16,25 @@ export class GalleryPage implements OnInit {
   prevDisabled: boolean = true;
   nextDisabled: boolean = false;
   @ViewChild('slider') slider: Slides;
-
-
+  
   constructor(public navCtrl: NavController,
     public navParams: NavParams, public service: LiaService) {
-    //service.nowComponent = "גלריה";
-
-    //service.load();
-    
     navCtrl.push(EnterPage);
-    
-  }
+    }
   ionViewWillEnter()
   {
-    //this.service.load();
-    this.service.nowComponent = "גלריה";
-
+   this.service.nowComponent = "גלריה";
   }
   ngOnInit() {
 
   }
-
-
-  slideNext() {
-    let currIndex= this.slider.getActiveIndex();
-    if(++currIndex == this.service.galeryPictures.length-1)
-      this.nextDisabled = true;
-
-
-    this.slider.slideNext();
-    this.prevDisabled = false;
-
-
-  }
-  slidePrev() {
-
-    let currIndex= this.slider.getActiveIndex();
-
-    if(--currIndex == 0)
-      this.prevDisabled = true;
-
-    this.slider.slidePrev();
-    this.nextDisabled = false;
-
-  }
-
   slideChanged()
   {
-    let currIndex = this.slider.getActiveIndex();
-    console.log('Current index is', currIndex);
+   let currIndex = this.slider.getActiveIndex();
    if(currIndex==1)this.prevDisabled=false;
    if(currIndex==this.service.galeryPictures.length-1)this.nextDisabled=true;
    else this.nextDisabled=false;
    if(currIndex==0)this.prevDisabled=true;
-
   }
 
 

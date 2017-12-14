@@ -1,85 +1,128 @@
+import { productsModel } from './../models/productsModel';
+import { athenticateModel } from './../models/athenticateModel';
 import { Injectable } from "@angular/core";
 import { LiaProxy } from "./proxy";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
-import { customerModel } from "../models/customer";
+// import { customerModel } from "../models/customer";
 import { LoginModel } from "../models/loginModel";
 import { errorHandler } from "@angular/platform-browser/src/browser";
 import { Response } from '@angular/http';
 import {Observable} from 'rxjs/Rx';
+import { customerDetailsModel } from '../models/customerDetails';
+import { customerCategoriesModel } from '../models/customerCategories';
+import { packageModel } from '../models/packageModel';
 
 @Injectable()
 export class LiaService {
   //#region  variables
-  customerDetailsArray:any;
-  indexCustomer:number=0;
-  isNowInPageLogin: boolean;
-  package: any;
-  packages: any;
-  galeryPictures: any;
-  source: String;
-  getData: any;
-  products: any;
-  customers: any;
-  customerDetails: any;
-  nowComponent: string;
-  product: any;
-  thisProductDetails: any;
-  isOuter: boolean;
-  isInner: boolean;
-  isPackageProductDetailed: boolean;
-  packageProduct: any;
-  countProductsInCart: number = 0;
-  productsOfCart: any;
-  packagesOfCart: any[];
-  isPayed: boolean;
-  isTerminateOrdered: boolean;
-  anotherDetails: boolean;
-  routeOrStay: string;
-  packageProd1: any;
-  packageProd2: any;
-  packageProd3: any;
-  isAuthenticated: any;
-  userLogin: LoginModel;
-  c:customerModel;
-  statusCode:any;
+  // customerDetailsArray:any;
+  // indexCustomer:number=0;
+  // isNowInPageLogin: boolean;
+  // package: any;
+  // packages: any;
+  // galeryPictures: any;
+  // source: String;
+  // getData: any;
+  // products: any;
+  // customers: any;
+  // customerDetails: any;
+  // nowComponent: string;
+  // product: any;
+  // thisProductDetails: any;
+  // isOuter: boolean;
+  // isInner: boolean;
+  // isPackageProductDetailed: boolean;
+  // packageProduct: any;
+  // countProductsInCart: number = 0;
+  // productsOfCart: any;
+  // packagesOfCart: any[];
+  // isPayed: boolean;
+  // isTerminateOrdered: boolean;
+  // anotherDetails: boolean;
+  // routeOrStay: string;
+  // packageProd1: any;
+  // packageProd2: any;
+  // packageProd3: any;
+  // isAuthenticated: any;
+  // userLogin: LoginModel;
+  // c:customerModel;
+  // statusCode:any;
 
 
-  //#endregion
-  constructor(private proxy: LiaProxy) {
-    //#region initialize
-    this.isNowInPageLogin = true;
-    this.galeryPictures = new Array();
-    this.products = new Array();
-    this.customers = new Array();
-    this.packageProd1 = new Array();
-    this.packageProd2 = new Array();
-    this.packageProd3 = new Array();
-    this.customers[3] = { name: "ttt", address: "t", num: 1, another: "jjjjj" };
-    this.nowComponent = "menu";
-    this.packages = new Array();
-    this.productsOfCart = new Array();
-    this.post("GetGaleryPictures");
-    this.post("GetAdditionalProducts");
-    this.post("GetPackages");
-    this.post("GetBaseStores");
-    this.postPackageProd(1);
-    this.postPackageProd(2);
-    this.postPackageProd(3);
-    this.isPackageProductDetailed = false;
-    this.isOuter = true;
-    this.isInner = false;
-    this.productsOfCart = this.products;
-    this.isPayed = false;
-    this.isTerminateOrdered = false;
-    this.customerDetails = new Array();
-    this.userLogin = new LoginModel;
-    this.customerDetailsArray=new Array();
-    this.indexCustomer=0;
-    //#endregion
-  }
+
+          //#region  variables
+            customerDetailsArray:customerDetailsModel[];
+            customerDetails:customerDetailsModel;
+            indexCustomer:number=0;
+            isNowInPageLogin:boolean;
+            package: packageModel;
+            packages: packageModel[];
+            galeryPictures: any;
+            source: String;
+            getData: any;
+            products: productsModel[];
+            customers: customerModel[];
+            nowComponent: string;
+            product: productsModel;
+            thisProductDetails: productsModel;
+            isOuter: boolean;
+            isInner: boolean;
+            isPackageProductDetailed: boolean;
+            packageProduct: productsModel;
+            countProductsInCart: number = 0;
+            productsOfCart: productsModel[];
+            packagesOfCart: packageModel[];
+            isPayed: boolean;
+            isTerminateOrdered: boolean;
+            anotherDetails: boolean;
+            routeOrStay: string;
+            packageProd1: productsModel;
+            packageProd2: productsModel;
+            packageProd3: productsModel;
+            categories:customerCategoriesModel[];
+            isAuthenticated: athenticateModel;
+            userLogin: LoginModel;
+            c:customerModel;
+            statusCode:any;
+
+         //#endregion
+        constructor(private proxy: LiaProxy) {
+          //#region initialize
+            this.isNowInPageLogin=true;
+            this.galeryPictures = new Array();
+            this.products =[];
+            this.customers = [];
+            this.packageProd1 = new productsModel;
+            this.packageProd2 = new productsModel;
+            this.packageProd3 =  new productsModel;
+            this.nowComponent = "menu";
+            this.packages=[];
+            this.productsOfCart = [];
+            this.postPackageProd(1);
+            this.postPackageProd(2);
+            this.postPackageProd(3);
+            this.postCategories();
+            this.isPackageProductDetailed = false;
+            this.isOuter = true;
+            this.isInner = false;
+            this.productsOfCart = this.products;
+            this.isPayed = false;
+            this.isTerminateOrdered = false;
+            this.customerDetails=new customerDetailsModel;
+            this.customerDetailsArray=[];
+            this.indexCustomer=0;
+            this.categories=[];
+            this.userLogin = new LoginModel;
+            this.allPosts();
+            //#endregion
+    }
+
+
+
 
   //#login
+
   async doLogin(frm): Promise<any> {
     this.userLogin.Cellphone = frm.userName;
     this.userLogin.Password = frm.password;
@@ -127,52 +170,69 @@ export class LiaService {
             }
 
 
-  //#region postPackageProd
-  async postPackageProd(packageId: Number): Promise<any> {
-    await this.proxy
-      .postPackageProd(packageId)
-      .then(res => {
-         this.getData = res;
-        switch (packageId) {
-          case 1:
-            this.packageProd1 = this.getData.Result;
-            break;
-          case 2:
-            this.packageProd2 = this.getData.Result;
-            break;
-          case 2:
-            this.packageProd3 = this.getData.Result;
-            break;
-        }
-      })
-      .catch(() => console.log("error"));
-  }
 
-  //#endregion
-
-
-
-//#region postStoreDetails
-
-fill(){
-
-     this.customerDetailsArray[this.indexCustomer][1]=this.customerDetails[1];
-     this.indexCustomer++;
+ //#region postPackageProd
+ async postPackageProd(packageId: Number): Promise<any> {
+  await this.proxy
+  .postPackageProd(packageId)
+  .then(res => {
+      this.getData = res;
+      switch (packageId) {
+      case 1:
+          this.packageProd1 = this.getData.Result;
+          break;
+      case 2:
+          this.packageProd2 = this.getData.Result;
+          break;
+      case 2:
+          this.packageProd3 = this.getData.Result;
+          break;
+      }
+  })
+  .catch(() => console.log("error"));
 }
-    async postStoreDetails1(storeId: Number): Promise<any> {
-             await this.proxy
-            .postStoreDetails(storeId)
-            .then(res => {
-                this.getData = res;
-                this.customerDetails[0]=storeId;
-                this.customerDetailsArray[this.indexCustomer][0]=storeId;
-                this.customerDetailsArray[this.indexCustomer][1]=new Array();
-                this.customerDetails[1]= this.getData.Result;
-                this.fill();
+
+//#endregion
 
 
-            })
-                .catch(() => console.log("error"));
+
+
+        allPosts(){
+            this.post("GetGaleryPictures");
+            this.post("GetAdditionalProducts");
+            this.post("GetPackages");
+            this.post("GetBaseStores");
+        }
+
+
+
+        //#region post
+                async postCategories(): Promise<any>{
+                    await this.proxy.postCategories().then(res=>{
+                        this.getData=res;
+                        this.categories=this.getData.Result;
+                        console.log(this.categories);
+                    }).catch(()=>console.log("error"));
+                }
+
+
+        //#region postStoreDetails
+
+
+
+            async postStoreDetails1(storeId: Number): Promise<any> {
+                    await this.proxy
+                    .postStoreDetails(storeId)
+                    .then(res => {
+                        this.getData = res;
+                        // this.customerDetails[0]=storeId;
+                        // this.customerDetailsArray[this.indexCustomer][0]=storeId;
+                       // this.customerDetailsArray[this.indexCustomer]=[];
+                        this.customerDetails= this.getData.Result;
+                        this.customerDetailsArray[this.indexCustomer]=this.customerDetails;
+                        this.indexCustomer++;
+                      })
+                        .catch(() => console.log("error"));
 
        console.log(this.customerDetailsArray);
     }
@@ -180,20 +240,20 @@ fill(){
     postStoreDetails(storeId: Number)
     {
         let flag=false;
-        for(let i=0;i<this.customerDetailsArray.length;i++)
-        {
-            if(this.customerDetailsArray[i][0]==storeId)
-            {
-                    this.customerDetails= this.customerDetailsArray[i];
-                    flag=true;
-                    break;
-            }
-        }
+
+        console.log(this.customerDetailsArray);
+            this.customerDetailsArray.map(element => {
+                console.log(element);
+                if(element.StoreId==storeId)
+                {
+                    this.customerDetails= element;
+                            flag=true;
+
+                }
+            });
+
         if(flag==false)
-        {
-             this.customerDetailsArray[this.indexCustomer]=new Array();
-             this.postStoreDetails1(storeId);
-        }
+        {             this.postStoreDetails1(storeId);     }
 
     }
 

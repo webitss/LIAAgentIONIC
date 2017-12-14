@@ -33,7 +33,9 @@ export class TabsPage {
   tab3Root = ProductsPage;
   tab4Root = CustomersPage;
   tab5Root = CartPage;
-  constructor(private nav : NavController,public navP: NavParams,public service: LiaService,public events: Events) {
+   constructor(private nav : NavController,public params: NavParams,public service: LiaService,public events: Events) {
+    this.params = params.data;
+   
   }
 
   clearHistory(ev:any){

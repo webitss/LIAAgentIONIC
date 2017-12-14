@@ -27,11 +27,13 @@
                       <h2>{{item.StoreName}}</h2>
                       <p>{{item.Address}}</p>
                       <page-expandable [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
+
                         <ion-scroll style="height: 70px" scrollY="true">
-                          <br>{{service.customerDetails[1]?.Address}}
-                          <br>{{service.customerDetails[1]?.City}}
-                          <br>{{service.customerDetails[1]?.Category}}
+                          <br>{{service.customerDetails?.Address}}
+                          <br>{{service.customerDetails?.City}}
+                          <br>{{service.customerDetails?.Categories}}
                         </ion-scroll>
+
                       </page-expandable>
 
                     </button>

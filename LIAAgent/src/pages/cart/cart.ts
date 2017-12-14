@@ -41,12 +41,12 @@ export class CartPage {
   ionViewDidEnterDown() {
     // let dimensions = this.contentHandle.getContentDimensions();
     // this.contentHandle.scrollTo(0, dimensions.contentHeight+100, 100);
-      this.contentHandle.scrollTo((this.contentHandle.scrollTop)+10,(this.contentHandle.scrollTop)+10);
+      this.contentHandle.scrollTo((this.contentHandle.scrollTop)+65,(this.contentHandle.scrollTop)+65);
   }
 
   ionViewDidEnterUp() {
     
-      this.contentHandle.scrollTo((this.contentHandle.scrollTop)-10,(this.contentHandle.scrollTop)-10);
+      this.contentHandle.scrollTo((this.contentHandle.scrollTop)-65,(this.contentHandle.scrollTop)-65);
     }
 
   routeToProducts()

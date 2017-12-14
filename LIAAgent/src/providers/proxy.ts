@@ -1,3 +1,4 @@
+import { athenticateModel } from './../models/athenticateModel';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import "rxjs/add/operator/map";
@@ -7,6 +8,7 @@ import { Response } from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 import { errorHandler } from "@angular/platform-browser/src/browser";
 
+
 declare var configWebit: { baseUrl: string };
 
 @Injectable()
@@ -15,6 +17,7 @@ export class LiaProxy {
   friends:any;
 
   constructor(private http: HttpClient) {
+
     this.body = {};
   }
 
@@ -41,15 +44,27 @@ export class LiaProxy {
       .toPromise();
   }
 
+
+   postCategories(): Promise<any> {
+    return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/GetCategories`, {
+      "iLanguageId":2,
+      "iUserId": 372,
+      "nvGuide": "98A42241-C752-45E9-A97C-568F7CC5D234"
+
+    }
+    ).toPromise();
+   }
+
   post(func: string): Promise<any> {
     return this.http
       .post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/${func}`, {
-        iUserId: "1",
-        nvGuide: "45D49511-BED0-483E-9A50-789612BD6F8C"
+        iUserId:372 ,
+        nvGuide: "98A42241-C752-45E9-A97C-568F7CC5D234"
       })
       .toPromise();
   }
 
+objLogin:athenticateModel;
 
   postLogin(func: string, obj: LoginModel): Promise<any> {
     return this.http
@@ -62,6 +77,7 @@ obj
     }
 
 }
+
 
 // load() {
 //   return this.http.get(`https://api.myjson.com/bins/1f2zdf`).toPromise();

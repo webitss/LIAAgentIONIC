@@ -60,6 +60,7 @@ ionViewDidEnter(){
     //this.router.navigate(['/login']);
   }
 
+
   async routeToTabs(frm): Promise<any>{
 // await this.service.doLogin(frm).then(()=> {
 // this.isAuthenticated = this.service.isAuthenticated;
@@ -76,4 +77,5 @@ ionViewDidEnter(){
 // }
 //     });
    }
+
 }
