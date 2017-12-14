@@ -12,10 +12,10 @@
               <div class="gradient-color"></div>
         </div>
 
-  <div *ngIf="isClassMini">
-    <ion-grid >
-      <ion-row>
-        <ion-col>
+  <div *ngIf="isClassMini" class="relative width-50">
+    
+      <ion-row class="center-center">
+        <ion-col >
           <form  [formGroup]="frmLogin" (submit)="routeToTabs(this.frmLogin.value)" id="container" >
             <ion-list>
 
@@ -37,6 +37,6 @@
           </form>
         </ion-col>
       </ion-row>
-    </ion-grid>
+    
   </div>
 </ion-content>
