@@ -31,7 +31,9 @@ export class CustomersPage {
   customersByIdlist:any;
   customerDetails:customerModel;
   itemExpandHeight: number = 100;
-
+  arrowUp: boolean = false;
+  arrowDown: boolean = true;
+  demoItem: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     this.valueButton="לקוח חדש";
@@ -43,20 +45,48 @@ export class CustomersPage {
       element.expanded=false;
    });
    this.customersFilter=this.service.customers;
-    
+
   }
   //#region scrol
-  scrollingFun(e){}
+
+  demoFunc(){
+    this.demoItem = 1;
+  }
+
+  scrollingFun(e){
+    console.log(e.scrollTop);
+    console.log(this.customersFilter.length);
+  if(e.scrollTop >= 10){
+  if(this.arrowUp != true)
+  this.arrowUp=true;//show up arrow
+   document.getElementById('demoBtn').click();
+  }
+  else
+  // this.service.arrowUp=false;
+  if(e.scrollTop <= (this.customersFilter.length)-5){
+  this.arrowUp=false;
+  document.getElementById('demoBtn').click();
+  }
+   if(e.scrollTop > 6680){
+  this.arrowDown = false;
+   console.log(this.arrowDown);
+   }
+  else
+  this.arrowDown = true;
+  console.log(this.arrowDown);
+  }
+
   ionViewDidEnterDown() {
     this.contentHandle.scrollTo((this.contentHandle.scrollTop)+60,(this.contentHandle.scrollTop)+60);
   }
+
   ionViewDidEnterUp() {
     this.contentHandle.scrollTo((this.contentHandle.scrollTop)-60,(this.contentHandle.scrollTop)-60);
   }
 //#endregion
 
 
-    
+
 
     routeToCart(){
       if(this.valueButton=="לקוח חדש")
@@ -88,9 +118,9 @@ export class CustomersPage {
             }
            });
         this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
-         
+
       }
-  
+
 }
 
 

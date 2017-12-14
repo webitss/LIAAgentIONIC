@@ -10,7 +10,7 @@
     <ion-row>
       <ion-col>
         <ion-list-header text-center Large>
-          <i class="icon-arrow-up-05 f-size-icon" (click)="this.ionViewDidEnterUp()"></i>
+          <i *ngIf="this.arrowUp" class="icon-arrow-up-05 f-size-icon" (click)="this.ionViewDidEnterUp()"></i>
         </ion-list-header>
 
         <!-- <ion-scroll scrollY="true" style="height: 400px"> -->
@@ -59,7 +59,7 @@
         <!-- </ion-scroll> -->
 
         <ion-list-header text-center>
-          <i class="icon-arrow-up-05 f-size-icon" #downBtn (click)="this.ionViewDidEnterDown($event)"></i>
+          <i *ngIf="this.arrowDown" class="icon-arrow-up-05 f-size-icon" #downBtn (click)="this.ionViewDidEnterDown($event)"></i>
         </ion-list-header>
         </ion-col>
      <ion-col>
@@ -71,7 +71,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
+  <button id="demoBtn"  (click)="this.demoFunc()" hidden="true" >Button</button>
 </ion-content>
 
 
