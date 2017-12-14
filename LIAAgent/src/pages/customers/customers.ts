@@ -113,6 +113,7 @@ export class CustomersPage {
                 listItem.expanded = !listItem.expanded;
                 this.service.postStoreDetails(item.StoreId);
                 this.customerChoosed=item;
+                console.log(item);
             } else {
                 listItem.expanded = false;
             }
