@@ -33,6 +33,17 @@ export class LiaProxy {
     ).toPromise();
    }
 
+
+   postCategories(): Promise<any> {
+    return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/GetCategories`, {
+      "iLanguageId":2,
+      "iUserId": 372,
+      "nvGuide": "98A42241-C752-45E9-A97C-568F7CC5D234"
+    
+    }
+    ).toPromise();
+   }
+
   post(func: string): Promise<any> {
     return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/${func}`, {
       "iUserId": "1",
@@ -41,6 +52,9 @@ export class LiaProxy {
     ).toPromise();
   }
 }
+
+
+
 
 
 

@@ -38,7 +38,7 @@ export class LiaService {
             packageProd1: any;
             packageProd2: any;
             packageProd3: any;
-            c:customerModel;
+            categories:any;
 
 
   //#endregion
@@ -62,6 +62,7 @@ export class LiaService {
             this.postPackageProd(1);
             this.postPackageProd(2);
             this.postPackageProd(3);
+            this.postCategories();
             this.isPackageProductDetailed = false;
             this.isOuter = true;
             this.isInner = false;
@@ -71,10 +72,18 @@ export class LiaService {
             this.customerDetails=new Array();
             this.customerDetailsArray=new Array();
             this.indexCustomer=0;
+            this.categories=new Array();
             //#endregion
     }
 
 //#region post
+            async postCategories(): Promise<any>{
+                await this.proxy.postCategories().then(res=>{
+                    this.getData=res;
+                    this.categories=this.getData.Result;
+                    console.log(this.categories);
+                }).catch(()=>console.log("error"));
+            }
 
             async post(func: string): Promise<any> {
                 await this.proxy
