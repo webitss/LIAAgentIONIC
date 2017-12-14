@@ -61,34 +61,21 @@ ionViewDidEnter(){
   }
 
 
- async routeToTabs(frm): Promise<any>{
-  // this.isAuthenticated = this.service.doLogin(frm);
-   this.navCtrl.setRoot(TabsPage);
-
-      // await this.service.doLogin(frm).then(()=> {
-      // this.isAuthenticated = this.service.isAuthenticated;
-      //   if (this.isAuthenticated != null){
-      //   console.log(this.isAuthenticated);
-       
-      //       this.navCtrl.setRoot(TabsPage);
-      //   }
-      //   else
-      //   alert("משתמש לא נמצא");
-      //     });
-   }
-
-
-//  async routeToTabs(frm): Promise<any>{
-//   // this.isAuthenticated = this.service.doLogin(frm);
+  async routeToTabs(frm): Promise<any>{
 // await this.service.doLogin(frm).then(()=> {
 // this.isAuthenticated = this.service.isAuthenticated;
-//   if (this.isAuthenticated != null){
-//   console.log(this.isAuthenticated);
-//       this.navCtrl.setRoot(TabsPage);
+//   if (this.service.statusCode != 0){
+// if(this.service.statusCode === -3)
+//     alert("משתמש לא נמצא")
+// else
+// alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
 //   }
 //   else
-//   alert("משתמש לא נמצא");
+// {
+//   console.log(this.isAuthenticated);
+  this.navCtrl.setRoot(TabsPage)
+// }
 //     });
-//   }
+   }
 
 }
