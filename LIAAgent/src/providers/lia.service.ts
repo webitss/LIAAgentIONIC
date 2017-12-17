@@ -4,7 +4,6 @@ import { Injectable } from "@angular/core";
 import { LiaProxy } from "./proxy";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
-import { customerModel } from "../models/customer";
 import { LoginModel } from "../models/loginModel";
 import { errorHandler } from "@angular/platform-browser/src/browser";
 import { Response } from '@angular/http';
@@ -12,6 +11,7 @@ import {Observable} from 'rxjs/Rx';
 import { customerDetailsModel } from '../models/customerDetails';
 import { customerCategoriesModel } from '../models/customerCategories';
 import { packageModel } from '../models/packageModel';
+import { customerModel } from '../models/customer';
 
 @Injectable()
 export class LiaService {

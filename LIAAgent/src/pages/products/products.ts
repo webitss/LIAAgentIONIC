@@ -30,8 +30,6 @@ export class ProductsPage  {
     this.service.nowComponent = "מוצרים";
   }
 
-
   
-
  
 }

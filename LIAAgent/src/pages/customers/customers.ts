@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
@@ -10,14 +9,6 @@ import { ViewChild } from '@angular/core';
 import {Content} from 'ionic-angular';
 import { customerModel } from './../../models/customer';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
-
-/**
- * Generated class for the CustomersPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 
 @Component({
   selector: 'page-customers',
@@ -38,7 +29,6 @@ export class CustomersPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     this.valueButton="לקוח חדש";
     service.nowComponent="לקוחות";
-
     this.customersByIdlist=new Array();
     this.customerDetails=new customerModel;
     this.service.customers.forEach(element => {
@@ -67,11 +57,9 @@ export class CustomersPage {
 let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
   if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-remainder)){
   this.arrowDown = false;
-  // console.log("height",this.contentHandle.ionScrollEnd.isStopped);
    }
   else
   this.arrowDown = true;
- // console.log(this.arrowDown);
   }
 
   ionViewDidEnterDown() {
@@ -119,6 +107,7 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
         this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
 
       }
+
 
 }
 
