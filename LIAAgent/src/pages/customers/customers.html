@@ -11,7 +11,9 @@
       <ion-col>
         <ion-list-header text-center Large>
 
+
           <i *ngIf="this.arrowUp" ion-long-press class="icon-arrow-up-05 f-size-icon" (click)="this.ionViewDidEnterUp()" [interval]="300"  (onPressStart)="this.ionViewDidEnterUp($event)" (onPressing)="this.ionViewDidEnterUp($event)"></i>
+
 
         </ion-list-header>
 
@@ -40,15 +42,18 @@
 
                    </ion-item>
                   </ion-list>
-         
-         
+
+
           </ion-content>
         <!-- </ion-scroll> -->
 
         <ion-list-header text-center>
+
           <i *ngIf="this.arrowDown" ion-long-press [interval]="300"  class="icon-arrow-up-05 f-size-icon" #downBtn (click)="this.ionViewDidEnterDown()" (onPressStart)="this.ionViewDidEnterDown()" (onPressing)="this.ionViewDidEnterDown()"></i>
-        </ion-list-header>
+
         
+        </ion-list-header>
+
         </ion-col>
      <ion-col>
        <form>
@@ -61,7 +66,3 @@
   </ion-grid>
   <button id="demoBtn"  (click)="this.demoFunc()" hidden="true" >Button</button>
 </ion-content>
-
-
-
-  
