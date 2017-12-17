@@ -12,6 +12,7 @@ import {Observable} from 'rxjs/Rx';
 import { customerDetailsModel } from '../models/customerDetails';
 import { customerCategoriesModel } from '../models/customerCategories';
 import { packageModel } from '../models/packageModel';
+import { customerModel } from '../models/customer';
 
 @Injectable()
 export class LiaService {

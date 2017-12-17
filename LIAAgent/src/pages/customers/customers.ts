@@ -91,6 +91,19 @@ export class CustomersPage {
         this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
          
       }
+
+
+
+      pressed()
+      {
+        this.contentHandle.scrollTo((this.contentHandle.scrollTop)+60,(this.contentHandle.scrollTop)+60);
+      }
+      active(){
+    
+      }
+    released(){
+      
+    }
   
 }
 

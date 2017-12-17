@@ -37,7 +37,7 @@ import { LoginPage } from '../pages/login/login';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VideoPage } from '../pages/video/video';
 import { Signature1Page } from '../pages/signature1/signature1';
-
+import { LongPressModule } from 'ionic-long-press';
 
 
 
@@ -75,7 +75,7 @@ import { Signature1Page } from '../pages/signature1/signature1';
   imports: [
     BrowserModule,SignaturePadModule,
     IonicModule.forRoot(MyApp),
-     HttpClientModule, FormsModule,ReactiveFormsModule
+     HttpClientModule, FormsModule,ReactiveFormsModule,LongPressModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

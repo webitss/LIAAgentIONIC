@@ -10,7 +10,7 @@
     <ion-row>
       <ion-col>
         <ion-list-header text-center Large>
-          <i class="icon-arrow-up-05 f-size-icon" (click)="this.ionViewDidEnterUp()"></i>
+          <i ion-long-press class="icon-arrow-up-05 f-size-icon" (click)="this.ionViewDidEnterUp($event)" [interval]="300"  (onPressStart)="this.ionViewDidEnterUp($event)" (onPressing)="this.ionViewDidEnterUp($event)"></i>
         </ion-list-header>
 
         <!-- <ion-scroll scrollY="true" style="height: 400px"> -->
@@ -38,29 +38,15 @@
 
                    </ion-item>
                   </ion-list>
-          <!-- <ion-list>
-
-            <ion-item *ngFor="let c of customersFilter" (click)="customerClicked(c.StoreId)">
-              <p float-start>{{c?.StoreName}}</p>
-              <i float-end class="icon-arrow-down-04 t-center  f-size-icon "></i>
-              <br>
-              <div *ngIf="this.allowDetails">
-                <ion-scroll scrollY="true" style="height: 100px">
-                 <br>
-                  <br>{{service.customerDetails[1]?.Address}}
-                  <br>{{service.customerDetails[1]?.City}}
-                  <br>{{service.customerDetails[1]?.Category}}
-                  <br>
-               </ion-scroll>
-              </div>
-            </ion-item>
-          </ion-list> -->
+         
+         
           </ion-content>
         <!-- </ion-scroll> -->
 
         <ion-list-header text-center>
-          <i class="icon-arrow-up-05 f-size-icon" #downBtn (click)="this.ionViewDidEnterDown($event)"></i>
+          <i ion-long-press [interval]="300"  class="icon-arrow-up-05 f-size-icon" #downBtn (click)="this.ionViewDidEnterDown($event)" (onPressStart)="this.ionViewDidEnterDown($event)" (onPressing)="this.ionViewDidEnterDown($event)"></i>
         </ion-list-header>
+        
         </ion-col>
      <ion-col>
        <form>
@@ -103,3 +89,21 @@
 
 
 <!--   <button detail-none (click)="expandItem(item) " ion-item *ngFor="let item of customersFilter"> -->
+
+   <!-- <ion-list>
+
+            <ion-item *ngFor="let c of customersFilter" (click)="customerClicked(c.StoreId)">
+              <p float-start>{{c?.StoreName}}</p>
+              <i float-end class="icon-arrow-down-04 t-center  f-size-icon "></i>
+              <br>
+              <div *ngIf="this.allowDetails">
+                <ion-scroll scrollY="true" style="height: 100px">
+                 <br>
+                  <br>{{service.customerDetails[1]?.Address}}
+                  <br>{{service.customerDetails[1]?.City}}
+                  <br>{{service.customerDetails[1]?.Category}}
+                  <br>
+               </ion-scroll>
+              </div>
+            </ion-item>
+          </ion-list> -->
