@@ -19,6 +19,8 @@
 
 .grid {
   margin-top: 56px;
+  height: calc(100% - 56px);
+  background: #c4f2f7;
 }
 
 ion-input, ion-textarea {

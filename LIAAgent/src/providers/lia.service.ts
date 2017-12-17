@@ -4,7 +4,6 @@ import { Injectable } from "@angular/core";
 import { LiaProxy } from "./proxy";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
-// import { customerModel } from "../models/customer";
 import { LoginModel } from "../models/loginModel";
 import { errorHandler } from "@angular/platform-browser/src/browser";
 import { Response } from '@angular/http';
@@ -16,42 +15,6 @@ import { customerModel } from '../models/customer';
 
 @Injectable()
 export class LiaService {
-  //#region  variables
-  // customerDetailsArray:any;
-  // indexCustomer:number=0;
-  // isNowInPageLogin: boolean;
-  // package: any;
-  // packages: any;
-  // galeryPictures: any;
-  // source: String;
-  // getData: any;
-  // products: any;
-  // customers: any;
-  // customerDetails: any;
-  // nowComponent: string;
-  // product: any;
-  // thisProductDetails: any;
-  // isOuter: boolean;
-  // isInner: boolean;
-  // isPackageProductDetailed: boolean;
-  // packageProduct: any;
-  // countProductsInCart: number = 0;
-  // productsOfCart: any;
-  // packagesOfCart: any[];
-  // isPayed: boolean;
-  // isTerminateOrdered: boolean;
-  // anotherDetails: boolean;
-  // routeOrStay: string;
-  // packageProd1: any;
-  // packageProd2: any;
-  // packageProd3: any;
-  // isAuthenticated: any;
-  // userLogin: LoginModel;
-  // c:customerModel;
-  // statusCode:any;
-
-
-
           //#region  variables
           public signatureImage : any;
           public signatureImage1 : any;

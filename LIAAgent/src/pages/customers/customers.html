@@ -10,11 +10,13 @@
     <ion-row>
       <ion-col>
         <ion-list-header text-center Large>
+
           <i ion-long-press class="icon-arrow-up-05 f-size-icon" (click)="this.ionViewDidEnterUp($event)" [interval]="300"  (onPressStart)="this.ionViewDidEnterUp($event)" (onPressing)="this.ionViewDidEnterUp($event)"></i>
+
         </ion-list-header>
 
         <!-- <ion-scroll scrollY="true" style="height: 400px"> -->
-            <ion-content padding #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 400px">
+            <ion-content padding #contentRef (ionScroll)="scrollingFun($event)" style="height: 400px">
 
                 <ion-list>
                  <ion-item  *ngFor="let item of customersFilter">
@@ -57,7 +59,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
+  <button id="demoBtn"  (click)="this.demoFunc()" hidden="true" >Button</button>
 </ion-content>
 
 
