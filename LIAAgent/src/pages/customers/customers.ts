@@ -43,29 +43,24 @@ export class CustomersPage {
     this.demoItem = 1;
   }
 
-  scrollingFun(e){
-    // console.log(e);
-    //         console.log(e.scrollTop);
-    //         console.log(this.customersFilter.length);
-    //         if(e.scrollTop >= 10){
-    //         if(this.arrowUp != true)
-    //         this.arrowUp=true;//show up arrow
-    //         document.getElementById('demoBtn').click();
-    //         }
-    //         else
-    //         // this.service.arrowUp=false;
-    //         if(e.scrollTop <= (this.customersFilter.length)-5){
-    //         this.arrowUp=false;
-    //         document.getElementById('demoBtn').click();
-    //         }
-    //         if(e.scrollTop > 6680){
-    //         this.arrowDown = false;
-    //         console.log(this.arrowDown);
-    //         }
-    //         else
-    //         this.arrowDown = true;
-    //         console.log(this.arrowDown);
-  }
+  scrollingFun(){
+            if(this.contentHandle.scrollTop >= 10){
+            if(this.arrowUp != true)
+            this.arrowUp=true;//show up arrow
+            document.getElementById('demoBtn').click();
+            }
+            else
+            // this.service.arrowUp=false;
+            if(this.contentHandle.scrollTop <= (this.customersFilter.length)-5){
+            this.arrowUp=false;
+            document.getElementById('demoBtn').click();
+            }
+            if(this.contentHandle.scrollTop > 6680){
+            this.arrowDown = false;
+            }
+            else
+            this.arrowDown = true;
+            }
 
   ionViewDidEnterDown() {
     this.contentHandle.scrollTo((this.contentHandle.scrollTop)+60,(this.contentHandle.scrollTop)+60);
@@ -119,5 +114,4 @@ export class CustomersPage {
 
 
 
- // let dimensions = this.contentHandle.getContentDimensions();
-      // this.contentHandle.scrollTo(0, dimensions.contentHeight+100, 100);
+ 
