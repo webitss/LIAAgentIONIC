@@ -43,6 +43,7 @@ export class CustomersPage {
     this.demoItem = 1;
   }
 
+
   scrollingFun(e){
   if(this.contentHandle.scrollTop >= 10){
   if(this.arrowUp != true)
@@ -61,6 +62,7 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
   else
   this.arrowDown = true;
   }
+
 
   ionViewDidEnterDown() {
     this.contentHandle.scrollTo((this.contentHandle.scrollTop)+60,(this.contentHandle.scrollTop)+60);
@@ -114,5 +116,4 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
 
 
 
- // let dimensions = this.contentHandle.getContentDimensions();
-      // this.contentHandle.scrollTo(0, dimensions.contentHeight+100, 100);
+ 

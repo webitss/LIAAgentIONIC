@@ -10,7 +10,9 @@
       <ion-col>
         <ion-list-header text-center Large>
 
-          <i *ngIf="this.arrowUp" ion-long-press class="icon-arrow-up-05 f-size-icon" (click)="this.ionViewDidEnterUp($event)" [interval]="300"  (onPressStart)="this.ionViewDidEnterUp($event)" (onPressing)="this.ionViewDidEnterUp($event)"></i>
+
+          <i *ngIf="this.arrowUp" ion-long-press class="icon-arrow-up-05 f-size-icon" (click)="this.ionViewDidEnterUp()" [interval]="300"  (onPressStart)="this.ionViewDidEnterUp($event)" (onPressing)="this.ionViewDidEnterUp($event)"></i>
+
 
         </ion-list-header>
 
@@ -18,7 +20,7 @@
             <ion-content padding #contentRef (ionScroll)="scrollingFun($event)" style="height: 400px">
 
                 <ion-list>
-                 <ion-item  *ngFor="let item of customersFilter">
+                 <ion-item  *ngFor="let item of customersFilter" full>
                     <button detail-none (click)="expandItem(item) " ion-item >
                       <ion-thumbnail item-start>
                         <!-- <img src="http://placehold.it/100"> -->
@@ -45,7 +47,10 @@
         <!-- </ion-scroll> -->
 
         <ion-list-header text-center>
-          <i *ngIf="this.arrowDown" ion-long-press [interval]="300"  class="icon-arrow-up-05 f-size-icon" #downBtn (click)="this.ionViewDidEnterDown($event)" (onPressStart)="this.ionViewDidEnterDown($event)" (onPressing)="this.ionViewDidEnterDown($event)"></i>
+
+          <i *ngIf="this.arrowDown" ion-long-press [interval]="300"  class="icon-arrow-up-05 f-size-icon" #downBtn (click)="this.ionViewDidEnterDown()" (onPressStart)="this.ionViewDidEnterDown()" (onPressing)="this.ionViewDidEnterDown()"></i>
+
+        
         </ion-list-header>
 
         </ion-col>
@@ -60,51 +65,3 @@
   </ion-grid>
   <button id="demoBtn"  (click)="this.demoFunc()" hidden="true" >Button</button>
 </ion-content>
-
-
-
-    <!-- <div class="t-center"><i class="icon-arrow-up-05 t-center  f-size-icon"></i></div>
-
-    <ion-scroll scrollY="true" style="height: 200px" >
-<div (click)="customerClicked()" *ngFor="let c of customersFilter">
-
-        <ion-item float-right>
-        {{c.num}}{{c.name}}{{c.address}}
-        </ion-item> -->
-            <!-- <details (click)="customerClicked()"> -->
-
-            <!-- <ion-icon float-left [ngClass]="{'close-circle': allowDetails, 'icon-arrow-left-03': !allowDetails}"></ion-icon> -->
-
-
-
-              <!-- </details> -->
-
-        <!-- </div>
-      </ion-scroll>
-
-      <br>
-      <div class="t-center"><i class="icon-arrow-down-04 t-center  f-size-icon"></i></div> -->
-
-
-
-
-
-<!--   <button detail-none (click)="expandItem(item) " ion-item *ngFor="let item of customersFilter"> -->
-
-   <!-- <ion-list>
-
-            <ion-item *ngFor="let c of customersFilter" (click)="customerClicked(c.StoreId)">
-              <p float-start>{{c?.StoreName}}</p>
-              <i float-end class="icon-arrow-down-04 t-center  f-size-icon "></i>
-              <br>
-              <div *ngIf="this.allowDetails">
-                <ion-scroll scrollY="true" style="height: 100px">
-                 <br>
-                  <br>{{service.customerDetails[1]?.Address}}
-                  <br>{{service.customerDetails[1]?.City}}
-                  <br>{{service.customerDetails[1]?.Category}}
-                  <br>
-               </ion-scroll>
-              </div>
-            </ion-item>
-          </ion-list> -->

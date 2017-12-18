@@ -5,7 +5,8 @@
         <ion-col>
           <div class="col-md-6">
             <div class="container-lia container">
-            <div class="t-center"><i class="icon-arrow-up-05 t-center blue f-size-icon" (click)="this.ionViewDidEnterUp()"></i></div>
+            <div class="t-center">
+              <i *ngIf="this.arrowUp" ion-long-press [interval]="200" class="icon-arrow-up-05 t-center blue f-size-icon" (click)="this.ionViewDidEnterUp()" (onPressStart)="this.ionViewDidEnterUp()" (onPressing)="this.ionViewDidEnterUp()" ></i></div>
 
                   <ion-content padding #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 250px">
                 <ion-item *ngFor="let p of service.productsOfCart">
@@ -15,7 +16,8 @@
                   </ion-content>
 
 
-            <div class="t-center" ><i class="icon-arrow-down-04 t-center blue f-size-icon" (click)="this.ionViewDidEnterDown()"></i></div>
+            <div class="t-center" >
+              <i *ngIf="this.arrowDown"  ion-long-press [interval]="200" class="icon-arrow-down-04 t-center blue f-size-icon" (click)="this.ionViewDidEnterDown()" (onPressStart)="this.ionViewDidEnterDown()" (onPressing)="this.ionViewDidEnterDown()"></i></div>
             </div>
             </div>
           </ion-col>
@@ -40,7 +42,9 @@
 
   </ion-row>
 </ion-grid>
-<h1 style="color: black">{{this.StoreId}}jjjjjjjjjjjjjjjjjjjjjjjjjjj</h1>
+
+<button id="demoBtn"  (click)="this.demoFunc()" hidden="true" >Button</button>
+
 </ion-content>
 
 
