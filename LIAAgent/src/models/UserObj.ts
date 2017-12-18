@@ -1,6 +1,6 @@
 export class UserObj{
      UserId :number
-     UserType :UserType
+     //UserType :UserType
      Password :string
      Email :string
      UserName :string

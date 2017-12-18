@@ -32,25 +32,24 @@ demoFunc()
 {
 this.i=45;
 }
-  scrollingFun(){
-    if(this.contentHandle.scrollTop >= 10){
-        if(this.arrowUp != true)
-         this.arrowUp=true;//show up arrow
-         document.getElementById('demoBtn').click();
-    }
-    else
-    // this.service.arrowUp=false;
-    if(this.contentHandle.scrollTop <= (this.service.productsOfCart.length)-5){
-       this.arrowUp=false;
-       document.getElementById('demoBtn').click();
-    }
-    if(this.contentHandle.scrollTop > 6680){
-      this.arrowDown = false;
-    }
-    else
-      this.arrowDown = true;
-    }
-
+scrollingFun(e){
+  if(this.contentHandle.scrollTop >= 10){
+  if(this.arrowUp != true)
+  this.arrowUp=true;//show up arrow
+   document.getElementById('demoBtn').click();
+  }
+  else
+  if(this.contentHandle.scrollTop <= (this.service.productsOfCart.length)-5){
+  this.arrowUp=false;
+  document.getElementById('demoBtn').click();
+  }
+let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
+  if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-remainder)){
+  this.arrowDown = false;
+   }
+  else
+  this.arrowDown = true;
+  }
 
   ionViewDidEnterDown() {
       this.contentHandle.scrollTo((this.contentHandle.scrollTop)+65,(this.contentHandle.scrollTop)+65);

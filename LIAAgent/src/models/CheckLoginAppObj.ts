@@ -1,7 +1,7 @@
 export class CheckLoginAppObj{
      Cellphone :string
      Password :string
-     DeviceType :DeviceType
+     //DeviceType :DeviceType
      DeviceToken :string
 
 }
