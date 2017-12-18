@@ -61,11 +61,18 @@ tabs{
     }
 
 
+   // footer
 
+   
+.has-icon .tab-badge {
+    left: calc(50% - -19px);
+    border-radius: 50%;
+    top: 37%;
 }
 
 
-button {
+
+// button {
    
 	ion-badge {
 		position: absolute;
@@ -78,80 +85,23 @@ button {
 		}
     }
     
-    // footer
-
-   
-.has-icon .tab-badge {
-    left: calc(50% - -19px);
-    border-radius: 50%;
-    top: 37%;
-}
-
-
-// ion-tabs {
-//     // position: absolute;
-//     // bottom: 0px;
-//     // width: 100%;
-//     background: #1010f3;
-
-//         ion-tab {
-//             background: rgba(255, 255, 255, 0.1);
-//             -webkit-transition: -webkit-transform ease-out 0.1s, background 0.2s;
-//             -moz-transition: -moz-transform ease-out 0.1s, background 0.2s;
-//             transition: transform ease-out 0.1s, background 0.2s;
-//             // height: 8vh;
-//             // text-align: center;
-//             // line-height: 8vh;
-//             // cursor: pointer;
-//             // position: relative;
-//             font-size: 1.3em;
-//             border-top: 4px solid #f3f3f3;
-        
-//             &:hover {
-//                 background: rgb(230, 230, 230);
-//                 // -webkit-transform: all;
-//                 // -moz-transform: all;
-//                 // -ms-transform: all;
-//                 // transform: all;
-//                 color: #000;
-//                 border-top: 4px solid rgb(230, 230, 230);
-//             }
-
-//             &:active {
-//                 border-top: 4px solid red;
-//                 color: red;
-//             }
-//         }
-
-        // ion-tab li:not(:last-child):after {
-        //     content: "";
-        //     background-color: #59595b;
-        //     position: absolute;
-        //     width: 1px;
-        //     height: 6vh;
-        //     top: 10px;
-        //     left: 0%;
-        // } 
-        
-        .tabs-md .tab-button{
+    .tabs-md .tab-button.icon-only {    
+      
+            &:before{
             
-           &:active{
-            border-top:2px solid #000000;
-        }
-            &:after{
                 content: "";
-                background-color: #59595b;
+                background-color:#59595B;
                 position: absolute;
                 width: 1px;
-                height: 6vh;
+                height: 70%;
                 top: 10px;
                 left: 0%;
             }
-        
+        }
         
         }
 
 
- }    
+  
 
  

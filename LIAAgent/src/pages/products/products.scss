@@ -1,18 +1,25 @@
+ ion-app.md [margin]{
+    margin:5% ;
+}
 
-.ios, .md {
-    
-     
-    
-          
-    
-      
-    
- 
 page-products{
+   
+    // $grid-max-widths:500px;
+
+    //  $content-margin {}
+
+   
+    
+    .grid {
+        width: 50%;}
+
+    .full-height{
+        flex-grow: 1;
+    }
         .app-products {
-            display: inline-block;
+            // display: inline-block;
             margin: 3%;
-            vertical-align: top;
+            // vertical-align: top;
         }
 
         .app-products p {
@@ -42,8 +49,7 @@ page-products{
 
 
 
-        button {
-            align-items: baseline;
-        }
-}
+        // button {
+        //     align-items: baseline;
+        // }
 }
