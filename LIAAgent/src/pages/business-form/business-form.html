@@ -22,19 +22,19 @@
                 <ion-row>
                   <ion-col>
                 <ion-item>
-                    <ion-input type="text" placeholder="שם העסק"  formControlName="name"  ></ion-input>
+                    <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.StoreName : 'שם העסק'"   formControlName="name"  ></ion-input>
                   </ion-item>
                 </ion-col>
 
 <ion-col>
                   <ion-item>
-                      <ion-input type="text" placeholder='ח"פ'  formControlName="PrivatelyHeldCompany" pattern="[0-9]*" ></ion-input>
+                      <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.HP : 'ח.פ'"  formControlName="PrivatelyHeldCompany" pattern="[0-9]*" ></ion-input>
                     </ion-item>
                   </ion-col>
 
 <ion-col>
                     <ion-item>
-                        <ion-input type="text" placeholder="טלפון בית העסק"  formControlName="phone" pattern="[0-9]*" ></ion-input>
+                        <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.Phone : 'טלפון בית עסק'"  formControlName="phone" pattern="[0-9]*" ></ion-input>
                       </ion-item>
                     </ion-col>
                     </ion-row>
@@ -42,19 +42,19 @@
 <ion-row>
 <ion-col>
                       <ion-item>
-                          <ion-input type="text" placeholder="כתובת בית העסק"  formControlName="address"  ></ion-input>
+                          <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.Address : 'כתובת בית עסק'"  formControlName="address"  ></ion-input>
                         </ion-item>
                       </ion-col>
 
 <ion-col>
                         <ion-item>
-                            <ion-input type="text" placeholder="כתובת אתר העסק"  formControlName="websiteAddress" ></ion-input>
+                            <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.Long : 'כתובת אתר העסק'"  formControlName="websiteAddress" ></ion-input>
                           </ion-item>
                         </ion-col>
 
 <ion-col>
                           <ion-item>
-                              <ion-input type="text" placeholder="קטגורית עסק"  formControlName="category"  ></ion-input>
+                              <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.Categories : 'קטגורית העסק'" formControlName="category"  ></ion-input>
                             </ion-item>
                           </ion-col>
 </ion-row>
@@ -68,7 +68,7 @@
 
           <div *ngIf="service.anotherDetails">
 
-          <form [formGroup]="frmMoredetails" (ngSubmit)="service.submitFrmBusiness();onGoToPayOptionsPage()">
+          <form [formGroup]="frmMoredetails" (ngSubmit)="service.submitFrmBusiness(this.frmBusiness.value, this.StoreObj);onGoToPayOptionsPage()">
 
 <ion-grid>
           <a (click)="this.f()">לוגו</a>
@@ -97,13 +97,13 @@
           <ion-row>
 <ion-col>
           <ion-item>
-              <ion-input type="text" placeholder="שעות פתיחה"  formControlName="OpeningHours" ></ion-input>
+              <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.OpenHours : 'שעות פתיחה'"  formControlName="OpeningHours" ></ion-input>
             </ion-item>
           </ion-col>
 
 <ion-col>
             <ion-item>
-                <ion-input type="text" placeholder="מינימום לכרטיס"  formControlName="min" ></ion-input>
+                <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.MinPriceToTicket : 'מינימום לכרטיס'"   formControlName="min" ></ion-input>
               </ion-item>
             </ion-col>
             </ion-row>

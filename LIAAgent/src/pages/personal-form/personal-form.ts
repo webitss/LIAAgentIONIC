@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { BusinessFormPage } from '../business-form/business-form';
+import { customerDetailsModel } from '../../models/customerDetails';
+import { storeOwnerModel } from '../../models/storeOwnerModel';
 
 /**
  * Generated class for the PersonalFormPage page.
@@ -20,9 +22,13 @@ export class PersonalFormPage {
 
   pattern =/^[a-zA-Zא-ת\s]*$/;
   frmPersonal: FormGroup;
+  StoreId:number;
+  StoreOwnerObj: any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
+    this.StoreId = navParams.data.StoreId;
+    this.getStorOfCustomerDetailsArray();
     service.nowComponent="טופס הזמנה";
     this.frmPersonal = new FormGroup({
       first_name: new FormControl("", Validators.required),
@@ -34,9 +40,20 @@ export class PersonalFormPage {
   })
   }
 
-  onGoToBusinessFormPage(frm){
+  getStorOfCustomerDetailsArray(){
+    if(this.StoreId){
+    for(let i = 0; i < this.service.customerDetailsArray.length; i++)
+    if(this.service.customerDetailsArray[i].StoreId == this.StoreId)
+    this.StoreOwnerObj = this.service.customerDetailsArray[i];
+    }
+    }
+
+  onGoToBusinessFormPage(frm, StoreId){
  // if(this.frmPersonal.valid)
 if(frm.first_name)
+if(this.StoreId)
+this.navCtrl.push(BusinessFormPage,{StoreId: StoreId});
+else
     this.navCtrl.push(BusinessFormPage);
   }
 

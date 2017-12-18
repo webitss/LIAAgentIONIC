@@ -26,12 +26,12 @@
 
             <a >
             <button  ion-button block class="btn btn-width bg-light-blue" (click)="routeToPackages()">הוסף / שנה חבילה </button>
-           
+
             </a>
             <a >
             <button ion-button block class="btn btn-width bg-pink" (click)="this.routeToProducts()">הוסף מוצר </button>
             </a>
-            <button ion-button block class="btn btn-width bg-green"  (click)="onGoToPersonalFormPage()" >המשך לתשלום</button>
+            <button ion-button block class="btn btn-width bg-green"  (click)="onGoToPersonalFormPage(this.StoreId)" >המשך לתשלום</button>
 
             </div>
             </div>
@@ -40,7 +40,7 @@
 
   </ion-row>
 </ion-grid>
-
+<h1 style="color: black">{{this.StoreId}}jjjjjjjjjjjjjjjjjjjjjjjjjjj</h1>
 </ion-content>
 
 

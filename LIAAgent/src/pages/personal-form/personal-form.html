@@ -15,25 +15,25 @@
           <h3 class="blue"> פרטים אישיים</h3>
     </div>
 
-          <form [formGroup]="frmPersonal" (ngSubmit)="service.submitFrmPersonal(frmPersonal.value); onGoToBusinessFormPage(frmPersonal.value)" >
+          <form [formGroup]="frmPersonal" (ngSubmit)="service.submitFrmPersonal(frmPersonal.value); onGoToBusinessFormPage(frmPersonal.value, this.StoreId)" >
 
               <ion-grid>
                   <ion-row>
                   <ion-col>
               <ion-item>
-                <ion-input type="text" placeholder="שם לקוח"  formControlName="first_name" [pattern]="this.pattern" ></ion-input>
+                <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Name : 'שם לקוח'"  formControlName="first_name" [pattern]="this.pattern" ></ion-input>
               </ion-item>
                   </ion-col>
 
              <ion-col>
               <ion-item>
-                  <ion-input type="text" placeholder='ת"ז'  formControlName="id" ></ion-input>
+                  <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.IdNum : 'תעודת זהות'"  formControlName="id" ></ion-input>
                 </ion-item>
                   </ion-col>
 
                   <ion-col >
                 <ion-item>
-                    <ion-input type="text" placeholder="טלפון"  formControlName="phoneNumber" pattern="[0-9]*"></ion-input>
+                    <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Phone : 'טלפון'"  formControlName="phoneNumber" pattern="[0-9]*"></ion-input>
                   </ion-item>
                 </ion-col>
                 </ion-row>
@@ -41,19 +41,19 @@
                 <ion-row>
                   <ion-col>
                   <ion-item>
-                      <ion-input type="text" placeholder="כתובת"  formControlName="address"></ion-input>
+                      <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Address : 'כתובת'"  formControlName="address"></ion-input>
                     </ion-item>
                   </ion-col>
 
                    <ion-col>
                     <ion-item>
-                        <ion-input type="text" placeholder="מייל"  formControlName="email"></ion-input>
+                        <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Address : 'אימייל'" formControlName="email"></ion-input>
                       </ion-item>
                     </ion-col>
 
                     <ion-col>
                       <ion-item>
-                          <ion-input type="text" placeholder="נייד"  formControlName="callPhone" pattern="[0-9]*"></ion-input>
+                          <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Address : 'נייד'"  formControlName="callPhone" pattern="[0-9]*"></ion-input>
                         </ion-item>
                       </ion-col>
 
@@ -68,3 +68,4 @@
           </div>
 
 </ion-content>
+
