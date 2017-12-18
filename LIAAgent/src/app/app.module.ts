@@ -75,7 +75,8 @@ import { LongPressModule } from 'ionic-long-press';
   imports: [
     BrowserModule,SignaturePadModule,
     IonicModule.forRoot(MyApp),
-     HttpClientModule, FormsModule,ReactiveFormsModule,LongPressModule
+     HttpClientModule, FormsModule,ReactiveFormsModule,
+    LongPressModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
