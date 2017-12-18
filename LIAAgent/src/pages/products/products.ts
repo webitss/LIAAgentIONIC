@@ -13,12 +13,12 @@ import { ProductDetailsPage } from '../product-details/product-details';
   templateUrl: 'products.html',
 })
 export class ProductsPage  {
-  
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     service.nowComponent="מוצרים";
-    
 
-   
+
+
   }
   select(productId){
     this.navCtrl.push(ProductDetailsPage,{ productId: productId});
@@ -26,10 +26,10 @@ export class ProductsPage  {
 
   ionViewWillEnter()
   {
-    
+
     this.service.nowComponent = "מוצרים";
   }
 
-  
- 
+
+
 }

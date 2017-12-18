@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { PayOptionsPage } from '../pay-options/pay-options';
 import { PopupPage } from '../popup/popup';
+import { customerDetailsModel } from '../../models/customerDetails';
 
 
 /**
@@ -30,6 +31,8 @@ export class BusinessFormPage {
   imageSrc: string = '';
   iconColor:any;
   borderColor:any;
+  StoreId: number;
+  StoreObj: customerDetailsModel;
 
   frmBusiness = new FormGroup({
     name: new FormControl("", Validators.required),
@@ -51,7 +54,17 @@ frmMoredetails = new FormGroup({
     // ) {
     service.routeOrStay="businessForm";
     service.anotherDetails = false;
+    this.StoreId = navParams.data.StoreId;
+    this.getStorOfCustomerDetailsArray();
   }
+
+  getStorOfCustomerDetailsArray(){
+    if(this.StoreId){
+    for(let i = 0; i < this.service.customerDetailsArray.length; i++)
+    if(this.service.customerDetailsArray[i].StoreId == this.StoreId)
+    this.StoreObj = this.service.customerDetailsArray[i];
+    }
+    }
 
   f()
   {

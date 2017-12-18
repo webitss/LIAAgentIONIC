@@ -279,8 +279,13 @@ export class LiaService {
     this.countProductsInCart++;
     this.productsOfCart.push(pr);
   }
-  submitFrmBusiness() {
+
+  submitFrmBusiness(frm, StoreObj) {
+if(frm)
     this.anotherDetails = true;
+else
+if(StoreObj)
+this.customerDetailsArray.push(StoreObj);//צריך לשנות
   }
   submitFrmPersonal(frm) {
     console.log(frm);

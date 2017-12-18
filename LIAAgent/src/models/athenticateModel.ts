@@ -3,5 +3,5 @@ export class athenticateModel{
     LoginGuide:  string
     UserId: number
     UserName: string
-    UserType: number
+    UserType: any
 }

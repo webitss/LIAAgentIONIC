@@ -14,14 +14,17 @@ import { ViewController } from 'ionic-angular/navigation/view-controller';
 export class CartPage {
   @ViewChild("contentRef") contentHandle: Content;
   TabsEnum: typeof TabsEnum = TabsEnum;
+  StoreId :number;
   id:number;
   i:number;
   arrowUp: boolean = false;
   arrowDown: boolean = true;
 
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     service.nowComponent="סל";
-    this.id = navParams.get('id');
+    // this.StoreId = navParams.get('StoreId');
+this.StoreId = 86;
     }
 
   ionViewWillEnter()
@@ -56,7 +59,7 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
   }
 
   ionViewDidEnterUp() {
-    
+
       this.contentHandle.scrollTo((this.contentHandle.scrollTop)-65,(this.contentHandle.scrollTop)-65);
     }
 
@@ -65,9 +68,13 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
     this.navCtrl.parent.select(TabsEnum.products);
   }
 
-  onGoToPersonalFormPage(){
-    this.navCtrl.push(PersonalFormPage);
-
+  onGoToPersonalFormPage(StoreId){
+if(StoreId){
+    this.navCtrl.push(PersonalFormPage,{StoreId: StoreId});
+    console.log(StoreId);
+}
+else
+this.navCtrl.push(PersonalFormPage);
   }
 
   routeToPackages(){
