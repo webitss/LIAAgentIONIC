@@ -12,19 +12,22 @@ import { Events } from 'ionic-angular/util/events';
   templateUrl: 'pay-options.html',
 })
 export class PayOptionsPage {
-  
-  
-  constructor(public navCtrl: NavController,
+   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      public service:LiaService,
      public modalController:ModalController,public events:Events) {
-    service.nowComponent="תשלום";
-   if(navParams.get('signatureImage'))
-    this.service.signatureImage = navParams.get('signatureImage');
-    if(navParams.get('signature1Image'))
-    this.service.signatureImage1 = navParams.get('signature1Image');
+        service.nowComponent="תשלום";
+        // if(navParams.get('signatureImage'))
+        // this.service.signatureImage = navParams.get('signatureImage');
+        // if(navParams.get('signature1Image'))
+        // this.service.signatureImage1 = navParams.get('signature1Image');
    
   }
+
+  
+
+
+
   routeToFormofuse()
   {
     this.navCtrl.push(FormOfUsePage);
@@ -32,27 +35,29 @@ export class PayOptionsPage {
   ionViewWillEnter(){
     // this.openSignature();
   }
-  // openSignature()
-  // {
-    //iocordova platform add android//   let modal = this.modalController.create(SignaturePage);
-  //   modal.present();
-  // }
+ 
   openSignatureModel(){
-    this.nowSigA=true;
-    setTimeout(() => {
-       let modal = this.modalController.create(SignaturePage);
-    modal.present();
-    }, 300);
+          this.events.subscribe('custom-user-events', (paramsVar) => {
+            this.service.signatureImage=paramsVar;
+            this.events.unsubscribe('custom-user-events'); 
+        })
+            setTimeout(() => {
+            let modal = this.modalController.create(SignaturePage);
+          modal.present();
+          }, 300);
 
   }
-  nowSigA:Boolean=false;
-  nowSigB:boolean=false;
+  
   openSignature1Model(){
-    this.nowSigB=true;
-    setTimeout(() => {
-       let modal = this.modalController.create(Signature1Page);
-    modal.present();
-    }, 300);
+          this.events.subscribe('custom-user-events', (paramsVar) => {
+            
+            this.service.signatureImage1=paramsVar;
+            this.events.unsubscribe('custom-user-events'); 
+        })
+          setTimeout(() => {
+            let modal = this.modalController.create(Signature1Page);
+          modal.present();
+          }, 300);
 
   }
 }

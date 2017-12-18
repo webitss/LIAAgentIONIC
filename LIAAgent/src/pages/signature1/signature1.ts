@@ -40,8 +40,11 @@ export class Signature1Page {
    drawComplete() {
     this.signature1Image = this.signaturePad.toDataURL();
     this.service._signature=this.signature1Image;
-    
-    this.navCtrl.push(PayOptionsPage, {signature1Image: this.signature1Image});
+    this.navCtrl.pop().then(() => {
+      /// Trigger custom event and pass data to be send back
+      this.events.publish('custom-user-events', this.signature1Image);
+  });
+    //this.navCtrl.push(PayOptionsPage, {signature1Image: this.signature1Image});
     //this.uploadFile();
   }
 

@@ -13,8 +13,6 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { FileTransfer } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -38,7 +36,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VideoPage } from '../pages/video/video';
 import { Signature1Page } from '../pages/signature1/signature1';
 import { LongPressModule } from 'ionic-long-press';
-
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { Camera } from '@ionic-native/camera';
+import { Keyboard } from '@ionic-native/keyboard';
 
 
 
@@ -74,8 +75,9 @@ import { LongPressModule } from 'ionic-long-press';
   ],
   imports: [
     BrowserModule,SignaturePadModule,
-    IonicModule.forRoot(MyApp),
-     HttpClientModule, FormsModule,ReactiveFormsModule,
+    IonicModule.forRoot(MyApp, { scrollAssist: false, autoFocusAssist: false } ),
+    //IonicModule.forRoot(MyApp),
+    HttpClientModule, FormsModule,ReactiveFormsModule,
     LongPressModule
   ],
   bootstrap: [IonicApp],
@@ -114,8 +116,12 @@ import { LongPressModule } from 'ionic-long-press';
     LiaService,
     ScreenOrientation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    File,
     FileTransfer,
-    File
+    //FileUploadOptions,
+    FileTransferObject,
+    Camera,
+    Keyboard
   ]
 })
 export class AppModule {}

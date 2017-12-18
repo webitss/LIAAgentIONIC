@@ -8,6 +8,7 @@ import {HomePage} from '../home/home';
 import { FileTransfer, FileTransferObject, FileUploadOptions } from '@ionic-native/file-transfer';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
+import {  NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-signature',
   templateUrl: 'signature.html',
@@ -28,19 +29,27 @@ export class SignaturePage {
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public service:LiaService,
-    public events:Events) {
+    public events:Events,navParams:NavParams) {
   }
 
    //Other Functions
 
   drawCancel() {
-    this.navCtrl.push(PayOptionsPage);
+   // this.navCtrl.push(PayOptionsPage);
+    this.navCtrl.pop(this.navCtrl);
   }
-
+  callback:any;
    drawComplete() {
     this.signatureImage = this.signaturePad.toDataURL();
     this.service._signature=this.signatureImage;
-    this.navCtrl.push(PayOptionsPage, {signatureImage: this.signatureImage});
+    //this.navCtrl.push(PayOptionsPage, {signatureImage: this.signatureImage});
+    // this.navCtrl.pop(this.navCtrl);
+    this.navCtrl.pop().then(() => {
+      /// Trigger custom event and pass data to be send back
+      this.events.publish('custom-user-events', this.signatureImage);
+  });
+     //this.navCtrl.push(PayOptionsPage, {signatureImage: this.signatureImage});
+   
     //this.uploadFile();
   }
 

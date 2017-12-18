@@ -5,10 +5,12 @@ import { LoginPage } from './../pages/login/login';
 import { Component } from '@angular/core';
 import { Platform, AlertController, App, Alert,Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Keyboard } from '@ionic-native/keyboard';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Events } from 'ionic-angular/util/events';
 import { EnterPage } from '../pages/enter/enter';
+
 //import { ViewChild } from '@angular/core';
 
 @Component({
@@ -25,7 +27,7 @@ export class MyApp {
     private alertCtrl: AlertController,
     private screenOrientation: ScreenOrientation,
     public app:App,
-    public events:Events,
+    public events:Events,private keyboard: Keyboard
      ) {
     
   
@@ -33,8 +35,7 @@ export class MyApp {
       this.showAlert();
     });
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+      this.keyboard.disableScroll(true);
       statusBar.styleDefault();
       splashScreen.hide();
       platform.setDir('rtl', true);
@@ -56,6 +57,24 @@ export class MyApp {
     });
   }
   
+  // ionViewDidEnter() {
+  //   this.platform.ready().then(() => {
+  //     this.keyboard.disableScroll(true);
+  //   });
+  //   }
+    
+  //   ionViewWillLeave() {
+  //   this.platform.ready().then(() => {
+  //   this.keyboard.disableScroll(false);
+  //   });
+  //   }
+
+  // initializeApp() {
+    
+  //    this.keyboard.disableScroll(false);
+  //   }
+
+
   showAlert() {
     this.alert = this.alertCtrl.create({
       title: 'לצאת?',
