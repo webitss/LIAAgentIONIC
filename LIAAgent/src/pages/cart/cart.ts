@@ -23,8 +23,10 @@ export class CartPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     service.nowComponent="סל";
-    // this.StoreId = navParams.get('StoreId');
-this.StoreId = 86;
+    //this.StoreId = navParams.get('StoreId');
+    // this.StoreId = this.navParams.data.StoreId;
+if(service.customerDetails.StoreId != null)
+    this.StoreId = service.customerDetails.StoreId;
     }
 
   ionViewWillEnter()

@@ -12,6 +12,7 @@ import { customerDetailsModel } from '../models/customerDetails';
 import { customerCategoriesModel } from '../models/customerCategories';
 import { packageModel } from '../models/packageModel';
 import { customerModel } from '../models/customer';
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Injectable()
 export class LiaService {
@@ -41,7 +42,6 @@ export class LiaService {
             packagesOfCart: packageModel[];
             isPayed: boolean;
             isTerminateOrdered: boolean;
-            anotherDetails: boolean;
             routeOrStay: string;
             packageProd1: productsModel;
             packageProd2: productsModel;
@@ -51,6 +51,7 @@ export class LiaService {
             userLogin: LoginModel;
             c:customerModel;
             statusCode:any;
+
 
          //#endregion
         constructor(private proxy: LiaProxy) {
@@ -90,6 +91,7 @@ export class LiaService {
   //#login
 
   async doLogin(frm): Promise<any> {
+
     this.userLogin.Cellphone = frm.userName;
     this.userLogin.Password = frm.password;
     console.log(this.userLogin);
@@ -280,16 +282,24 @@ export class LiaService {
     this.productsOfCart.push(pr);
   }
 
-  submitFrmBusiness(frm, StoreObj) {
-if(frm)
-    this.anotherDetails = true;
-else
-if(StoreObj)
-this.customerDetailsArray.push(StoreObj);//צריך לשנות
+  async createFrmBusiness(storDetails: customerDetailsModel){
+    await this.proxy
+    .createStoreDetails()
+    .then(res => {
+console.log(res.Result);
+    })
+    .catch(() => console.log("error"));
   }
+
+updateFrmBusiness(storDetails: customerDetailsModel){
+  console.log(storDetails);
+}
+
   submitFrmPersonal(frm) {
-    console.log(frm);
+
   }
+
+
   clickDeleteToCart(id) {
     let index: number;
     for (let i = 0; i < this.productsOfCart.length; i++)

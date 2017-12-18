@@ -14,9 +14,9 @@
         <h3 class="blue"> פרטי עסק</h3></div>
 
 
-         <div *ngIf="!service.anotherDetails" >
+         <div *ngIf="!this.anotherDetails" >
 
-            <form [formGroup]="frmBusiness" (ngSubmit)="service.submitFrmBusiness(frmBusiness.value)">
+            <form [formGroup]="frmBusiness" (ngSubmit)="this.submitFrmBusiness(frmBusiness.value)">
                 <ion-grid>
 
                 <ion-row>
@@ -59,16 +59,16 @@
                           </ion-col>
 </ion-row>
 
-                            <button ion-button type="submit"  block>המשך</button>
+                            <button ion-button type="submit" [disabled]="!this.StoreObj && !this.frmBusiness.valid"  block>המשך</button>
                 </ion-grid>
             </form>
 
 
         </div>
 
-          <div *ngIf="service.anotherDetails">
+          <div *ngIf="this.anotherDetails">
 
-          <form [formGroup]="frmMoredetails" (ngSubmit)="service.submitFrmBusiness(this.frmBusiness.value, this.StoreObj);onGoToPayOptionsPage()">
+          <form [formGroup]="frmMoredetails" (ngSubmit)="this.submitFrmMoreBusiness(this.frmMoredetails.value);onGoToPayOptionsPage()">
 
 <ion-grid>
           <a (click)="this.f()">לוגו</a>
@@ -103,13 +103,13 @@
 
 <ion-col>
             <ion-item>
-                <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.MinPriceToTicket : 'מינימום לכרטיס'"   formControlName="min" ></ion-input>
+                <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.MinPriceToTicket : 'מינימום לכרטיס'"   formControlName="min" pattern="[0-9]*"></ion-input>
               </ion-item>
             </ion-col>
             </ion-row>
 
           <!-- <input type="submit" value="המשך" [disabled]="!frmMoredetails.valid" /> -->
-          <button ion-button type="submit" block>המשך</button>
+          <button ion-button type="submit" block [disabled]="!(this.frmMoredetails.valid) && !this.StoreObj">המשך</button>
         </ion-grid>
           </form>
               </div>

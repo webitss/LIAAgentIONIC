@@ -25,6 +25,7 @@ export class CustomersPage {
   arrowUp: boolean = false;
   arrowDown: boolean = true;
   demoItem: number;
+  prevId: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     this.valueButton="לקוח חדש";
@@ -80,13 +81,15 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
       if(this.valueButton=="לקוח חדש")
       this.navCtrl.parent.select(this.TabsEnum.cart);
       else{//לקוח קיים יש להעביר את מספר הלקוח this.customerChoosed.StoreId
-      this.navCtrl.parent.select(this.TabsEnum.cart,{ StoreId :StoreId });
+        this.navCtrl.parent.select(this.TabsEnum.cart);
+      // this.navCtrl.parent.select(this.TabsEnum.cart,{ StoreId : StoreId });
     }
     }
 
     ionViewWillEnter()
     {
       this.service.nowComponent = "לקוחות";
+this.prevId = null;
     }
 
     onSearchInput(event)
@@ -94,21 +97,27 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
       this.customersFilter=this.service.customers.filter(i => i.StoreName.includes(event.target.value));
     }
 
-    customerChoosed:any;
+   // customerChoosed:any;
      expandItem(item){
+if(this.prevId === item.StoreId || (this.prevId == null)){
+      this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
+  this.prevId = item.StoreId;
+}
+else
+this.prevId = item.StoreId;
           this.customersFilter.map((listItem) => {
           if(item == listItem){
                 listItem.expanded = !listItem.expanded;
                 this.service.postStoreDetails(item.StoreId);
-                this.customerChoosed=item;
+               // this.customerChoosed=item;
                 console.log(item);
             } else {
                 listItem.expanded = false;
             }
            });
-        this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
-
-      }
+if(this.valueButton == "לקוח חדש")
+this.service.customerDetails.StoreId = null;
+    }
 
 
 }
@@ -116,4 +125,3 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
 
 
 
- 

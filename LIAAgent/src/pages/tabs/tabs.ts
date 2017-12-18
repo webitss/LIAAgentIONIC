@@ -33,10 +33,14 @@ export class TabsPage {
   tab3Root = ProductsPage;
   tab4Root = CustomersPage;
   tab5Root = CartPage;
+  StoreId: number;
+
    constructor(private nav : NavController,public params: NavParams,public service: LiaService,public events: Events) {
     this.params = params.data;
-   
-  }
+    this.params = params;
+    console.log(this.params); // returns NavParams {data: Object}
+    this.StoreId = this.params.data;
+   }
 
   clearHistory(ev:any){
      ev.popToRoot();
