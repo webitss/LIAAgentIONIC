@@ -1,3 +1,4 @@
+
 <ion-header *ngIf="!service.isNowInPageLogin" align-title="center"  >
     <ion-navbar >
      <ion-buttons float-start>
@@ -21,21 +22,13 @@
 </ion-header>
 
 <ion-tabs #menuTabs  [selectedIndex]="tabsIndex" preloadTabs="false">
-  <ion-tab [root]="tab1Root" tabIcon="icon-gallery"  ></ion-tab>
-  <ion-tab [root]="tab2Root" tabIcon="icon-packages" (ionSelect)="clearHistory($event)"></ion-tab>
-  <ion-tab [root]="tab3Root" tabIcon="icon-product" (ionSelect)="clearHistory($event)" ></ion-tab>>
-  <ion-tab [root]="tab4Root" [rootParams]="StoreId" tabIcon="icon-customer"(ionSelect)="clearHistory($event)" color="primary"></ion-tab>>
-  <ion-tab [root]="tab5Root" tabIcon="icon-cart" tabBadge="{{service.countProductsInCart}}" tabBadgeStyle="border-color:royalblue" (ionSelect)="clearHistory($event)" >
+  <ion-tab #galery  [root]="tab1Root" tabIcon="icon-gallery" ></ion-tab>
+  <ion-tab #packages  [root]="tab2Root" tabIcon="icon-packages" (ionSelect)="clearHistory($event)"></ion-tab>
+  <ion-tab #products [root]="tab3Root" tabIcon="icon-product" (ionSelect)="clearHistory($event)" ></ion-tab>>
+  <ion-tab #customers  [root]="tab4Root" [rootParams]="StoreId" tabIcon="icon-customer"(ionSelect)="clearHistory($event)" color="primary"></ion-tab>>
+  <ion-tab #cart [root]="tab5Root" tabIcon="icon-cart" tabBadge="{{service.countProductsInCart}}" tabBadgeStyle="border-color:royalblue" (ionSelect)="clearHistory($event)" >
 
   </ion-tab>
 </ion-tabs>
 
 
-<!-- <<<<<<< HEAD
-  <ion-tab [root]="tab4Root" tabIcon="icon-customer"(ionSelect)="clearHistory($event)" ></ion-tab>>
-  <ion-tab [root]="tab5Root" tabIcon="icon-cart" [rootParams]="params" tabBadge="{{service.countProductsInCart}}" tabBadgeStyle="border-color:royalblue" (ionSelect)="clearHistory($event)" >
-======= -->
-<!-- [rootParams]="tab5Params" -->
-<!-- <ion-tab [root]="tab6Root" tabIcon="person"></ion-tab> -->
-<!-- color:danger;border:solid -->
-<!-- [tabsPlacement]="bottom" -->

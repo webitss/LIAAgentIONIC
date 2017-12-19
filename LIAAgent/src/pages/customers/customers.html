@@ -1,5 +1,5 @@
 
-<ion-content padding>
+<ion-content padding class="has-header">
   <ion-grid>
     <ion-row >
       <ion-col >
@@ -48,7 +48,7 @@
      <ion-col>
        <form>
           <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים" (input)="onSearchInput($event)"></ion-searchbar>
-          <button ion-button type="button" small (click)="routeToCart(this.service.customerDetails.StoreId)">{{valueButton}}</button>
+          <button ion-button block type="button" color="green-color" (click)="routeToCart(this.service.customerDetails.StoreId)">{{valueButton}}</button>
         </form>
 
       </ion-col>
