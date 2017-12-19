@@ -1,14 +1,17 @@
 tabs{
-    $toolbar-md-active-color: green;
-    $tab-button-md-active-color: color($colors, dark);
+    // $toolbar-md-active-color: green;
+    // $tab-button-md-active-color: color($colors, dark);
     #galery:active{
-        
-        color:#32db64;
+      color:blue;
     }
-    ion-app.md [padding], ion-app.md [padding] .scroll-content
-{
-    padding-top:30px;
-}
+    .tabs-md .tab-button[aria-selected=true] {
+    color: blue !important;
+    padding: 0;
+    }
+//     ion-app.md [padding], ion-app.md [padding] .scroll-content
+// {
+//     padding-top:30px;
+// }
     // #notification-button {            
     //     position: relative;
     //     width: 42px;
