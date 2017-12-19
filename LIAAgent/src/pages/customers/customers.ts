@@ -99,25 +99,25 @@ this.prevId = null;
 
    // customerChoosed:any;
      expandItem(item){
-if(this.prevId === item.StoreId || (this.prevId == null)){
-      this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
-  this.prevId = item.StoreId;
-}
-else
-this.prevId = item.StoreId;
-          this.customersFilter.map((listItem) => {
-          if(item == listItem){
-                listItem.expanded = !listItem.expanded;
-                this.service.postStoreDetails(item.StoreId);
-               // this.customerChoosed=item;
-                console.log(item);
-            } else {
-                listItem.expanded = false;
+    if(this.prevId === item.StoreId || (this.prevId == null)){
+         this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
+         this.prevId = item.StoreId;
+        }
+        else
+        this.prevId = item.StoreId;
+                  this.customersFilter.map((listItem) => {
+                  if(item == listItem){
+                        listItem.expanded = !listItem.expanded;
+                        this.service.postStoreDetails(item.StoreId);
+                      // this.customerChoosed=item;
+                        console.log(item);
+                    } else {
+                        listItem.expanded = false;
+                    }
+                  });
+        if(this.valueButton == "לקוח חדש")
+        this.service.customerDetails.StoreId = null;
             }
-           });
-if(this.valueButton == "לקוח חדש")
-this.service.customerDetails.StoreId = null;
-    }
 
 
 }
