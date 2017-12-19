@@ -8,28 +8,21 @@
     overflow-y: auto;
   }
 
-.grid {
-  margin-top: 56px;
-  // height: calc(100% - 56px);
- // background: #c4f2f7;
-}
-
 ion-input, ion-textarea {
     border: 1px solid;
     border-radius: 16px;
     padding-right: 3px;
 }
 
-
-
+.item-md {
+  
+  background-color:transparent;}
 
 .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
     border-bottom-color: #ffffff00;
     -webkit-box-shadow: #ffffff00;
     box-shadow: #ffffff00;
 }
-
-
 
 .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
 .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
@@ -48,6 +41,11 @@ ion-input, ion-textarea {
 
 .f-size-icon {
 	font-size: 1.8em;
+}
+
+.form-50{
+  width: 60%;
+  margin: auto;
 }
 // .ion-page > ion-content
 // {
