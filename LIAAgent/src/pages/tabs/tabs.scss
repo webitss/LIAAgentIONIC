@@ -1,4 +1,14 @@
 tabs{
+    $toolbar-md-active-color: green;
+    $tab-button-md-active-color: color($colors, dark);
+    #galery:active{
+        
+        color:#32db64;
+    }
+    ion-app.md [padding], ion-app.md [padding] .scroll-content
+{
+    padding-top:30px;
+}
     // #notification-button {            
     //     position: relative;
     //     width: 42px;

@@ -1,3 +1,4 @@
+import { CustomersPage } from './../pages/customers/customers';
 
 import { LiaService } from './../providers/lia.service';
 import { TabsPage } from './../pages/tabs/tabs';
@@ -10,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Events } from 'ionic-angular/util/events';
 import { EnterPage } from '../pages/enter/enter';
+import { ProductsPage } from '../pages/products/products';
 
 //import { ViewChild } from '@angular/core';
 
@@ -19,7 +21,7 @@ import { EnterPage } from '../pages/enter/enter';
 export class MyApp {
   rootPage:any = LoginPage;
   //@ViewChild(Nav) nav: Nav;
-
+ 
   alert: Alert;
   constructor(public platform: Platform,
     statusBar: StatusBar,
@@ -29,7 +31,7 @@ export class MyApp {
     public app:App,
     public events:Events,private keyboard: Keyboard
      ) {
-    
+   
   
     events.subscribe('user:login', () => {
       this.showAlert();
