@@ -15,7 +15,7 @@
           <h3 class="blue"> פרטים אישיים</h3>
     </div>
 
-          <form [formGroup]="frmPersonal" (ngSubmit)="service.submitFrmPersonal(frmPersonal.value); onGoToBusinessFormPage(frmPersonal.value, this.StoreId)" >
+          <form [formGroup]="frmPersonal" (ngSubmit)="onGoToBusinessFormPage(frmPersonal.value, this.StoreId)" >
 
               <ion-grid>
                   <ion-row>
@@ -47,18 +47,19 @@
 
                    <ion-col>
                     <ion-item>
-                        <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Address : 'אימייל'" formControlName="email"></ion-input>
+                        <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Email : 'אימייל'" formControlName="email"></ion-input>
                       </ion-item>
                     </ion-col>
 
                     <ion-col>
                       <ion-item>
-                          <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Address : 'נייד'"  formControlName="callPhone" pattern="[0-9]*"></ion-input>
+                          <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.CellPhone : 'נייד'"  formControlName="callPhone" pattern="[0-9]*"></ion-input>
                         </ion-item>
                       </ion-col>
 
                       <ion-col >
-                          <button ion-button type="submit" block >המשך</button>
+                          <!-- <button ion-button type="submit" block [disabled]="!(this.frmPersonal.valid) && !this.StoreObj"></button> לא למחוק  -->
+                          <button ion-button type="submit" block ></button>
                         </ion-col>
 
                       </ion-row>

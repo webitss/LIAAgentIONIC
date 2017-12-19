@@ -284,6 +284,7 @@ if(element != null){
   }
 
   async createFrmBusiness(storDetails: customerDetailsModel){
+//צריכה להיות כאן הצבה של מערך החבילות
     await this.proxy
     .createStoreDetails(storDetails)
     .then(res => {
@@ -299,6 +300,8 @@ console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר י�
   }
 
   async updateFrmBusiness(storDetails: customerDetailsModel){
+//צריכה להיות כאן הצבה של מערך החבילות
+
     await this.proxy
     .upDateStoreDetails(storDetails)
     .then(res => {
