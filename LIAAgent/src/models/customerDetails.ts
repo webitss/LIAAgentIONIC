@@ -7,7 +7,7 @@ export class customerDetailsModel{
       StoreName :string
       HP :string
       Categories :customerCategoriesModel[]
-      Address:string 
+      Address:string
       City :string
       Phone :string
       Lat :number

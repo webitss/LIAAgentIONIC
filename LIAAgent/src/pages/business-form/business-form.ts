@@ -69,6 +69,7 @@ export class BusinessFormPage {
     this.anotherDetails = false;
     this.StoreId = navParams.data.StoreId;
     this.customerD = new customerDetailsModel();
+this.customerD.Owner = navParams.data.customerDtl;
     if (this.StoreId != null) this.getStorOfCustomerDetailsArray();
   }
 
@@ -198,7 +199,6 @@ export class BusinessFormPage {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   submitFrmBusiness(frm) {
-
     this.anotherDetails = true;
       this.customerD.StoreName = frm.name?  frm.name : this.StoreObj.StoreName;
       this.customerD.HP = frm.PrivatelyHeldCompany? frm.PrivatelyHeldCompany : this.StoreObj.HP;
@@ -207,6 +207,8 @@ export class BusinessFormPage {
   }
 
   submitFrmMoreBusiness(frm) {
+   // this.customerD.User = this.StoreObj.User;
+  //this.customerD.LogoUrl=frm.logo? frm.logo : this.StoreObj.LogoUrl;
       this.customerD.OpenHours = frm.OpeningHours? frm.OpeningHours : this.StoreObj.OpenHours;
       this.customerD.MinPriceToTicket = frm.min? frm.min : this.StoreObj.MinPriceToTicket;
  if (this.StoreObj)

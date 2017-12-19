@@ -24,12 +24,13 @@ export class PersonalFormPage {
   frmPersonal: FormGroup;
   StoreId:number;
   StoreOwnerObj: any;
-
+  customerDtl: storeOwnerModel;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     this.StoreId = navParams.data.StoreId;
     this.getStorOfCustomerDetailsArray();
     service.nowComponent="טופס הזמנה";
+
     this.frmPersonal = new FormGroup({
       first_name: new FormControl("", Validators.required),
       id: new FormControl("", [Validators.maxLength(9), Validators.minLength(9)]),
@@ -44,14 +45,23 @@ export class PersonalFormPage {
     if(this.StoreId){
     for(let i = 0; i < this.service.customerDetailsArray.length; i++)
     if(this.service.customerDetailsArray[i].StoreId == this.StoreId)
-    this.StoreOwnerObj = this.service.customerDetailsArray[i];
+    this.StoreOwnerObj = this.service.customerDetailsArray[i].Owner;
     }
     }
 
   onGoToBusinessFormPage(frm, StoreId){
  // if(this.frmPersonal.valid)
+this.customerDtl = new storeOwnerModel;
+console.log(this.customerDtl.Name);
+ this.customerDtl.Name = frm.first_name? frm.first_name : this.customerDtl.Name;
+ this.customerDtl.IdNum = frm.id? frm.id : this.StoreOwnerObj.IdNum;
+ this.customerDtl.Phone = frm.phoneNumber? frm.phoneNumber : this.StoreOwnerObj.Phone;
+ this.customerDtl.Address = frm.address? frm.address : this.StoreOwnerObj.Address;
+ this.customerDtl.Email = frm.email? frm.email : this.StoreOwnerObj.Email;
+ this.customerDtl.CellPhone = frm.callPhone? frm.callPhone : this.StoreOwnerObj.callPhone;
+// this.service.submitFrmPersonal(this.customerDtl);
 if(this.StoreId)
-this.navCtrl.push(BusinessFormPage,{StoreId: StoreId});
+this.navCtrl.push(BusinessFormPage,{StoreId: StoreId, customerDtl: this.customerDtl});
 else
     this.navCtrl.push(BusinessFormPage);
   }

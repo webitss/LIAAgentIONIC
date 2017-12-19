@@ -13,19 +13,19 @@
                 <ion-row>
                   <ion-col>
                 <ion-item>
-                    <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.StoreName : 'שם העסק'"   formControlName="name"  ></ion-input>
+                    <ion-input type="text" [placeholder]="this.StoreObj.StoreName? this.StoreObj.StoreName : 'שם העסק'"   formControlName="name"  ></ion-input>
                   </ion-item>
                 </ion-col>
 
 <ion-col>
                   <ion-item>
-                      <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.HP : 'ח.פ'"  formControlName="PrivatelyHeldCompany" pattern="[0-9]*" ></ion-input>
+                      <ion-input type="text" [placeholder]="this.StoreObj.HP? this.StoreObj.HP : 'ח.פ'"  formControlName="PrivatelyHeldCompany" pattern="[0-9]*" ></ion-input>
                     </ion-item>
                   </ion-col>
 
 <ion-col>
                     <ion-item>
-                        <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.Phone : 'טלפון בית עסק'"  formControlName="phone" pattern="[0-9]*" ></ion-input>
+                        <ion-input type="text" [placeholder]="this.StoreObj.Phone? this.StoreObj.Phone : 'טלפון בית עסק'"  formControlName="phone" pattern="[0-9]*" ></ion-input>
                       </ion-item>
                     </ion-col>
                     </ion-row>
@@ -33,19 +33,19 @@
 <ion-row>
 <ion-col>
                       <ion-item>
-                          <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.Address : 'כתובת בית עסק'"  formControlName="address"  ></ion-input>
+                          <ion-input type="text" [placeholder]="this.StoreObj.Address? this.StoreObj.Address : 'כתובת בית עסק'"  formControlName="address"  ></ion-input>
                         </ion-item>
                       </ion-col>
 
 <ion-col>
                         <ion-item>
-                            <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.Long : 'כתובת אתר העסק'"  formControlName="websiteAddress" ></ion-input>
+                            <ion-input type="text" [placeholder]="this.StoreObj.Long? this.StoreObj.Long : 'כתובת אתר העסק'"  formControlName="websiteAddress" ></ion-input>
                           </ion-item>
                         </ion-col>
 
 <ion-col>
                           <ion-item>
-                              <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.Categories : 'קטגורית העסק'" formControlName="category"  ></ion-input>
+                              <ion-input type="text" [placeholder]="this.StoreObj.Categories? this.StoreObj.Categories : 'קטגורית העסק'" formControlName="category"  ></ion-input>
                             </ion-item>
                           </ion-col>
 </ion-row>
