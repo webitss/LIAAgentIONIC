@@ -1,13 +1,20 @@
 tabs{
     // $toolbar-md-active-color: green;
     // $tab-button-md-active-color: color($colors, dark);
-    #galery:active{
-      color:blue;
-    }
+
+    // #galery:active{
+    //   color:blue;
+    // }
+   
+    $myColor:green;
     .tabs-md .tab-button[aria-selected=true] {
-    color: blue !important;
-    padding: 0;
+        border-top: 2px solid $myColor;
     }
+    
+    // .tabs-md .tab-button[aria-selected=true] {
+    // color: blue !important;
+    // padding: 0;
+    // }
 //     ion-app.md [padding], ion-app.md [padding] .scroll-content
 // {
 //     padding-top:30px;

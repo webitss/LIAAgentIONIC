@@ -64,9 +64,11 @@ $tabs-background:color($colors, gray-color);
 
 $tabs-md-tab-color-active:color($colors, red-color);
 
-.tabs-md .tab-button[aria-selected=true] {
-    border-top: 2px solid $myColor;
-}
+
+// .tabs-md .tab-button[aria-selected=true] {
+//     border-top: 2px solid $myColor;
+// }
+
 // .item-md.item-block .item-inner {
 // 	border-bottom: none;
 //   }

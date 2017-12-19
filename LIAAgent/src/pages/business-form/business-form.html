@@ -70,7 +70,8 @@
 
               <ion-item>
                 <p>{{imageURI}}</p>
-                <button ion-button color="secondary" (click)="getImage()">Get Image</button>
+                <a (click)="getImage()">לוגו</a>
+                <!-- <button ion-button color="secondary" (click)="getImage()">Get Image</button> -->
               </ion-item>
               <ion-item>
                 <h4>Image Preview</h4>
@@ -82,7 +83,7 @@
              </ion-content>
             </ion-row>
 
-          <input type="file" accept=".jpg, .jpeg, .png"  id="file"  name="file" style="display:none" (change)="this.handleInputChange($event)" (load)="this.handleImageLoad()"  formControlName="logo">
+          <!-- <input type="file" accept=".jpg, .jpeg, .png"  id="file"  name="file" style="display:none" (change)="this.handleInputChange($event)" (load)="this.handleImageLoad()"  formControlName="logo"> -->
           <img />
 
           <ion-row>

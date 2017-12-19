@@ -37,7 +37,7 @@ export class TabsPage {
   tab4Root = CustomersPage;
   tab5Root = CartPage;
   StoreId: number;
-
+colorM:string;
    constructor(private nav : NavController,public params: NavParams,public service: LiaService,public events: Events) {
     this.params = params.data;
     this.params = params;
@@ -54,10 +54,10 @@ export class TabsPage {
   }
 
     routeToHome()  {
-    // console.log(this.sassHelper.readProperty('primary'));
     
-    // console.log( this.sassHelper.readProperty('color'));
+    //console.log( this.sassHelper.readProperty('myColor'));
     
+    console.log( this.sassHelper.setProperty('myColor',"green"));
     this.nav.setRoot(this.nav.getActive().component);
    
   }
