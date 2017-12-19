@@ -2,20 +2,22 @@ import { LiaService } from "./../../providers/lia.service";
 import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { PayOptionsPage } from '../pay-options/pay-options';
-import { PopupPage } from '../popup/popup';
-import { customerDetailsModel } from '../../models/customerDetails';
-import {  LoadingController, ToastController } from 'ionic-angular';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import { Camera, CameraOptions } from '@ionic-native/camera';
-
+import { PayOptionsPage } from "../pay-options/pay-options";
+import { PopupPage } from "../popup/popup";
+import { customerDetailsModel } from "../../models/customerDetails";
+import { LoadingController, ToastController } from "ionic-angular";
+import {
+  FileTransfer,
+  FileUploadOptions,
+  FileTransferObject
+} from "@ionic-native/file-transfer";
+import { Camera, CameraOptions } from "@ionic-native/camera";
 
 @Component({
   selector: "page-business-form",
   templateUrl: "business-form.html"
 })
 export class BusinessFormPage {
-
   activeColor: string = "green";
   baseColor: string = "#ccc";
   overlayColor: string = "rgba(255,255,255,0.5)";
@@ -23,16 +25,15 @@ export class BusinessFormPage {
   dragging: boolean = false;
   loaded: boolean = false;
   imageLoaded: boolean = false;
-  imageSrc: string = '';
+  imageSrc: string = "";
   iconColor: any;
   borderColor: any;
   StoreId: number;
   StoreObj: customerDetailsModel;
   customerD: customerDetailsModel;
   anotherDetails: boolean;
-  imageURI:any;
-  imageFileName:any;
-
+  imageURI: any;
+  imageFileName: any;
 
   frmBusiness = new FormGroup({
     name: new FormControl("", Validators.required),
@@ -57,7 +58,8 @@ export class BusinessFormPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public service: LiaService,
-    private camera: Camera,private transfer: FileTransfer,
+    private camera: Camera,
+    private transfer: FileTransfer,
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController
   ) {
@@ -65,13 +67,9 @@ export class BusinessFormPage {
     service.routeOrStay = "businessForm";
     this.anotherDetails = false;
     this.StoreId = navParams.data.StoreId;
-    this.customerD =new customerDetailsModel;
-if(this.StoreId != null)
-    this.getStorOfCustomerDetailsArray();
+    this.customerD = new customerDetailsModel();
+    if (this.StoreId != null) this.getStorOfCustomerDetailsArray();
   }
-
-
-
 
   getStorOfCustomerDetailsArray() {
     if (this.StoreId) {
@@ -145,30 +143,25 @@ if(this.StoreId != null)
     }
   }
 
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
+  //////////////////////////////////////////////////////////////////////////////////////////////////////
 
   getImage() {
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
-    }
+    };
 
-    this.camera.getPicture(options).then((imageData) => {
-      this.imageURI = imageData;
-    }, (err) => {
-      console.log(err);
-      this.presentToast(err);
-    });
+    this.camera.getPicture(options).then(
+      imageData => {
+        this.imageURI = imageData;
+      },
+      err => {
+        console.log(err);
+        this.presentToast(err);
+      }
+    );
   }
-
 
   uploadFile() {
     let loader = this.loadingCtrl.create({
@@ -178,79 +171,75 @@ if(this.StoreId != null)
     const fileTransfer: FileTransferObject = this.transfer.create();
 
     let options: FileUploadOptions = {
-      fileKey: 'ionicfile',
-      fileName: 'ionicfile',
+      fileKey: "ionicfile",
+      fileName: "ionicfile",
       chunkedMode: false,
       mimeType: "image/jpeg",
       headers: {}
-    }
+    };
 
-    fileTransfer.upload(this.imageURI, 'http://192.168.0.7:8080/api/uploadImage', options)
-      .then((data) => {
-      console.log(data+" Uploaded Successfully");
-      this.imageFileName = "http://192.168.0.7:8080/static/images/ionicfile.jpg"
-      loader.dismiss();
-      this.presentToast("Image uploaded successfully");
-    }, (err) => {
-      console.log(err);
-      loader.dismiss();
-      this.presentToast(err);
-    });
+    fileTransfer
+      .upload(this.imageURI, "http://192.168.0.7:8080/api/uploadImage", options)
+      .then(
+        data => {
+          console.log(data + " Uploaded Successfully");
+          this.imageFileName =
+            "http://192.168.0.7:8080/static/images/ionicfile.jpg";
+          loader.dismiss();
+          this.presentToast("Image uploaded successfully");
+        },
+        err => {
+          console.log(err);
+          loader.dismiss();
+          this.presentToast(err);
+        }
+      );
   }
-
-
 
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
       duration: 3000,
-      position: 'bottom'
+      position: "bottom"
     });
 
     toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
+      console.log("Dismissed toast");
     });
 
     toast.present();
   }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
   submitFrmBusiness(frm) {
-    if (frm) {
-      this.anotherDetails = true;
-      this.customerD.StoreName = frm.name;
-      this.customerD.HP = frm.PrivatelyHeldCompany;
-      this.customerD.Phone = frm.phone;
-      this.customerD.Address = frm.address;
-      // this.customerD.Categories=frm.category;
-    } else if (this.StoreObj){
-    this.customerD.StoreName = this.StoreObj.StoreName;
-    this.customerD.HP = this.StoreObj.HP;
-    this.customerD.Phone = this.StoreObj.Phone;
-    this.customerD.Address = this.StoreObj.Address;
     this.anotherDetails = true;
+    if (this.StoreObj) {
+      this.customerD.StoreName = frm.name?  frm.name : this.StoreObj.StoreName;
+      this.customerD.HP = frm.PrivatelyHeldCompany? frm.PrivatelyHeldCompany : this.StoreObj.HP;
+      this.customerD.Phone = frm.phone? frm.phone : this.StoreObj.Phone;
+      this.customerD.Address = frm.address? frm.address : this.StoreObj.Address;
+    }
+    else{
+    this.anotherDetails = true;
+    this.customerD.StoreName = frm.name;
+    this.customerD.HP = frm.PrivatelyHeldCompany;
+    this.customerD.Phone = frm.phone;
+    this.customerD.Address = frm.address;
     }
   }
 
   submitFrmMoreBusiness(frm) {
-if(this.StoreObj){
-this.customerD.OpenHours=this.StoreObj.OpenHours;
-this.customerD.MinPriceToTicket=this.StoreObj.MinPriceToTicket;
-this.service.updateFrmBusiness(this.StoreObj);
-}
-else
-{
-    this.customerD.OpenHours = frm.OpenHours;
-    this.customerD.MinPriceToTicket = frm.min;
-    this.service.createFrmBusiness(this.customerD);
-}
+    if (this.StoreObj) {
+      this.customerD.OpenHours = frm.OpenHours? frm.OpenHours : this.StoreObj.OpenHours;
+      this.customerD.MinPriceToTicket = frm.min? frm.min : this.StoreObj.MinPriceToTicket;
+      this.service.updateFrmBusiness(this.customerD);
+    } else {
+      this.customerD.OpenHours = frm.OpenHours;
+      this.customerD.MinPriceToTicket = frm.min;
+      this.service.createFrmBusiness(this.customerD);
+    }
   }
 }
-
-
-
 
 /*
 

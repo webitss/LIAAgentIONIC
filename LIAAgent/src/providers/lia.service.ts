@@ -284,15 +284,20 @@ export class LiaService {
 
   async createFrmBusiness(storDetails: customerDetailsModel){
     await this.proxy
-    .createStoreDetails()
+    .createStoreDetails(storDetails)
     .then(res => {
 console.log(res.Result);
     })
     .catch(() => console.log("error"));
   }
 
-updateFrmBusiness(storDetails: customerDetailsModel){
-  console.log(storDetails);
+  async updateFrmBusiness(storDetails: customerDetailsModel){
+    await this.proxy
+    .upDateStoreDetails(storDetails)
+    .then(res => {
+console.log("עודכן",res);
+    })
+    .catch(() => console.log("error"));
 }
 
   submitFrmPersonal(frm) {

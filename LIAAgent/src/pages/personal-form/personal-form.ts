@@ -50,7 +50,6 @@ export class PersonalFormPage {
 
   onGoToBusinessFormPage(frm, StoreId){
  // if(this.frmPersonal.valid)
-if(frm.first_name)
 if(this.StoreId)
 this.navCtrl.push(BusinessFormPage,{StoreId: StoreId});
 else
