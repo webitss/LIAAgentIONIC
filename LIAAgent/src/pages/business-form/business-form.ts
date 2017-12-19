@@ -200,31 +200,19 @@ export class BusinessFormPage {
   submitFrmBusiness(frm) {
 
     this.anotherDetails = true;
-    if (this.StoreObj) {
       this.customerD.StoreName = frm.name?  frm.name : this.StoreObj.StoreName;
       this.customerD.HP = frm.PrivatelyHeldCompany? frm.PrivatelyHeldCompany : this.StoreObj.HP;
       this.customerD.Phone = frm.phone? frm.phone : this.StoreObj.Phone;
       this.customerD.Address = frm.address? frm.address : this.StoreObj.Address;
-    }
-    else{
-    this.anotherDetails = true;
-    this.customerD.StoreName = frm.name;
-    this.customerD.HP = frm.PrivatelyHeldCompany;
-    this.customerD.Phone = frm.phone;
-    this.customerD.Address = frm.address;
-    }
   }
 
   submitFrmMoreBusiness(frm) {
-    if (this.StoreObj) {
-      this.customerD.OpenHours = frm.OpenHours? frm.OpenHours : this.StoreObj.OpenHours;
+      this.customerD.OpenHours = frm.OpeningHours? frm.OpeningHours : this.StoreObj.OpenHours;
       this.customerD.MinPriceToTicket = frm.min? frm.min : this.StoreObj.MinPriceToTicket;
+ if (this.StoreObj)
       this.service.updateFrmBusiness(this.customerD);
-    } else {
-      this.customerD.OpenHours = frm.OpenHours;
-      this.customerD.MinPriceToTicket = frm.min;
+ else
       this.service.createFrmBusiness(this.customerD);
-    }
   }
 
 
