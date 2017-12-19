@@ -1,6 +1,5 @@
 export class SessionSell{
-    UserId :number
-    ReqObj :any
-    nvGuide:string     
-
+    UserId :number;
+    nvGuide:string;
+    ReqObj :any;
 }

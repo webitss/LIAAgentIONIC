@@ -7,6 +7,8 @@ import { LoginModel } from "../models/loginModel";
 import { Response } from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 import { errorHandler } from "@angular/platform-browser/src/browser";
+import { customerDetailsModel } from '../models/customerDetails';
+import { SessionSell } from '../models/SessionShell';
 
 
 declare var configWebit: { baseUrl: string };
@@ -15,9 +17,12 @@ declare var configWebit: { baseUrl: string };
 export class LiaProxy {
   body: any;
   friends:any;
+  userObj: SessionSell;
 
   constructor(private http: HttpClient) {
-
+this.userObj=new SessionSell;
+    this.userObj.UserId = 372;
+    this.userObj.nvGuide = "98A42241-C752-45E9-A97C-568F7CC5D234";
     this.body = {};
   }
 
@@ -76,46 +81,30 @@ obj
       .toPromise();
     }
 
-createStoreDetails(): Promise<any>{
+createStoreDetails(customerDtl: customerDetailsModel): Promise<any>{
+let obj: SessionSell;
+obj=new SessionSell;
+obj.UserId=this.userObj.UserId;
+obj.nvGuide=this.userObj.nvGuide;
+obj.ReqObj=customerDtl;
   return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/CreateStore`, {
-    "obj": {
-      "UserId": 372,
-      "nvGuide": "98A42241-C752-45E9-A97C-568F7CC5D234",
-      "ReqObj": {
-        "Address": "הברון הירש 8 8, פתח תקווה, ישראל",
-        "Categories": [{"SysTableRowId":5}],
-        "Category": null,
-        "City": "פתח תקווה",
-        "HP": "054784",
-        "Lat": 32.089521,
-        "LogoData": null,
-        "LogoExtension": null,
-        "LogoUrl": null,
-        "Long": 34.888904,
-        "MinPriceToTicket": 200,
-        "MoreDetails": "",
-        "OpenHours": "א-ה 8:00-16:00",
-        "Owner": {},
-        "PackageId": null,
-        "PackageName": "",
-        "Phone": "0544444444",
-        "StoreId": null,
-        "StoreName": "ניסוי סוכנים",
-        "User":  {
-          "AllowGetEmail": null,
-          "AllowGetPush": null,
-          "AppLanguageId": null,
-          "DeviceToken": null,
-          "DeviceType": null,
-          "Email": "",
-          "Password": "",
-          "UserId": null,
-          "UserName": null,
-          "UserType": null
-        }
-      }}
-  }
-  ).toPromise();
+
+ obj
+
+  }).toPromise();
+}
+
+upDateStoreDetails(customerDtl: customerDetailsModel): Promise<any>{
+  let obj: SessionSell;
+  obj=new SessionSell;
+  obj.UserId=this.userObj.UserId;
+  obj.nvGuide=this.userObj.nvGuide;
+  obj.ReqObj=customerDtl;
+  return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/UpdateStore `, {
+
+obj
+
+  }).toPromise();
 }
 
 }
