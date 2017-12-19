@@ -1,3 +1,4 @@
+import { SassHelperComponent } from './../components/sass-helper/sass-helper';
 import { ExpandablePage } from './../pages/expandable/expandable';
 import { AccordionPage } from './../pages/accordion/accordion';
 import { HeaderPage } from './../pages/header/header';
@@ -71,7 +72,8 @@ import { Keyboard } from '@ionic-native/keyboard';
     VideoPage,
     AccordionPage,
     ExpandablePage,
-    Signature1Page
+    Signature1Page,
+    SassHelperComponent
   ],
   imports: [
     BrowserModule,SignaturePadModule,
@@ -107,7 +109,8 @@ import { Keyboard } from '@ionic-native/keyboard';
     VideoPage,
     AccordionPage,
     ExpandablePage,
-    Signature1Page
+    Signature1Page,
+    SassHelperComponent
      ],
   providers: [
     StatusBar,

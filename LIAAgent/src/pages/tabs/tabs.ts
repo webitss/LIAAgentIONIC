@@ -1,3 +1,4 @@
+import { SassHelperComponent } from './../../components/sass-helper/sass-helper';
 import { TabsEnum } from './../../models/tabs-enum';
 import { Events } from 'ionic-angular/util/events';
 import { LiaService } from './../../providers/lia.service';
@@ -25,6 +26,8 @@ import { LoginPage } from '../login/login';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
+  @ViewChild(SassHelperComponent)
+  private sassHelper: SassHelperComponent;
   @ViewChild("menutTabs") menuTabs: Tabs;
   tabsIndex:any;
   TabsEnum: typeof TabsEnum = TabsEnum;
@@ -50,13 +53,12 @@ export class TabsPage {
     this.events.publish('user:login');
   }
 
-  routeToHome()
-  {
-    //this.menuTabs.select(0);
+    routeToHome()  {
+    // console.log(this.sassHelper.readProperty('primary'));
+    
+    // console.log( this.sassHelper.readProperty('color'));
+    
     this.nav.setRoot(this.nav.getActive().component);
-   // this.tabsIndex=TabsEnum.gallery;
-    // this.menuTabs.selectedIndex=this.tabsIndex;
-    //this.menuTabs.selectedIndex=TabsEnum.gallery;
-   // this.nav.push(EnterPage);
+   
   }
 }

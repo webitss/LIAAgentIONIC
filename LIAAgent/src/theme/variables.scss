@@ -10,7 +10,7 @@ $font-path: "../assets/fonts";
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
-
+$myColor:red;
 
 @import "ionic.globals";
 
@@ -65,7 +65,7 @@ $tabs-background:color($colors, gray-color);
 $tabs-md-tab-color-active:color($colors, red-color);
 
 .tabs-md .tab-button[aria-selected=true] {
-    border-top: 2px solid red;
+    border-top: 2px solid $myColor;
 }
 // .item-md.item-block .item-inner {
 // 	border-bottom: none;

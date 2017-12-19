@@ -1,4 +1,4 @@
-
+<!-- <sass-helper></sass-helper> -->
 <ion-header *ngIf="!service.isNowInPageLogin" align-title="center"  >
     <ion-navbar >
      <ion-buttons float-start>
@@ -27,7 +27,6 @@
   <ion-tab #products [root]="tab3Root" tabIcon="icon-product" (ionSelect)="clearHistory($event)" ></ion-tab>>
   <ion-tab #customers  [root]="tab4Root" [rootParams]="StoreId" tabIcon="icon-customer"(ionSelect)="clearHistory($event)" color="primary"></ion-tab>>
   <ion-tab #cart [root]="tab5Root" tabIcon="icon-cart" tabBadge="{{service.countProductsInCart}}" tabBadgeStyle="border-color:royalblue" (ionSelect)="clearHistory($event)" >
-
   </ion-tab>
 </ion-tabs>
 
