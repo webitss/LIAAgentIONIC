@@ -1,4 +1,10 @@
 tabs{
+    $toolbar-md-active-color: green;
+    $tab-button-md-active-color: color($colors, dark);
+    #galery:active{
+        
+        color:#32db64;
+    }
     // #notification-button {            
     //     position: relative;
     //     width: 42px;
