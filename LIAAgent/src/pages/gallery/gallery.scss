@@ -1,11 +1,10 @@
 page-gallery {
-    ion-slide.swiper-slide {
-        // left: 25%;
-
+    .full-height{
+        flex-grow: 1;
     }
-    
-    .slide-zoom {
-        // background: #e7e3e3;
+
+    .grid{
+        height: 100%;
     }
  
     .thumb-img {
@@ -45,11 +44,11 @@ page-gallery {
         margin: auto;
     }
     
-    .arrow-img-galery {
-        text-align: center;
-        color: #f1bf1b;
-        font-size: 3em;
-        line-height: calc(81vh - 140px);
+   
+.icon-arrow{
+    
+    font-size: 3em;
+    background: none;
     }
     
 }
