@@ -212,13 +212,14 @@ export class LiaService {
         console.log(this.customerDetailsArray);
             this.customerDetailsArray.map(element => {
                 console.log(element);
+if(element != null){
                 if(element.StoreId==storeId)
                 {
                     this.customerDetails= element;
                             flag=true;
 
                 }
-            });
+            }});
 
         if(flag==false)
         {             this.postStoreDetails1(storeId);     }
@@ -286,7 +287,13 @@ export class LiaService {
     await this.proxy
     .createStoreDetails(storDetails)
     .then(res => {
-console.log(res.Result);
+      if(res.Error.ErrorCode === 0)
+console.log("הפרטים נשמרו בהצלחה",res.Result);
+else
+if(res.Error.ErrorCode === -10)
+console.log("אינך מורשה ליצור לקוח חדש");
+else
+console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
     })
     .catch(() => console.log("error"));
   }
@@ -295,7 +302,13 @@ console.log(res.Result);
     await this.proxy
     .upDateStoreDetails(storDetails)
     .then(res => {
-console.log("עודכן",res);
+      if(res.Error.ErrorCode === 0)
+      console.log("הפרטים עודכנו בהצלחה",res.Result);
+      else
+      if(res.Error.ErrorCode === -10)
+      console.log("אינך מורשה לעדכן פרטי לקוח ");
+      else
+      console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
     })
     .catch(() => console.log("error"));
 }

@@ -9,6 +9,7 @@ import { ViewChild } from '@angular/core';
 import {Content} from 'ionic-angular';
 import { customerModel } from './../../models/customer';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
+import { count } from 'rxjs/operators/count';
 
 @Component({
   selector: 'page-customers',
@@ -27,7 +28,9 @@ export class CustomersPage {
   demoItem: number;
   prevId: number;
 
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
+    this.prevId = null;
     this.valueButton="לקוח חדש";
     service.nowComponent="לקוחות";
     this.customersByIdlist=new Array();
@@ -78,7 +81,7 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
 
 
     routeToCart(StoreId){
-      if(this.valueButton=="לקוח חדש")
+      if(this.valueButton==="לקוח חדש")
       this.navCtrl.parent.select(this.TabsEnum.cart);
       else{//לקוח קיים יש להעביר את מספר הלקוח this.customerChoosed.StoreId
         this.navCtrl.parent.select(this.TabsEnum.cart);
@@ -89,7 +92,6 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
     ionViewWillEnter()
     {
       this.service.nowComponent = "לקוחות";
-this.prevId = null;
     }
 
     onSearchInput(event)
@@ -104,7 +106,12 @@ this.prevId = null;
          this.prevId = item.StoreId;
         }
         else
+        {
+if(this.valueButton === "לקוח חדש")
+          this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
         this.prevId = item.StoreId;
+        }
+
                   this.customersFilter.map((listItem) => {
                   if(item == listItem){
                         listItem.expanded = !listItem.expanded;
