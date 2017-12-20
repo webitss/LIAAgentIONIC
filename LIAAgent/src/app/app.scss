@@ -1,17 +1,17 @@
 
 
-//    ion-app.md [padding], ion-app.md [padding] .scroll-content
-// {
-//     padding-top:55px;
-// }
+   ion-app.md [padding], ion-app.md [padding] .scroll-content
+{
+    padding-top:55px;
+}
 .scroll-content {
     overflow-y: auto;
   }
 
 ion-input, ion-textarea {
     border: 1px solid;
-    border-radius: 16px;
-    padding-right: 3px;
+    border-radius: 15px;
+    // padding-right: 3px;
 }
 
 .item-md {
@@ -29,6 +29,11 @@ ion-input, ion-textarea {
   border-bottom-color: #ffffff00;
   -webkit-box-shadow: inset 0 -1px 0 0 #ffffff00;
   box-shadow: inset 0 -1px 0 0 #ffffff00;
+}
+
+.text-input-md {
+ 
+  text-align: right;
 }
 
 .center-center {

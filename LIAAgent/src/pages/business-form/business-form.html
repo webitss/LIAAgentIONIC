@@ -89,13 +89,13 @@
           <ion-row>
 <ion-col>
           <ion-item>
-              <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.OpenHours : 'שעות פתיחה'"  formControlName="OpeningHours" ></ion-input>
+              <ion-input type="text" [placeholder]="this.StoreObj.OpenHours? this.StoreObj.OpenHours : 'שעות פתיחה'"  formControlName="OpeningHours" ></ion-input>
             </ion-item>
           </ion-col>
 
 <ion-col>
             <ion-item>
-                <ion-input type="text" [placeholder]="this.StoreObj? this.StoreObj.MinPriceToTicket : 'מינימום לכרטיס'"   formControlName="min" pattern="[0-9]*"></ion-input>
+                <ion-input type="text" [placeholder]="this.StoreObj.MinPriceToTicket? this.StoreObj.MinPriceToTicket : 'מינימום לכרטיס'"   formControlName="min" pattern="[0-9]*"></ion-input>
               </ion-item>
             </ion-col>
             </ion-row>

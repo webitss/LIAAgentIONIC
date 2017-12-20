@@ -14,9 +14,9 @@
                 <ion-list>
                  <ion-item  *ngFor="let item of customersFilter" full>
                     <button detail-none (click)="expandItem(item) " ion-item >
-                   
+
                       <span>{{item.StoreName}}</span>
-                      <span>{{item.Address}}</span> 
+                      <span>{{item.Address}}</span>
 
                       <button float-end class="f-size-icon"><i class="icon-arrow-down-04"></i></button>
                     </button>
@@ -41,14 +41,14 @@
 
           <i *ngIf="this.arrowDown" ion-long-press [interval]="300"  class="icon-arrow-up-05 f-size-icon" #downBtn (click)="this.ionViewDidEnterDown()" (onPressStart)="this.ionViewDidEnterDown()" (onPressing)="this.ionViewDidEnterDown()"></i>
 
-        
+
         </ion-list-header>
 
         </ion-col>
      <ion-col>
        <form class="form-50">
           <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים" (input)="onSearchInput($event)"></ion-searchbar>
-          <button ion-button block type="button" color="green-color" (click)="routeToCart(this.service.customerDetails.StoreId)">{{valueButton}}</button>
+          <button ion-button block type="button" color="green-color" (click)="routeToCart(this.customerDtl)">{{valueButton}}</button>
         </form>
 
       </ion-col>
