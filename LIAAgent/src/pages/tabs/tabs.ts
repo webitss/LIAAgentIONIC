@@ -16,6 +16,7 @@ import { EnterPage } from '../enter/enter';
 import { Tabs, NavParams } from 'ionic-angular';
 import { Popup2Page } from '../popup2/popup2';
 import { LoginPage } from '../login/login';
+import { first } from 'rxjs/operator/first';
 
 
 
@@ -31,38 +32,49 @@ export class TabsPage {
   @ViewChild("menutTabs") menuTabs: Tabs;
   tabsIndex:any;
   TabsEnum: typeof TabsEnum = TabsEnum;
-  tab1Root = GalleryPage;
+  tab1Root:any = GalleryPage;
   tab2Root = AllPackagesPage;
   tab3Root = ProductsPage;
   tab4Root = CustomersPage;
   tab5Root = CartPage;
   StoreId: number;
-
-colorM:string;
-
+  colorM:string;
+  
    constructor(private nav : NavController,public params: NavParams,public service: LiaService,public events: Events) {
     this.params = params.data;
     this.params = params;
-    console.log(this.params); // returns NavParams {data: Object}
+   
+        console.log(this.params); // returns NavParams {data: Object}
     this.StoreId = this.params.data;
-   }
+      }
+
+myMethod(){
+  console.log("hgbcvv");
+ 
+}
 
   clearHistory(ev:any){
      ev.popToRoot();
+  
   }
-
+ionViewDidEnter(){
+  
+ 
+}
   showConfirmAlert() {
     this.events.publish('user:login');
   }
 
     routeToHome()  {
-
-    
-    //console.log( this.sassHelper.readProperty('myColor'));
-    
-    console.log( this.sassHelper.setProperty('myColor',"green"));
-
+      //console.log( this.sassHelper.readProperty('myColor'));
+      //console.log( this.sassHelper.setProperty('myColor',"green"));
+    console.log(this.nav.getActive().component);
     this.nav.setRoot(this.nav.getActive().component);
 
   }
 }
+
+
+
+
+  

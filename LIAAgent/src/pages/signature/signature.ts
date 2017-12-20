@@ -32,23 +32,19 @@ export class SignaturePage {
     public events:Events,navParams:NavParams) {
   }
 
-   //Other Functions
-
+  
   drawCancel() {
-   // this.navCtrl.push(PayOptionsPage);
-    this.navCtrl.pop(this.navCtrl);
+      this.navCtrl.pop(this.navCtrl);
   }
   callback:any;
    drawComplete() {
     this.signatureImage = this.signaturePad.toDataURL();
     this.service._signature=this.signatureImage;
-    //this.navCtrl.push(PayOptionsPage, {signatureImage: this.signatureImage});
-    // this.navCtrl.pop(this.navCtrl);
-    this.navCtrl.pop().then(() => {
+      this.navCtrl.pop().then(() => {
       /// Trigger custom event and pass data to be send back
       this.events.publish('custom-user-events', this.signatureImage);
   });
-     //this.navCtrl.push(PayOptionsPage, {signatureImage: this.signatureImage});
+    
    
     //this.uploadFile();
   }
