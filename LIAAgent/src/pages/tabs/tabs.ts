@@ -38,6 +38,7 @@ export class TabsPage {
   tab5Root = CartPage;
   StoreId: number;
 
+
    constructor(private nav : NavController,public params: NavParams,public service: LiaService,public events: Events) {
     this.params = params.data;
     this.params = params;
@@ -55,10 +56,10 @@ export class TabsPage {
 
     routeToHome()  {
     // console.log(this.sassHelper.readProperty('primary'));
-    
+
     // console.log( this.sassHelper.readProperty('color'));
-    
+
     this.nav.setRoot(this.nav.getActive().component);
-   
+
   }
 }

@@ -10,6 +10,7 @@ import {Content} from 'ionic-angular';
 import { customerModel } from './../../models/customer';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { count } from 'rxjs/operators/count';
+import { customerDetailsModel } from '../../models/customerDetails';
 
 @Component({
   selector: 'page-customers',
@@ -27,9 +28,15 @@ export class CustomersPage {
   arrowDown: boolean = true;
   demoItem: number;
   prevId: number;
-
+  StoreId: any;
+  customerDtl:customerDetailsModel;
+  customerChoosed:boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
+
+    this.StoreId = this.navParams.data.StoreId;
+
+    this.customerDtl=new customerDetailsModel;
     this.prevId = null;
     this.valueButton="לקוח חדש";
     service.nowComponent="לקוחות";
@@ -80,12 +87,13 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
 
 
 
-    routeToCart(StoreId){
+    routeToCart(item){
       if(this.valueButton==="לקוח חדש")
       this.navCtrl.parent.select(this.TabsEnum.cart);
       else{//לקוח קיים יש להעביר את מספר הלקוח this.customerChoosed.StoreId
-        this.navCtrl.parent.select(this.TabsEnum.cart);
-      // this.navCtrl.parent.select(this.TabsEnum.cart,{ StoreId : StoreId });
+        this.getCustomerDetails(Item);
+        this.navCtrl.parent.select(this.TabsEnum.cart,{ StoreId : item.StoreId });
+      //        this.navCtrl.parent.select(this.TabsEnum.cart);
     }
     }
 
@@ -101,6 +109,9 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
 
    // customerChoosed:any;
      expandItem(item){
+
+   this.customerDtl = item;
+
     if(this.prevId === item.StoreId || (this.prevId == null)){
          this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
          this.prevId = item.StoreId;
@@ -111,21 +122,24 @@ if(this.valueButton === "לקוח חדש")
           this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
         this.prevId = item.StoreId;
         }
-
-                  this.customersFilter.map((listItem) => {
-                  if(item == listItem){
-                        listItem.expanded = !listItem.expanded;
-                        this.service.postStoreDetails(item.StoreId);
-                      // this.customerChoosed=item;
-                        console.log(item);
-                    } else {
-                        listItem.expanded = false;
-                    }
-                  });
-        if(this.valueButton == "לקוח חדש")
+        this.getCustomerDetails(item);
+        if(this.valueButton == "לקוח חדש" || !this.customerChoosed)
         this.service.customerDetails.StoreId = null;
+
             }
 
+getCustomerDetails(item){
+  this.customersFilter.map((listItem) => {
+    if(item == listItem){
+          listItem.expanded = !listItem.expanded;
+          this.service.postStoreDetails(item.StoreId);
+        // this.customerChoosed=item;
+          console.log(item);
+      } else {
+          listItem.expanded = false;
+      }
+    });
+}
 
 }
 

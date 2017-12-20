@@ -25,8 +25,8 @@
   <ion-tab #galery  [root]="tab1Root" tabIcon="icon-gallery" ></ion-tab>
   <ion-tab #packages  [root]="tab2Root" tabIcon="icon-packages" (ionSelect)="clearHistory($event)"></ion-tab>
   <ion-tab #products [root]="tab3Root" tabIcon="icon-product" (ionSelect)="clearHistory($event)" ></ion-tab>>
-  <ion-tab #customers  [root]="tab4Root" [rootParams]="StoreId" tabIcon="icon-customer"(ionSelect)="clearHistory($event)" color="primary"></ion-tab>>
-  <ion-tab #cart [root]="tab5Root" tabIcon="icon-cart" tabBadge="{{service.countProductsInCart}}" tabBadgeStyle="border-color:royalblue" (ionSelect)="clearHistory($event)" >
+  <ion-tab #customers  [root]="tab4Root" [rootParams]="{StoreId: StoreId}" tabIcon="icon-customer"(ionSelect)="clearHistory($event)" color="primary"></ion-tab>>
+  <ion-tab #cart [root]="tab5Root"  [rootParams]="StoreId" tabIcon="icon-cart" tabBadge="{{service.countProductsInCart}}" tabBadgeStyle="border-color:royalblue" (ionSelect)="clearHistory($event)" >
   </ion-tab>
 </ion-tabs>
 

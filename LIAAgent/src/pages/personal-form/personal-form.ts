@@ -63,7 +63,7 @@ console.log(this.customerDtl.Name);
 if(this.StoreId)
 this.navCtrl.push(BusinessFormPage,{StoreId: StoreId, customerDtl: this.customerDtl});
 else
-    this.navCtrl.push(BusinessFormPage);
+    this.navCtrl.push(BusinessFormPage, {customerDtl: this.customerDtl});
   }
 
 }
