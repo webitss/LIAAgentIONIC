@@ -1,17 +1,13 @@
 import { LiaService } from './../../providers/lia.service';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { FormGroup, FormControl, Validators, FormBuilder} from "@angular/forms";
 import { BusinessFormPage } from '../business-form/business-form';
 import { customerDetailsModel } from '../../models/customerDetails';
 import { storeOwnerModel } from '../../models/storeOwnerModel';
+import { AbstractControlOptions } from '@angular/forms/src/model';
 
-/**
- * Generated class for the PersonalFormPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 
 @Component({
@@ -21,25 +17,47 @@ import { storeOwnerModel } from '../../models/storeOwnerModel';
 export class PersonalFormPage {
 
   pattern =/^[a-zA-Zא-ת\s]*$/;
-  frmPersonal: FormGroup;
+  frmPersonal: FormGroup = new FormGroup({
+    first_name: new FormControl(),
+    id: new FormControl("", [Validators.maxLength(9), Validators.minLength(9)]),
+    phoneNumber: new FormControl("",this.service.isAtLeastOne ? null : ([Validators.required ,Validators.maxLength(9), Validators.minLength(9)])),
+    address: new FormControl(),
+    email: new FormControl("",  Validators.email),
+    //callPhone: new FormControl()
+     callPhone: new FormControl("",this.service.isAtLeastOne ? null : [Validators.required ,Validators.maxLength(10), Validators.minLength(10)])
+} );
   StoreId:number;
   StoreOwnerObj: any;
   customerDtl: storeOwnerModel;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     this.StoreId = navParams.data.StoreId;
     this.getStorOfCustomerDetailsArray();
     service.nowComponent="טופס הזמנה";
+//this.testFunction();
 
-    this.frmPersonal = new FormGroup({
-      first_name: new FormControl("", Validators.required),
-      id: new FormControl("", [Validators.maxLength(9), Validators.minLength(9)]),
-      phoneNumber: new FormControl("", [Validators.required, Validators.maxLength(9), Validators.minLength(9)]),
-      address: new FormControl(),
-      email: new FormControl("", Validators.email),
-      callPhone: new FormControl("",[ Validators.required, Validators.maxLength(10), Validators.minLength(10)])
-  })
   }
+
+customValidationFunction(formGroup): any {
+   let nameField = formGroup.controls['name'].value; //access any of your form fields like this
+   return (nameField.length < 5) ? { nameLengthFive: true } : null;
+}
+
+
+  ngOnInit() {
+     this.frmPersonal.valueChanges.subscribe((value: any) => {
+     //this.testFunction1();
+    console.log(value);
+    if(value.callPhone.length ==10||value.phoneNumber.length==9)
+    {
+
+    this.service.isAtLeastOne=true;
+    console.log("value.phoneNumber "+value.phoneNumber+",value.callNumber "+value.callPhone);
+  }
+  console.log(this.service.isAtLeastOne);
+  });
+}
 
   getStorOfCustomerDetailsArray(){
     if(this.StoreId){
