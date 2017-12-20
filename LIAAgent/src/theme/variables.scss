@@ -59,7 +59,9 @@ $button-md-border-radius:15px;
 $searchbar-md-input-border-radius:15px;
 
 // $list-md-border-color:($colors, pink-color);
-
+.tabs-md .tab-button[aria-selected=true] {
+	border-top: 2px solid red;
+}
 $tabs-background:color($colors, gray-color);
 
 $tabs-md-tab-color-active:color($colors, red-color);
