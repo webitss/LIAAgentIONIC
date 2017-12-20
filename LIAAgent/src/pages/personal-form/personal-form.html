@@ -38,7 +38,7 @@
                 </ion-col>
 
                 <ion-col >
-                    <button ion-button type="submit" block  color="blue-color" >המשך</button>
+                    <button ion-button type="submit" block  color="blue-color" [disabled]="(!(this.frmPersonal.valid) && !this.StoreObj)" >המשך</button>
 <!-- [disabled]="(!(this.frmPersonal.valid) && !this.StoreObj)" -->
                   </ion-col>
 

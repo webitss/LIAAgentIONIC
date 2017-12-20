@@ -18,13 +18,13 @@ export class PersonalFormPage {
 
   pattern =/^[a-zA-Zא-ת\s]*$/;
   frmPersonal: FormGroup = new FormGroup({
-    first_name: new FormControl(),
+    first_name: new FormControl("", Validators.required),
     id: new FormControl("", [Validators.maxLength(9), Validators.minLength(9)]),
-    phoneNumber: new FormControl("",this.service.isAtLeastOne ? null : ([Validators.required ,Validators.maxLength(9), Validators.minLength(9)])),
+    phoneNumber: new FormControl("", [Validators.required ,Validators.maxLength(9), Validators.minLength(9)]),
     address: new FormControl(),
     email: new FormControl("",  Validators.email),
-    //callPhone: new FormControl()
-     callPhone: new FormControl("",this.service.isAtLeastOne ? null : [Validators.required ,Validators.maxLength(10), Validators.minLength(10)])
+    callPhone: new FormControl("",[Validators.required ,Validators.maxLength(10), Validators.minLength(10)] )
+    // [Validators.required ,Validators.maxLength(10), Validators.minLength(10)]
 } );
   StoreId:number;
   StoreOwnerObj: any;
@@ -35,29 +35,48 @@ export class PersonalFormPage {
     this.StoreId = navParams.data.StoreId;
     this.getStorOfCustomerDetailsArray();
     service.nowComponent="טופס הזמנה";
-//this.testFunction();
+// this.testFunction1();
 
   }
 
-customValidationFunction(formGroup): any {
-   let nameField = formGroup.controls['name'].value; //access any of your form fields like this
-   return (nameField.length < 5) ? { nameLengthFive: true } : null;
-}
+// customValidationFunction(formGroup): any {
+//    let nameField = formGroup.controls['name'].value; //access any of your form fields like this
+//    return (nameField.length < 5) ? { nameLengthFive: true } : null;
+// }
 
+// testFunction1(){
+// this.frmPersonal.controls["first_name"].setValidators(null);
+// }
+testFunction(){
 
+}now:any=0;
   ngOnInit() {
-     this.frmPersonal.valueChanges.subscribe((value: any) => {
-     //this.testFunction1();
-    console.log(value);
-    if(value.callPhone.length ==10||value.phoneNumber.length==9)
-    {
+    // this.testFunction1();
+    this.frmPersonal.valueChanges.subscribe((value: any) => {
+            if(value.callPhone.length ==10){
+              this.now++;
+                  if(this.now==1){
+                  this.frmPersonal.controls["phoneNumber"].clearValidators();
+                  this.now++;
+                                 }
+                  if(this.now==2){
+                  this.frmPersonal.controls["phoneNumber"].updateValueAndValidity();
+                  this.now++;
+                  }
+                                            }
+            if(value.phoneNumber.length==9){
+              this.now++;
+              if(this.now==1){
+              this.frmPersonal.controls["callPhone"].clearValidators();
+              this.now++;
+                             }
+              if(this.now==2){
+              this.frmPersonal.controls["callPhone"].updateValueAndValidity();
+              this.now++;
+            }}
 
-    this.service.isAtLeastOne=true;
-    console.log("value.phoneNumber "+value.phoneNumber+",value.callNumber "+value.callPhone);
-  }
-  console.log(this.service.isAtLeastOne);
-  });
-}
+       });
+    }
 
   getStorOfCustomerDetailsArray(){
     if(this.StoreId){
