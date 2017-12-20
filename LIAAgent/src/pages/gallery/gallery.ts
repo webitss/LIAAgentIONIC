@@ -23,6 +23,7 @@ export class GalleryPage implements OnInit {
     }
   ionViewWillEnter()
   {
+   
    this.service.nowComponent = "גלריה";
   }
   ngOnInit() {

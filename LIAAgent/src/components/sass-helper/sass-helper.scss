@@ -22,5 +22,6 @@ body {
 
     // Append SASS variables which are desired to be accesible:
     @include define-custom-property('background-color', $background-color);
-   
+    @include define-custom-property('myColor', $myColor);
+    
 }

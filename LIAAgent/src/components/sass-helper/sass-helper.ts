@@ -41,4 +41,10 @@ export class SassHelperComponent {
         let bodyStyles = window.getComputedStyle(document.body);
         return bodyStyles.getPropertyValue(PREFIX + name);
     }
+    setProperty(name: string,value:string): string {
+      
+      let bodyStyles = window.getComputedStyle(document.body);
+      // bodyStyles.setProperty(name,value);
+      return bodyStyles.getPropertyValue(PREFIX + name);
+  }
 }
