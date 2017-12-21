@@ -5,4 +5,26 @@ page-enter {
     ion-title{
         text-align: center;
     }
+
+
+    ion-app.md [padding], ion-app.md [padding] .scroll-content {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    .grid {
+        
+        width: 100%;
+        position: absolute;
+    }
+
+    .img-bg{
+        position: absolute;
+        height: inherit;
+    }
+    .p-bg{
+        color:white;
+        margin-right: 10px;
+    }
+
+  
 }

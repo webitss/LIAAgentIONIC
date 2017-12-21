@@ -11,9 +11,9 @@
                   <ion-content padding #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 250px">
 <div *ngIf="this.service.packageInCart">
                       חבילת
-{{this.service.packageInCart.PackageName}}
+<!-- {{this.service.packageInCart.PackageName}} -->
 מחיר:
-{{this.service.packageInCart.PackagePrice}}
+<!-- {{this.service.packageInCart.PackagePrice}} -->
 שקל
 </div>
                 <ion-item *ngFor="let p of service.productsOfCart">
