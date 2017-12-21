@@ -69,7 +69,8 @@ export class BusinessFormPage {
     this.anotherDetails = false;
     this.StoreId = navParams.data.StoreId;
     this.customerD = new customerDetailsModel();
-this.customerD.Owner = navParams.data.customerDtl;
+    this.StoreObj=new customerDetailsModel;
+    this.customerD.Owner = navParams.data.customerDtl;
     if (this.StoreId != null) this.getStorOfCustomerDetailsArray();
   }
 

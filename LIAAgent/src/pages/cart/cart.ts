@@ -22,8 +22,11 @@ export class CartPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
+
+    this.StoreId = this.navParams.data.StoreId;
+
     service.nowComponent="סל";
-    //this.StoreId = navParams.get('StoreId');
+    // this.StoreId = navParams.get('StoreId');
     // this.StoreId = this.navParams.data.StoreId;
     }
 

@@ -58,7 +58,9 @@ $button-md-border-radius:15px;
 $searchbar-md-input-border-radius:15px;
 
 // $list-md-border-color:($colors, pink-color);
-
+.tabs-md .tab-button[aria-selected=true] {
+	border-top: 2px solid red;
+}
 $tabs-background:color($colors, gray-color);
 
 //$tabs-md-tab-color-active:nth-child(1){color:green};
@@ -72,6 +74,11 @@ $tabs-background:color($colors, gray-color);
 	border-top: 2px solid blue;
 	color:blue;
 }
+
+// .tabs-md .tab-button[aria-selected=true] {
+//     border-top: 2px solid $myColor;
+// }
+
 // .item-md.item-block .item-inner {
 // 	border-bottom: none;
 //   }

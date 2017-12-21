@@ -17,6 +17,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 @Injectable()
 export class LiaService {
           //#region  variables
+          isAtLeastOne:boolean=false;
           public signatureImage : any;
           public signatureImage1 : any;
             customerDetailsArray:customerDetailsModel[];

@@ -4,14 +4,6 @@ import {NavController, NavParams } from 'ionic-angular';
 import { Header } from 'ionic-angular/components/toolbar/toolbar-header';
 import { LiaService } from '../../providers/lia.service';
 
-/**
- * Generated class for the EnterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-
 @Component({
   selector: 'page-enter',
   templateUrl: 'enter.html',
@@ -29,7 +21,6 @@ export class EnterPage {
 this.service.nowComponent="דף הבית";
 //this.loginName=this.service.isAuthenticated.UserName;
 this.loginName="cfdf";
-//console.log(this.loginName);
 this.service.isNowInPageLogin=false;
     this.hour= this.date.getHours();
   
@@ -44,7 +35,9 @@ this.service.isNowInPageLogin=false;
   }
 
   ionViewWillEnter(){
-    //this.navCtrl.parent.select(5);
+   
+    
   }
+  
   
 }
