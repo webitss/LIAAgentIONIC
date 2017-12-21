@@ -1,4 +1,4 @@
-import { athenticateModel } from './../models/athenticateModel';
+
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import "rxjs/add/operator/map";
@@ -9,7 +9,7 @@ import {Observable} from 'rxjs/Rx';
 import { errorHandler } from "@angular/platform-browser/src/browser";
 import { customerDetailsModel } from '../models/customerDetails';
 import { SessionSell } from '../models/SessionShell';
-
+import { athenticateModel } from './../models/athenticateModel';
 
 declare var configWebit: { baseUrl: string };
 
@@ -18,20 +18,24 @@ export class LiaProxy {
   body: any;
   friends:any;
   userObj: SessionSell;
-
+  authUser:athenticateModel;
   constructor(private http: HttpClient) {
-this.userObj=new SessionSell;
+    this.userObj=new SessionSell;
     this.userObj.UserId = 372;
     this.userObj.nvGuide = "98A42241-C752-45E9-A97C-568F7CC5D234";
+        this.authUser=new athenticateModel;
+        this.authUser.UserId=372;
+        this.authUser.LoginGuide= "98A42241-C752-45E9-A97C-568F7CC5D234";
     this.body = {};
+    
   }
 
   postStoreDetails(iStoreId: Number): Promise<any> {
     return this.http
       .post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/GetStore`, {
         iStoreId: iStoreId,
-        iUserId: "372",
-        nvGuide: "98A42241-C752-45E9-A97C-568F7CC5D234"
+        iUserId:this.authUser.UserId,
+        nvGuide: this.authUser.LoginGuide
       })
       .toPromise();
   }
@@ -42,8 +46,8 @@ this.userObj=new SessionSell;
         `http://ws.webit-track.com/LiaWS_QA/Agents.svc/GetPackageProducts`,
         {
           iPackageId: iPackageId,
-          iUserId: "372",
-          nvGuide: "98A42241-C752-45E9-A97C-568F7CC5D234"
+          iUserId:this.authUser.UserId,
+          nvGuide: this.authUser.LoginGuide
         }
       )
       .toPromise();
@@ -53,18 +57,20 @@ this.userObj=new SessionSell;
    postCategories(): Promise<any> {
     return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/GetCategories`, {
       "iLanguageId":2,
-      "iUserId": 372,
-      "nvGuide": "98A42241-C752-45E9-A97C-568F7CC5D234"
+      iUserId:this.authUser.UserId,
+      nvGuide: this.authUser.LoginGuide
 
     }
     ).toPromise();
    }
 
+
   post(func: string): Promise<any> {
+    console.log(this.authUser);
     return this.http
       .post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/${func}`, {
-        iUserId:372 ,
-        nvGuide: "98A42241-C752-45E9-A97C-568F7CC5D234"
+        iUserId:this.authUser.UserId,
+        nvGuide: this.authUser.LoginGuide
       })
       .toPromise();
   }
