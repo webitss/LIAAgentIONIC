@@ -83,15 +83,18 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
   }
 
   onGoToPersonalFormPage(StoreId){
+if(this.service.packageInCart || this.service.productsOfCart.length){
 if(StoreId){
     this.navCtrl.push(PersonalFormPage,{StoreId: StoreId});
     console.log(StoreId);
 }
 else
 this.navCtrl.push(PersonalFormPage);
+}
   }
 
   routeToPackages(){
+    this.service.changePackage=true;
     this.navCtrl.parent.select(TabsEnum.packages);
   }
 
