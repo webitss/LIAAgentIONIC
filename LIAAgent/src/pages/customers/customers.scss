@@ -1,5 +1,8 @@
 page-customers {
 
+
+   .no-scroll div {overflow-y: hidden}
+
     .border-list{
         border-bottom:1px solid color($colors, green-color);
      }
@@ -8,5 +11,10 @@ page-customers {
         box-shadow: none;
         border: 1px solid color($colors, green-color);
       }
+
+      .f-size-icon {
+        font-size: 1.8em;
+        color:color($colors, green-color);
+    }
 
 }

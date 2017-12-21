@@ -1,6 +1,13 @@
 
 
-   ion-app.md [padding], ion-app.md [padding] .scroll-content
+ .grid  {
+   height: 100%;
+   & .row{ height: 100%;}
+
+ }
+ 
+ 
+ ion-app.md [padding], ion-app.md [padding] .scroll-content
 {
     padding-top:55px;
 }
@@ -18,11 +25,16 @@ ion-input, ion-textarea {
   box-shadow: none;
   border: 1px solid;
 }
+.item-md.item-input.item-input-has-focus .item-inner,.item-md.item-input.input-has-focus .item-inner{
+  border-bottom-color: #ffffff00 ;
+  -webkit-box-shadow: inset 0 -1px 0 0 #ffffff00 ;
+  box-shadow: inset 0 -1px 0 0 #ffffff00 ;
+}
 
 .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
-  border-bottom-color: #ffffff00 !important;
-  -webkit-box-shadow: inset 0 -1px 0 0 #ffffff00 !important;
-  box-shadow: inset 0 -1px 0 0 #ffffff00 !important;
+  border-bottom-color: #ffffff00 ;
+  -webkit-box-shadow: inset 0 -1px 0 0 #ffffff00 ;
+  box-shadow: inset 0 -1px 0 0 #ffffff00 ;
 }
 
 .item-md {
