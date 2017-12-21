@@ -1,7 +1,7 @@
 ﻿
 <div  class="has-header has-tabs no-scroll" padding>
   <ion-grid>
-    <ion-row >
+    <ion-row justify-content-center align-items-stretch>
       <ion-col >
         <ion-list-header text-center Large>
           <i *ngIf="this.arrowUp" ion-long-press class="icon-arrow-up-05 f-size-icon" (click)="this.ionViewDidEnterUp()" [interval]="300"  (onPressStart)="this.ionViewDidEnterUp($event)" (onPressing)="this.ionViewDidEnterUp($event)"></i>
@@ -9,8 +9,10 @@
         </ion-list-header>
 
         <!-- <ion-scroll scrollY="true" style="height: 400px"> -->
+
             <ion-content padding #contentRef (ionScroll)="scrollingFun($event)"  style="height: 64vh" >
  <!-- style="height: 74vh" -->
+
 
                 <ion-list no-margin>
                  <ion-item  *ngFor="let item of customersFilter" full no-margin>
