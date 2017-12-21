@@ -6,7 +6,7 @@
   
         <ion-row justify-content-center align-items-stretch > 
         <ion-col  *ngFor="let p of service.packages" >
-          <page-package [package]="p" (click)="select(p.PackageId)"></page-package>
+          <page-package [package]="p" (click)="select(p.PackageId)" ></page-package>
           
         </ion-col>
       </ion-row> 

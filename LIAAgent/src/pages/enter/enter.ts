@@ -19,7 +19,8 @@ export class EnterPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events,public service:LiaService) {
      
 this.service.nowComponent="דף הבית";
-this.loginName=this.service.isAuthenticated.UserName;
+// this.loginName=this.service.isAuthenticated.UserName;
+this.loginName="dcvbn";
 this.service.isNowInPageLogin=false;
     this.hour= this.date.getHours();
   

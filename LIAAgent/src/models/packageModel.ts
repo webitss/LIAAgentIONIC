@@ -4,5 +4,5 @@ export class packageModel{
      Price :number
    TicketsNum :number
      TicketCost :number
-
+    packageColor:string;
 }

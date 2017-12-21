@@ -126,6 +126,9 @@ export class LiaService {
                         break;
                     case "GetPackages":
                         this.packages = this.getData.Result;
+                        this.packages[0].packageColor="bg-yellow";
+                        this.packages[1].packageColor="green-color";
+                        this.packages[2].packageColor="pink-color";
                         break;
                     case "GetGaleryPictures":
                         this.galeryPictures = this.getData.Result;
