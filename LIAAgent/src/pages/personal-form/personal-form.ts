@@ -32,6 +32,7 @@ export class PersonalFormPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
+    this.customerDtl = new storeOwnerModel;
     this.StoreId = navParams.data.StoreId;
     this.getStorOfCustomerDetailsArray();
     service.nowComponent="טופס הזמנה";
@@ -49,30 +50,30 @@ export class PersonalFormPage {
 // }
 testFunction(){
 
-}now:any=0;
+}flowControlsChanges:any=0;
   ngOnInit() {
     // this.testFunction1();
     this.frmPersonal.valueChanges.subscribe((value: any) => {
             if(value.callPhone.length ==10){
-              this.now++;
-                  if(this.now==1){
+              this.flowControlsChanges++;
+                  if(this.flowControlsChanges==1){
                   this.frmPersonal.controls["phoneNumber"].clearValidators();
-                  this.now++;
+                  this.flowControlsChanges++;
                                  }
-                  if(this.now==2){
+                  if(this.flowControlsChanges==2){
                   this.frmPersonal.controls["phoneNumber"].updateValueAndValidity();
-                  this.now++;
+                  this.flowControlsChanges++;
                   }
                                             }
             if(value.phoneNumber.length==9){
-              this.now++;
-              if(this.now==1){
+              this.flowControlsChanges++;
+              if(this.flowControlsChanges==1){
               this.frmPersonal.controls["callPhone"].clearValidators();
-              this.now++;
+              this.flowControlsChanges++;
                              }
-              if(this.now==2){
+              if(this.flowControlsChanges==2){
               this.frmPersonal.controls["callPhone"].updateValueAndValidity();
-              this.now++;
+              this.flowControlsChanges++;
             }}
 
        });
@@ -88,14 +89,23 @@ testFunction(){
 
   onGoToBusinessFormPage(frm, StoreId){
  // if(this.frmPersonal.valid)
-this.customerDtl = new storeOwnerModel;
 console.log(this.customerDtl.Name);
- this.customerDtl.Name = frm.first_name? frm.first_name : this.customerDtl.Name;
- this.customerDtl.IdNum = frm.id? frm.id : this.StoreOwnerObj.IdNum;
- this.customerDtl.Phone = frm.phoneNumber? frm.phoneNumber : this.StoreOwnerObj.Phone;
- this.customerDtl.Address = frm.address? frm.address : this.StoreOwnerObj.Address;
- this.customerDtl.Email = frm.email? frm.email : this.StoreOwnerObj.Email;
- this.customerDtl.CellPhone = frm.callPhone? frm.callPhone : this.StoreOwnerObj.callPhone;
+if(this.StoreOwnerObj){
+ this.customerDtl.Name = this.StoreOwnerObj.Name;
+ this.customerDtl.IdNum = this.StoreOwnerObj.IdNum;
+ this.customerDtl.Phone = this.StoreOwnerObj.Phone;
+ this.customerDtl.Address = this.StoreOwnerObj.Address;
+ this.customerDtl.Email = this.StoreOwnerObj.Email;
+ this.customerDtl.CellPhone = this.StoreOwnerObj.callPhone;
+}
+else{
+  this.customerDtl.Name = frm.first_name;
+  this.customerDtl.IdNum = frm.id;
+  this.customerDtl.Phone = frm.phoneNumber;
+  this.customerDtl.Address = frm.address;
+  this.customerDtl.Email = frm.email;
+  this.customerDtl.CellPhone = frm.callPhone;
+}
 // this.service.submitFrmPersonal(this.customerDtl);
 if(this.StoreId)
 this.navCtrl.push(BusinessFormPage,{StoreId: StoreId, customerDtl: this.customerDtl});
