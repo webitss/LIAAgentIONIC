@@ -61,10 +61,16 @@ $searchbar-md-input-border-radius:15px;
 
 $tabs-background:color($colors, gray-color);
 
-$tabs-md-tab-color-active:color($colors, red-color);
+//$tabs-md-tab-color-active:nth-child(1){color:green};
 
-.tabs-md .tab-button[aria-selected=true] {
-    border-top: 2px solid $myColor;
+
+.tabs-md .tab-button[aria-selected=true]:nth-child(1) {
+	border-top: 2px solid green;
+	}
+
+.tabs-md .tab-button[aria-selected=true]:nth-child(2) {
+	border-top: 2px solid blue;
+	color:blue;
 }
 // .item-md.item-block .item-inner {
 // 	border-bottom: none;
@@ -145,6 +151,10 @@ $ionicons-font-path: "../assets/fonts";
 }
 .bg-gray {
 	background: color($colors,gray-color);
+}
+
+.bg-transpare{
+	background:color($colors,transpare); 
 }
 
 // bg-color

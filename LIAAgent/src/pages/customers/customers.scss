@@ -1,3 +1,12 @@
 page-customers {
 
+    .border-list{
+        border-bottom:1px solid color($colors, green-color);
+     }
+
+     .searchbar-md .searchbar-input {
+        box-shadow: none;
+        border: 1px solid color($colors, green-color);
+      }
+
 }
