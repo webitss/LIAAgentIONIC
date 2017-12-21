@@ -79,6 +79,7 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
 
   routeToProducts()
   {
+    //this.service.addProductToCart = true;
     this.navCtrl.parent.select(TabsEnum.products);
   }
 

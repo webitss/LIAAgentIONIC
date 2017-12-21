@@ -42,7 +42,7 @@ export class TabsPage {
    constructor(private nav : NavController,public params: NavParams,public service: LiaService,public events: Events) {
     this.params = params.data;
     this.params = params;
-   
+
         console.log(this.params); // returns NavParams {data: Object}
     this.StoreId = this.params.data;
       }
@@ -50,11 +50,15 @@ export class TabsPage {
 
   clearHistory(ev:any){
      ev.popToRoot();
-  
   }
+  clearHistoryAndElse(ev:any){
+    //this.service.addProductToCart = false;
+    this.clearHistory(ev);
+  }
+
 ionViewDidEnter(){
-  
- 
+
+
 }
   showConfirmAlert() {
     this.events.publish('user:login');
@@ -72,4 +76,3 @@ ionViewDidEnter(){
 
 
 
-  

@@ -27,7 +27,7 @@
           </ion-col>
 
           <ion-col class="bg-yellow part-4" col-2>
-              <input type="button" *ngIf="!service.isPackageProductDetailed" class="center-center btn-white" value="הוסף לסל" (click)="this.service.clickAddPackageToCart(nowPackage)">
+              <input type="button" *ngIf="!service.isPackageProductDetailed" class="center-center btn-white" value="הוסף לסל" (click)="this.BackToCart();this.service.clickAddPackageToCart(nowPackage)">
               <button ion-button float-left class="btn-font-transparent" (click)="navCtrl.pop(navCtrl)" >
                 <i class="icon-icon-x_Artboard-2-01 "></i>
               </button>

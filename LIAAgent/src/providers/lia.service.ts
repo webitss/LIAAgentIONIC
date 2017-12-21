@@ -55,6 +55,7 @@ export class LiaService {
             packageInCart:any = null;
             countPackageInCart:number=0;
             changePackage:boolean = false;
+            addProductToCart:boolean = false;
 
 
          //#endregion
