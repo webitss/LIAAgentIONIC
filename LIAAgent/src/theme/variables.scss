@@ -66,14 +66,7 @@ $tabs-background:color($colors, gray-color);
 //$tabs-md-tab-color-active:nth-child(1){color:green};
 
 
-.tabs-md .tab-button[aria-selected=true]:nth-child(1) {
-	border-top: 2px solid green;
-	}
 
-.tabs-md .tab-button[aria-selected=true]:nth-child(2) {
-	border-top: 2px solid blue;
-	color:blue;
-}
 
 // .tabs-md .tab-button[aria-selected=true] {
 //     border-top: 2px solid $myColor;

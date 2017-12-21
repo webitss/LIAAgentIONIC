@@ -1,29 +1,6 @@
 tabs{
     // $toolbar-md-active-color: green;
     // $tab-button-md-active-color: color($colors, dark);
-<<<<<<< HEAD
-    
-    #galery{
-      color:blue !important;
-    }
-=======
-
-    // #galery:active{
-    //   color:blue;
-    // }
-   
-    $myColor:green;
-    
->>>>>>> 5f1e168fabab4c979ad980609c8f66c69e18ce25
-
-    // .tabs-md .tab-button[aria-selected=true] {
-    // color: blue !important;
-    // padding: 0;
-    // }
-<<<<<<< HEAD
-
-=======
->>>>>>> 5f1e168fabab4c979ad980609c8f66c69e18ce25
 //     ion-app.md [padding], ion-app.md [padding] .scroll-content
 // {
 //     padding-top:30px;
@@ -45,10 +22,28 @@ tabs{
     //     border-radius: 100%;
     // }
 
-    .toolbar-background-md {
-        border-color: #32db64;
-        background: #f50d0d;
+    .tabs-md .tab-button[aria-selected=true]:nth-child(1) {
+        border-top: 3px solid color($colors, yellow-color);
+        }
+    
+    .tabs-md .tab-button[aria-selected=true]:nth-child(2) {
+        border-top: 3px solid color($colors, light-blue-color);
     }
+    .tabs-md .tab-button[aria-selected=true]:nth-child(3) {
+        border-top: 3px solid color($colors, pink-color);
+        }
+    
+    .tabs-md .tab-button[aria-selected=true]:nth-child(4) {
+        border-top: 3px solid color($colors, green-color);
+    }
+    .tabs-md .tab-button[aria-selected=true]:nth-child(5) {
+        border-top: 3px solid  color($colors, blue-color);
+        }
+
+    // .toolbar-background-md {
+    //     border-color: #32db64;
+    //     background: #f50d0d;
+    // }
 
     .toolbar-content-md{
         text-align: center;
@@ -62,8 +57,8 @@ tabs{
     .logo-header {
         // top: 50%;
         // position: absolute;
-        -webkit-transform: translatey(0%) scale(0.7);
-        transform: translatey(0%) scale(0.7);
+        -webkit-transform: translatey(0%) scale(0.6);
+        transform: translatey(0%) scale(0.6);
         
     }
 
