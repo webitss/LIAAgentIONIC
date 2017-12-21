@@ -62,20 +62,20 @@ ionViewDidEnter(){
 
 
   async routeToTabs(frm): Promise<any>{
-await this.service.doLogin(frm).then(()=> {
-this.isAuthenticated = this.service.isAuthenticated;
-  if (this.service.statusCode != 0){
-if(this.service.statusCode === -3)
-    alert("משתמש לא נמצא")
-else
-alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
-  }
-  else
-{
-  console.log(this.isAuthenticated);
-  this.navCtrl.setRoot(TabsPage)
-}
-    });
+// await this.service.doLogin(frm).then(()=> {
+// this.isAuthenticated = this.service.isAuthenticated;
+//   if (this.service.statusCode != 0){
+// if(this.service.statusCode === -3)
+//     alert("משתמש לא נמצא")
+// else
+// alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+//   }
+//   else
+// {
+//   console.log(this.isAuthenticated);
+   this.navCtrl.setRoot(TabsPage)
+// }
+//     });
    }
 
 }

@@ -38,7 +38,7 @@ export class TabsPage {
   tab5Root = CartPage;
   StoreId: number;
   colorM:string;
-  
+  myContainer: { storeId?: any } = {};
    constructor(private nav : NavController,public params: NavParams,public service: LiaService,public events: Events) {
     this.params = params.data;
     this.params = params;
