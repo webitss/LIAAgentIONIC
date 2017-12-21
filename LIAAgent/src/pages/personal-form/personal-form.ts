@@ -49,30 +49,36 @@ export class PersonalFormPage {
 // }
 testFunction(){
 
-}now:any=0;
+}flowControlsChanges:any=0;
   ngOnInit() {
     // this.testFunction1();
     this.frmPersonal.valueChanges.subscribe((value: any) => {
             if(value.callPhone.length ==10){
-              this.now++;
-                  if(this.now==1){
+              this.flowControlsChanges++;
+                  if(this.flowControlsChanges==1){
                   this.frmPersonal.controls["phoneNumber"].clearValidators();
-                  this.now++;
+                  this.frmPersonal.controls["phoneNumber"].setValidators( [Validators.maxLength(9), Validators.minLength(9),Validators.pattern('[0-9]*')]);
+                  this.flowControlsChanges++;
                                  }
-                  if(this.now==2){
+                  if(this.flowControlsChanges==2){
                   this.frmPersonal.controls["phoneNumber"].updateValueAndValidity();
-                  this.now++;
+                  this.flowControlsChanges++;
                   }
                                             }
+              if(value.callPhone.length ==0&&value.phoneNumber.length==0){
+                this.frmPersonal.controls["phoneNumber"].setValidators( [Validators.required ,Validators.maxLength(9), Validators.minLength(9),Validators.pattern('[0-9]*')]);
+                this.frmPersonal.controls["callPhone"].setValidators([Validators.required ,Validators.maxLength(10), Validators.minLength(10),Validators.pattern('[0-9]*')]);
+              this.flowControlsChanges=0;}
             if(value.phoneNumber.length==9){
-              this.now++;
-              if(this.now==1){
+              this.flowControlsChanges++;
+              if(this.flowControlsChanges==1){
               this.frmPersonal.controls["callPhone"].clearValidators();
-              this.now++;
+              this.frmPersonal.controls["callPhone"].setValidators([Validators.maxLength(10), Validators.minLength(10),Validators.pattern('[0-9]*')] );
+              this.flowControlsChanges++;
                              }
-              if(this.now==2){
+              if(this.flowControlsChanges==2){
               this.frmPersonal.controls["callPhone"].updateValueAndValidity();
-              this.now++;
+              this.flowControlsChanges++;
             }}
 
        });
