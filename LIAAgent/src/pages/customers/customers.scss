@@ -1,5 +1,8 @@
 page-customers {
 
+
+   .no-scroll div {overflow-y: hidden}
+
     .border-list{
         border-bottom:1px solid color($colors, green-color);
      }
