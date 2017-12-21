@@ -101,6 +101,7 @@ export class LiaService {
 .postLogin("CheckLoginApp",this.userLogin )
     .then(res => {
       this.isAuthenticated = res.Result;
+      this.proxy.authUser=res.Result;
       this.statusCode = res.Error.ErrorCode;
       console.log(this.isAuthenticated);
     //  return this.isAuthenticated;
@@ -118,7 +119,7 @@ export class LiaService {
                 .post(func)
                 .then(res => {
                     this.getData = res;
-                    // for (let i = 0; i < this.getData.Result.length; i++) {
+                    for (let i = 0; i < this.getData.Result.length; i++) {
                     switch (func) {
                     case "GetAdditionalProducts":
                         this.products = this.getData.Result;
@@ -133,7 +134,7 @@ export class LiaService {
                         this.customers = this.getData.Result;
                         break;
                     }
-                    // }
+                    }
                 })
                 .catch((error) => console.log("error"));
             }

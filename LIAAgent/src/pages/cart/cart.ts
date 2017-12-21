@@ -32,9 +32,10 @@ export class CartPage {
 
   ionViewWillEnter()
   {
+    //this.StoreId = this.navParams.data.StoreId;
     this.service.nowComponent = "סל";
-    if(this.service.customerDetails.StoreId != null)
-    this.StoreId = this.service.customerDetails.StoreId;
+    // if(this.service.customerDetails.StoreId != null)
+    // this.StoreId = this.service.customerDetails.StoreId;
   }
 demoFunc()
 {

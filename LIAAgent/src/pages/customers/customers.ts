@@ -88,11 +88,11 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
 
 
     routeToCart(item){
-      if(this.valueButton==="לקוח חדש")
-      this.navCtrl.parent.select(this.TabsEnum.cart);
-      else{//לקוח קיים יש להעביר את מספר הלקוח this.customerChoosed.StoreId
-        this.getCustomerDetails(Item);
-        this.navCtrl.parent.select(this.TabsEnum.cart,{ StoreId : item.StoreId });
+        if(this.valueButton==="לקוח חדש")
+          this.navCtrl.parent.select(this.TabsEnum.cart);
+         else{//לקוח קיים יש להעביר את מספר הלקוח this.customerChoosed.StoreId
+          //this.getCustomerDetails(Item);
+          this.navCtrl.parent.select(this.TabsEnum.cart,{ StoreId : item.StoreId });
       //        this.navCtrl.parent.select(this.TabsEnum.cart);
     }
     }
@@ -118,7 +118,7 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
         }
         else
         {
-if(this.valueButton === "לקוח חדש")
+      if(this.valueButton === "לקוח חדש")
           this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
         this.prevId = item.StoreId;
         }
