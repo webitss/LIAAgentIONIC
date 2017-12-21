@@ -31,7 +31,7 @@ export class TabsPage {
   @ViewChild("menutTabs") menuTabs: Tabs;
   tabsIndex:any;
   TabsEnum: typeof TabsEnum = TabsEnum;
-  tab1Root:any = GalleryPage;
+  tab1Root = GalleryPage;
   tab2Root = AllPackagesPage;
   tab3Root = ProductsPage;
   tab4Root = CustomersPage;
@@ -47,10 +47,6 @@ export class TabsPage {
     this.StoreId = this.params.data;
       }
 
-myMethod(){
-  console.log("hgbcvv");
- 
-}
 
   clearHistory(ev:any){
      ev.popToRoot();

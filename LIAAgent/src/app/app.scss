@@ -1,7 +1,8 @@
 
 
  .grid  {
-   height: 100%;
+  height: 100%;
+  width: 95%;
    & .row{ height: 100%;}
 
  }
@@ -9,7 +10,8 @@
  
  ion-app.md [padding], ion-app.md [padding] .scroll-content
 {
-    padding-top:55px;
+    padding-top:100px;
+    padding-bottom: 50px;
 }
 .scroll-content {
     overflow-y: auto;
@@ -18,7 +20,7 @@
 ion-input, ion-textarea {
     border: 1px solid;
     border-radius: 15px;
-    // padding-right: 3px;
+    padding-right: 5px;
 }
 
 .searchbar-md .searchbar-input {
@@ -63,6 +65,10 @@ ion-input, ion-textarea {
 
 .f-size-icon {
 	font-size: 1.8em;
+}
+
+.f-size-big {
+	font-size: 4em;
 }
 
 .form-50{

@@ -3,11 +3,10 @@
   <ion-grid>
      <ion-row justify-content-center align-items-stretch >
 
-          <ion-col><page-package [package]="nowPackage"> </page-package></ion-col>
+          <ion-col no-padding><page-package [package]="nowPackage"> </page-package></ion-col>
 
           <ion-col *ngIf="!service.isPackageProductDetailed"  class="bg-yellow part-3" col-6 >
                   <div class="part-3-inner">
-
                           <div *ngFor="let p of products" >
                                           <div (click)="details(p)">
                                                   <span> {{p.ProductLongName}}</span>
