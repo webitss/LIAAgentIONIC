@@ -27,7 +27,7 @@
 
              <ion-col>
               <ion-item>
-                  <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.IdNum : 'תעודת זהות'"  formControlName="id" ></ion-input>
+                  <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.IdNum : 'תעודת זהות'"  formControlName="id"  pattern="[0-9]*"></ion-input>
                 </ion-item>
                   </ion-col>
 

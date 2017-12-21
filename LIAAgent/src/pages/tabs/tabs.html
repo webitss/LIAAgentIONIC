@@ -15,8 +15,7 @@
 
            <ion-buttons float-end>
               <button ion-button block  (click)="showConfirmAlert()">
-                  לצאת מהאפליקציה
-               </button>
+                  {{service.isAuthenticated.UserName}}               </button>
               </ion-buttons>
              </ion-navbar>
 </ion-header>
@@ -26,7 +25,7 @@
   <ion-tab  [root]="tab1Root" tabIcon="icon-gallery" > </ion-tab>
   <ion-tab  [root]="tab2Root" tabIcon="icon-packages" (ionSelect)="clearHistory($event)"></ion-tab>
   <ion-tab  [root]="tab3Root" tabIcon="icon-product" (ionSelect)="clearHistory($event)" ></ion-tab>>
-  <ion-tab  [root]="tab4Root" [rootParams]="{StoreId: StoreId}" tabIcon="icon-customer"(ionSelect)="clearHistory($event)" color="primary"></ion-tab>
+  <ion-tab  [root]="tab4Root" [rootParams]="{StoreId: StoreId}" tabIcon="icon-customer" color="primary"></ion-tab>
   <ion-tab  [root]="tab5Root" tabIcon="icon-cart" [tabBadge] = "service.countProductsInCart>0 ? service.countProductsInCart : null"  tabBadgeStyle="border-color:royalblue" (ionSelect)="clearHistory($event)" >
 
   </ion-tab>
