@@ -66,9 +66,13 @@ export class CustomersPage {
   this.arrowUp=false;
   document.getElementById('demoBtn').click();
   }
-let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
+let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+1;
+console.log("this.contentHandle.getContentDimensions()",this.contentHandle.getContentDimensions());
+console.log("this.contentHandle.getContentDimensions().contentHeight",this.contentHandle.getContentDimensions().contentHeight);
+console.log("contentHandle.scrollTop ",this.contentHandle.scrollTop );
   if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-remainder)){
   this.arrowDown = false;
+  document.getElementById('demoBtn').click();
    }
   else
   this.arrowDown = true;
