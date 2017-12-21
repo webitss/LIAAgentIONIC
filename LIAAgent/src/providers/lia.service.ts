@@ -52,6 +52,8 @@ export class LiaService {
             userLogin: LoginModel;
             c:customerModel;
             statusCode:any;
+            packageInCart:any;
+            countPackageInCart:number=0;
 
 
          //#endregion
@@ -74,7 +76,7 @@ export class LiaService {
             this.isPackageProductDetailed = false;
             this.isOuter = true;
             this.isInner = false;
-            this.productsOfCart = this.products;
+            // this.productsOfCart = this.products;
             this.isPayed = false;
             this.isTerminateOrdered = false;
             this.customerDetails=new customerDetailsModel;
@@ -126,9 +128,9 @@ export class LiaService {
                         break;
                     case "GetPackages":
                         this.packages = this.getData.Result;
-                        this.packages[0].packageColor="bg-yellow";
-                        this.packages[1].packageColor="green-color";
-                        this.packages[2].packageColor="pink-color";
+                        // this.packages[0].packageColor="bg-yellow";
+                        // this.packages[1].packageColor="green-color";
+                        // this.packages[2].packageColor="pink-color";
                         break;
                     case "GetGaleryPictures":
                         this.galeryPictures = this.getData.Result;
@@ -286,10 +288,19 @@ if(element != null){
   clickAddToCart(pr) {
     this.countProductsInCart++;
     this.productsOfCart.push(pr);
-  }
+    }
+
+    clickAddPackageToCart(p){
+if(this.countPackageInCart===0){
+      this.countPackageInCart++;
+      this.countProductsInCart+=this.countPackageInCart;
+      this.packageInCart=p;
+console.log(p);
+}
+    }
 
   async createFrmBusiness(storDetails: customerDetailsModel){
-//צריכה להיות כאן הצבה של מערך החבילות
+// storDetails.PackageId=this.
     await this.proxy
     .createStoreDetails(storDetails)
     .then(res => {

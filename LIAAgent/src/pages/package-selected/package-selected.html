@@ -13,7 +13,7 @@
                                                   <i class="icon-arrow-left-03"></i>
                                           </div>
                           </div>
-                          
+
                   </div>
           </ion-col>
 
@@ -25,17 +25,17 @@
             <input *ngIf="product.VideoUrl" type="button" value="לצפיה"  (click)="routeToVideo()" class="btn-white" />
             </div>
           </ion-col>
-   
+
           <ion-col class="bg-yellow part-4" col-2>
-              <input type="button" *ngIf="!service.isPackageProductDetailed" class="center-center btn-white" value="הוסף לסל" (click)="service.clickAddToCart()">
+              <input type="button" *ngIf="!service.isPackageProductDetailed" class="center-center btn-white" value="הוסף לסל" (click)="this.service.clickAddPackageToCart(nowPackage)">
               <button ion-button float-left class="btn-font-transparent" (click)="navCtrl.pop(navCtrl)" >
                 <i class="icon-icon-x_Artboard-2-01 "></i>
               </button>
-              <button ion-button float-left class="btn-font-transparent" *ngIf="service.isPackageProductDetailed" (click)="details()"> 
+              <button ion-button float-left class="btn-font-transparent" *ngIf="service.isPackageProductDetailed" (click)="details()">
                 <i class="icon-arrow-right-02"></i>
               </button>
           </ion-col>
 
       </ion-row>
 </ion-grid>
-</ion-content> 
+</ion-content>

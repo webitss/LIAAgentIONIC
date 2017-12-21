@@ -5,7 +5,10 @@ import { customerCategoriesModel } from './customerCategories';
 export class customerDetailsModel{
       StoreId :number
       StoreName :string
+      PackageId:number
+      PackageName: string
       HP :string
+      Category: string
       Categories :customerCategoriesModel[]
       Address:string
       City :string

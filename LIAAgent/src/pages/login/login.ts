@@ -61,7 +61,7 @@ ionViewDidEnter(){
   }
 
 
-//   async routeToTabs(frm): Promise<any>{
+
 // await this.service.doLogin(frm).then(()=> {
 // this.isAuthenticated = this.service.isAuthenticated;
 //   if (this.service.statusCode != 0){
@@ -73,6 +73,7 @@ ionViewDidEnter(){
 //   else
 // {
 //   console.log(this.isAuthenticated);
+
 //   this.navCtrl.setRoot(TabsPage)
 // }
 //     });
@@ -81,4 +82,11 @@ routeToTabs(frm){
 this.navCtrl.setRoot(TabsPage)
 }
 
-}
+  // this.navCtrl.setRoot(TabsPage)
+// }
+//     });
+    }
+
+
+
+

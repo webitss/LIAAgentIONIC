@@ -88,12 +88,14 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+1;
 
 
 
-    routeToCart(item){
+    routeToCart(StoreId){
         if(this.valueButton==="לקוח חדש")
           this.navCtrl.parent.select(this.TabsEnum.cart);
-         else{//לקוח קיים יש להעביר את מספר הלקוח this.customerChoosed.StoreId
-          //this.getCustomerDetails(Item);
-          this.navCtrl.parent.select(this.TabsEnum.cart,{ StoreId : item.StoreId });
+         else{
+          let container: { storeId: any } = this.navParams.data.container;
+          container.storeId = StoreId;
+          this.navCtrl.parent.select(this.TabsEnum.cart);
+         // this.navCtrl.parent.select(this.TabsEnum.cart,{StoreId :StoreId});
       //        this.navCtrl.parent.select(this.TabsEnum.cart);
     }
     }
