@@ -58,6 +58,7 @@ testFunction(){
               this.flowControlsChanges++;
                   if(this.flowControlsChanges==1){
                   this.frmPersonal.controls["phoneNumber"].clearValidators();
+                  this.frmPersonal.controls["phoneNumber"].setValidators( [Validators.maxLength(9), Validators.minLength(9),Validators.pattern('[0-9]*')]);
                   this.flowControlsChanges++;
                                  }
                   if(this.flowControlsChanges==2){
@@ -65,10 +66,15 @@ testFunction(){
                   this.flowControlsChanges++;
                   }
                                             }
+              if(value.callPhone.length ==0&&value.phoneNumber.length==0){
+                this.frmPersonal.controls["phoneNumber"].setValidators( [Validators.required ,Validators.maxLength(9), Validators.minLength(9),Validators.pattern('[0-9]*')]);
+                this.frmPersonal.controls["callPhone"].setValidators([Validators.required ,Validators.maxLength(10), Validators.minLength(10),Validators.pattern('[0-9]*')]);
+              this.flowControlsChanges=0;}
             if(value.phoneNumber.length==9){
               this.flowControlsChanges++;
               if(this.flowControlsChanges==1){
               this.frmPersonal.controls["callPhone"].clearValidators();
+              this.frmPersonal.controls["callPhone"].setValidators([Validators.maxLength(10), Validators.minLength(10),Validators.pattern('[0-9]*')] );
               this.flowControlsChanges++;
                              }
               if(this.flowControlsChanges==2){
