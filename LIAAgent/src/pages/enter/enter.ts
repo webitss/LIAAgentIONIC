@@ -17,12 +17,13 @@ export class EnterPage {
     this.events.publish('user:login');
   }
   constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events,public service:LiaService) {
-     
+
 this.service.nowComponent="דף הבית";
-this.loginName=this.service.isAuthenticated.UserName;
+// this.loginName=this.service.isAuthenticated.UserName;
+this.loginName="";
 this.service.isNowInPageLogin=false;
     this.hour= this.date.getHours();
-  
+
              if(this.hour>6&&this.hour<12 )
               this.Congratulations="Good morning";
              else if(this.hour>12&&this.hour<18)
@@ -34,9 +35,9 @@ this.service.isNowInPageLogin=false;
   }
 
   ionViewWillEnter(){
-   
-    
+
+
   }
-  
-  
+
+
 }
