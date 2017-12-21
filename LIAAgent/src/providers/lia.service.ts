@@ -52,8 +52,9 @@ export class LiaService {
             userLogin: LoginModel;
             c:customerModel;
             statusCode:any;
-            packageInCart:any;
+            packageInCart:any = null;
             countPackageInCart:number=0;
+            changePackage:boolean = false;
 
 
          //#endregion
@@ -296,6 +297,11 @@ if(this.countPackageInCart===0){
       this.countProductsInCart+=this.countPackageInCart;
       this.packageInCart=p;
 console.log(p);
+}
+else
+if(this.changePackage){
+this.packageInCart=p;
+this.changePackage = false;
 }
     }
 
