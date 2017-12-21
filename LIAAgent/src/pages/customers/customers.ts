@@ -66,13 +66,14 @@ export class CustomersPage {
   this.arrowUp=false;
   document.getElementById('demoBtn').click();
   }
-let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+1;
+  let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+1;
   if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-remainder)){
   this.arrowDown = false;
   document.getElementById('demoBtn').click();
    }
-  else
+  else{
   this.arrowDown = true;
+  document.getElementById('demoBtn').click();}
   }
 
 
@@ -114,8 +115,8 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+1;
      expandItem(item){
 
    this.customerDtl = item;
-
-    if(this.prevId === item.StoreId || (this.prevId == null)){
+if(item.storeId){
+    if(this.prevId == item.StoreId || (this.prevId == null)){
          this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
          this.prevId = item.StoreId;
         }
@@ -124,7 +125,7 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+1;
       if(this.valueButton === "לקוח חדש")
           this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
         this.prevId = item.StoreId;
-        }
+        }}
         this.getCustomerDetails(item);
         if(this.valueButton == "לקוח חדש" || !this.customerChoosed)
         this.service.customerDetails.StoreId = null;

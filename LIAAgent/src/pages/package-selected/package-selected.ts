@@ -26,6 +26,8 @@ export class PackageSelectedPage {
     this.PackageId= navParams.data.PackageId;
     this.nowPackage=this.service.getPackageById(this.PackageId);
 
+    if(this.PackageId!=3)
+
     this.products=this.service.getPackageProductsById(this.PackageId);
     this.service.nowComponent="חבילות";
     //  if()

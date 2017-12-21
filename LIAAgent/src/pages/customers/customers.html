@@ -18,8 +18,8 @@
                  <ion-item  *ngFor="let item of customersFilter" full no-margin>
                     <button detail-none (click)="expandItem(item) " ion-item  class="border-list">
                 
-                      <span>{{item.StoreName}}</span>
-                      <span>{{item.Address}}</span>
+                      <span>{{item?.StoreName}}</span>
+                      <span>{{item?.Address}}</span>
 
                       <button float-end class="f-size-icon icon-arrow-down-04 bg-transpare" color="green-color"> </button>
                        <!-- <i class=""></i> -->

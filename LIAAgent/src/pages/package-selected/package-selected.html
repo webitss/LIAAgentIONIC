@@ -6,10 +6,10 @@
           <ion-col no-padding><page-package [package]="nowPackage"> </page-package></ion-col>
 
           <ion-col *ngIf="!service.isPackageProductDetailed"  class="bg-yellow part-3" col-6 >
-                  <div class="part-3-inner">
-                          <div *ngFor="let p of products" >
+                  <div *ngIf="products" class="part-3-inner">
+                          <div    *ngFor="let p of products"  >
                                           <div (click)="details(p)">
-                                                  <span> {{p.ProductLongName}}</span>
+                                                  <span> {{p?.ProductLongName}}</span>
                                                   <i class="icon-arrow-left-03"></i>
                                           </div>
                           </div>
@@ -19,8 +19,8 @@
 
           <ion-col *ngIf="service.isPackageProductDetailed" class="bg-yellow ">
             <div >
-            <p> {{product.ProductLongName}}</p>
-            <p> {{product.ProductName}}</p>
+            <p> {{product?.ProductLongName}}</p>
+            <p> {{product?.ProductName}}</p>
             <img [src]="product.PictureUrl"/>
             <input *ngIf="product.VideoUrl" type="button" value="לצפיה"  (click)="routeToVideo()" class="btn-white" />
             </div>
