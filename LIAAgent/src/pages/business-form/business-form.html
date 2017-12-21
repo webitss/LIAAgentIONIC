@@ -19,13 +19,13 @@
 
 <ion-col>
                   <ion-item>
-                      <ion-input type="text" [placeholder]="this.StoreObj.HP? this.StoreObj.HP : 'ח.פ'"  formControlName="PrivatelyHeldCompany" pattern="[0-9]*" ></ion-input>
+                      <ion-input type="number" [placeholder]="this.StoreObj.HP? this.StoreObj.HP : 'ח.פ'"  formControlName="PrivatelyHeldCompany" pattern="[0-9]*" ></ion-input>
                     </ion-item>
                   </ion-col>
 
 <ion-col>
                     <ion-item>
-                        <ion-input type="text" [placeholder]="this.StoreObj.Phone? this.StoreObj.Phone : 'טלפון בית עסק'"  formControlName="phone" pattern="[0-9]*" ></ion-input>
+                        <ion-input type="number" [placeholder]="this.StoreObj.Phone? this.StoreObj.Phone : 'טלפון בית עסק'"  formControlName="phone" pattern="[0-9]*" ></ion-input>
                       </ion-item>
                     </ion-col>
                     </ion-row>
@@ -95,7 +95,7 @@
 
 <ion-col>
             <ion-item>
-                <ion-input type="text" [placeholder]="this.StoreObj.MinPriceToTicket? this.StoreObj.MinPriceToTicket : 'מינימום לכרטיס'"   formControlName="min" pattern="[0-9]*"></ion-input>
+                <ion-input type="number" [placeholder]="this.StoreObj.MinPriceToTicket? this.StoreObj.MinPriceToTicket : 'מינימום לכרטיס'"   formControlName="min" pattern="[0-9]*"></ion-input>
               </ion-item>
             </ion-col>
             </ion-row>
