@@ -20,21 +20,21 @@ export class EnterPage {
 
 this.service.nowComponent="דף הבית";
 
-// this.loginName=this.service.isAuthenticated.UserName;
-this.loginName="";
+ this.loginName=this.service.isAuthenticated.UserName;
+//this.loginName="";
 
 
 this.service.isNowInPageLogin=false;
     this.hour= this.date.getHours();
 
              if(this.hour>6&&this.hour<12 )
-              this.Congratulations="Good morning";
+              this.Congratulations="בוקר טוב";
              else if(this.hour>12&&this.hour<18)
-                 this.Congratulations="Good afternoon";
+                 this.Congratulations="אחר צהריים טובים";
              else if(this.hour>18&&this.hour<22)
-                 this.Congratulations="Good evening";
+                 this.Congratulations="ערב טוב";
              else
-                 this.Congratulations="Good night";
+                 this.Congratulations="לילה טוב";
   }
 
   ionViewWillEnter(){
