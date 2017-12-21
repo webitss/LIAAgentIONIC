@@ -1,5 +1,5 @@
 ﻿
-<ion-content class ="has-header has-tabs padding">
+<div  class="has-header has-tabs no-scroll" padding>
   <ion-grid>
     <ion-row >
       <ion-col >
@@ -9,8 +9,8 @@
         </ion-list-header>
 
         <!-- <ion-scroll scrollY="true" style="height: 400px"> -->
-            <ion-content padding #contentRef (ionScroll)="scrollingFun($event)"  style="height: 400px"  >
-
+            <ion-content padding #contentRef (ionScroll)="scrollingFun($event)"   >
+ <!-- style="height: 74vh" -->
 
                 <ion-list no-margin>
                  <ion-item  *ngFor="let item of customersFilter" full no-margin>
@@ -59,4 +59,4 @@
     </ion-row>
   </ion-grid>
   <button id="demoBtn"  (click)="this.demoFunc()" hidden="true" >Button</button>
-</ion-content>
+</div>

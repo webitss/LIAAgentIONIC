@@ -23,17 +23,25 @@ export class CartPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
 
-    this.StoreId = this.navParams.data.StoreId;
+    this.StoreId = this.navParams.data.container;
 
     service.nowComponent="סל";
-    // this.StoreId = navParams.get('StoreId');
-    // this.StoreId = this.navParams.data.StoreId;
+    //
+     this.StoreId = navParams.get('StoreId');
+     console.log(this.StoreId);
+     this.StoreId = this.navParams.data.storeId;
+     console.log(this.StoreId);
     }
 
   ionViewWillEnter()
   {
     //this.StoreId = this.navParams.data.StoreId;
     this.service.nowComponent = "סל";
+    let storeId = this.navParams.data.storeId;
+    //this.StoreId = this.navParams.get('StoreId');
+    console.log("storeId param"+storeId);
+    this.StoreId = storeId;
+    console.log(this.StoreId);
     // if(this.service.customerDetails.StoreId != null)
     // this.StoreId = this.service.customerDetails.StoreId;
   }

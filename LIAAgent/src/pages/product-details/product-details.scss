@@ -22,14 +22,14 @@ page-product-details {
     border-top-left-radius: 30px;
     text-align: center;
 
+    
     ion-item:nth-child(1){
         width: 80%;
         border-bottom: 2px solid color($colors, light-blue-color);
         border-top: 2px solid color($colors, light-blue-color);
-        margin: 20px auto;}
-
+        margin: 20px auto;
+    }
     ion-item:nth-child(2){
-
         .item-1{
         font-size: 5rem;
         text-align: center;}
@@ -39,17 +39,30 @@ page-product-details {
 
         }
 
+       
+    }
+    ion-item:nth-child(3){
 
+        position: absolute;
+        bottom: 0px;
     }
 
     .btn-white {
         border: none;
-        width: 50%;
+        // width: 50%;
         height: 47px;
-        border-radius: 14px;
+        border-radius: 15px;
         color: white;
         font-size: 1.3em;
     }
        
+}
+
+.btn-white {
+    border: 1px solid  color($colors, light-blue-color);
+    height: 47px;
+    border-radius: 15px;
+    color: color($colors, light-blue-color);
+    font-size: 1.3em;
 }
 }
