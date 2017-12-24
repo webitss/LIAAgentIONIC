@@ -35,6 +35,7 @@ export class BusinessFormPage {
   anotherDetails: boolean;
   imageURI: any;
   imageFileName: any;
+  Categories = ["מזון","ריהוט","הלבשה"];
 
   frmBusiness = new FormGroup({
     name: new FormControl("", Validators.required),

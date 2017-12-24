@@ -12,14 +12,17 @@
 
             <ion-col col-2>
             <button ion-button block color="green-color" class="height-button-w"(click)="service.isPayed=true">מזומן</button></ion-col>
-  
+
      </ion-row>
 </ion-grid>
 
 <ion-grid *ngIf=" !service.isTerminateOrdered&& service.isPayed">
+
+    <form [formGroup]="this.frmPay">
+
         <ion-row justify-content-center align-items-center>
 
-    <input type="checkbox"/>
+    <input type="checkbox" formControlName="formOfUse"/>
     <a (click)="routeToFormofuse()">הריני מאשר את תקנון השימוש</a>
 </ion-row>
 <ion-row justify-content-center align-items-center>
@@ -32,20 +35,20 @@
         </ion-col>
 
         <ion-col col-2>
-        <button ion-button block color="blue-color" class="height-button-w"(click)="service.isTerminateOrdered=true">המשך</button>
+        <button ion-button block color="blue-color" class="height-button-w"(click)="service.isTerminateOrdered=true" [disabled]="!this.frmPay.valid">המשך</button>
         </ion-col>
 </ion-row>
-
+</form>
 </ion-grid>
 
 <ion-grid  *ngIf="service.isTerminateOrdered">
 <ion-row justify-content-center align-items-center>
-    
+
     <ion-col align-self-center text-center>
     <p class="f-size-big "> ההזמנה בוצעה בהצלחה</p>
          </ion-col>
 
 </ion-row>
-</ion-grid>     
+</ion-grid>
 </ion-content>
 

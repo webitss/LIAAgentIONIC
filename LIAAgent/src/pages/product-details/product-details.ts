@@ -44,4 +44,8 @@ else
 this.navCtrl.pop();
  }
 
+getNextProduct(){
+
+}
+
 }

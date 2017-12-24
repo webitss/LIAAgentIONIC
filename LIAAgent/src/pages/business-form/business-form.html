@@ -1,8 +1,6 @@
 <ion-content padding>
   <!-- <button ion-button (click) = "onGoToPayOptionsPage()"> Push </button> -->
 
-        
-
             <form [formGroup]="frmBusiness" (ngSubmit)="this.submitFrmBusiness(frmBusiness.value)" *ngIf="!this.anotherDetails">
                 <ion-grid>
   <h3 color="blue-color"> פרטי עסק</h3>
@@ -28,7 +26,7 @@
                     </ion-col>
 
                 </ion-row>
-                    
+
 
                   <ion-row>
                       <ion-col>
@@ -46,6 +44,9 @@
                           <ion-col>
                           <ion-item>
                               <ion-input type="text" [placeholder]="this.StoreObj.Categories? this.StoreObj.Categories : 'קטגורית העסק'" formControlName="category"  ></ion-input>
+<!-- <ion-select interface="popover">
+<ion-option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories : this.Categories">{{option}}</ion-option>
+</ion-select> -->
                             </ion-item>
                           </ion-col>
                   </ion-row>
@@ -72,18 +73,18 @@
                 <p>{{imageURI}}</p>
                 <a (click)="getImage()">לוגו</a>
                 <!-- <button ion-button color="secondary" (click)="getImage()">Get Image</button> -->
-             
+
                 <h4>Image Preview</h4>
 
               <img [src]="imageURI" *ngIf="imageURI"  width="300" />
 
                 <!-- <img src="{{imageURI}}" *ngIf="imageURI"  width="300" /> -->
                 <!-- <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" /> -->
-             
+
                 <!-- <button ion-button (click)="uploadFile()">Upload</button> -->
               <!-- </ion-item>
              </ion-content> -->
-         
+
           <!-- <input type="file" accept=".jpg, .jpeg, .png"  id="file"  name="file" style="display:none" (change)="this.handleInputChange($event)" (load)="this.handleImageLoad()"  formControlName="logo"> -->
           <img />
         </ion-col>
@@ -105,6 +106,6 @@
         </ion-row>
         </ion-grid>
           </form>
-           
+
 </ion-content>
 
