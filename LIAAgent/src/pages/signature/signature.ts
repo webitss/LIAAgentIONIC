@@ -1,10 +1,10 @@
 import { Events } from 'ionic-angular/util/events';
 import { LiaService } from './../../providers/lia.service';
-import { PayOptionsPage } from './../pay-options/pay-options';
+//import { PayOptionsPage } from './../pay-options/pay-options';
 import { Component, ViewChild } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import {SignaturePad} from 'angular2-signaturepad/signature-pad';
-import {HomePage} from '../home/home';
+//import {HomePage} from '../home/home';
 import { FileTransfer, FileTransferObject, FileUploadOptions } from '@ionic-native/file-transfer';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';

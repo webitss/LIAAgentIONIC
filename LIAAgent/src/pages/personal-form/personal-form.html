@@ -10,15 +10,12 @@
 
 <ion-content padding>
 
-  <div class="container-lia container">
-    <div class="col-md-12 col-xs-12">
-          <h3 class="blue"> פרטים אישיים</h3>
-    </div>
-
           <form [formGroup]="frmPersonal" (ngSubmit)="onGoToBusinessFormPage(frmPersonal.value, this.StoreId)" >
-
               <ion-grid>
+                  <h3 color="blue-color"> פרטים אישיים</h3>
                   <ion-row>
+                      <ion-col col-9>
+        <ion-row>
                   <ion-col>
               <ion-item>
                 <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Name : 'שם לקוח'"  formControlName="first_name" [pattern]="this.pattern" ></ion-input>
@@ -36,28 +33,24 @@
                     <ion-input type="number" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Phone : 'טלפון'"  formControlName="phoneNumber" pattern="[0-9]*"></ion-input>
                   </ion-item>
                 </ion-col>
-
-                <ion-col >
-                    <button ion-button type="submit" block  color="blue-color" [disabled]="(!(this.frmPersonal.valid) && !this.StoreObj)" >המשך</button>
-<!-- [disabled]="(!(this.frmPersonal.valid) && !this.StoreObj)" -->
-                  </ion-col>
-
-                </ion-row>
+              </ion-row>
+             
+              
 
                 <ion-row>
-                  <ion-col col-3>
+                  <ion-col >
                   <ion-item>
                       <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Address : 'כתובת'"  formControlName="address"></ion-input>
                     </ion-item>
                   </ion-col>
 
-                   <ion-col col-3>
+                   <ion-col>
                     <ion-item>
                         <ion-input type="email" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Email : 'אימייל'" formControlName="email"></ion-input>
                       </ion-item>
                     </ion-col>
 
-                    <ion-col col-3>
+                    <ion-col>
                       <ion-item>
                           <ion-input type="number" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.CellPhone : 'נייד'"  formControlName="callPhone" pattern="[0-9]*"></ion-input>
                         </ion-item>
@@ -66,10 +59,17 @@
 
 
                       </ion-row>
+              </ion-col>
 
+                      <ion-col >
+                          <!-- <button ion-button type="submit" block  color="blue-color" [disabled]="(!(this.frmPersonal.valid) && !this.StoreObj)" >המשך</button> -->
+                          <button ion-button type="submit" block  color="blue-color" class="height-button-w">המשך</button>
+                          
+                        </ion-col>
+      
+                      </ion-row>
               </ion-grid>
             </form>
-          </div>
-
+    
 </ion-content>
 

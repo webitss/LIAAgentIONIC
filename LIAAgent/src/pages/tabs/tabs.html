@@ -33,7 +33,7 @@
 
   <ion-tab  [root]="tab1Root" tabIcon="icon-gallery" > </ion-tab>
   <ion-tab  [root]="tab2Root" tabIcon="icon-packages" (ionSelect)="clearHistory($event)"></ion-tab>
-  <ion-tab  [root]="tab3Root" tabIcon="icon-product" (ionSelect)="clearHistoryAndElse($event)" ></ion-tab>>
+  <ion-tab  [root]="tab3Root" tabIcon="icon-product" (ionSelect)="clearHistory($event)" ></ion-tab>>
   <ion-tab  [root]="tab4Root"  [rootParams]="{ request: filterValue, filter: filter, container: myContainer }" tabIcon="icon-customer" color="primary"></ion-tab>
   <ion-tab  [root]="tab5Root"  [rootParams]="myContainer"   tabIcon="icon-cart" [tabBadge] = "service.countProductsInCart>0 ? service.countProductsInCart : null"  tabBadgeStyle="border-color:royalblue" (ionSelect)="clearHistory($event)" >
 

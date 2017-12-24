@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { NavController, LoadingController, ToastController } from 'ionic-angular';
+import { FileTransfer
+  // , FileUploadOptions,
+  //  FileTransferObject
+  } from '@ionic-native/file-transfer';
 import { LiaService } from '../../providers/lia.service';
 import { Events } from 'ionic-angular/util/events';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
@@ -30,7 +33,7 @@ export class LoginPage {
 
 
   constructor(public navCtrl: NavController,
-    private transfer: FileTransfer,
+    //private transfer: FileTransfer,
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public service:LiaService,
@@ -88,6 +91,7 @@ ionViewDidEnter(){
   //       });
 
        }
+
 
 
     }

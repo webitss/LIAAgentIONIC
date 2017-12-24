@@ -2,7 +2,7 @@ import { Input } from '@angular/core';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
-import { PackageSelectedPage } from '../package-selected/package-selected';
+
 
 /**
  * Generated class for the PackagePage page.

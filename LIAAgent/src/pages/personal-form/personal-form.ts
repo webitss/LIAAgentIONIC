@@ -1,11 +1,11 @@
 import { LiaService } from './../../providers/lia.service';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { FormGroup, FormControl, Validators, FormBuilder} from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { BusinessFormPage } from '../business-form/business-form';
-import { customerDetailsModel } from '../../models/customerDetails';
+//import { customerDetailsModel } from '../../models/customerDetails';
 import { storeOwnerModel } from '../../models/storeOwnerModel';
-import { AbstractControlOptions } from '@angular/forms/src/model';
+//import { AbstractControlOptions } from '@angular/forms/src/model';
 
 
 

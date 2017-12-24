@@ -1,33 +1,51 @@
 
-<!-- <ion-header>
-
-  <ion-navbar>
-      <page-header></page-header>
-  </ion-navbar>
-
-</ion-header> -->
-
 
 <ion-content padding>
-    <br>
-    <br><br>
-  <div *ngIf="!service.isTerminateOrdered">
-    <div *ngIf="!service.isPayed">
-    <button ion-button (click)="service.isPayed=true">אשראי</button>
-    <button ion-button (click)="service.isPayed=true">צקים</button>
-    <button ion-button (click)="service.isPayed=true">מזומן</button>
-    </div>
-    <div *ngIf="service.isPayed">
+
+<ion-grid *ngIf="!service.isTerminateOrdered&&!service.isPayed">
+    <ion-row justify-content-center align-items-center>
+            <ion-col col-2>
+            <button ion-button block color="light-blue-color" class="height-button-w"(click)="service.isPayed=true">אשראי</button></ion-col>
+
+            <ion-col col-2>
+            <button ion-button block color="pink-color" class="height-button-w"(click)="service.isPayed=true">צקים</button></ion-col>
+
+            <ion-col col-2>
+            <button ion-button block color="green-color" class="height-button-w"(click)="service.isPayed=true">מזומן</button></ion-col>
+  
+     </ion-row>
+</ion-grid>
+
+<ion-grid *ngIf=" !service.isTerminateOrdered&& service.isPayed">
+        <ion-row justify-content-center align-items-center>
+
     <input type="checkbox"/>
     <a (click)="routeToFormofuse()">הריני מאשר את תקנון השימוש</a>
-    <!-- <button ion-button full (click)="openSignatureModel()"> Open Signature</button>  -->
-        <div class="div" (click)="openSignatureModel()"><img [src]="service.signatureImage" *ngIf="service.signatureImage" /></div><br/><br/>
-        <div class="div" (click)="openSignature1Model()"><img [src]="service.signatureImage1" *ngIf="service.signatureImage1" /></div>
-    <button ion-button (click)="service.isTerminateOrdered=true">המשך</button>
-    </div>
-    </div>
-    <div *ngIf="service.isTerminateOrdered"> ההזמנה בוצעה בהצלחה</div>
+</ion-row>
+<ion-row justify-content-center align-items-center>
+        <ion-col col-2>
+        <ion-item class="div height-button-w" (click)="openSignatureModel()"><img [src]="service.signatureImage" *ngIf="service.signatureImage" /></ion-item>
+        </ion-col>
 
-         
+        <ion-col col-2 >
+        <ion-item  class="div height-button-w" (click)="openSignature1Model()"><img [src]="service.signatureImage1" *ngIf="service.signatureImage1" /></ion-item>
+        </ion-col>
+
+        <ion-col col-2>
+        <button ion-button block color="blue-color" class="height-button-w"(click)="service.isTerminateOrdered=true">המשך</button>
+        </ion-col>
+</ion-row>
+
+</ion-grid>
+
+<ion-grid  *ngIf="service.isTerminateOrdered">
+<ion-row justify-content-center align-items-center>
+    
+    <ion-col align-self-center text-center>
+    <p class="f-size-big "> ההזמנה בוצעה בהצלחה</p>
+         </ion-col>
+
+</ion-row>
+</ion-grid>     
 </ion-content>
 

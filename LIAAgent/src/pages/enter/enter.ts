@@ -1,7 +1,6 @@
 import { Events } from 'ionic-angular/util/events';
 import { Component } from '@angular/core';
 import {NavController, NavParams } from 'ionic-angular';
-import { Header } from 'ionic-angular/components/toolbar/toolbar-header';
 import { LiaService } from '../../providers/lia.service';
 
 @Component({

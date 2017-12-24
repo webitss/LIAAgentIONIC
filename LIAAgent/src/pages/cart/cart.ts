@@ -5,7 +5,7 @@ import { LiaService } from '../../providers/lia.service';
 import { PersonalFormPage } from '../personal-form/personal-form';
 import { ViewChild } from '@angular/core';
 import {Content} from 'ionic-angular';
-import { ViewController } from 'ionic-angular/navigation/view-controller';
+//import { ViewController } from 'ionic-angular/navigation/view-controller';
 
 @Component({
   selector: 'page-cart',

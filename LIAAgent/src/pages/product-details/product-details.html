@@ -4,43 +4,65 @@
     <ion-grid>
         <ion-row justify-content-center align-items-stretch>
 
+<!-- <<<<<<< HEAD
              <ion-col col-2 align-self-end	>
 
   <ion-row padding>
-      <img [src]="service.thisProductDetails.IcoUrl"/>
-{{service.thisProductDetails.ProductShortName}}
+
 
   <button ion-button color="gray-color" block *ngIf="service.thisProductDetails.VideoUrl"  class="btn-white"  (click)="this.goToVideo()">לצפיה</button>
             </ion-row>
-           </ion-col>
+======= -->
+             <ion-col col-2 no-padding class="package-right">
+               <ion-row>
+       <ion-col col-12 align-self-end>
+          <img [src]="service.thisProductDetails.IcoUrl"/>
+          {{service.thisProductDetails.ProductShortName}}
+              </ion-col>
 
-             <ion-col col-6 class="bg-light-blue">
+      <ion-col col-12 align-self-end>
+        <button ion-button color="gray-color" block *ngIf="service.thisProductDetails.VideoUrl" class="btn-white" (click)="this.goToVideo()">לצפיה
+            <i class="icon-arrow-left-03" margin-right></i>
+        </button>
+      </ion-col>
+    </ion-row>
+
+           </ion-col>
+      <ion-col col-6 class="bg-light-blue">
   <img [src]="service.thisProductDetails.PictureUrl"/>
              </ion-col>
 
              <ion-col col-3  class="package-left" >
+                <ion-row >
+                  <ion-col col-12 align-self-end>
+                    <ion-item>
+                      <span float-right>
+                      {{service.thisProductDetails.Duration}}</span>
 
-  <ion-item>
-    <span float-right>
-    {{service.thisProductDetails.Duration}}</span>
+                      <span  float-left>
+                    {{service.thisProductDetails.DurationText}}</span>
+                    </ion-item>
+                    <ion-item>
 
-    <span  float-left>
-   {{service.thisProductDetails.DurationText}}</span>
-   </ion-item>
-   <ion-item>
+                        <p class="item-1">{{service.thisProductDetails.Price}}</p>
+                        <p class="item-2"> לא כולל מע"מ ₪</p>
+                    </ion-item>
+            </ion-col>
 
-      <p class="item-1">{{service.thisProductDetails.Price}}</p>
-      <p class="item-2"> לא כולל מע"מ ₪</p>
-  </ion-item>
+  <ion-col col-12 align-self-end >
 
-  <ion-item padding >
+  <button ion-button color="light-blue-color" block class="btn-white"  (click)="this.AddToCart()">הוסף לסל</button>
 
-  <button ion-button color="light-blue-color" block  class="btn-white"  (click)="this.AddToCart()">הוסף לסל</button>
-
-  </ion-item>
+  </ion-col>
+</ion-row>
 </ion-col>
 
+<!-- <<<<<<< HEAD
 <ion-col col-1>
+
+======= -->
+<ion-col col-1 align-self-center>
+<i margin-right class="icon-arrow-left-03 f-size-big"></i>
 
 
 </ion-col>

@@ -1,4 +1,3 @@
-import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';

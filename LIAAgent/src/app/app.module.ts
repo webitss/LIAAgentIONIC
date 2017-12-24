@@ -1,6 +1,5 @@
 import { SassHelperComponent } from './../components/sass-helper/sass-helper';
 import { ExpandablePage } from './../pages/expandable/expandable';
-import { AccordionPage } from './../pages/accordion/accordion';
 import { HeaderPage } from './../pages/header/header';
 //import { LoginPage } from './../pages/login/login';
 import { SignaturePage } from './../pages/signature/signature';
@@ -70,7 +69,6 @@ import { CookieService } from 'ngx-cookie-service';
     SignaturePage,
     FormOfUsePage,
     VideoPage,
-    AccordionPage,
     ExpandablePage,
     Signature1Page,
     SassHelperComponent
@@ -107,7 +105,6 @@ import { CookieService } from 'ngx-cookie-service';
     SignaturePage,
     FormOfUsePage,
     VideoPage,
-    AccordionPage,
     ExpandablePage,
     Signature1Page,
     SassHelperComponent
