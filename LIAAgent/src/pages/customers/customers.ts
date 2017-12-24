@@ -56,6 +56,7 @@ export class CustomersPage {
 
 
   scrollingFun(e){
+console.log("enter");
   if(this.contentHandle.scrollTop >= 10){
   if(this.arrowUp != true)
   this.arrowUp=true;//show up arrow
@@ -115,7 +116,7 @@ export class CustomersPage {
      expandItem(item){
 
    this.customerDtl = item;
-if(item.storeId){
+if(item.StoreId){
     if(this.prevId == item.StoreId || (this.prevId == null)){
          this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
          this.prevId = item.StoreId;

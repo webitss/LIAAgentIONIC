@@ -7,6 +7,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { TabsPage } from '../tabs/tabs';
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -18,6 +19,7 @@ export class LoginPage {
   isClassBig: boolean;
   isClassMini: boolean;
   isAuthenticated: any;
+  cookieValue="chaya";
 
   imageURI:any;
   imageFileName:any;
@@ -32,12 +34,19 @@ export class LoginPage {
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public service:LiaService,
-    public events:Events) {
+    public events:Events,
+  public cookieService: CookieService) {
 
     this.isClassMini = false;
     this.isClassBig = true;
 
 }
+
+ngOnInit(): void {
+  this.cookieService.set( 'Hello World', 'Test' );
+  this.cookieValue = this.cookieService.get('Hello World');
+}
+
 ionViewDidEnter(){
 
 }
@@ -61,51 +70,65 @@ ionViewDidEnter(){
   }
 
 
-  async routeToTabs(frm): Promise<any>{
-    await this.service.doLogin(frm).then(()=> {
-    this.isAuthenticated = this.service.isAuthenticated;
-      if (this.service.statusCode != 0){
-    if(this.service.statusCode === -3)
-        alert("משתמש לא נמצא")
-    else
-    alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
-      }
-      else
-    {
-      console.log(this.isAuthenticated);
+   async routeToTabs(frm): Promise<any>{
+  //   await this.service.doLogin(frm).then(()=> {
+  //   this.isAuthenticated = this.service.isAuthenticated;
+  //     if (this.service.statusCode != 0){
+  //   if(this.service.statusCode === -3)
+  //       alert("משתמש לא נמצא")
+  //   else
+  //   alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+  //     }
+  //     else
+  //   {
+  //     console.log(this.isAuthenticated);
 
-      this.navCtrl.setRoot(TabsPage)
-    }
-        });
+       this.navCtrl.setRoot(TabsPage)
+  //   }
+  //       });
 
-      }
+       }
 
-
-
-//    async routeToTabs(frm): Promise<any>{
-//   await this.service.doLogin(frm).then(()=> {
-// this.isAuthenticated = this.service.isAuthenticated;
-//   if (this.service.statusCode != 0){
-// if(this.service.statusCode === -3)
-//     alert("משתמש לא נמצא")
-// else
-// alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
-//   }
-//   else
-// {
-//   console.log(this.isAuthenticated);
-
-//   this.navCtrl.setRoot(TabsPage)
-//  }
-//      });
-//  }
-
-  // this.navCtrl.setRoot(TabsPage)
-// }
-//     });
 
     }
 
 
+    const packages: any = {
+      'angular2-cookie': {main: 'core.js', defaultExtension: 'js'},
+    };
 
+/*
+private setSession(){
+       let key= 'user';
+       let value= [{'name':'shail','email':'example@gmail.com'}];
 
+       let value1 = JSON.stringify(value);
+
+       sessionStorage.setItem(key, value1);
+   }
+   private getSession(){
+       return sessionStorage.getItem('user');
+   }
+   private setCookie(name: string, value: string, expireDays: number, path: string = '') {
+       let d:Date = new Date();
+       d.setTime(d.getTime() + expireDays * 24 * 60 * 60 * 1000);
+       let expires:string = `expires=${d.toUTCString()}`;
+       let cpath:string = path ? `; path=${path}` : '';
+       document.cookie = `${name}=${value}; ${expires}${cpath}`;
+   }
+
+   private getCookie(name: string) {
+       let ca: Array<string> = document.cookie.split(';');
+       let caLen: number = ca.length;
+       let cookieName = `${name}=`;
+       let c: string;
+
+       for (let i: number = 0; i < caLen; i += 1) {
+           c = ca[i].replace(/^\s+/g, '');
+           if (c.indexOf(cookieName) == 0) {
+               return c.substring(cookieName.length, c.length);
+           }
+       }
+       return '';
+   }
+*/

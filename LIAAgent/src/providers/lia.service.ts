@@ -52,7 +52,7 @@ export class LiaService {
             userLogin: LoginModel;
             c:customerModel;
             statusCode:any;
-            packageInCart:any = null;
+            packageInCart:packageModel;
             countPackageInCart:number=0;
             changePackage:boolean = false;
             addProductToCart:boolean = false;
@@ -87,6 +87,7 @@ export class LiaService {
             this.categories=[];
             this.userLogin = new LoginModel;
             this.allPosts();
+            this.packageInCart=new packageModel;
             //#endregion
     }
 
@@ -307,34 +308,42 @@ this.changePackage = false;
     }
 
   async createFrmBusiness(storDetails: customerDetailsModel){
-// storDetails.PackageId=this.
+if(this.packageInCart.PackageId){
+ storDetails.PackageId=this.packageInCart.PackageId;
+storDetails.PackageName=this.packageInCart.PackageName;
+}
     await this.proxy
     .createStoreDetails(storDetails)
     .then(res => {
-      if(res.Error.ErrorCode === 0)
+      if(res.ErrorCode === 0)
 console.log("הפרטים נשמרו בהצלחה",res.Result);
-else
-if(res.Error.ErrorCode === -10)
+else{
+if(res.ErrorCode === -10)
 console.log("אינך מורשה ליצור לקוח חדש");
 else
 console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+}
     })
     .catch(() => console.log("error"));
   }
 
   async updateFrmBusiness(storDetails: customerDetailsModel){
-//צריכה להיות כאן הצבה של מערך החבילות
-
+    if(this.packageInCart.PackageId){
+      storDetails.PackageId=this.packageInCart.PackageId;
+     storDetails.PackageName=this.packageInCart.PackageName;
+    }
     await this.proxy
     .upDateStoreDetails(storDetails)
     .then(res => {
-      if(res.Error.ErrorCode === 0)
+      if(res.ErrorCode === 0)
       console.log("הפרטים עודכנו בהצלחה",res.Result);
       else
-      if(res.Error.ErrorCode === -10)
+{
+      if(res.ErrorCode === -10)
       console.log("אינך מורשה לעדכן פרטי לקוח ");
       else
       console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+}
     })
     .catch(() => console.log("error"));
 }

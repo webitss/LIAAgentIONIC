@@ -11,13 +11,14 @@
         <!-- <ion-scroll scrollY="true" style="height: 400px"> -->
 
             <ion-content padding #contentRef (ionScroll)="scrollingFun($event)"  style="height: 64vh" >
- <!-- style="height: 74vh" -->
+
+ <!-- style="height: 74vh"-->
 
 
                 <ion-list no-margin>
                  <ion-item  *ngFor="let item of customersFilter" full no-margin>
                     <button detail-none (click)="expandItem(item) " ion-item  class="border-list">
-                
+
                       <span>{{item?.StoreName}}</span>
                       <span>{{item?.Address}}</span>
 
@@ -36,7 +37,6 @@
 
                    </ion-item>
                   </ion-list>
-
 
           </ion-content>
         <!-- </ion-scroll> -->

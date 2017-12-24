@@ -7,7 +7,8 @@
              <ion-col col-2 align-self-end	>
 
   <ion-row padding>
-      <img src="assets/imgs/icon-lia.png"/>
+      <img [src]="service.thisProductDetails.IcoUrl"/>
+{{service.thisProductDetails.ProductShortName}}
 
   <button ion-button color="gray-color" block *ngIf="service.thisProductDetails.VideoUrl"  class="btn-white"  (click)="this.goToVideo()">לצפיה</button>
             </ion-row>
@@ -40,7 +41,7 @@
 </ion-col>
 
 <ion-col col-1>
-  
+
 
 </ion-col>
 
