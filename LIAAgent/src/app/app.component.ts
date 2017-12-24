@@ -1,17 +1,17 @@
-import { CustomersPage } from './../pages/customers/customers';
+//import { CustomersPage } from './../pages/customers/customers';
 
-import { LiaService } from './../providers/lia.service';
-import { TabsPage } from './../pages/tabs/tabs';
+//import { LiaService } from './../providers/lia.service';
+//import { TabsPage } from './../pages/tabs/tabs';
 import { LoginPage } from './../pages/login/login';
 import { Component } from '@angular/core';
-import { Platform, AlertController, App, Alert,Nav } from 'ionic-angular';
+import { Platform, AlertController, App, Alert } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Keyboard } from '@ionic-native/keyboard';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
+//import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Events } from 'ionic-angular/util/events';
-import { EnterPage } from '../pages/enter/enter';
-import { ProductsPage } from '../pages/products/products';
+//import { EnterPage } from '../pages/enter/enter';
+//import { ProductsPage } from '../pages/products/products';
 
 //import { ViewChild } from '@angular/core';
 
@@ -27,7 +27,7 @@ export class MyApp {
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     private alertCtrl: AlertController,
-    private screenOrientation: ScreenOrientation,
+    //private screenOrientation: ScreenOrientation,
     public app:App,
     public events:Events,private keyboard: Keyboard
      ) {

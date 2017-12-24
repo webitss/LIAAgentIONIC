@@ -1,4 +1,3 @@
-import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';

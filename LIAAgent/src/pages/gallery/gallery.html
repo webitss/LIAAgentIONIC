@@ -4,7 +4,7 @@
     <ion-grid >
         <ion-row align-items-center align-self-center >
           <ion-col color="yellow-color">
-<button class="icon-arrow"  float-end  (click)="slider.slideNext()" [hidden]="nextDisabled" >
+<button class="icon-arrow"  float-end   [hidden]="nextDisabled" >
  <i class="icon-arrow-right-02"></i>
 </button>
           </ion-col>
@@ -19,7 +19,7 @@
              </ion-col>
 
              <ion-col >
-  <button class="icon-arrow"(click)="slider.slidePrev()" [hidden]="prevDisabled">
+  <button class="icon-arrow" [hidden]="prevDisabled">
     <i class="icon-arrow-left-03" color="yellow-color"></i>
     </button>
            </ion-col>

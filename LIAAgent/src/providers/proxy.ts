@@ -4,14 +4,14 @@ import { HttpClient } from "@angular/common/http";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
 import { LoginModel } from "../models/loginModel";
-import { Response } from '@angular/http';
-import {Observable} from 'rxjs/Rx';
-import { errorHandler } from "@angular/platform-browser/src/browser";
+//import { Response } from '@angular/http';
+//import {Observable} from 'rxjs/Rx';
+//import { errorHandler } from "@angular/platform-browser/src/browser";
 import { customerDetailsModel } from '../models/customerDetails';
 import { SessionSell } from '../models/SessionShell';
 import { athenticateModel } from './../models/athenticateModel';
 
-declare var configWebit: { baseUrl: string };
+
 
 @Injectable()
 export class LiaProxy {
