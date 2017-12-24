@@ -3,10 +3,11 @@
   <ion-grid>
      <ion-row justify-content-center align-items-stretch >
 
-          <ion-col no-padding><page-package [package]="nowPackage"> </page-package></ion-col>
+          <ion-col col-4 no-padding><page-package [package]="nowPackage"> </page-package></ion-col>
 
           <ion-col *ngIf="!service.isPackageProductDetailed"  class="bg-yellow part-3" col-6 >
-                  <div *ngIf="products" class="part-3-inner">
+            <ion-row justify-content-center>
+                  <ion-col *ngIf="products" class="part-3-inner" align-self-center>
                           <div    *ngFor="let p of products"  >
                                           <div (click)="details(p)">
                                                   <span> {{p?.ProductLongName}}</span>
@@ -14,19 +15,23 @@
                                           </div>
                           </div>
 
-                  </div>
+                  </ion-col>
+                </ion-row>
           </ion-col>
 
-          <ion-col *ngIf="service.isPackageProductDetailed" class="bg-yellow ">
+          <ion-col *ngIf="service.isPackageProductDetailed" class="bg-yellow" col-2>
             <div >
             <p> {{product?.ProductLongName}}</p>
             <p> {{product?.ProductName}}</p>
-            <img [src]="product.PictureUrl"/>
             <input *ngIf="product.VideoUrl" type="button" value="לצפיה"  (click)="routeToVideo()" class="btn-white" />
             </div>
           </ion-col>
 
-          <ion-col class="bg-yellow part-4" col-2>
+          <ion-col *ngIf="service.isPackageProductDetailed" class="bg-yellow" col-5>
+              <img [src]="product.PictureUrl"/>
+          </ion-col>
+
+          <ion-col class="bg-yellow part-4"   [ngClass]="{'col-2':!service.isPackageProductDetailed,'col-1':service.isPackageProductDetailed}">
               <input type="button" *ngIf="!service.isPackageProductDetailed" class="center-center btn-white" value="הוסף לסל" (click)="this.BackToCart();this.service.clickAddPackageToCart(nowPackage)">
               <button ion-button float-left class="btn-font-transparent" (click)="navCtrl.pop(navCtrl)" >
                 <i class="icon-icon-x_Artboard-2-01 "></i>
