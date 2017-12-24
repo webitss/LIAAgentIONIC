@@ -1,120 +1,107 @@
 <ion-content padding>
   <!-- <button ion-button (click) = "onGoToPayOptionsPage()"> Push </button> -->
- <div class="container-lia container">
-    <div class="col-md-12 col-xs-12">
-        <h3 class="blue"> פרטי עסק</h3></div>
 
+        
 
-         <div *ngIf="!this.anotherDetails" >
-
-            <form [formGroup]="frmBusiness" (ngSubmit)="this.submitFrmBusiness(frmBusiness.value)">
+            <form [formGroup]="frmBusiness" (ngSubmit)="this.submitFrmBusiness(frmBusiness.value)" *ngIf="!this.anotherDetails">
                 <ion-grid>
-
-                <ion-row>
+  <h3 color="blue-color"> פרטי עסק</h3>
+              <ion-row>
+                  <ion-col col-9>
+              <ion-row>
                   <ion-col>
                 <ion-item>
                     <ion-input type="text" [placeholder]="this.StoreObj.StoreName? this.StoreObj.StoreName : 'שם העסק'"   formControlName="name"  ></ion-input>
                   </ion-item>
                 </ion-col>
 
-<ion-col>
+                  <ion-col>
                   <ion-item>
                       <ion-input type="number" [placeholder]="this.StoreObj.HP? this.StoreObj.HP : 'ח.פ'"  formControlName="PrivatelyHeldCompany" pattern="[0-9]*" ></ion-input>
                     </ion-item>
                   </ion-col>
 
-<ion-col>
+                  <ion-col>
                     <ion-item>
                         <ion-input type="number" [placeholder]="this.StoreObj.Phone? this.StoreObj.Phone : 'טלפון בית עסק'"  formControlName="phone" pattern="[0-9]*" ></ion-input>
                       </ion-item>
                     </ion-col>
-                    </ion-row>
 
-<ion-row>
-<ion-col>
+                </ion-row>
+                    
+
+                  <ion-row>
+                      <ion-col>
                       <ion-item>
                           <ion-input type="text" [placeholder]="this.StoreObj.Address? this.StoreObj.Address : 'כתובת בית עסק'"  formControlName="address"  ></ion-input>
                         </ion-item>
                       </ion-col>
 
-<ion-col>
+                        <ion-col>
                         <ion-item>
                             <ion-input type="text" [placeholder]="this.StoreObj.Long? this.StoreObj.Long : 'כתובת אתר העסק'"  formControlName="websiteAddress" ></ion-input>
                           </ion-item>
                         </ion-col>
 
-<ion-col>
+                          <ion-col>
                           <ion-item>
                               <ion-input type="text" [placeholder]="this.StoreObj.Categories? this.StoreObj.Categories : 'קטגורית העסק'" formControlName="category"  ></ion-input>
                             </ion-item>
                           </ion-col>
-</ion-row>
+                  </ion-row>
 
-                            <button ion-button type="submit" [disabled]="!this.StoreObj && !this.frmBusiness.valid"  block>המשך</button>
+</ion-col>
+<ion-col>
+
+                            <button ion-button type="submit" [disabled]="!this.StoreObj && !this.frmBusiness.valid" color="blue-color" block class="height-button-w">המשך</button>
+</ion-col>
+                          </ion-row>
                 </ion-grid>
             </form>
 
 
-        </div>
-
-          <div *ngIf="this.anotherDetails">
+          <form [formGroup]="frmMoredetails"  *ngIf="this.anotherDetails">
 
 
-          <form [formGroup]="frmMoredetails" >
-
-
-<ion-grid>
+      <ion-grid>
 
         <ion-row>
-           <ion-content padding style="height: 400px" >
-
-              <ion-item>
+            <ion-col class="height-button-w">
+           <!-- <ion-content padding style="height: 400px" >
+              <ion-item> -->
                 <p>{{imageURI}}</p>
                 <a (click)="getImage()">לוגו</a>
                 <!-- <button ion-button color="secondary" (click)="getImage()">Get Image</button> -->
-              </ion-item>
-              <ion-item>
+             
                 <h4>Image Preview</h4>
-
                 <!-- <img src="{{imageURI}}" *ngIf="imageURI"  width="300" /> -->
-
                 <!-- <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" /> -->
-              </ion-item>
-              <ion-item>
+             
                 <!-- <button ion-button (click)="uploadFile()">Upload</button> -->
-              </ion-item>
-             </ion-content>
-            </ion-row>
-
+              <!-- </ion-item>
+             </ion-content> -->
+         
           <!-- <input type="file" accept=".jpg, .jpeg, .png"  id="file"  name="file" style="display:none" (change)="this.handleInputChange($event)" (load)="this.handleImageLoad()"  formControlName="logo"> -->
           <img />
-
-          <ion-row>
+        </ion-col>
 <ion-col>
           <ion-item>
-              <ion-input type="text" [placeholder]="this.StoreObj.OpenHours? this.StoreObj.OpenHours : 'שעות פתיחה'"  formControlName="OpeningHours" ></ion-input>
+              <ion-input class="height-button-w" type="text" [placeholder]="this.StoreObj.OpenHours? this.StoreObj.OpenHours : 'שעות פתיחה'"  formControlName="OpeningHours" ></ion-input>
             </ion-item>
           </ion-col>
 
 <ion-col>
             <ion-item>
-                <ion-input type="number" [placeholder]="this.StoreObj.MinPriceToTicket? this.StoreObj.MinPriceToTicket : 'מינימום לכרטיס'"   formControlName="min" pattern="[0-9]*"></ion-input>
+                <ion-input class="height-button-w" type="number" [placeholder]="this.StoreObj.MinPriceToTicket? this.StoreObj.MinPriceToTicket : 'מינימום לכרטיס'"   formControlName="min" pattern="[0-9]*"></ion-input>
               </ion-item>
             </ion-col>
-            </ion-row>
-
+            <ion-col>
           <!-- <input type="submit" value="המשך" [disabled]="!frmMoredetails.valid" /> -->
-
-          <button ion-button type="submit" block [disabled]="!(this.frmMoredetails.valid) && !this.StoreObj" (click)="this.submitFrmMoreBusiness(this.frmMoredetails.value);onGoToPayOptionsPage()">המשך</button>
-
-
+          <button block  color="blue-color" class="height-button-w" ion-button type="submit" block [disabled]="!(this.frmMoredetails.valid) && !this.StoreObj" (click)="this.submitFrmMoreBusiness(this.frmMoredetails.value);onGoToPayOptionsPage()">המשך</button>
+            </ion-col>
+        </ion-row>
         </ion-grid>
           </form>
-              </div>
-
-
-            </div>
-
-
+           
 </ion-content>
 
