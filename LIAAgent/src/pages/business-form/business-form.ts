@@ -36,6 +36,7 @@ export class BusinessFormPage {
   anotherDetails: boolean;
   imageURI: any;
   imageFileName: any;
+  Categories = ["מזון","ריהוט","הלבשה"];
 
   frmBusiness = new FormGroup({
     name: new FormControl("", Validators.required),
@@ -203,6 +204,7 @@ export class BusinessFormPage {
     this.customerD.HP = frm.PrivatelyHeldCompany ? frm.PrivatelyHeldCompany : this.StoreObj.HP;
     this.customerD.Phone = frm.phone ? frm.phone : this.StoreObj.Phone;
     this.customerD.Address = frm.address ? frm.address : this.StoreObj.Address;
+    this.customerD.Category = frm.category? frm.category : this.StoreObj.Category;
   }
 
   submitFrmMoreBusiness(frm) {
@@ -211,6 +213,7 @@ export class BusinessFormPage {
     this.customerD.OpenHours = frm.OpeningHours ? frm.OpeningHours : this.StoreObj.OpenHours;
     this.customerD.MinPriceToTicket = frm.min ? frm.min : this.StoreObj.MinPriceToTicket;
     if (this.StoreObj)
+
       this.service.updateFrmBusiness(this.customerD);
     else
       this.service.createFrmBusiness(this.customerD);

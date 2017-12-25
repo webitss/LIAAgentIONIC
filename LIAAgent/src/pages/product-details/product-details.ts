@@ -37,11 +37,15 @@ export class ProductDetailsPage {
  AddToCart(){
   this.service.clickAddToCart(this.service.thisProductDetails);
 if(this.service.addProductToCart){
-// this.service.addProductToCart = false;
+  this.service.addProductToCart = false;
 this.navCtrl.parent.select(this.TabsEnum.cart);
 }
 else
 this.navCtrl.pop();
  }
+
+getNextProduct(){
+
+}
 
 }

@@ -11,17 +11,17 @@
         <!-- <ion-scroll scrollY="true" style="height: 400px"> -->
 
             <ion-content padding #contentRef (ionScroll)="scrollingFun($event)"  style="height: 64vh" >
- <!-- style="height: 74vh" -->
+ <!-- style="height: 74vh"-->
 
 
                 <ion-list no-margin>
                  <ion-item  *ngFor="let item of customersFilter" full no-margin>
                     <button detail-none (click)="expandItem(item) " ion-item  class="border-list">
-                
+
                       <span>{{item?.StoreName}}</span>
                       <span>{{item?.Address}}</span>
 
-                      <button float-end class="f-size-icon icon-arrow-down-04 bg-transpare" color="green-color"> </button>
+                      <button float-end  [ngClass]="{'f-size-icon icon-arrow-down-04 bg-transpare': this.valueButton=='לקוח חדש', 'icon-icon-x_Artboard-2-01': this.valueButton=='עבור לסל'}" color="green-color"></button>
                        <!-- <i class=""></i> -->
                     </button>
                       <page-expandable [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
@@ -36,7 +36,6 @@
 
                    </ion-item>
                   </ion-list>
-
 
           </ion-content>
         <!-- </ion-scroll> -->

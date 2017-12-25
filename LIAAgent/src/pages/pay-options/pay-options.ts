@@ -5,6 +5,7 @@ import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
 import {SignaturePage} from '../signature/signature'
 import { Events } from 'ionic-angular/util/events';
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 
 @Component({
@@ -12,6 +13,11 @@ import { Events } from 'ionic-angular/util/events';
   templateUrl: 'pay-options.html',
 })
 export class PayOptionsPage {
+
+  frmPay: FormGroup = new FormGroup({
+    formOfUse: new FormControl("", Validators.required)
+  });
+
    constructor(public navCtrl: NavController,
      public navParams: NavParams,
      public service:LiaService,
@@ -21,10 +27,10 @@ export class PayOptionsPage {
         // this.service.signatureImage = navParams.get('signatureImage');
         // if(navParams.get('signature1Image'))
         // this.service.signatureImage1 = navParams.get('signature1Image');
-   
+
   }
 
-  
+
 
 
 
@@ -35,11 +41,11 @@ export class PayOptionsPage {
   ionViewWillEnter(){
     // this.openSignature();
   }
- 
+
   openSignatureModel(){
           this.events.subscribe('custom-user-events', (paramsVar) => {
             this.service.signatureImage=paramsVar;
-            this.events.unsubscribe('custom-user-events'); 
+            this.events.unsubscribe('custom-user-events');
         })
             setTimeout(() => {
             let modal = this.modalController.create(SignaturePage);
@@ -47,12 +53,12 @@ export class PayOptionsPage {
           }, 300);
 
   }
-  
+
   openSignature1Model(){
           this.events.subscribe('custom-user-events', (paramsVar) => {
-            
+
             this.service.signatureImage1=paramsVar;
-            this.events.unsubscribe('custom-user-events'); 
+            this.events.unsubscribe('custom-user-events');
         })
           setTimeout(() => {
             let modal = this.modalController.create(Signature1Page);

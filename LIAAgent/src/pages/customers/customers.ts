@@ -56,6 +56,7 @@ export class CustomersPage {
 
 
   scrollingFun(e){
+console.log("enter");
   if(this.contentHandle.scrollTop >= 10){
   if(this.arrowUp != true)
   this.arrowUp=true;//show up arrow
@@ -113,9 +114,8 @@ export class CustomersPage {
 
    // customerChoosed:any;
      expandItem(item){
-
    this.customerDtl = item;
-
+if(item.StoreId){
     if(this.prevId == item.StoreId || (this.prevId == null)){
          this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
          this.prevId = item.StoreId;
@@ -131,6 +131,7 @@ export class CustomersPage {
         this.service.customerDetails.StoreId = null;
 
             }
+}
 
 getCustomerDetails(item){
   this.customersFilter.map((listItem) => {

@@ -51,10 +51,12 @@ export class PackageSelectedPage {
   }
 
   BackToCart(){
-      if(this.service.changePackage)
-      this.navCtrl.parent.select(this.TabsEnum.cart);
-    else
-    this.navCtrl.pop();
+if(this.service.changePackage){
+this.service.changePackage = false;
+  this.navCtrl.parent.select(this.TabsEnum.cart);
+}
+else
+this.navCtrl.pop();
   }
 
 }

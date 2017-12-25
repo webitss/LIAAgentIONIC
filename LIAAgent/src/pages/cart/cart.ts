@@ -27,8 +27,8 @@ export class CartPage {
 
     service.nowComponent="סל";
     //
-     this.StoreId = navParams.get('StoreId');
-     console.log(this.StoreId);
+    //  this.StoreId = navParams.get('StoreId');
+    //  console.log(this.StoreId);
      this.StoreId = this.navParams.data.storeId;
      console.log(this.StoreId);
     }
@@ -45,10 +45,12 @@ export class CartPage {
     // if(this.service.customerDetails.StoreId != null)
     // this.StoreId = this.service.customerDetails.StoreId;
   }
+
 demoFunc()
 {
 this.i=45;
 }
+
 scrollingFun(e){
   if(this.contentHandle.scrollTop >= 10){
   if(this.arrowUp != true)
@@ -63,9 +65,13 @@ scrollingFun(e){
 let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
   if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-remainder)){
   this.arrowDown = false;
+  document.getElementById('demoBtn').click();
    }
   else
+{
   this.arrowDown = true;
+  document.getElementById('demoBtn').click();
+}
   }
 
   ionViewDidEnterDown() {
@@ -79,7 +85,7 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
 
   routeToProducts()
   {
-    //this.service.addProductToCart = true;
+    this.service.addProductToCart = true;
     this.navCtrl.parent.select(TabsEnum.products);
   }
 

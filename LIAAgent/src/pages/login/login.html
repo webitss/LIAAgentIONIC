@@ -1,6 +1,4 @@
 
-
-
 <ion-content text-center class="vertical-align-content" >
 
        <div class="bg-login" id="body">
@@ -13,7 +11,7 @@
         </div>
 
   <div *ngIf="isClassMini" class="relative width-50">
-    
+
       <ion-row class="center-center">
         <ion-col >
           <form  [formGroup]="frmLogin" (submit)="routeToTabs(this.frmLogin.value)" id="container" >
@@ -37,6 +35,6 @@
           </form>
         </ion-col>
       </ion-row>
-    
+
   </div>
 </ion-content>
