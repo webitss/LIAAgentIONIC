@@ -67,34 +67,27 @@
       <ion-grid>
 
         <ion-row>
-            <ion-col class="height-button-w">
-           <!-- <ion-content padding style="height: 400px" >
-              <ion-item> -->
-                <p>{{imageURI}}</p>
-                <a (click)="getImage()">לוגו</a>
-                <!-- <button ion-button color="secondary" (click)="getImage()">Get Image</button> -->
+            <ion-col col-1><a (click)="getImage()">לוגו</a></ion-col>
 
-                <h4>Image Preview</h4>
+            <ion-col col-2 >
+              
+                <!-- <p>{{imageURI}}</p> -->
+                <!--<button ion-button color="secondary" (click)="getImage()">Get Image</button> -->
+                <!-- <img [src]="imageURI" *ngIf="imageURI"  width="300" /> -->
 
-              <img [src]="imageURI" *ngIf="imageURI"  width="300" />
-
-                <!-- <img src="{{imageURI}}" *ngIf="imageURI"  width="300" /> -->
+                <ion-input text-center no-padding class="height-button-w  icon-gallery f-size-big" type="text"></ion-input>
+                
                 <!-- <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" /> -->
-
                 <!-- <button ion-button (click)="uploadFile()">Upload</button> -->
-              <!-- </ion-item>
-             </ion-content> -->
-
-          <!-- <input type="file" accept=".jpg, .jpeg, .png"  id="file"  name="file" style="display:none" (change)="this.handleInputChange($event)" (load)="this.handleImageLoad()"  formControlName="logo"> -->
-          <img />
-        </ion-col>
-<ion-col>
+             
+                 </ion-col>
+       <ion-col>
           <ion-item>
               <ion-input class="height-button-w" type="text" [placeholder]="this.StoreObj.OpenHours? this.StoreObj.OpenHours : 'שעות פתיחה'"  formControlName="OpeningHours" ></ion-input>
             </ion-item>
           </ion-col>
 
-<ion-col>
+        <ion-col>
             <ion-item>
                 <ion-input class="height-button-w" type="number" [placeholder]="this.StoreObj.MinPriceToTicket? this.StoreObj.MinPriceToTicket : 'מינימום לכרטיס'"   formControlName="min" pattern="[0-9]*"></ion-input>
               </ion-item>
@@ -106,6 +99,19 @@
         </ion-row>
         </ion-grid>
           </form>
+
+           
+
+
+
+
+
+<!--  -->
+<!-- <ion-content padding>
+  <button ion-button color="primary" (click)="accessGallery()">Open Gallery</button>
+  <img [src]="base64Image" *ngIf="base64Image" />
+ </ion-content> -->
+<!--  -->
 
 </ion-content>
 
