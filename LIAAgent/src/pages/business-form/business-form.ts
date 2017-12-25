@@ -12,8 +12,8 @@ import {
   FileTransferObject
 } from "@ionic-native/file-transfer";
 import { Camera, CameraOptions } from "@ionic-native/camera";
-
-
+import { FilePath } from '@ionic-native/file-path';
+//import { FilePath } from "@angular";
 @Component({
   selector: "page-business-form",
   templateUrl: "business-form.html"
@@ -64,7 +64,7 @@ export class BusinessFormPage {
     private camera: Camera,
     private transfer: FileTransfer,
     public loadingCtrl: LoadingController,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,public filePath:FilePath
   ) {
     // ) {
     service.routeOrStay = "businessForm";
@@ -104,47 +104,27 @@ export class BusinessFormPage {
     this.navCtrl.push(PayOptionsPage);
   }
 
-
-
-  getImage() {
+///////////////////////////////
+result;
+  getImage() {alert("enter to func ");
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     };
 
-    this.camera.getPicture(options).then(
-      imageData => {
-        this.imageURI = imageData;
-        alert(imageData);
-        // window.FilePath.resolveNativePath(this.imageURI, function(result) {
-        //   // onSuccess code
-        //   this.imageURI = 'file://' + result;
-          
-        // }, function (error) {
-        //   // onError code here
-        // }
+      this.camera.getPicture(options).then(imageData => {
+        this.result = imageData; 
+        this.filePath.resolveNativePath(imageData).then(result => this.imageURI=  result ).catch(error=> alert("error") )
+           } );
+           alert("this.imageURI  "+this.imageURI);
 
-      
-
-        // window.FilePath.resolveNativePath(data, function(result) {
-        //   deferred.resolve('file://' + result);
-        // }, function (error) {
-        //     throw new Error("");
-        // });
-
-        // alert(" Uploaded Successfully1");
-        // this.uploadFile();
-        
-      },
-      err => {
-        console.log(err);
-        alert("error");
-        this.presentToast(err);
-      }
-    );
+        //      this.camera.getPicture(options).then(imageData => {
+        // this.imageURI = imageData; alert(imageData);
+        // window.FilePath.resolveNativePath(this.imageURI, function(result){ this.imageURI = 'file://' + result;alert("success "+this.imageURI); }, function (error){ alert("error");} )
+        //    } );
   }
-
+////////////////////////////////////
   uploadFile() {
     let loader = this.loadingCtrl.create({
       content: "Uploading..."
