@@ -64,7 +64,7 @@ export class LiaService {
           //#region initialize
             this.isNowInPageLogin=true;
             this.galeryPictures = new Array();
-            this.products =[];
+            this.products = new Array<productsModel>();
             this.customers = [];
             this.packageProd1 = new productsModel;
             this.packageProd2 = new productsModel;

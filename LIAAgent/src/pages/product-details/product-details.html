@@ -2,7 +2,8 @@
 
 <ion-slides #slider style="direction: ltr" class="image-slider" loop="false" slidesPerView="1" zoom="true" speed="200" (ionSlideDidChange)="isSliderFunc()">
 
-    <ion-slide *ngFor="let pr of isSlider? service.products : service.productsDetails" >
+        <ion-slide *ngFor="let pr of service.productsDetails" >
+
        <ion-grid style="direction: rtl">
            <ion-row justify-content-center align-items-stretch>
 
@@ -57,7 +58,8 @@
    </ion-col>
 
    <ion-col col-1 align-self-center>
-     <i margin-right class="icon-arrow-left-03 f-size-big" (click)="isSlider? slider.slideNext() : this.isSliderFunc()"></i>
+
+     <i margin-right class="icon-arrow-left-03 f-size-big" (click)="slider.slideNext()"></i>
 
    </ion-col>
 
