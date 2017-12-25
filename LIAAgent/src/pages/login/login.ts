@@ -10,9 +10,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { TabsPage } from '../tabs/tabs';
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
-import { CookieService } from 'ngx-cookie-service';
-
-
+//import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'page-login',
@@ -37,8 +35,7 @@ export class LoginPage {
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public service:LiaService,
-    public events:Events,
-  public cookieService: CookieService) {
+    public events:Events) {
 
     this.isClassMini = false;
     this.isClassBig = true;
@@ -46,8 +43,8 @@ export class LoginPage {
 }
 
 ngOnInit(): void {
-  this.cookieService.set( 'Hello World', 'Test' );
-  this.cookieValue = this.cookieService.get('Hello World');
+  // this.cookieService.set( 'Hello World', 'Test' );
+  // this.cookieValue = this.cookieService.get('Hello World');
 }
 
 ionViewDidEnter(){
