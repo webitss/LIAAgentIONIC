@@ -9,20 +9,21 @@
       </ion-col>
      
       <ion-col col-7 [ngClass]="{'package-left':!service.isInner,'package-left-2':service.isInner}">
-        <div>
+        <div class="center-center">
           <ion-item>
             {{package?.TicketsNum}}
             <span class="nth-child-span">כרטיסים</span>
           </ion-item>
           <ion-item>
-            <span float-right>{{package?.PriceToTicket}}</span>
-            <span item-left float-left>שקל
+            <span padding-right float-right class="center-center f-size-icon">{{package?.PriceToTicket}}</span>
+            <span float-left>שקל
              <br/> לכרטיס
              <br/>בודד</span>
              
           </ion-item>
-          <ion-item>
-              {{package?.PackagePrice}}
+          <ion-item text-center>
+              <span class="item-1">{{package?.PackagePrice}}</span>
+              <p class="item-2">לא כולל מע"מ ₪</p>
           </ion-item>
         </div>
       </ion-col>
