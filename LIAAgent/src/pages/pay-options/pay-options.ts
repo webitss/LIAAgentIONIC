@@ -1,3 +1,4 @@
+import { TabsPage } from './../tabs/tabs';
 import { Signature1Page } from './../signature1/signature1';
 import { FormOfUsePage } from './../form-of-use/form-of-use';
 import { Component } from '@angular/core';
@@ -6,6 +7,8 @@ import { LiaService } from '../../providers/lia.service';
 import {SignaturePage} from '../signature/signature'
 import { Events } from 'ionic-angular/util/events';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { App } from 'ionic-angular/components/app/app';
+import { EnterPage } from '../enter/enter';
 
 
 @Component({
@@ -21,7 +24,7 @@ export class PayOptionsPage {
    constructor(public navCtrl: NavController,
      public navParams: NavParams,
      public service:LiaService,
-     public modalController:ModalController,public events:Events) {
+     public modalController:ModalController,public events:Events,public app :App) {
         service.nowComponent="תשלום";
         // if(navParams.get('signatureImage'))
         // this.service.signatureImage = navParams.get('signatureImage');
@@ -41,7 +44,22 @@ export class PayOptionsPage {
   ionViewWillEnter(){
     // this.openSignature();
   }
-
+  resetAll(){
+    this.service.isTerminateOrdered=true; 
+    setTimeout(() => {
+      //this.navCtrl.setRoot(TabsPage);
+      console.log( " this.service.productsOfCart "+this.service.productsOfCart);
+      this.service.productsOfCart=[];
+      this.service.countPackageInCart=0;
+      this.service.countProductsInCart=0;
+      this.service.isTerminateOrdered=false;
+      console.log( " this.service.productsOfCart "+this.service.productsOfCart);
+      this.app.getRootNav().setRoot(TabsPage);
+    }, 3000);
+    
+     // this.navCtrl.setRoot(this.navCtrl.getActive().component);
+  // this.navCtrl.parent();
+  }
   openSignatureModel(){
           this.events.subscribe('custom-user-events', (paramsVar) => {
             this.service.signatureImage=paramsVar;
