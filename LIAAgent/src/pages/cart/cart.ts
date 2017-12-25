@@ -90,7 +90,7 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
   }
 
   onGoToPersonalFormPage(StoreId){
-if(this.service.packageInCart || this.service.productsOfCart.length){
+if(this.service.packageInCart.PackageId || this.service.productsOfCart.length){
 if(StoreId){
     this.navCtrl.push(PersonalFormPage,{StoreId: StoreId});
     console.log(StoreId);
