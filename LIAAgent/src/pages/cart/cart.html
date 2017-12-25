@@ -9,11 +9,11 @@
               <i *ngIf="this.arrowUp" ion-long-press [interval]="200" class="icon-arrow-up-05 t-center blue f-size-icon" (click)="this.ionViewDidEnterUp()" (onPressStart)="this.ionViewDidEnterUp()" (onPressing)="this.ionViewDidEnterUp()" ></i></div>
 
                   <ion-content padding #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 250px">
-<div *ngIf="this.service.packageInCart">
+<div *ngIf="this.service.packageInCart.PackageId">
                       חבילת
 {{this.service.packageInCart.PackageName}}
 מחיר:
-{{this.service.packageInCart.PackagePrice}}
+<!-- {{this.service.packageInCart.}} -->
 שקל
 </div>
                 <ion-item *ngFor="let p of service.productsOfCart">
@@ -23,7 +23,7 @@
 מחיר:
 {{p.Price}}
 שקל
-<i float-end class="icon-arrow-down-04 t-center  f-size-icon " (click)="service.clickDeleteToCart(p.ProductId)"></i>
+<i float-end class="icon-icon-x_Artboard-2-01 t-center  f-size-icon " (click)="service.clickDeleteToCart(p.ProductId)"></i>
                     </ion-item>
                   </ion-content>
 

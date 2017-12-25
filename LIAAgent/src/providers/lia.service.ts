@@ -34,6 +34,7 @@ export class LiaService {
             nowComponent: string;
             product: productsModel;
             thisProductDetails: productsModel;
+            productsDetails: productsModel[];
             isOuter: boolean;
             isInner: boolean;
             isPackageProductDetailed: boolean;
@@ -88,7 +89,7 @@ export class LiaService {
             this.categories=[];
             this.userLogin = new LoginModel;
             this.packageInCart=new packageModel;
-
+            this.productsDetails=[];
             //#endregion
     }
 
@@ -125,7 +126,7 @@ export class LiaService {
                 .post(func)
                 .then(res => {
                     this.getData = res;
-                    for (let i = 0; i < this.getData.Result.length; i++) {
+                    // for (let i = 0; i < this.getData.Result.length; i++) {
                     switch (func) {
                     case "GetAdditionalProducts":
                         this.products = this.getData.Result;
@@ -143,7 +144,7 @@ export class LiaService {
                         this.customers = this.getData.Result;
                         break;
                     }
-                    }
+                    // }
                 })
                 .catch((error) => console.log("error"));
             }
@@ -283,6 +284,7 @@ if(element != null){
     for (let i = 0; i < this.products.length; i++)
       if (this.products[i].ProductId == id) {
         this.thisProductDetails = this.products[i];
+        this.productsDetails[0] =this.products[i];
         i = this.products.length;
       }
   }
