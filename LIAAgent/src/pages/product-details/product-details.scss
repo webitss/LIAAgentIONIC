@@ -1,5 +1,8 @@
 page-product-details {
-    
+    .slide-zoom {
+        
+        height: 100%;
+    }
 .package-right{
 
     ion-row{
@@ -16,6 +19,15 @@ page-product-details {
                 font-size: 1.3em;
             }
         }
+}
+
+.package-center{
+    ion-item{
+    background-repeat: no-repeat;
+    height: 100%;
+    background-size: contain;
+    }
+    
 }
 
    .package-left {

@@ -91,6 +91,11 @@ tabs{
 
     .bar-button-default-md {
         color: #ffffff;
+
+        
+    }
+    .bar-button-default-md:hover:not(.disable-hover), .bar-button-clear-md-default:hover:not(.disable-hover), .bar-button-md-default:hover:not(.disable-hover) {
+        color: #cecece;
     }
 
 
