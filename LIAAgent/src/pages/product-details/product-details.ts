@@ -51,7 +51,7 @@ this.navCtrl.pop();
  }
 
 getNextProduct(){
-this.slider.slideNext(1);
+this.slider.slideNext();
 }
 
 }
