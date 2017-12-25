@@ -68,14 +68,18 @@
 
         <ion-row>
             <ion-col col-1><a (click)="getImage()">לוגו</a></ion-col>
-            <ion-col col-2 class="height-button-w">
-                <p>{{imageURI}}</p>
-                <a (click)="getImage()">לוגו</a>
+            <ion-col col-2 >
+              
+                <!-- <p>{{imageURI}}</p> -->
+              
                 <!--<button ion-button color="secondary" (click)="getImage()">Get Image</button> -->
-                <img [src]="imageURI" *ngIf="imageURI"  width="300" />
-                <i class="icon-gallery" color="bg-yellow"></i>
+                <!-- <img [src]="imageURI" *ngIf="imageURI"  width="300" /> -->
+
+                <ion-input text-center no-padding class="height-button-w  icon-gallery f-size-big" type="text"></ion-input>
+                
                 <!-- <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" /> -->
                 <!-- <button ion-button (click)="uploadFile()">Upload</button> -->
+             
                  </ion-col>
        <ion-col>
           <ion-item>
