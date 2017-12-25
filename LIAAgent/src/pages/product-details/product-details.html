@@ -1,6 +1,6 @@
 <ion-content padding>
 
-<ion-slides #slider style="direction: ltr" class="image-slider" loop="false" slidesPerView="1" zoom="true" speed="200" (ionSlideDidChange)="isSliderFunc()">
+<ion-slides #slider style="direction: ltr" class="image-slider" loop="false" slidesPerView="1" zoom="true" speed="200" (ionSlideDidChange)="slideChanged()">
 
         <ion-slide *ngFor="let pr of service.productsDetails" >
 
@@ -61,6 +61,8 @@
 
      <i margin-right class="icon-arrow-left-03 f-size-big" (click)="slider.slideNext()"></i>
 
+     <!--
+    [ngClass]="{'icon-arrow-left-03 f-size-big': prevDisabled, 'icon-arrow-left-03 f-size-big': nextDisabled}" -->
    </ion-col>
 
      </ion-row>

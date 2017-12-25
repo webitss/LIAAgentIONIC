@@ -16,19 +16,20 @@ export class GalleryPage implements OnInit {
   prevDisabled: boolean = true;
   nextDisabled: boolean = false;
   @ViewChild('slider') slider: Slides;
-  
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams, public service: LiaService) {
     navCtrl.push(EnterPage);
     }
   ionViewWillEnter()
   {
-   
+
    this.service.nowComponent = "גלריה";
   }
   ngOnInit() {
 
   }
+
   slideChanged()
   {
    let currIndex = this.slider.getActiveIndex();

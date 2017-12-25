@@ -20,7 +20,8 @@ export class ProductDetailsPage {
   productId:number;
   TabsEnum: typeof TabsEnum = TabsEnum;
   @ViewChild('slider') slider: Slides;
-  isSlider: boolean = false;
+  prevDisabled: boolean=false;
+  nextDisabled: boolean=true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     this.productId= navParams.data.productId;
@@ -50,12 +51,18 @@ this.navCtrl.pop();
  isSliderFunc(){
   //  this.isSlider = true;
 for(let i=0; i<this.service.products.length; i++){
+  if(this.service.products[i].ProductId != this.service.productsDetails[0].ProductId)
 this.service.productsDetails.push(this.service.products[i]);
 }
  }
 
-getNextProduct(){
-this.slider.slideNext();
-}
+ slideChanged()
+ {
+  let currIndex = this.slider.getActiveIndex();
+  if(currIndex==1)this.prevDisabled=false;
+  if(currIndex==this.service.galeryPictures.length-1)this.nextDisabled=true;
+  else this.nextDisabled=false;
+  if(currIndex==0)this.prevDisabled=true;
+ }
 
 }
