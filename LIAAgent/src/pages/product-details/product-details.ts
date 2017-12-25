@@ -25,6 +25,7 @@ export class ProductDetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     this.productId= navParams.data.productId;
     this.service.getProductById(this.productId);
+this.isSliderFunc();
   }
 
   ionViewDidEnter(){
@@ -47,7 +48,10 @@ this.navCtrl.pop();
  }
 
  isSliderFunc(){
-   this.isSlider = true;
+  //  this.isSlider = true;
+for(let i=0; i<this.service.products.length; i++){
+this.service.productsDetails.push(this.service.products[i]);
+}
  }
 
 getNextProduct(){
