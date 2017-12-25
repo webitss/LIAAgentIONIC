@@ -57,7 +57,7 @@ export class LiaService {
             countPackageInCart:number=0;
             changePackage:boolean = false;
             addProductToCart:boolean = false;
-
+            isAuthenticatedLocal: any;
 
          //#endregion
         constructor(private proxy: LiaProxy) {
@@ -95,7 +95,6 @@ export class LiaService {
 
 
 
-
   //#login
 
   async doLogin(frm): Promise<any> {
@@ -117,7 +116,22 @@ export class LiaService {
 });
   }
 
+setLocalStorage(){
+  let key= 'user';
+  let value= [{'EntityId': this.isAuthenticated.EntityId, 'LoginGuide': this.isAuthenticated.LoginGuide, 'UserId': this.isAuthenticated.UserId, 'UserName': this.isAuthenticated.UserName,'UserType': this.isAuthenticated.UserType}];
 
+  let value1 = JSON.stringify(value);
+
+  localStorage.setItem(key, value1);
+this.isAuthenticatedLocal=value;
+console.log(this.isAuthenticated);
+}
+
+getLocalStorage(){
+  // return sessionStorage.getItem('user');
+this.isAuthenticatedLocal=localStorage.getItem('user');
+this.isAuthenticated=this.isAuthenticatedLocal;
+}
 
 //#region post
 

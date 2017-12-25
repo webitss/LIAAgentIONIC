@@ -21,6 +21,7 @@ export class LoginPage {
   isClassMini: boolean;
   isAuthenticated: any;
   cookieValue="chaya";
+try: any;
 
   imageURI:any;
   imageFileName:any;
@@ -39,53 +40,22 @@ export class LoginPage {
 
     this.isClassMini = false;
     this.isClassBig = true;
-
+service.getLocalStorage();
 }
 
 ngOnInit(): void {
   // this.cookieService.set( 'Hello World', 'Test' );
   // this.cookieValue = this.cookieService.get('Hello World');
+this.service.getLocalStorage();
+if(this.service.isAuthenticatedLocal)
+this.navCtrl.setRoot(TabsPage)
 }
 
 ionViewDidEnter(){
 
 }
 
-private setSession(){
-  let key= 'user';
-  let value= [{'name':'shail','email':'example@gmail.com'}];
 
-  let value1 = JSON.stringify(value);
-
-  sessionStorage.setItem(key, value1);
-}
-
-private getSession(){
-  return sessionStorage.getItem('user');
-}
-
-private setCookie(name: string, value: string, expireDays: number, path: string = '') {
-  let d:Date = new Date();
-  d.setTime(d.getTime() + expireDays * 24 * 60 * 60 * 1000);
-  let expires:string = `expires=${d.toUTCString()}`;
-  let cpath:string = path ? `; path=${path}` : '';
-  document.cookie = `${name}=${value}; ${expires}${cpath}`;
-}
-
-private getCookie(name: string) {
-  let ca: Array<string> = document.cookie.split(';');
-  let caLen: number = ca.length;
-  let cookieName = `${name}=`;
-  let c: string;
-
-  for (let i: number = 0; i < caLen; i += 1) {
-      c = ca[i].replace(/^\s+/g, '');
-      if (c.indexOf(cookieName) == 0) {
-          return c.substring(cookieName.length, c.length);
-      }
-  }
-  return '';
-}
 
   mini() {
     this.isClassMini = !this.isClassMini;
@@ -107,25 +77,23 @@ private getCookie(name: string) {
 
 
    async routeToTabs(frm): Promise<any>{
-  //   await this.service.doLogin(frm).then(()=> {
-  //   this.isAuthenticated = this.service.isAuthenticated;
-  //     if (this.service.statusCode != 0){
-  //   if(this.service.statusCode === -3)
-  //       alert("משתמש לא נמצא")
-  //   else
-  //   alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
-  //     }
-  //     else
-  //   {
-  //     console.log(this.isAuthenticated);
+    await this.service.doLogin(frm).then(()=> {
+    this.isAuthenticated = this.service.isAuthenticated;
+      if (this.service.statusCode != 0){
+    if(this.service.statusCode === -3)
+        alert("משתמש לא נמצא")
+    else
+    alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+      }
+      else
+    {
+      console.log(this.isAuthenticated);
+      this.service.setLocalStorage();
+      this.navCtrl.setRoot(TabsPage)
+     }
+         });
 
-       this.navCtrl.setRoot(TabsPage)
-  //   }
-  //       });
-
-       }
-
-
+      }
 
     }
 

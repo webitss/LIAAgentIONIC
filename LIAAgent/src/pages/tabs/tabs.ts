@@ -61,6 +61,7 @@ ionViewDidEnter(){
 
 }
   showConfirmAlert() {
+    localStorage.clear();
     this.events.publish('user:login');
   }
 
