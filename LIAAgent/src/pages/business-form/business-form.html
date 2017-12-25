@@ -75,9 +75,10 @@
              
                 <h4>Image Preview</h4>
 
-              <img [src]="imageURI" *ngIf="imageURI"  width="300" />
+              <!-- <img *ngIf="imageURI" [src]="imageURI"   width="300" alt="Ionic File"/> -->
 
                 <!-- <img src="{{imageURI}}" *ngIf="imageURI"  width="300" /> -->
+                <img [src]="imageFileName" *ngIf="imageFileName" alt="Ionic File" width="300" />
                 <!-- <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" /> -->
              
                 <!-- <button ion-button (click)="uploadFile()">Upload</button> -->
@@ -106,5 +107,16 @@
         </ion-grid>
           </form>
            
+
+
+
+
+
+<!--  -->
+<ion-content padding>
+  <button ion-button color="primary" (click)="accessGallery()">Open Gallery</button>
+  <img [src]="base64Image" *ngIf="base64Image" />
+ </ion-content>
+<!--  -->
 </ion-content>
 

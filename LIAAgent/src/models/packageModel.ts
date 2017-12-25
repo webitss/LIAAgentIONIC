@@ -1,8 +1,8 @@
 export class packageModel{
-    PackageId :number
+   PackageId :number
    PackageName:string
-     Price :number
+   PackagePrice :number
    TicketsNum :number
-     TicketCost :number
+   PriceToTicket :number
     packageColor:string;
 }

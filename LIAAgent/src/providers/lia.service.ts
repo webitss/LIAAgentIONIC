@@ -71,6 +71,7 @@ export class LiaService {
             this.nowComponent = "menu";
             this.packages=[];
             this.productsOfCart = [];
+            this.allPosts();
             this.postPackageProd(1);
             this.postPackageProd(2);
             this.postPackageProd(3);
@@ -86,7 +87,7 @@ export class LiaService {
             this.indexCustomer=0;
             this.categories=[];
             this.userLogin = new LoginModel;
-            this.allPosts();
+            
             //#endregion
     }
 
@@ -102,7 +103,7 @@ export class LiaService {
     console.log(this.userLogin);
     console.log("send login to service");
      await this.proxy
-.postLogin("CheckLoginApp",this.userLogin )
+    .postLogin("CheckLoginApp",this.userLogin )
     .then(res => {
       this.isAuthenticated = res.Result;
       this.proxy.authUser=res.Result;
@@ -130,6 +131,7 @@ export class LiaService {
                         break;
                     case "GetPackages":
                         this.packages = this.getData.Result;
+                         console.log("this.packages[0] "+this.packages[0].Price);
                         // this.packages[0].packageColor="bg-yellow";
                         // this.packages[1].packageColor="green-color";
                         // this.packages[2].packageColor="pink-color";
@@ -148,28 +150,28 @@ export class LiaService {
 
 
 
- //#region postPackageProd
- async postPackageProd(packageId: Number): Promise<any> {
-  await this.proxy
-  .postPackageProd(packageId)
-  .then(res => {
-      this.getData = res;
-      switch (packageId) {
-      case 1:
-          this.packageProd1 = this.getData.Result;
-          break;
-      case 2:
-          this.packageProd2 = this.getData.Result;
-          break;
-      case 2:
-          this.packageProd3 = this.getData.Result;
-          break;
-      }
-  })
-  .catch(() => console.log("error"));
-}
+            //#region postPackageProd
+            async postPackageProd(packageId: Number): Promise<any> {
+            await this.proxy
+            .postPackageProd(packageId)
+            .then(res => {
+                this.getData = res;
+                switch (packageId) {
+                case 1:
+                    this.packageProd1 = this.getData.Result;
+                    break;
+                case 2:
+                    this.packageProd2 = this.getData.Result;
+                    break;
+                case 2:
+                    this.packageProd3 = this.getData.Result;
+                    break;
+                }
+            })
+            .catch(() => console.log("error"));
+            }
 
-//#endregion
+        //#endregion
 
 
 

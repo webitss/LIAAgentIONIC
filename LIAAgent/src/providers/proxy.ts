@@ -26,6 +26,7 @@ export class LiaProxy {
         this.authUser=new athenticateModel;
         this.authUser.UserId=372;
         this.authUser.LoginGuide= "98A42241-C752-45E9-A97C-568F7CC5D234";
+        console.log("this.authUser "+this.authUser.LoginGuide)
     this.body = {};
     
   }
@@ -66,7 +67,7 @@ export class LiaProxy {
 
 
   post(func: string): Promise<any> {
-    console.log(this.authUser);
+    console.log("this.authUser "+this.authUser);
     return this.http
       .post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/${func}`, {
         iUserId:this.authUser.UserId,

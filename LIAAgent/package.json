@@ -37,6 +37,7 @@
     "cordova-plugin-device": "1.1.4",
     "cordova-plugin-file": "^5.0.0",
     "cordova-plugin-file-transfer": "^1.7.0",
+    "cordova-plugin-filepath": "^1.1.0",
     "cordova-plugin-inappbrowser": "^1.7.2",
     "cordova-plugin-ionic-webview": "^1.1.11",
     "cordova-plugin-splashscreen": "^4.1.0",
@@ -68,7 +69,8 @@
       "cordova-plugin-file-transfer": {},
       "es6-promise-plugin": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-camera": {}
+      "cordova-plugin-camera": {},
+      "cordova-plugin-filepath": {}
     },
     "platforms": [
       "android"
