@@ -67,27 +67,16 @@
       <ion-grid>
 
         <ion-row>
-            <ion-col class="height-button-w">
-           <!-- <ion-content padding style="height: 400px" >
-              <ion-item> -->
+            <ion-col col-1><a (click)="getImage()">לוגו</a></ion-col>
+            <ion-col col-2 class="height-button-w">
                 <p>{{imageURI}}</p>
                 <a (click)="getImage()">לוגו</a>
-                <!-- <button ion-button color="secondary" (click)="getImage()">Get Image</button> -->
-
-                <h4>Image Preview</h4>
-
-              <img [src]="imageURI" *ngIf="imageURI"  width="300" />
-
-                <!-- <img src="{{imageURI}}" *ngIf="imageURI"  width="300" /> -->
+                <!--<button ion-button color="secondary" (click)="getImage()">Get Image</button> -->
+                <img [src]="imageURI" *ngIf="imageURI"  width="300" />
+                <i class="icon-gallery" color="bg-yellow"></i>
                 <!-- <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" /> -->
-
                 <!-- <button ion-button (click)="uploadFile()">Upload</button> -->
-              <!-- </ion-item>
-             </ion-content> -->
-
-          <!-- <input type="file" accept=".jpg, .jpeg, .png"  id="file"  name="file" style="display:none" (change)="this.handleInputChange($event)" (load)="this.handleImageLoad()"  formControlName="logo"> -->
-          <img />
-        </ion-col>
+                 </ion-col>
        <ion-col>
           <ion-item>
               <ion-input class="height-button-w" type="text" [placeholder]="this.StoreObj.OpenHours? this.StoreObj.OpenHours : 'שעות פתיחה'"  formControlName="OpeningHours" ></ion-input>

@@ -16,8 +16,9 @@
      </ion-row>
 </ion-grid>
 
-<form [formGroup]="this.frmPay" >
 <ion-grid *ngIf=" !service.isTerminateOrdered&& service.isPayed">
+<form [formGroup]="this.frmPay" >
+
 
   <ion-row justify-content-center align-items-center>
 <ion-col>
@@ -41,9 +42,9 @@
 </ion-row>
     </ion-col>
 </ion-row>
-
-</ion-grid>
 </form>
+</ion-grid>
+
 
 
 <ion-grid  *ngIf="service.isTerminateOrdered">
