@@ -1,6 +1,6 @@
 <ion-content padding>
 
-<ion-slides #slider style="direction: ltr" class="image-slider" loop="false" slidesPerView="1" zoom="true" speed="200" >
+<ion-slides #slider style="direction: ltr" class="image-slider" loop="false" slidesPerView="1" zoom="true" speed="200" (ionSlideDidChange)="isSliderFunc()">
 
     <ion-slide *ngFor="let pr of isSlider? service.products : service.productsDetails" >
        <ion-grid style="direction: rtl">
@@ -23,8 +23,12 @@
        </ion-row>
 
               </ion-col>
-         <ion-col col-6 class="bg-light-blue">
-           <ion-item   [style.background]="'url('+pr.PictureUrl+')'"></ion-item>
+         <ion-col col-6 class="bg-light-blue package-center">
+           <ion-row justify-content-center >
+             <ion-col >
+           <ion-item  [style.background-image]="'url('+pr.PictureUrl+')'"></ion-item>
+          </ion-col>
+           </ion-row>
                 </ion-col>
 
                 <ion-col col-3  class="package-left" >
@@ -84,7 +88,10 @@
       </ion-col>
     </ion-row>
 
-           </ion-col>
+
+    <ion-col col-1 align-self-center>
+<i margin-right class="icon-arrow-left-03 f-size-big" (click)="isSlider? slider.slideNext() : this.isSliderFunc()"></i>
+           <!-- </ion-col>
       <ion-col col-6 class="bg-light-blue">
        <ion-item   [style.background]="'url('+service.thisProductDetails.PictureUrl+')'"></ion-item>
              </ion-col>
@@ -94,6 +101,7 @@
                     <ion-item>
                       <span float-right>
                       {{service.thisProductDetails.Duration}}</span>
+
 
                       <span  float-left>
                     {{service.thisProductDetails.DurationText}}</span>
