@@ -1,4 +1,11 @@
 page-signature {
+
+  .grid  {
+    height: auto;
+    .row{
+      height: auto; 
+    }
+}
   signature-pad {
     canvas {
       border: dashed 1px #cccccc;

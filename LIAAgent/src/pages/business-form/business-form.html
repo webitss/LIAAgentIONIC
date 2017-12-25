@@ -88,13 +88,13 @@
           <!-- <input type="file" accept=".jpg, .jpeg, .png"  id="file"  name="file" style="display:none" (change)="this.handleInputChange($event)" (load)="this.handleImageLoad()"  formControlName="logo"> -->
           <img />
         </ion-col>
-<ion-col>
+       <ion-col>
           <ion-item>
               <ion-input class="height-button-w" type="text" [placeholder]="this.StoreObj.OpenHours? this.StoreObj.OpenHours : 'שעות פתיחה'"  formControlName="OpeningHours" ></ion-input>
             </ion-item>
           </ion-col>
 
-<ion-col>
+        <ion-col>
             <ion-item>
                 <ion-input class="height-button-w" type="number" [placeholder]="this.StoreObj.MinPriceToTicket? this.StoreObj.MinPriceToTicket : 'מינימום לכרטיס'"   formControlName="min" pattern="[0-9]*"></ion-input>
               </ion-item>
