@@ -43,10 +43,10 @@
 
                           <ion-col>
                           <ion-item>
-                              <ion-input type="text" [placeholder]="this.StoreObj.Categories? this.StoreObj.Categories : 'קטגורית העסק'" formControlName="category"  ></ion-input>
-<!-- <ion-select interface="popover">
-<ion-option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories : this.Categories">{{option}}</ion-option>
-</ion-select> -->
+
+<ion-select interface="popover" formControlName="category" placeholder="קטגורית העסק">
+<ion-option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories : this.Categories" >{{option}}</ion-option>
+</ion-select>
                             </ion-item>
                           </ion-col>
                   </ion-row>

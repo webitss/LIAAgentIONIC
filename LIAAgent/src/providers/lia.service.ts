@@ -34,6 +34,7 @@ export class LiaService {
             nowComponent: string;
             product: productsModel;
             thisProductDetails: productsModel;
+            productsDetails: productsModel[];
             isOuter: boolean;
             isInner: boolean;
             isPackageProductDetailed: boolean;
@@ -88,7 +89,7 @@ export class LiaService {
             this.categories=[];
             this.userLogin = new LoginModel;
             this.packageInCart=new packageModel;
-
+            this.productsDetails=[];
             //#endregion
     }
 
@@ -283,6 +284,7 @@ if(element != null){
     for (let i = 0; i < this.products.length; i++)
       if (this.products[i].ProductId == id) {
         this.thisProductDetails = this.products[i];
+        this.productsDetails[0] =this.products[i];
         i = this.products.length;
       }
   }

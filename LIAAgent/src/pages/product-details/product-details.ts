@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, Slides } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
 import { VideoPage } from '../video/video';
 import { TabsEnum } from '../../models/tabs-enum';
@@ -19,6 +19,8 @@ import { TabsEnum } from '../../models/tabs-enum';
 export class ProductDetailsPage {
   productId:number;
   TabsEnum: typeof TabsEnum = TabsEnum;
+  @ViewChild('slider') slider: Slides;
+  isSlider: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     this.productId= navParams.data.productId;
@@ -44,8 +46,12 @@ else
 this.navCtrl.pop();
  }
 
-getNextProduct(){
+ isSliderFunc(){
+   this.isSlider = true;
+ }
 
+getNextProduct(){
+this.slider.slideNext(1);
 }
 
 }
