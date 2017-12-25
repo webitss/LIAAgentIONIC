@@ -40,7 +40,7 @@ try: any;
 
     this.isClassMini = false;
     this.isClassBig = true;
-service.getLocalStorage();
+    service.getLocalStorage();
 }
 
 ngOnInit(): void {
@@ -72,7 +72,7 @@ ionViewDidEnter(){
       body.style.width = "100%";
       //body.style.cssFloat = "right";
     }
-    //this.router.navigate(['/login']);
+  
   }
 
 

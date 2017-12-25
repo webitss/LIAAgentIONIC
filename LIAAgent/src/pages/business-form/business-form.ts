@@ -106,7 +106,7 @@ export class BusinessFormPage {
 
 ///////////////////////////////
 result;
-  getImage() {alert("enter to func ");
+  getImage() {
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
@@ -114,10 +114,10 @@ result;
     };
 
       this.camera.getPicture(options).then(imageData => {
-        this.result = imageData; 
+        // this.result = imageData; 
         this.filePath.resolveNativePath(imageData).then(result => this.imageURI=  result ).catch(error=> alert("error") )
            } );
-           alert("this.imageURI  "+this.imageURI);
+          
 
         //      this.camera.getPicture(options).then(imageData => {
         // this.imageURI = imageData; alert(imageData);
