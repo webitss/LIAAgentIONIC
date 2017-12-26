@@ -57,7 +57,7 @@ export class LiaService {
             countPackageInCart:number=0;
             changePackage:boolean = false;
             addProductToCart:boolean = false;
-            isAuthenticatedLocal: any;
+            isAuthenticatedLocal: athenticateModel;
 
          //#endregion
         constructor(private proxy: LiaProxy) {
@@ -90,6 +90,8 @@ export class LiaService {
             this.userLogin = new LoginModel;
             this.packageInCart=new packageModel;
             this.productsDetails=[];
+            this.isAuthenticatedLocal = new athenticateModel;
+            this.isAuthenticated =new athenticateModel;
             //#endregion
     }
 
@@ -118,7 +120,7 @@ export class LiaService {
 
 setLocalStorage(){
   let key= 'user';
-  let value= [{'EntityId': this.isAuthenticated.EntityId, 'LoginGuide': this.isAuthenticated.LoginGuide, 'UserId': this.isAuthenticated.UserId, 'UserName': this.isAuthenticated.UserName,'UserType': this.isAuthenticated.UserType}];
+  let value = {'EntityId': this.isAuthenticated.EntityId, 'LoginGuide': this.isAuthenticated.LoginGuide, 'UserId': this.isAuthenticated.UserId, 'UserName': this.isAuthenticated.UserName,'UserType': this.isAuthenticated.UserType};
 
   let value1 = JSON.stringify(value);
 
@@ -129,8 +131,19 @@ console.log(this.isAuthenticated);
 
 getLocalStorage(){
   // return sessionStorage.getItem('user');
-this.isAuthenticatedLocal=localStorage.getItem('user');
-this.isAuthenticated=this.isAuthenticatedLocal;
+let value = JSON.parse(localStorage.getItem("user"));
+if(value){
+this.isAuthenticatedLocal=value;
+// value=localStorage.getItem('user');
+// console.log(value);
+// this.isAuthenticatedLocal=value;
+// console.log(this.isAuthenticatedLocal);
+this.isAuthenticated.EntityId=this.isAuthenticatedLocal.EntityId;
+this.isAuthenticated.LoginGuide=this.isAuthenticatedLocal.LoginGuide;
+this.isAuthenticated.UserId=this.isAuthenticatedLocal.UserId;
+this.isAuthenticated.UserName=this.isAuthenticatedLocal.UserName;
+this.isAuthenticated.UserType=this.isAuthenticatedLocal.UserType;
+}
 }
 
 //#region post
