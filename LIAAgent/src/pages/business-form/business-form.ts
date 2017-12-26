@@ -14,6 +14,7 @@ import {
 import { Camera, CameraOptions } from "@ionic-native/camera";
 import { FilePath } from '@ionic-native/file-path';
 //import { FilePath } from "@angular";
+
 @Component({
   selector: "page-business-form",
   templateUrl: "business-form.html"
@@ -75,7 +76,7 @@ export class BusinessFormPage {
     this.customerD.Owner = navParams.data.customerDtl;
     if (this.StoreId != null) this.getStorOfCustomerDetailsArray();
   }
-  // 
+  //
   base64Image: any;
   accessGallery() {
     this.camera.getPicture({
@@ -87,7 +88,7 @@ export class BusinessFormPage {
       console.log(err);
     });
   }
-  // 
+  //
   getStorOfCustomerDetailsArray() {
     if (this.StoreId) {
       for (let i = 0; i < this.service.customerDetailsArray.length; i++)
@@ -114,10 +115,10 @@ result;
     };
 
       this.camera.getPicture(options).then(imageData => {
-        // this.result = imageData; 
+        // this.result = imageData;
         this.filePath.resolveNativePath(imageData).then(result => this.imageURI=  result ).catch(error=> alert("error") )
            } );
-          
+
 
         //      this.camera.getPicture(options).then(imageData => {
         // this.imageURI = imageData; alert(imageData);

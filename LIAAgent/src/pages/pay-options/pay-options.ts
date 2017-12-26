@@ -17,15 +17,16 @@ import { EnterPage } from '../enter/enter';
 })
 export class PayOptionsPage {
 
-  frmPay: FormGroup = new FormGroup({
-    formOfUse: new FormControl("", Validators.required)
-  });
+  frmPay: FormGroup;
 
    constructor(public navCtrl: NavController,
      public navParams: NavParams,
      public service:LiaService,
      public modalController:ModalController,public events:Events,public app :App) {
         service.nowComponent="תשלום";
+     this.frmPay = new FormGroup({
+          formOfUse: new FormControl("", Validators.required)
+        });
         // if(navParams.get('signatureImage'))
         // this.service.signatureImage = navParams.get('signatureImage');
         // if(navParams.get('signature1Image'))
@@ -45,7 +46,7 @@ export class PayOptionsPage {
     // this.openSignature();
   }
   resetAll(){
-    this.service.isTerminateOrdered=true; 
+    this.service.isTerminateOrdered=true;
     setTimeout(() => {
       //this.navCtrl.setRoot(TabsPage);
       console.log( " this.service.productsOfCart "+this.service.productsOfCart);
@@ -56,7 +57,7 @@ export class PayOptionsPage {
       console.log( " this.service.productsOfCart "+this.service.productsOfCart);
       this.app.getRootNav().setRoot(TabsPage);
     }, 3000);
-    
+
      // this.navCtrl.setRoot(this.navCtrl.getActive().component);
   // this.navCtrl.parent();
   }

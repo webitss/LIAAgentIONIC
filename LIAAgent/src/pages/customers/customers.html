@@ -19,8 +19,8 @@
                       <span float-start>{{item?.StoreName}}</span>
                       <span float-start>{{item?.Address}}</span>
                       <button float-end class="f-size-icon bg-transpare" [ngClass]="{'icon-arrow-down-04': this.valueButton=='לקוח חדש', 'icon-icon-x_Artboard-2-01': this.valueButton=='עבור לסל'}" ></button>
-                    </button> 
-                  
+                    </button>
+
                       <page-expandable [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
 
                         <ion-scroll style="min-height: 5vh;
@@ -33,7 +33,7 @@
 
                       </page-expandable>
 </ion-item>
-                  
+
                   <!-- </ion-list> -->
 
           </ion-content>
