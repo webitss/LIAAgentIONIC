@@ -1,6 +1,6 @@
 page-cart {
 
-    .scroll-content 
+    .grid .scroll-content 
     {
         padding-top:0px !important;
         padding-bottom: 0px !important;
@@ -9,5 +9,13 @@ page-cart {
     .f-size-icon {
         font-size: 1.8em;
         color:color($colors, red-color);
+    }
+    .border-list {
+        border-bottom: 1px solid color($colors,blue-color);
+    }
+
+    .list-header .f-size-icon{
+        font-size: 1.8em;
+        color:color($colors, blue-color);
     }
 }

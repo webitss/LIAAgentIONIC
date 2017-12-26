@@ -1,22 +1,22 @@
 
 <ion-content padding>
 <ion-grid>
-    <ion-row>
+    <ion-row justify-content-center align-items-stretch>
         <ion-col>
          
                 <ion-list-header text-center>
               <button *ngIf="this.arrowUp" ion-long-press [interval]="200" class="icon-arrow-up-05  f-size-icon bg-transpare" (click)="this.ionViewDidEnterUp()" (onPressStart)="this.ionViewDidEnterUp()" (onPressing)="this.ionViewDidEnterUp()" ></button>
                 </ion-list-header>
 
-                  <ion-content padding #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 60vh">
-                        <div *ngIf="this.service.packageInCart.PackageId">
+                  <ion-content  #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 60vh">
+                        <ion-item *ngIf="this.service.packageInCart.PackageId" class="border-list">
                                               חבילת
                         {{this.service.packageInCart.PackageName}}
                         מחיר:
                         <!-- {{this.service.packageInCart.}} -->
                         שקל
-                        </div>
-                        <ion-item *ngFor="let p of service.productsOfCart">
+                        </ion-item>
+                        <ion-item *ngFor="let p of service.productsOfCart" class="border-list">
                         {{p.ProductShortName}}
                         מחיר:
                         {{p.Price}}

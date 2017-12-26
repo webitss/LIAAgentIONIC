@@ -1,5 +1,6 @@
 ﻿
-<div  class="has-header has-tabs no-scroll" padding>
+<!-- <div  class="has-header has-tabs no-scroll" padding> -->
+    <ion-content padding>
   <ion-grid>
     <ion-row justify-content-center align-items-stretch>
       <ion-col >
@@ -10,14 +11,16 @@
         <!-- <ion-scroll scrollY="true" style="height: 400px"> -->
 
             <ion-content  #contentRef (ionScroll)="scrollingFun($event)"  style="height: 60vh" >
-                <ion-list no-margin>
-                 <ion-item  *ngFor="let item of customersFilter" full no-margin>
-                    <button detail-none (click)="expandItem(item) " ion-item  class="border-list">
+                <!-- <ion-list no-margin> -->
+                  <!-- full no-margin -->
+                 <ion-item  *ngFor="let item of customersFilter"  class="border-list">
+                    <button class="bg-transpare" (click)="expandItem(item) "  style="width:100%">
 
-                      <span>{{item?.StoreName}}</span>
-                      <span>{{item?.Address}}</span>
+                      <span float-start>{{item?.StoreName}}</span>
+                      <span float-start>{{item?.Address}}</span>
                       <button float-end class="f-size-icon bg-transpare" [ngClass]="{'icon-arrow-down-04': this.valueButton=='לקוח חדש', 'icon-icon-x_Artboard-2-01': this.valueButton=='עבור לסל'}" ></button>
-                    </button>
+                    </button> 
+                  
                       <page-expandable [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
 
                         <ion-scroll style="min-height: 5vh;
@@ -29,9 +32,9 @@
                         </ion-scroll>
 
                       </page-expandable>
-
-                   </ion-item>
-                  </ion-list>
+</ion-item>
+                  
+                  <!-- </ion-list> -->
 
           </ion-content>
         <!-- </ion-scroll> -->
@@ -56,4 +59,5 @@
     </ion-row>
   </ion-grid>
   <button id="demoBtn"  (click)="this.demoFunc()" hidden="true" >Button</button>
-</div>
+<!-- </div> -->
+</ion-content>
