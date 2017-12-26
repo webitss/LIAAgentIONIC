@@ -41,10 +41,10 @@
                           </ion-item>
                         </ion-col>
 
-                          <ion-col>
+                          <ion-col block>
                           <ion-item>
 
-                          <ion-select interface="popover" formControlName="category" placeholder="קטגורית העסק">
+                          <ion-select interface="popover" formControlName="category" placeholder="קטגורית העסק" class="border-input" block>
                           <ion-option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories : this.Categories" >{{option}}</ion-option>
                           </ion-select>
                                                       </ion-item>
@@ -65,25 +65,22 @@
 
 
       <ion-grid>
-
         <ion-row>
             <ion-col col-1><a (click)="getImage()">לוגו</a></ion-col>
 
             <ion-col col-2 >
 
-              
                 <!-- <p>{{imageURI}}</p> -->
                 <!--<button ion-button color="secondary" (click)="getImage()">Get Image</button> -->
-                
                 <!-- <img src="{{imageURI}}" *ngIf="imageURI" alt="Ionic File" width="300" /> -->
                 <!-- [style.background]="'url('+imageURI+')'" -->
-                <!-- <ion-input text-center no-padding class="height-button-w  f-size-big"></ion-input> -->
-                <ion-item  [ngClass]="{'icon-gallery':!imageURI}" class="height-button-w  f-size-big" style="border: solid"><img [src]="imageURI" *ngIf="imageURI"  width="300" /></ion-item>
+                <ion-item  no-margin text-center class="height-button-w  f-size-big  border-input ">
+                  <i class="color-opacity" [ngClass]="{'icon-gallery':!imageURI}"></i>
+                  <img [src]="imageURI" *ngIf="imageURI"  width="300" />
+                </ion-item>
                 <!-- <ion-item style="border: solid"  [style.background-image]="'url('+imageURI+')'"></ion-item> -->
-<!-- type="text" -->
                 <!-- <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" /> -->
                 <!-- <button ion-button (click)="uploadFile()">Upload</button> -->
-
                  </ion-col>
        <ion-col>
           <ion-item>
@@ -98,7 +95,7 @@
             </ion-col>
             <ion-col>
           <!-- <input type="submit" value="המשך" [disabled]="!frmMoredetails.valid" /> -->
-          <button block  color="blue-color" class="height-button-w" ion-button type="submit" block [disabled]="!(this.frmMoredetails.valid) && !this.StoreObj" (click)="this.submitFrmMoreBusiness(this.frmMoredetails.value);onGoToPayOptionsPage()">המשך</button>
+          <button no-margin block  color="blue-color" class="height-button-w" ion-button type="submit" block [disabled]="!(this.frmMoredetails.valid) && !this.StoreObj" (click)="this.submitFrmMoreBusiness(this.frmMoredetails.value);onGoToPayOptionsPage()">המשך</button>
             </ion-col>
         </ion-row>
         </ion-grid>

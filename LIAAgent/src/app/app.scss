@@ -25,7 +25,10 @@ ion-input, ion-textarea {
 input, textarea, select, button{
   font-size:16px;
 }
-
+.border-input{
+border: 1px solid color($colors, blue-color);
+border-radius: 15px
+}
 .searchbar-md .searchbar-input {
   box-shadow: none;
   border: 1px solid;
