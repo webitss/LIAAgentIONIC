@@ -1,6 +1,11 @@
 page-package-selected {
     
-
+    .thumb-img {
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
+    }
 .part-4{
     border-bottom-left-radius: 30px;
     border-top-left-radius: 30px;

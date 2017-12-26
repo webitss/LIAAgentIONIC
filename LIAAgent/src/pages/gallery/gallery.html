@@ -12,7 +12,7 @@
           </ion-col>
 
 
-   <ion-col col-10>
+   <ion-col col-10 style="height: 100%;">
   <ion-slides #slider style="direction: ltr" class="image-slider" loop="true" slidesPerView="1" zoom="true" speed="200" (ionSlideDidChange)="slideChanged()" >
     <ion-slide *ngFor="let img of service.galeryPictures" >
     <!-- <img src="{{img}}" class="thumb-img" imageViewer/> -->

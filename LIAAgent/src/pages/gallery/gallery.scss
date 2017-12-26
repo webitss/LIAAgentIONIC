@@ -2,12 +2,16 @@ page-gallery {
     
  
     .thumb-img {
-        // padding: 5px;
-        height: 700px;
-        width: 900px;
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
     }
 
-
+    .slide-zoom {
+        
+        height: 100%;
+    }
 
     #notification-button {            
         position: relative;
@@ -46,13 +50,6 @@ page-gallery {
     color:color($colors, yellow-color);
     }
 
-    ion-slide{ 
-    ion-item{
-        background-repeat: no-repeat;
-        height: 100%;
-        background-size: contain;
-        background-position: center;
-        }
-    }
+  
 }
  
