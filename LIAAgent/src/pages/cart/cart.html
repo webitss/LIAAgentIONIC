@@ -6,40 +6,44 @@
           <div class="col-md-6">
             <div class="container-lia container">
             <div class="t-center">
-              <i *ngIf="this.arrowUp" ion-long-press [interval]="200" class="icon-arrow-up-05 t-center blue f-size-icon" (click)="this.ionViewDidEnterUp()" (onPressStart)="this.ionViewDidEnterUp()" (onPressing)="this.ionViewDidEnterUp()" ></i></div>
+              <button *ngIf="this.arrowUp" ion-long-press [interval]="200" class="icon-arrow-up-05 t-center blue f-size-icon" (click)="this.ionViewDidEnterUp()" (onPressStart)="this.ionViewDidEnterUp()" (onPressing)="this.ionViewDidEnterUp()" ></button></div>
 
                   <ion-content padding #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 250px">
-<div *ngIf="this.service.packageInCart.PackageId">
-                      חבילת
-{{this.service.packageInCart.PackageName}}
-מחיר:
-<!-- {{this.service.packageInCart.}} -->
-שקל
-</div>
-                <ion-item *ngFor="let p of service.productsOfCart">
+                        <div *ngIf="this.service.packageInCart.PackageId">
+                                              חבילת
+                        {{this.service.packageInCart.PackageName}}
+                        מחיר:
+                        <!-- {{this.service.packageInCart.}} -->
+                        שקל
+                        </div>
+                                        <ion-item *ngFor="let p of service.productsOfCart">
 
-{{p.ProductShortName}}
+                        {{p.ProductShortName}}
 
-מחיר:
-{{p.Price}}
-שקל
-<i float-end class="icon-icon-x_Artboard-2-01 t-center  f-size-icon " (click)="service.clickDeleteToCart(p.ProductId)"></i>
+                        מחיר:
+                        {{p.Price}}
+                        שקל
+                        <i float-end class="icon-icon-x_Artboard-2-01 t-center  f-size-icon " (click)="service.clickDeleteToCart(p.ProductId)"></i>
                     </ion-item>
                   </ion-content>
 
 
             <div class="t-center" >
-              <i *ngIf="this.arrowDown"  ion-long-press [interval]="200" class="icon-arrow-down-04 t-center blue f-size-icon" (click)="this.ionViewDidEnterDown()" (onPressStart)="this.ionViewDidEnterDown()" (onPressing)="this.ionViewDidEnterDown()"></i></div>
+              <button *ngIf="this.arrowDown"  ion-long-press [interval]="200" class="icon-arrow-down-04 t-center blue f-size-icon" (click)="this.ionViewDidEnterDown()" (onPressStart)="this.ionViewDidEnterDown()" (onPressing)="this.ionViewDidEnterDown()"></button></div>
             </div>
             </div>
           </ion-col>
 
             <ion-col class="bg-gray">
+                <ion-row justify-content-center>
+                    <ion-col align-self-center>
            <form class="form-50">
             <button ion-button block margin-bottom color="light-blue-color" (click)="routeToPackages()"><span>הוסף / שנה חבילה</span>  </button>
             <button ion-button block margin-bottom color="pink-color" (click)="this.routeToProducts()">הוסף מוצר </button>
             <button ion-button block margin-bottom color="green-color"  (click)="onGoToPersonalFormPage(this.StoreId)" >המשך לתשלום</button>
            </form>
+                    </ion-col>
+                </ion-row>
 
            </ion-col>
 
