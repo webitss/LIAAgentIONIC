@@ -23,7 +23,7 @@ export class CustomersPage {
   customersFilter: any[];
   customersByIdlist:any;
   customerDetails:customerModel;
-  itemExpandHeight: number = 100;
+  // itemExpandHeight: number = 100;
   arrowUp: boolean = false;
   arrowDown: boolean = true;
   demoItem: number;
