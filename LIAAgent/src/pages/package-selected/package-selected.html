@@ -5,7 +5,7 @@
 
           <ion-col col-4 no-padding><page-package [package]="nowPackage"> </page-package></ion-col>
 
-          <ion-col *ngIf="!service.isPackageProductDetailed"  class="bg-yellow part-3" col-6 >
+          <ion-col *ngIf="!service.isPackageProductDetailed"  class="bg-yellow part-3" col-6 [ngClass]="{'bg-pink':nowPackage.packageColor=='bg-pink','bg-green':nowPackage.packageColor=='bg-green'}">
             <ion-row justify-content-center>
                   <ion-col *ngIf="products" class="part-3-inner" align-self-center>
                           <div    *ngFor="let p of products"  >
@@ -19,7 +19,7 @@
                 </ion-row>
           </ion-col>
 
-          <ion-col *ngIf="service.isPackageProductDetailed" class="bg-yellow" col-2>
+          <ion-col *ngIf="service.isPackageProductDetailed" class="bg-yellow" col-2 [ngClass]="{'bg-pink':nowPackage.packageColor=='bg-pink','bg-green':nowPackage.packageColor=='bg-green'}">
             <div >
             <p> {{product?.ProductLongName}}</p>
             <p> {{product?.ProductName}}</p>
@@ -27,12 +27,12 @@
             </div>
           </ion-col>
 
-          <ion-col *ngIf="service.isPackageProductDetailed" class="bg-yellow" col-5>
+          <ion-col *ngIf="service.isPackageProductDetailed" class="bg-yellow" col-5 [ngClass]="{'bg-pink':nowPackage.packageColor=='bg-pink','bg-green':nowPackage.packageColor=='bg-green'}">
               <ion-item  [style.background-image]="'url('+product.PictureUrl+')'" ></ion-item>
               <!-- <img [src]="product.PictureUrl"/> -->
           </ion-col>
 
-          <ion-col class="bg-yellow part-4"   [ngClass]="{'col-2':!service.isPackageProductDetailed,'col-1':service.isPackageProductDetailed}">
+          <ion-col class="bg-yellow part-4" [ngClass]="{'bg-pink':nowPackage.packageColor=='bg-pink','bg-green':nowPackage.packageColor=='bg-green'}"  [ngClass]="{'col-2':!service.isPackageProductDetailed,'col-1':service.isPackageProductDetailed}">
               <input type="button" *ngIf="!service.isPackageProductDetailed" class="center-center btn-white" value="הוסף לסל" (click)="this.BackToCart();this.service.clickAddPackageToCart(nowPackage)">
               <button ion-button float-left class="btn-font-transparent" (click)="navCtrl.pop(navCtrl)" >
                 <i class="icon-icon-x_Artboard-2-01 "></i>
