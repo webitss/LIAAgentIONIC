@@ -45,5 +45,14 @@ page-gallery {
     background: none;
     color:color($colors, yellow-color);
     }
-    
+
+    ion-slide{ 
+    ion-item{
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
+        }
+    }
 }
+ 

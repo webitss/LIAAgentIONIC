@@ -4,7 +4,7 @@
             <form [formGroup]="frmBusiness" (ngSubmit)="this.submitFrmBusiness(frmBusiness.value)" *ngIf="!this.anotherDetails">
                 <ion-grid>
   <h3 color="blue-color" padding-left> פרטי עסק</h3>
-              <ion-row>
+              <ion-row >
                   <ion-col col-9>
               <ion-row>
                   <ion-col>
@@ -80,6 +80,7 @@
                     <i class="color-opacity" [ngClass]="{'icon-gallery':!imageURI}"></i>
                   <img [src]="imageURI" *ngIf="imageURI"  width="300" />
                 </ion-item>
+
 
                  </ion-col>
        <ion-col>
