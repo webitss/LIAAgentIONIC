@@ -12,7 +12,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Events } from 'ionic-angular/util/events';
 //import { EnterPage } from '../pages/enter/enter';
 //import { ProductsPage } from '../pages/products/products';
-
 //import { ViewChild } from '@angular/core';
 
 @Component({

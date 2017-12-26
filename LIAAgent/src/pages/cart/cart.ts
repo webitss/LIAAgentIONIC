@@ -51,6 +51,8 @@ demoFunc()
 this.i=45;
 }
 
+
+
 scrollingFun(e){
   if(this.contentHandle.scrollTop >= 10){
   if(this.arrowUp != true)
@@ -73,6 +75,7 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
   document.getElementById('demoBtn').click();
 }
   }
+
 
   ionViewDidEnterDown() {
       this.contentHandle.scrollTo((this.contentHandle.scrollTop)+65,(this.contentHandle.scrollTop)+65);
