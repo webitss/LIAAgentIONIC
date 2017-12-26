@@ -9,6 +9,7 @@ import { Events } from 'ionic-angular/util/events';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { App } from 'ionic-angular/components/app/app';
 import { EnterPage } from '../enter/enter';
+import { CheckboxRequiredValidator } from '@angular/forms/src/directives/validators';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class PayOptionsPage {
      public modalController:ModalController,public events:Events,public app :App) {
         service.nowComponent="תשלום";
      this.frmPay = new FormGroup({
-          formOfUse: new FormControl("", Validators.required)
+          formOfUse: new FormControl(false, Validators.requiredTrue)
         });
         // if(navParams.get('signatureImage'))
         // this.service.signatureImage = navParams.get('signatureImage');

@@ -3,12 +3,19 @@ page-customers {
 
 //    .no-scroll div {overflow-y: hidden}
 
-.grid .scroll-content 
+.grid .scroll-content ,.grid .fixed-content
 {
     padding-top:0px !important;
     padding-bottom: 0px !important;
-    
+    margin-bottom: 0px !important;
+   
 }
+
+.grid .content{
+    height: 86%
+
+}
+
     .border-list{
         border-bottom:1px solid color($colors, green-color);
      }
@@ -27,6 +34,10 @@ page-customers {
       .f-size-icon {
         font-size: 1.8em;
         color:color($colors, green-color);
+    }
+
+    .list-header-md{
+        height:7% ;
     }
 
 }

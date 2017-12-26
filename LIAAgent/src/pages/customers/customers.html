@@ -4,13 +4,13 @@
   <ion-grid>
     <ion-row justify-content-center align-items-stretch>
       <ion-col >
-        <ion-list-header text-center >
+        <ion-list-header text-center no-margin no-padding>
           <button *ngIf="this.arrowUp" ion-long-press class="icon-arrow-up-05 f-size-icon bg-transpare" (click)="this.ionViewDidEnterUp()" [interval]="300"  (onPressStart)="this.ionViewDidEnterUp($event)" (onPressing)="this.ionViewDidEnterUp($event)"></button>
         </ion-list-header>
 
         <!-- <ion-scroll scrollY="true" style="height: 400px"> -->
 
-            <ion-content  #contentRef (ionScroll)="scrollingFun($event)"  style="height: 60vh" >
+            <ion-content  #contentRef (ionScroll)="scrollingFun($event)" >
                 <!-- <ion-list no-margin> -->
                   <!-- full no-margin -->
                  <ion-item  *ngFor="let item of customersFilter"  class="border-list">
@@ -38,7 +38,7 @@
 
           </ion-content>
         <!-- </ion-scroll> -->
-        <ion-list-header text-center>
+        <ion-list-header text-center no-margin no-padding>
           <button *ngIf="this.arrowDown" ion-long-press [interval]="300"  class="icon-arrow-up-05 f-size-icon bg-transpare" #downBtn (click)="this.ionViewDidEnterDown()" (onPressStart)="this.ionViewDidEnterDown()" (onPressing)="this.ionViewDidEnterDown()"></button>
         </ion-list-header>
 

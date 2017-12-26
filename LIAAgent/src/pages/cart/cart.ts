@@ -33,6 +33,7 @@ export class CartPage {
      console.log(this.StoreId);
     }
 
+
   ionViewWillEnter()
   {
     //this.StoreId = this.navParams.data.StoreId;
@@ -65,8 +66,13 @@ scrollingFun(e){
   document.getElementById('demoBtn').click();
   }
 let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
-  if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-remainder)){
+console.log("contentHeight",this.contentHandle.getContentDimensions().contentHeight);
+console.log("scrollHeight", this.contentHandle.ionScrollEnd);
+console.log(this.contentHandle.scrollTop,this.arrowDown)
+  // if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-remainder)){
+    if(this.contentHandle.scrollTop > this.contentHandle.getContentDimensions().contentHeight){
   this.arrowDown = false;
+console.log("it is false");
   document.getElementById('demoBtn').click();
    }
   else

@@ -22,17 +22,18 @@
 
   <ion-row justify-content-center align-items-center>
 <ion-col>
-<input type="checkbox" formControlName="formOfUse"/>
+<!-- <input type="checkbox" formControlName="formOfUse"/> -->
+<ion-checkbox formControlName="formOfUse"></ion-checkbox>
     <a (click)="routeToFormofuse()">הריני מאשר את תקנון השימוש</a>
 
 
 <ion-row justify-content-center align-items-center>
         <ion-col col-2>
-        <ion-item class="div height-button-w" (click)="openSignatureModel()"><img [src]="service.signatureImage" *ngIf="service.signatureImage" /></ion-item>
+        <ion-item class="border-input height-button-w" (click)="openSignatureModel()"><img [src]="service.signatureImage" *ngIf="service.signatureImage" /></ion-item>
         </ion-col>
 
         <ion-col col-2 >
-        <ion-item  class="div height-button-w" (click)="openSignature1Model()"><img [src]="service.signatureImage1" *ngIf="service.signatureImage1" /></ion-item>
+        <ion-item  class="border-input height-button-w" (click)="openSignature1Model()"><img [src]="service.signatureImage1" *ngIf="service.signatureImage1" /></ion-item>
         </ion-col>
 
         <ion-col col-2>
