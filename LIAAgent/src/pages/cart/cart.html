@@ -3,12 +3,12 @@
 <ion-grid>
     <ion-row>
         <ion-col>
-          <div class="col-md-6">
-            <div class="container-lia container">
-            <div class="t-center">
-              <button *ngIf="this.arrowUp" ion-long-press [interval]="200" class="icon-arrow-up-05 t-center blue f-size-icon" (click)="this.ionViewDidEnterUp()" (onPressStart)="this.ionViewDidEnterUp()" (onPressing)="this.ionViewDidEnterUp()" ></button></div>
+         
+                <ion-list-header text-center>
+              <button *ngIf="this.arrowUp" ion-long-press [interval]="200" class="icon-arrow-up-05  f-size-icon bg-transpare" (click)="this.ionViewDidEnterUp()" (onPressStart)="this.ionViewDidEnterUp()" (onPressing)="this.ionViewDidEnterUp()" ></button>
+                </ion-list-header>
 
-                  <ion-content padding #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 250px">
+                  <ion-content padding #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 60vh">
                         <div *ngIf="this.service.packageInCart.PackageId">
                                               חבילת
                         {{this.service.packageInCart.PackageName}}
@@ -16,22 +16,19 @@
                         <!-- {{this.service.packageInCart.}} -->
                         שקל
                         </div>
-                                        <ion-item *ngFor="let p of service.productsOfCart">
-
+                        <ion-item *ngFor="let p of service.productsOfCart">
                         {{p.ProductShortName}}
-
                         מחיר:
                         {{p.Price}}
                         שקל
-                        <i float-end class="icon-icon-x_Artboard-2-01 t-center  f-size-icon " (click)="service.clickDeleteToCart(p.ProductId)"></i>
+                        <button float-end class="f-size-icon bg-transpare icon-icon-x_Artboard-2-01" (click)="service.clickDeleteToCart(p.ProductId)"></button>
                     </ion-item>
                   </ion-content>
 
-
-            <div class="t-center" >
-              <button *ngIf="this.arrowDown"  ion-long-press [interval]="200" class="icon-arrow-down-04 t-center blue f-size-icon" (click)="this.ionViewDidEnterDown()" (onPressStart)="this.ionViewDidEnterDown()" (onPressing)="this.ionViewDidEnterDown()"></button></div>
-            </div>
-            </div>
+                  <ion-list-header text-center>
+              <button *ngIf="this.arrowDown"  ion-long-press [interval]="200" class="icon-arrow-down-04  f-size-icon  bg-transpare" (click)="this.ionViewDidEnterDown()" (onPressStart)="this.ionViewDidEnterDown()" (onPressing)="this.ionViewDidEnterDown()"></button>
+                  </ion-list-header>
+         
           </ion-col>
 
             <ion-col class="bg-gray">
