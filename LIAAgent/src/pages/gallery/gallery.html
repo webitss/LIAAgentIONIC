@@ -5,7 +5,7 @@
         <ion-row align-items-center align-self-center >
           <ion-col color="yellow-color">
 
-<button class="icon-arrow"  float-end  (click)="slider.slideNext()" [hidden]="nextDisabled" >
+<button class="icon-arrow"  float-end  (click)="slider.slideNext()"  >
 
  <i class="icon-arrow-right-02"></i>
 </button>
@@ -13,15 +13,16 @@
 
 
    <ion-col col-10>
-  <ion-slides #slider style="direction: ltr" class="image-slider" loop="false" slidesPerView="1" zoom="true" speed="200" (ionSlideDidChange)="slideChanged()" >
+  <ion-slides #slider style="direction: ltr" class="image-slider" loop="true" slidesPerView="1" zoom="true" speed="200" (ionSlideDidChange)="slideChanged()" >
     <ion-slide *ngFor="let img of service.galeryPictures" >
-    <img src="{{img}}" class="thumb-img" imageViewer/>
+    <!-- <img src="{{img}}" class="thumb-img" imageViewer/> -->
+    <ion-item  [style.background-image]="'url('+img+')'" imageViewer></ion-item>
     </ion-slide>
     </ion-slides>
              </ion-col>
 
              <ion-col >
-  <button class="icon-arrow"(click)="slider.slidePrev()" [hidden]="prevDisabled">
+  <button class="icon-arrow"(click)="slider.slidePrev()" >
     <i class="icon-arrow-left-03" color="yellow-color"></i>
     </button>
            </ion-col>
@@ -31,13 +32,5 @@
 </ion-content>
 
 
+<!-- [hidden]="nextDisabled"  [hidden]="prevDisabled"-->
 
-<!-- <div>
-    <button id="notification-button" ion-button clear>
-      <ion-icon name="notifications">
-        <ion-badge id="notifications-badge" color="danger">5</ion-badge>
-      </ion-icon>
-    </button>
-  </div> -->
-
-  <!-- pager="true" -->

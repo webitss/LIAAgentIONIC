@@ -44,15 +44,15 @@
                           <ion-col>
                           <ion-item>
 
-<ion-select interface="popover" formControlName="category" placeholder="קטגורית העסק">
-<ion-option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories : this.Categories" >{{option}}</ion-option>
-</ion-select>
-                            </ion-item>
-                          </ion-col>
-                  </ion-row>
+                          <ion-select interface="popover" formControlName="category" placeholder="קטגורית העסק">
+                          <ion-option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories : this.Categories" >{{option}}</ion-option>
+                          </ion-select>
+                                                      </ion-item>
+                                                    </ion-col>
+                                            </ion-row>
 
-</ion-col>
-<ion-col>
+                          </ion-col>
+                          <ion-col>
 
                             <button ion-button type="submit" [disabled]="!this.StoreObj && !this.frmBusiness.valid" color="blue-color" block class="height-button-w">המשך</button>
 </ion-col>
@@ -67,21 +67,20 @@
       <ion-grid>
 
         <ion-row>
-            <ion-col col-1><a (click)="getImage()">לוגו</a></ion-col>
+            <ion-col col-1><p >לוגו</p></ion-col>
 
             <ion-col col-2 >
 
               
-                <p>{{imageURI}}</p>
+                <!-- <p>{{imageURI}}</p> -->
                 <!--<button ion-button color="secondary" (click)="getImage()">Get Image</button> -->
                 
-                <img src="{{imageURI}}" *ngIf="imageURI" alt="Ionic File" width="300" />
+                <!-- <img src="{{imageURI}}" *ngIf="imageURI" alt="Ionic File" width="300" /> -->
                 <!-- [style.background]="'url('+imageURI+')'" -->
-                <ion-input text-center no-padding class="height-button-w  icon-gallery f-size-big"  type="text" >
-                  <!-- <img [src]="imageURI" *ngIf="imageURI"  width="300" /> -->
-                </ion-input>
-                
-
+                <!-- <ion-input text-center no-padding class="height-button-w  f-size-big"></ion-input> -->
+                <ion-item (click)="getImage()" [ngClass]="{'icon-gallery':!imageURI}" class="height-button-w  f-size-big" style="border: solid"><img [src]="imageURI" *ngIf="imageURI"  width="300" /></ion-item>
+                <!-- <ion-item style="border: solid"  [style.background-image]="'url('+imageURI+')'"></ion-item> -->
+<!-- type="text" -->
                 <!-- <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" /> -->
                 <!-- <button ion-button (click)="uploadFile()">Upload</button> -->
 
