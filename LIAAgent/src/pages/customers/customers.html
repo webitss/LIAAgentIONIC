@@ -1,58 +1,46 @@
-﻿
-<!-- <div  class="has-header has-tabs no-scroll" padding> -->
+﻿<!-- <div  class="has-header has-tabs no-scroll" padding> -->
     <ion-content padding>
-  <ion-grid>
-    <ion-row justify-content-center align-items-stretch>
-      <ion-col >
-        <ion-list-header text-center no-margin no-padding>
+      <ion-grid>
+        <ion-row justify-content-center align-items-stretch>
+         <ion-col >
+          <ion-list-header text-center no-margin no-padding>
           <button *ngIf="this.arrowUp" ion-long-press class="icon-arrow-up-05 f-size-icon bg-transpare" (click)="this.ionViewDidEnterUp()" [interval]="300"  (onPressStart)="this.ionViewDidEnterUp($event)" (onPressing)="this.ionViewDidEnterUp($event)"></button>
-        </ion-list-header>
-
+           </ion-list-header>
         <!-- <ion-scroll scrollY="true" style="height: 400px"> -->
-
-            <ion-content  #contentRef (ionScroll)="scrollingFun($event)" >
+              <ion-content  #contentRef (ionScroll)="scrollingFun($event)" >
                 <!-- <ion-list no-margin> -->
-                  <!-- full no-margin -->
-                 <ion-item  *ngFor="let item of customersFilter"  class="border-list">
+                   <ion-item  *ngFor="let item of customersFilter"  class="border-list">
                     <button class="bg-transpare" (click)="expandItem(item) "  style="width:100%">
-
                       <span float-start>{{item?.StoreName}}</span>
                       <span float-start>{{item?.Address}}</span>
-                      <button float-end class="f-size-icon bg-transpare" [ngClass]="{'icon-arrow-down-04': this.valueButton=='לקוח חדש', 'icon-icon-x_Artboard-2-01': this.valueButton=='עבור לסל'}" ></button>
 
+                      <button float-end class="f-size-icon bg-transpare" [ngClass]="{'icon-arrow-down-04': !item.expanded, 'icon-icon-x_Artboard-2-01': item.expanded}" ></button>
                     </button>
                   <!-- [expandHeight]="itemExpandHeight" -->
                       <page-expandable  [expanded]="item.expanded">
+                        <ion-scroll style="min-height: 5vh; height:auto;" scrollY="true">
 
-
-                        <ion-scroll style="min-height: 5vh;
-                        height: auto;" scrollY="true">
                            {{service.customerDetails?.Address}}
                           <br>{{service.customerDetails?.City}}
                           <br>{{service.customerDetails?.Categories}}
                         </ion-scroll>
-
                       </page-expandable>
-</ion-item>
 
-                  <!-- </ion-list> -->
+            </ion-item>
+                       <!-- </ion-list> -->
 
           </ion-content>
         <!-- </ion-scroll> -->
         <ion-list-header text-center no-margin no-padding>
           <button *ngIf="this.arrowDown" ion-long-press [interval]="300"  class="icon-arrow-up-05 f-size-icon bg-transpare" #downBtn (click)="this.ionViewDidEnterDown()" (onPressStart)="this.ionViewDidEnterDown()" (onPressing)="this.ionViewDidEnterDown()"></button>
         </ion-list-header>
-
         </ion-col>
-
      <ion-col class="bg-gray">
        <ion-row justify-content-center>
          <ion-col align-self-center>
        <form class="form-50">
-
           <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים" (input)="onSearchInput($event)" color="green-color"></ion-searchbar>
           <button ion-button block type="button" color="green-color" (click)="routeToCart(this.service.customerDetails.StoreId)">{{valueButton}}</button>
-
         </form>
       </ion-col>
       </ion-row>
