@@ -1,6 +1,11 @@
 page-package-selected {
     
-
+    .thumb-img {
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
+    }
 .part-4{
     border-bottom-left-radius: 30px;
     border-top-left-radius: 30px;
@@ -27,12 +32,16 @@ page-package-selected {
                     color: white;
                     vertical-align: middle;
                     float: left;
-                    // margin-left: 6%;
+                    line-height: 1.5em;
                 }
                 
                 span {
                     font-size: 1.8em;
                     color: white;
+                    width: 93%;
+                    display: inline-block;
+                    white-space: normal;
+                    vertical-align: middle;
                 }
             }
         }

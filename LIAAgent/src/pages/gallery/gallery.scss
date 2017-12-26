@@ -2,12 +2,16 @@ page-gallery {
     
  
     .thumb-img {
-        // padding: 5px;
-        height: 700px;
-        width: 900px;
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
     }
 
-
+    .slide-zoom {
+        
+        height: 100%;
+    }
 
     #notification-button {            
         position: relative;
@@ -45,5 +49,7 @@ page-gallery {
     background: none;
     color:color($colors, yellow-color);
     }
-    
+
+  
 }
+ 

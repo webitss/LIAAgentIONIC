@@ -17,14 +17,17 @@
 </ion-grid>
 
 <ion-grid *ngIf=" !service.isTerminateOrdered&& service.isPayed">
-<form [formGroup]="this.frmPay" >
+<form ion-row [formGroup]="this.frmPay" justify-content-center align-items-center>
+<ion-col >
 
 
-  <ion-row justify-content-center align-items-center>
-<ion-col>
-<!-- <input type="checkbox" formControlName="formOfUse"/> -->
+
+  <ion-row justify-content-center align-items-center margin-bottom>
+<!-- <ion-col> -->
 <ion-checkbox formControlName="formOfUse"></ion-checkbox>
-    <a (click)="routeToFormofuse()">הריני מאשר את תקנון השימוש</a>
+<span> הריני מאשר את <a (click)="routeToFormofuse()">תקנון השימוש </a></span>
+        </ion-row>
+
 
 
 <ion-row justify-content-center align-items-center>
@@ -42,7 +45,7 @@
 
 </ion-row>
     </ion-col>
-</ion-row>
+
 </form>
 </ion-grid>
 
