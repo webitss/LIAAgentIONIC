@@ -67,7 +67,7 @@
       <ion-grid>
 
         <ion-row>
-            <ion-col col-1><a (click)="getImage()">לוגו</a></ion-col>
+            <ion-col col-1><p >לוגו</p></ion-col>
 
             <ion-col col-2 >
 
@@ -78,7 +78,7 @@
                 <!-- <img src="{{imageURI}}" *ngIf="imageURI" alt="Ionic File" width="300" /> -->
                 <!-- [style.background]="'url('+imageURI+')'" -->
                 <!-- <ion-input text-center no-padding class="height-button-w  f-size-big"></ion-input> -->
-                <ion-item  [ngClass]="{'icon-gallery':!imageURI}" class="height-button-w  f-size-big" style="border: solid"><img [src]="imageURI" *ngIf="imageURI"  width="300" /></ion-item>
+                <ion-item (click)="getImage()" [ngClass]="{'icon-gallery':!imageURI}" class="height-button-w  f-size-big" style="border: solid"><img [src]="imageURI" *ngIf="imageURI"  width="300" /></ion-item>
                 <!-- <ion-item style="border: solid"  [style.background-image]="'url('+imageURI+')'"></ion-item> -->
 <!-- type="text" -->
                 <!-- <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" /> -->
