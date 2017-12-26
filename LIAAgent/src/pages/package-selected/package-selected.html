@@ -28,7 +28,8 @@
           </ion-col>
 
           <ion-col *ngIf="service.isPackageProductDetailed" class="bg-yellow" col-5>
-              <img [src]="product.PictureUrl"/>
+              <ion-item  [style.background-image]="'url('+product.PictureUrl+')'" ></ion-item>
+              <!-- <img [src]="product.PictureUrl"/> -->
           </ion-col>
 
           <ion-col class="bg-yellow part-4"   [ngClass]="{'col-2':!service.isPackageProductDetailed,'col-1':service.isPackageProductDetailed}">
