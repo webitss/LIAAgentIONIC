@@ -67,7 +67,7 @@ console.log("enter");
   this.arrowUp=false;
   document.getElementById('demoBtn').click();
   }
-  let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+1;
+  let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
   if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-remainder)){
   this.arrowDown = false;
   document.getElementById('demoBtn').click();
