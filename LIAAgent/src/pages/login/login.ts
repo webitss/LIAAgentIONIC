@@ -40,14 +40,14 @@ try: any;
 
     this.isClassMini = false;
     this.isClassBig = true;
-    service.getLocalStorage();
+    // service.getLocalStorage();
 }
 
 ngOnInit(): void {
   // this.cookieService.set( 'Hello World', 'Test' );
   // this.cookieValue = this.cookieService.get('Hello World');
 this.service.getLocalStorage();
-if(this.service.isAuthenticatedLocal)
+if(this.service.isAuthenticatedLocal.UserId)
 this.navCtrl.setRoot(TabsPage)
 }
 
@@ -72,7 +72,7 @@ ionViewDidEnter(){
       body.style.width = "100%";
       //body.style.cssFloat = "right";
     }
-  
+
   }
 
 
