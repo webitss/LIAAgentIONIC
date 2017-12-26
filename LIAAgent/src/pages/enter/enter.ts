@@ -19,8 +19,8 @@ export class EnterPage {
 
 this.service.nowComponent="דף הבית";
 
-//  this.loginName=this.service.isAuthenticated.UserName;
-this.loginName="";
+ this.loginName=this.service.isAuthenticated.UserName;
+//this.loginName="";
 
 
 this.service.isNowInPageLogin=false;
