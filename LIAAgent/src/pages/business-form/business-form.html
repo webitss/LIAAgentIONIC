@@ -74,18 +74,13 @@
                 <!--<button ion-button color="secondary" (click)="getImage()">Get Image</button> -->
                 <!-- <img src="{{imageURI}}" *ngIf="imageURI" alt="Ionic File" width="300" /> -->
                 <!-- [style.background]="'url('+imageURI+')'" -->
-<<<<<<< HEAD
-                <ion-item  no-margin text-center class="height-button-w  f-size-big  border-input ">
-                  <i class="color-opacity" [ngClass]="{'icon-gallery':!imageURI}"></i>
+
+               
+                <ion-item (click)="getImage()"no-margin text-center class="height-button-w  f-size-big border-input">
+                    <i class="color-opacity" [ngClass]="{'icon-gallery':!imageURI}"></i>
                   <img [src]="imageURI" *ngIf="imageURI"  width="300" />
                 </ion-item>
-=======
-                <!-- <ion-input text-center no-padding class="height-button-w  f-size-big"></ion-input> -->
-                <ion-item (click)="getImage()" [ngClass]="{'icon-gallery':!imageURI}" class="height-button-w  f-size-big" style="border: solid"><img [src]="imageURI" *ngIf="imageURI"  width="300" /></ion-item>
->>>>>>> 15c4543a4a4f213f48a36b92c813639f1b1cc124
-                <!-- <ion-item style="border: solid"  [style.background-image]="'url('+imageURI+')'"></ion-item> -->
-                <!-- <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" /> -->
-                <!-- <button ion-button (click)="uploadFile()">Upload</button> -->
+
                  </ion-col>
        <ion-col>
           <ion-item>
