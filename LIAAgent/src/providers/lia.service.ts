@@ -73,7 +73,6 @@ export class LiaService {
             this.nowComponent = "menu";
             this.packages=[];
             this.productsOfCart = [];
-            this.allPosts();
             this.postPackageProd(1);
             this.postPackageProd(2);
             this.postPackageProd(3);
@@ -113,12 +112,15 @@ export class LiaService {
     .postLogin("CheckLoginApp",this.userLogin )
     .then(res => {
       this.isAuthenticated = res.Result;
+
       this.statusCode = res.Error.ErrorCode;
      if(res.Result){
       this.proxy.authUser.UserId=res.Result.UserId;
       this.proxy.authUser.LoginGuide=res.Result.LoginGuide;
+      this.allPosts();
 }
       console.log(this.isAuthenticated);
+
     //  return this.isAuthenticated;
   })
   .catch((error: any) => {console.log(error)
@@ -161,10 +163,12 @@ this.proxy.authUser=this.isAuthenticated;
                 .post(func)
                 .then(res => {
                     this.getData = res;
+                    console.log("res "+res);
                     // for (let i = 0; i < this.getData.Result.length; i++) {
                     switch (func) {
                     case "GetAdditionalProducts":
                         this.products = this.getData.Result;
+                        console.log(" this.getData "+ this.getData.Result);
                         break;
                     case "GetPackages":
                         this.packages = this.getData.Result;
