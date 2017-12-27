@@ -10,7 +10,7 @@ import { LiaService } from '../../providers/lia.service';
 })
 export class PackagePage {
   @Input()package;
-
+  backcolorClass:string="{'bg-pink':nowPackage.packageColor=='bg-pink','bg-green':nowPackage.packageColor=='bg-green'}";
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     service.nowComponent="חבילות";
     // console.log(package);

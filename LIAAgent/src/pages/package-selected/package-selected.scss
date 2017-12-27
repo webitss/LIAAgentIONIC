@@ -57,7 +57,6 @@ page-package-selected {
         box-shadow: none;
         margin: 0;
         padding: 0;
-        width: inherit;
 
         &:hover:not(.disable-hover) {
             background-color: transparent;
@@ -75,8 +74,7 @@ page-package-selected {
         border: none;
         width: 50%;
         height: 47px;
-        border-radius: 14px;
-        color: #f1bf1c;
+        border-radius: 15px;
         font-size: 1.3em;
     }
     
