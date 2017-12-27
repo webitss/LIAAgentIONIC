@@ -17,17 +17,17 @@ import { OrderObj } from "../models/OrderObj";
 @Injectable()
 export class LiaProxy {
   body: any;
-  friends:any;
+  friends: any;
   userObj: SessionSell;
-  authUser:athenticateModel;
+  authUser: athenticateModel;
   constructor(private http: HttpClient) {
-    this.userObj=new SessionSell;
+    this.userObj = new SessionSell;
     // this.userObj.UserId = 372;
     // this.userObj.nvGuide = "98A42241-C752-45E9-A97C-568F7CC5D234";
-        this.authUser=new athenticateModel;
-        // this.authUser.UserId=372;
-        // this.authUser.LoginGuide= "98A42241-C752-45E9-A97C-568F7CC5D234";
-        // console.log("this.authUser "+this.authUser.LoginGuide)
+    this.authUser = new athenticateModel;
+    // this.authUser.UserId=372;
+    // this.authUser.LoginGuide= "98A42241-C752-45E9-A97C-568F7CC5D234";
+    // console.log("this.authUser "+this.authUser.LoginGuide)
     this.body = {};
 
   }
@@ -36,7 +36,7 @@ export class LiaProxy {
     return this.http
       .post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/GetStore`, {
         iStoreId: iStoreId,
-        iUserId:this.authUser.UserId,
+        iUserId: this.authUser.UserId,
         nvGuide: this.authUser.LoginGuide
       })
       .toPromise();
@@ -45,97 +45,97 @@ export class LiaProxy {
   postPackageProd(iPackageId: Number): Promise<any> {
     return this.http
       .post(
-        `http://ws.webit-track.com/LiaWS_QA/Agents.svc/GetPackageProducts`,
-        {
-          iPackageId: iPackageId,
-          iUserId:this.authUser.UserId,
-          nvGuide: this.authUser.LoginGuide
-        }
+      `http://ws.webit-track.com/LiaWS_QA/Agents.svc/GetPackageProducts`,
+      {
+        iPackageId: iPackageId,
+        iUserId: this.authUser.UserId,
+        nvGuide: this.authUser.LoginGuide
+      }
       )
       .toPromise();
   }
 
 
-   postCategories(): Promise<any> {
+  postCategories(): Promise<any> {
     return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/GetCategories`, {
-      "iLanguageId":2,
-      iUserId:this.authUser.UserId,
+      "iLanguageId": 2,
+      iUserId: this.authUser.UserId,
       nvGuide: this.authUser.LoginGuide
 
     }
     ).toPromise();
-   }
+  }
 
 
   post(func: string): Promise<any> {
-    console.log("this.authUser "+this.authUser);
+    console.log("this.authUser " + this.authUser);
     return this.http
       .post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/${func}`, {
-        iUserId:this.authUser.UserId,
+        iUserId: this.authUser.UserId,
         nvGuide: this.authUser.LoginGuide
       })
       .toPromise();
   }
 
-objLogin:athenticateModel;
+  objLogin: athenticateModel;
 
   postLogin(func: string, obj: LoginModel): Promise<any> {
     return this.http
       .post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/${func}`, {
 
-obj
+        obj
 
       })
       .toPromise();
-    }
+  }
 
-createStoreDetails(customerDtl: customerDetailsModel): Promise<any>{
-let obj: SessionSell;
-obj=new SessionSell;
-obj.UserId=this.userObj.UserId;
-obj.nvGuide=this.userObj.nvGuide;
-obj.ReqObj=customerDtl;
-  return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/CreateStore`, {
+  createStoreDetails(customerDtl: customerDetailsModel): Promise<any> {
+    let obj: SessionSell;
+    obj = new SessionSell;
+    obj.UserId = this.userObj.UserId;
+    obj.nvGuide = this.userObj.nvGuide;
+    obj.ReqObj = customerDtl;
+    return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/CreateStore`, {
 
- obj
+      obj
 
-  }).toPromise();
-}
+    }).toPromise();
+  }
 
-upDateStoreDetails(customerDtl: customerDetailsModel): Promise<any>{
-  let obj: SessionSell;
-  obj=new SessionSell;
-  obj.UserId=this.userObj.UserId;
-  obj.nvGuide=this.userObj.nvGuide;
-  obj.ReqObj=customerDtl;
-  return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/UpdateStore `, {
+  upDateStoreDetails(customerDtl: customerDetailsModel): Promise<any> {
+    let obj: SessionSell;
+    obj = new SessionSell;
+    obj.UserId = this.userObj.UserId;
+    obj.nvGuide = this.userObj.nvGuide;
+    obj.ReqObj = customerDtl;
+    return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/UpdateStore `, {
 
-obj
+      obj
 
-  }).toPromise();
-}
+    }).toPromise();
+  }
 
 
-RemoveGuide(): Promise<any>{
-  return this.http
-  .post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/RemoveGuide`, {
+  RemoveGuide(): Promise<any> {
+    return this.http
+      .post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/RemoveGuide`, {
 
-    iUserId:this.authUser.UserId,
-    nvGuide: this.authUser.LoginGuide
+        iUserId: this.authUser.UserId,
+        nvGuide: this.authUser.LoginGuide
 
-  })
-  .toPromise();
-}
+      })
+      .toPromise();
+  }
 
-createOrder(order: OrderObj): Promise<any>{
-  let obj: SessionSell;
-  obj=new SessionSell;
-  obj.UserId=this.userObj.UserId;
-  obj.nvGuide=this.userObj.nvGuide;
-  obj.ReqObj=order;
+  createOrder(order: OrderObj): Promise<any> {
+    let obj: SessionSell;
+    obj = new SessionSell;
+    obj.UserId = this.userObj.UserId;
+    obj.nvGuide = this.userObj.nvGuide;
+    obj.ReqObj = order;
     return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/CreateOrder`, {
 
-   obj
+      obj
 
     }).toPromise();
   }

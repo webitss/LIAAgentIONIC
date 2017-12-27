@@ -113,7 +113,11 @@ export class LiaService {
      if(res.Result){
       this.proxy.authUser.UserId=res.Result.UserId;
       this.proxy.authUser.LoginGuide=res.Result.LoginGuide;
-      
+      this.allPosts();
+      this.postPackageProd(1);
+      this.postPackageProd(2);
+      this.postPackageProd(3);
+      this.postCategories();
 }
       console.log(this.isAuthenticated);
 
