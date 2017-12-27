@@ -36,11 +36,11 @@
           </ion-col>
 
           <ion-col class="bg-yellow part-4" [ngClass]="{'bg-pink':nowPackage.packageColor=='bg-pink','bg-green':nowPackage.packageColor=='bg-green'}"  [ngClass]="{'col-2':!service.isPackageProductDetailed,'col-1':service.isPackageProductDetailed}">
-              <input type="button" *ngIf="!service.isPackageProductDetailed" class="center-center btn-white" value="הוסף לסל" (click)="this.BackToCart();this.service.clickAddPackageToCart(nowPackage)">
-              <button ion-button float-left class="btn-font-transparent" (click)="navCtrl.pop(navCtrl)" >
+              <input type="button" *ngIf="!service.isPackageProductDetailed" class="center-center btn-white" value="הוסף לסל" (click)="this.BackToCart();this.service.clickAddPackageToCart(nowPackage)" [style.color]="nowPackage.packageColor=='bg-yellow' ? '#f1bf1c ' : (nowPackage.packageColor=='bg-green' ? '#7ec141 ':(nowPackage.packageColor=='bg-pink' ? '#e12468 ':'black'))">
+              <button  float-left class="btn-font-transparent" (click)="navCtrl.pop(navCtrl)" >
                 <i class="icon-icon-x_Artboard-2-01 "></i>
               </button>
-              <button ion-button float-left class="btn-font-transparent" *ngIf="service.isPackageProductDetailed" (click)="details()">
+              <button float-left margin-left class="btn-font-transparent" *ngIf="service.isPackageProductDetailed" (click)="details()">
                 <i class="icon-arrow-right-02"></i>
               </button>
           </ion-col>
