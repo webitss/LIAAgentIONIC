@@ -73,10 +73,6 @@ export class LiaService {
             this.nowComponent = "menu";
             this.packages=[];
             this.productsOfCart = [];
-            this.postPackageProd(1);
-            this.postPackageProd(2);
-            this.postPackageProd(3);
-            this.postCategories();
             this.isPackageProductDetailed = false;
             this.isOuter = true;
             this.isInner = false;
@@ -117,7 +113,7 @@ export class LiaService {
      if(res.Result){
       this.proxy.authUser.UserId=res.Result.UserId;
       this.proxy.authUser.LoginGuide=res.Result.LoginGuide;
-      this.allPosts();
+      
 }
       console.log(this.isAuthenticated);
 
@@ -175,7 +171,7 @@ this.proxy.authUser=this.isAuthenticated;
                         this.packages[0].packageColor="bg-yellow";
                         this.packages[1].packageColor="bg-pink";
                         this.packages[2].packageColor="bg-green";
-                        console.log("this.packages "+this.packages);
+                        console.log("this.packages "+this.packages[0]);
                         break;
                     case "GetGaleryPictures":
                         this.galeryPictures = this.getData.Result;
