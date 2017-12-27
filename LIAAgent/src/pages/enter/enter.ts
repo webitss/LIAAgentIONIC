@@ -39,7 +39,7 @@ this.service.isNowInPageLogin=false;
   }
 
   ionViewWillEnter(){
-
+    this.service.nowComponent="דף הבית";
 
   }
 
