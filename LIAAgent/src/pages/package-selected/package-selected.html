@@ -23,6 +23,7 @@
             <div >
             <p> {{product?.ProductLongName}}</p>
             <p> {{product?.ProductName}}</p>
+            <!-- <i [src]="product?.IcoUrl"></i> -->
             <input *ngIf="product.VideoUrl" type="button" value="לצפיה"  (click)="routeToVideo()" class="btn-white" />
             </div>
           </ion-col>
