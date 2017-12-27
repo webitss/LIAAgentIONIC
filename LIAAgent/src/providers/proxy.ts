@@ -10,6 +10,7 @@ import { LoginModel } from "../models/loginModel";
 import { customerDetailsModel } from '../models/customerDetails';
 import { SessionSell } from '../models/SessionShell';
 import { athenticateModel } from './../models/athenticateModel';
+import { OrderObj } from "../models/OrderObj";
 
 
 
@@ -28,7 +29,7 @@ export class LiaProxy {
         // this.authUser.LoginGuide= "98A42241-C752-45E9-A97C-568F7CC5D234";
         console.log("this.authUser "+this.authUser.LoginGuide)
     this.body = {};
-    
+
   }
 
   postStoreDetails(iStoreId: Number): Promise<any> {
@@ -113,6 +114,31 @@ obj
 
   }).toPromise();
 }
+
+
+RemoveGuide(): Promise<any>{
+  return this.http
+  .post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/RemoveGuide`, {
+
+    iUserId:this.authUser.UserId,
+    nvGuide: this.authUser.LoginGuide
+
+  })
+  .toPromise();
+}
+
+createOrder(order: OrderObj): Promise<any>{
+  let obj: SessionSell;
+  obj=new SessionSell;
+  obj.UserId=this.userObj.UserId;
+  obj.nvGuide=this.userObj.nvGuide;
+  obj.ReqObj=order;
+    return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/CreateOrder`, {
+
+   obj
+
+    }).toPromise();
+  }
 
 }
 

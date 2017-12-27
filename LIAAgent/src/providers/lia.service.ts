@@ -12,6 +12,7 @@ import { customerDetailsModel } from '../models/customerDetails';
 import { customerCategoriesModel } from '../models/customerCategories';
 import { packageModel } from '../models/packageModel';
 import { customerModel } from '../models/customer';
+import { OrderObj } from '../models/OrderObj';
 //import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Injectable()
@@ -111,14 +112,18 @@ export class LiaService {
     .postLogin("CheckLoginApp",this.userLogin )
     .then(res => {
       this.isAuthenticated = res.Result;
-      this.proxy.authUser=res.Result;
-      console.log("this.proxy.authUser.UserName "+this.proxy.authUser.UserName);
+
       this.statusCode = res.Error.ErrorCode;
-      console.log("this.isAuthenticated "+this.isAuthenticated);
+     if(res.Result){
+      this.proxy.authUser.UserId=res.Result.UserId;
+      this.proxy.authUser.LoginGuide=res.Result.LoginGuide;
       this.allPosts();
+}
+      console.log(this.isAuthenticated);
+
     //  return this.isAuthenticated;
   })
-  .catch((error: any) => {console.log("error")
+  .catch((error: any) => {console.log(error)
 });
   }
 
@@ -147,6 +152,7 @@ this.isAuthenticated.LoginGuide=this.isAuthenticatedLocal.LoginGuide;
 this.isAuthenticated.UserId=this.isAuthenticatedLocal.UserId;
 this.isAuthenticated.UserName=this.isAuthenticatedLocal.UserName;
 this.isAuthenticated.UserType=this.isAuthenticatedLocal.UserType;
+this.proxy.authUser=this.isAuthenticated;
 }
 }
 
@@ -385,8 +391,19 @@ console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר י�
     .catch(() => console.log("error"));
 }
 
-  submitFrmPersonal(frm) {
-
+ async creatOrder(storeId) {
+let obj:OrderObj=new OrderObj;
+obj.AgentId=this.isAuthenticated.EntityId;
+obj.StoreId=storeId;
+obj.PackageId=this.packageInCart.PackageId;
+for(let i=0; i<this.productsOfCart.length; i++){
+obj.ProductsIDs.push(this.productsOfCart[i].ProductId);
+}
+await this.proxy.createOrder(obj)
+.then(res => {
+console.log(res);
+})
+.catch();
   }
 
 

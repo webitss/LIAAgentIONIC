@@ -57,13 +57,14 @@ export class CustomersPage {
   scrollingFun(e){
 console.log("enter");
   if(this.contentHandle.scrollTop >= 10){
-  if(this.arrowUp != true)
+  // if(this.arrowUp != true)
   this.arrowUp=true;//show up arrow
    document.getElementById('demoBtn').click();
   }
-  else
-  if(this.contentHandle.scrollTop <= (this.customersFilter.length)-5){
-  this.arrowUp=false;
+   else
+  // if(this.contentHandle.scrollTop <= (this.customersFilter.length)-5)
+  {
+   this.arrowUp=false;
   document.getElementById('demoBtn').click();
   }
   let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;

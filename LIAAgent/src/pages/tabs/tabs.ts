@@ -13,6 +13,7 @@ import { ProductsPage } from '../products/products';
 import { CustomersPage } from '../customers/customers';
 //import { BusinessFormPage } from '../business-form/business-form';
 import { Tabs, NavParams } from 'ionic-angular';
+import { LiaProxy } from '../../providers/proxy';
 //import { Popup2Page } from '../popup2/popup2';
 //import { LoginPage } from '../login/login';
 //import { first } from 'rxjs/operator/first';
@@ -61,7 +62,6 @@ ionViewDidEnter(){
 
 }
   showConfirmAlert() {
-    localStorage.clear();
     this.events.publish('user:login');
   }
 
