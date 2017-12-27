@@ -10,6 +10,7 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { SplashScreen } from '@ionic-native/splash-screen';
 //import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Events } from 'ionic-angular/util/events';
+import { LiaProxy } from '../providers/proxy';
 //import { EnterPage } from '../pages/enter/enter';
 //import { ProductsPage } from '../pages/products/products';
 //import { ViewChild } from '@angular/core';
@@ -20,7 +21,7 @@ import { Events } from 'ionic-angular/util/events';
 export class MyApp {
   rootPage:any = LoginPage;
   //@ViewChild(Nav) nav: Nav;
- 
+
   alert: Alert;
   constructor(public platform: Platform,
     statusBar: StatusBar,
@@ -28,10 +29,11 @@ export class MyApp {
     private alertCtrl: AlertController,
     //private screenOrientation: ScreenOrientation,
     public app:App,
-    public events:Events,private keyboard: Keyboard
+    public events:Events,private keyboard: Keyboard,
+    public proxy: LiaProxy
      ) {
-   
-  
+
+
     events.subscribe('user:login', () => {
       this.showAlert();
     });
@@ -40,8 +42,8 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       platform.setDir('rtl', true);
- 
-      
+
+
       platform.registerBackButtonAction(() => {
         let nav = this.app.getActiveNav();
         if (nav.canGoBack()) {
@@ -57,13 +59,13 @@ export class MyApp {
       });
     });
   }
-  
+
   // ionViewDidEnter() {
   //   this.platform.ready().then(() => {
   //     this.keyboard.disableScroll(true);
   //   });
   //   }
-    
+
   //   ionViewWillLeave() {
   //   this.platform.ready().then(() => {
   //   this.keyboard.disableScroll(false);
@@ -71,12 +73,12 @@ export class MyApp {
   //   }
 
   // initializeApp() {
-    
+
   //    this.keyboard.disableScroll(false);
   //   }
 
 
-  showAlert() {
+  async showAlert(): Promise<any> {
     this.alert = this.alertCtrl.create({
       title: 'לצאת?',
       message: 'האם ברצונך להתנתק מהמערכת?',
@@ -91,6 +93,8 @@ export class MyApp {
         {
           text: 'התנתק',
           handler: () => {
+            this.proxy.RemoveGuide();
+            localStorage.clear();
             this.platform.exitApp();
           }
         }
@@ -98,15 +102,15 @@ export class MyApp {
     });
     this.alert.present();
   }
- 
+
   activePageNow:any;
   // routeToHome(){
   //    this.nav.push(EnterPage);
   //   //console.log(this.navCtrl.getActive().name);
   //   // console.log(this.app.getActiveNav().getViews()[0].name);
-    
+
   //  }
 
-  
-  
+
+
 }

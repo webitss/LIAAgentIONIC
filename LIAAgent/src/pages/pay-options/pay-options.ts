@@ -19,6 +19,7 @@ import { CheckboxRequiredValidator } from '@angular/forms/src/directives/validat
 export class PayOptionsPage {
 
   frmPay: FormGroup;
+  StoreId: number;
 
    constructor(public navCtrl: NavController,
      public navParams: NavParams,
@@ -32,7 +33,7 @@ export class PayOptionsPage {
         // this.service.signatureImage = navParams.get('signatureImage');
         // if(navParams.get('signature1Image'))
         // this.service.signatureImage1 = navParams.get('signature1Image');
-
+        this.StoreId = navParams.data.StoreId;
   }
 
 
@@ -43,10 +44,12 @@ export class PayOptionsPage {
   {
     this.navCtrl.push(FormOfUsePage);
   }
+
   ionViewWillEnter(){
     // this.openSignature();
   }
   resetAll(){
+    this.service.creatOrder(this.StoreId);
     this.service.isTerminateOrdered=true;
     setTimeout(() => {
       //this.navCtrl.setRoot(TabsPage);
@@ -62,6 +65,7 @@ export class PayOptionsPage {
      // this.navCtrl.setRoot(this.navCtrl.getActive().component);
   // this.navCtrl.parent();
   }
+
   openSignatureModel(){
           this.events.subscribe('custom-user-events', (paramsVar) => {
             this.service.signatureImage=paramsVar;

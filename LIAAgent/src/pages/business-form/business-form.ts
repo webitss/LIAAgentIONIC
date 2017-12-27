@@ -102,7 +102,7 @@ export class BusinessFormPage {
   }
 
   onGoToPayOptionsPage() {
-    this.navCtrl.push(PayOptionsPage);
+    this.navCtrl.push(PayOptionsPage, {StoreId : this.customerD.StoreId});
   }
 
 ///////////////////////////////
@@ -193,11 +193,12 @@ result;
     //this.customerD.LogoUrl=frm.logo? frm.logo : this.StoreObj.LogoUrl;
     this.customerD.OpenHours = frm.OpeningHours ? frm.OpeningHours : this.StoreObj.OpenHours;
     this.customerD.MinPriceToTicket = frm.min ? frm.min : this.StoreObj.MinPriceToTicket;
-    if (this.StoreObj)
-
-      this.service.updateFrmBusiness(this.customerD);
-    else
+    if (this.StoreObj){
+       this.service.updateFrmBusiness(this.customerD);
+    }
+    else{
       this.service.createFrmBusiness(this.customerD);
+    }
   }
 
 
