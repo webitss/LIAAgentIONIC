@@ -13,6 +13,8 @@ export class PackageSelectedPage {
   products:any;
   product:any;
   PackageId:any;
+  backcolorClass:string="{'bg-pink':nowPackage.packageColor=='bg-pink','bg-green':nowPackage.packageColor=='bg-green'}";
+  // colorExpression:string=
   TabsEnum: typeof TabsEnum = TabsEnum;
 
   constructor(public navCtrl: NavController,

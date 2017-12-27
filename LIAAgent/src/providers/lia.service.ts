@@ -93,6 +93,9 @@ export class LiaService {
             this.productsDetails=[];
             this.isAuthenticatedLocal = new athenticateModel;
             this.isAuthenticated =new athenticateModel;
+            this.customers.forEach(element => {
+                element.expanded=false;
+             });
             //#endregion
     }
 
@@ -168,7 +171,7 @@ this.proxy.authUser=this.isAuthenticated;
                         this.packages[0].packageColor="bg-yellow";
                         this.packages[1].packageColor="bg-pink";
                         this.packages[2].packageColor="bg-green";
-                        console.log(this.packages);
+                        console.log("this.packages "+this.packages);
                         break;
                     case "GetGaleryPictures":
                         this.galeryPictures = this.getData.Result;

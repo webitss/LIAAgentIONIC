@@ -2,28 +2,28 @@
 
     <ion-grid no-padding>
     <ion-row class="package" justify-content-center>
-       <ion-col  col-5 class="package-right bg-yellow" [ngClass]="{'bg-pink':package.packageColor=='bg-pink','bg-green':package.packageColor=='bg-green'}">
+       <ion-col  col-5 class="package-right " [ngClass]="{'bg-pink':package.packageColor=='bg-pink','bg-green':package.packageColor=='bg-green','bg-yellow':package.packageColor=='bg-yellow'}">
         <div class="rotate">
           {{package?.PackageName}}
         </div>
       </ion-col>
      
-      <ion-col col-7 [ngClass]="{'package-left':!service.isInner,'package-left-2':service.isInner}">
+      <ion-col col-7 [ngClass]="{'package-left':!service.isInner,'package-left-2':service.isInner}" [style.border-color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">
         <div class="center-center">
           <ion-item>
-            {{package?.TicketsNum}}
-            <span class="nth-child-span">כרטיסים</span>
+           <span [style.color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">{{package?.TicketsNum}}</span> 
+            <span class="nth-child-span" [style.color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">כרטיסים</span>
           </ion-item>
-          <ion-item>
-            <span padding-left float-right class="center-center f-size-icon">{{package?.PriceToTicket}}</span>
-            <span float-left>שקל
+          <ion-item [style.border-color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">
+            <span padding-left float-right class="center-center f-size-icon" [style.color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">{{package?.PriceToTicket}}</span>
+            <span float-left  [style.color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">שקל
              <br/> לכרטיס
              <br/>בודד</span>
              
           </ion-item>
           <ion-item text-center>
-              <span class="item-1">{{package?.PackagePrice}}</span>
-              <p class="item-2">לא כולל מע"מ ₪</p>
+              <span class="item-1" [style.color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">{{package?.PackagePrice}}</span>
+              <p class="item-2" [style.color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">לא כולל מע"מ ₪</p>
           </ion-item>
         </div>
       </ion-col>

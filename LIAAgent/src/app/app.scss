@@ -1,4 +1,4 @@
-
+$transition-normal:all 1s ease;
 
  .grid  {
   height: 100%;
@@ -7,7 +7,9 @@
 
  }
  
- 
+ .alert-md .alert-button {
+  color: #16264e;}
+
  ion-app.md [padding], ion-app.md [padding] .scroll-content
 {
     padding-top:100px;
@@ -16,6 +18,9 @@
 .scroll-content {
     overflow-y: auto;
   }
+
+.alert-message {
+    overflow-y: auto;}
 
 ion-input, ion-textarea {
     border: 1px solid;
@@ -87,10 +92,7 @@ border-radius: 15px
 .height-button-w{
   height: 106px;
 }
-// .ion-page > ion-content
-// {
-//    top: 52px;//your headers height
-// }
 
-// $transition-normal:all 1s ease;
+
+
 
