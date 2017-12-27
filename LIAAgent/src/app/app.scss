@@ -1,4 +1,4 @@
-
+$transition-normal:all 1s ease;
 
  .grid  {
   height: 100%;
@@ -19,7 +19,7 @@
     overflow-y: auto;
   }
 
-  .alert-message {
+.alert-message {
     overflow-y: auto;}
 
 ion-input, ion-textarea {
@@ -92,10 +92,7 @@ border-radius: 15px
 .height-button-w{
   height: 106px;
 }
-// .ion-page > ion-content
-// {
-//    top: 52px;//your headers height
-// }
 
-// $transition-normal:all 1s ease;
+
+
 

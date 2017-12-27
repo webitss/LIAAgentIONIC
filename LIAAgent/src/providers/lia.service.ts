@@ -166,7 +166,7 @@ this.isAuthenticated.UserType=this.isAuthenticatedLocal.UserType;
                         this.packages[0].packageColor="bg-yellow";
                         this.packages[1].packageColor="bg-pink";
                         this.packages[2].packageColor="bg-green";
-                        console.log(this.packages);
+                        console.log("this.packages "+this.packages);
                         break;
                     case "GetGaleryPictures":
                         this.galeryPictures = this.getData.Result;

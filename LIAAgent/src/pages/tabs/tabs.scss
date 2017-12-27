@@ -23,6 +23,15 @@ tabs{
     //     border-radius: 100%;
     // }
 
+    .tabs-md .tab-button[aria-selected=true] {
+        border-top: 3px solid color($colors, secondary);
+        }
+    
+        .tabs-md .tab-button[aria-selected=true]:nth-child(0) {
+            border-top: 3px solid color($colors, secondary);
+            }
+        
+
     .tabs-md .tab-button[aria-selected=true]:nth-child(1) {
         border-top: 3px solid color($colors, yellow-color);
         }
