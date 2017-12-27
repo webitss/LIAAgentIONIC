@@ -88,9 +88,7 @@ export class LiaService {
             this.productsDetails=[];
             this.isAuthenticatedLocal = new athenticateModel;
             this.isAuthenticated =new athenticateModel;
-            this.customers.forEach(element => {
-                element.expanded=false;
-             });
+           
             //#endregion
     }
 
@@ -187,6 +185,9 @@ this.postCategories();
                         break;
                     case "GetBaseStores":
                         this.customers = this.getData.Result;
+                        this.customers.forEach(element => {
+                            element.expanded=false;
+                         });
                         break;
                     }
                     // }

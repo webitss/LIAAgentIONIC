@@ -55,6 +55,7 @@ export class PayOptionsPage {
       //this.navCtrl.setRoot(TabsPage);
       console.log( " this.service.productsOfCart "+this.service.productsOfCart);
       this.service.productsOfCart=[];
+      this.service.packageInCart=null;
       this.service.countPackageInCart=0;
       this.service.countProductsInCart=0;
       this.service.isTerminateOrdered=false;

@@ -32,8 +32,6 @@ export class MyApp {
     public events:Events,private keyboard: Keyboard,
     public proxy: LiaProxy
      ) {
-
-
     events.subscribe('user:login', () => {
       this.showAlert();
     });
@@ -60,17 +58,7 @@ export class MyApp {
     });
   }
 
-  // ionViewDidEnter() {
-  //   this.platform.ready().then(() => {
-  //     this.keyboard.disableScroll(true);
-  //   });
-  //   }
-
-  //   ionViewWillLeave() {
-  //   this.platform.ready().then(() => {
-  //   this.keyboard.disableScroll(false);
-  //   });
-  //   }
+ 
 
   // initializeApp() {
 
@@ -110,7 +98,12 @@ export class MyApp {
   //   // console.log(this.app.getActiveNav().getViews()[0].name);
 
   //  }
-
-
-
+// ionViewDidEnter(){
+//   this.platform.ready().then(() => { this.keyboard.disableScroll(true); });
+//  }
+//  ionViewDidLeave(){
+//   this.platform.ready().then(() => { this.keyboard.disableScroll(false); });
+//  }
 }
+
+
