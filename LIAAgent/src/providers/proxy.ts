@@ -22,12 +22,12 @@ export class LiaProxy {
   authUser:athenticateModel;
   constructor(private http: HttpClient) {
     this.userObj=new SessionSell;
-    this.userObj.UserId = 372;
-    this.userObj.nvGuide = "98A42241-C752-45E9-A97C-568F7CC5D234";
+    // this.userObj.UserId = 372;
+    // this.userObj.nvGuide = "98A42241-C752-45E9-A97C-568F7CC5D234";
         this.authUser=new athenticateModel;
         // this.authUser.UserId=372;
         // this.authUser.LoginGuide= "98A42241-C752-45E9-A97C-568F7CC5D234";
-        console.log("this.authUser "+this.authUser.LoginGuide)
+        // console.log("this.authUser "+this.authUser.LoginGuide)
     this.body = {};
 
   }
