@@ -18,11 +18,7 @@ export class EnterPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events,public service:LiaService) {
 
 this.service.nowComponent="דף הבית";
-this.service.allPosts();
-this.service.postPackageProd(1);
-this.service.postPackageProd(2);
-this.service.postPackageProd(3);
-this.service.postCategories();
+
   this.loginName=this.service.isAuthenticated.UserName;
 //this.loginName="";
 

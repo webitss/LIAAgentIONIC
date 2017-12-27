@@ -149,6 +149,11 @@ this.isAuthenticated.UserId=this.isAuthenticatedLocal.UserId;
 this.isAuthenticated.UserName=this.isAuthenticatedLocal.UserName;
 this.isAuthenticated.UserType=this.isAuthenticatedLocal.UserType;
 this.proxy.authUser=this.isAuthenticated;
+this.allPosts();
+this.postPackageProd(1);
+this.postPackageProd(2);
+this.postPackageProd(3);
+this.postCategories();
 }
 }
 
