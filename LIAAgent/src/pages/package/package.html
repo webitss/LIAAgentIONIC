@@ -2,7 +2,7 @@
 
     <ion-grid no-padding>
     <ion-row class="package" justify-content-center>
-       <ion-col  col-5 class="package-right bg-yellow" [ngClass]="{'bg-pink':package.packageColor=='bg-pink','bg-green':package.packageColor=='bg-green'}">
+       <ion-col  col-5 class="package-right " [ngClass]="{'bg-pink':package.packageColor=='bg-pink','bg-green':package.packageColor=='bg-green','bg-yellow':package.packageColor=='bg-yellow'}">
         <div class="rotate">
           {{package?.PackageName}}
         </div>

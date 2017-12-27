@@ -35,16 +35,15 @@ export class CustomersPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
 
     this.StoreId = this.navParams.data.StoreId;
-
     this.customerDtl=new customerDetailsModel;
     this.prevId = null;
     this.valueButton="לקוח חדש";
     service.nowComponent="לקוחות";
     this.customersByIdlist=new Array();
     this.customerDetails=new customerModel;
-    this.service.customers.forEach(element => {
-      element.expanded=false;
-   });
+  //   this.service.customers.forEach(element => {
+  //     element.expanded=false;
+  //  });
    this.customersFilter=this.service.customers;
 
   }

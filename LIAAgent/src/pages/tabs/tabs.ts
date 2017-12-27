@@ -43,21 +43,21 @@ export class TabsPage {
     this.params = params.data;
     this.params = params;
 
-        console.log(this.params); // returns NavParams {data: Object}
+        console.log(this.service.nowComponent); // returns NavParams {data: Object}
     this.StoreId = this.params.data;
       }
 
 
   clearHistory(ev:any){
+    this.clickTab();
      ev.popToRoot();
   }
-  clearHistoryAndElse(ev:any){
-    //this.service.addProductToCart = false;
-    this.clearHistory(ev);
+  clickTab(){
+    console.log(this.service.nowComponent);
   }
 
 ionViewDidEnter(){
-
+ 
 
 }
   showConfirmAlert() {
