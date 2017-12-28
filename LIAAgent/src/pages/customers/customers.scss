@@ -2,7 +2,9 @@ page-customers {
 
 
 //    .no-scroll div {overflow-y: hidden}
-
+.input-cover {
+    position: static;
+  }
 .grid .scroll-content ,.grid .fixed-content
 {
     padding-top:0px !important;
