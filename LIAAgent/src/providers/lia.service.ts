@@ -88,7 +88,7 @@ export class LiaService {
             this.productsDetails=[];
             this.isAuthenticatedLocal = new athenticateModel;
             this.isAuthenticated =new athenticateModel;
-           
+
             //#endregion
     }
 
@@ -112,10 +112,6 @@ export class LiaService {
       this.proxy.authUser.UserId=res.Result.UserId;
       this.proxy.authUser.LoginGuide=res.Result.LoginGuide;
       this.allPosts();
-      this.postPackageProd(1);
-      this.postPackageProd(2);
-      this.postPackageProd(3);
-      this.postCategories();
 }
       console.log(this.isAuthenticated);
 
@@ -152,10 +148,6 @@ this.isAuthenticated.UserName=this.isAuthenticatedLocal.UserName;
 this.isAuthenticated.UserType=this.isAuthenticatedLocal.UserType;
 this.proxy.authUser=this.isAuthenticated;
 this.allPosts();
-this.postPackageProd(1);
-this.postPackageProd(2);
-this.postPackageProd(3);
-this.postCategories();
 }
 }
 
@@ -228,6 +220,10 @@ this.postCategories();
             this.post("GetAdditionalProducts");
             this.post("GetPackages");
             this.post("GetBaseStores");
+            this.postPackageProd(1);
+            this.postPackageProd(2);
+            this.postPackageProd(3);
+            this.postCategories();
         }
 
 
@@ -397,21 +393,19 @@ console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר י�
     .catch(() => console.log("error"));
 }
 
- async creatOrder(storeId) {
-let obj:OrderObj=new OrderObj;
-obj.AgentId=this.isAuthenticated.EntityId;
-obj.StoreId=storeId;
-obj.PackageId=this.packageInCart.PackageId;
-for(let i=0; i<this.productsOfCart.length; i++){
-obj.ProductsIDs.push(this.productsOfCart[i].ProductId);
-}
-await this.proxy.createOrder(obj)
-.then(res => {
-console.log(res);
-})
-.catch();
+async creatOrder(storeId): Promise<any> {
+  let obj:OrderObj=new OrderObj;
+  obj.AgentId=this.isAuthenticated.EntityId;
+  obj.StoreId=storeId;
+  obj.PackageId=this.packageInCart.PackageId;
+  obj.ProductsIDs =  [];
+  for(let i=0; i<this.productsOfCart.length; i++){
+  obj.ProductsIDs.push({"EntityId":this.productsOfCart[i].ProductId});
   }
-
+console.log(obj);
+  let response = await this.proxy.createOrder(obj);
+  return response;
+}
 
   clickDeleteToCart(id) {
     let index: number;
