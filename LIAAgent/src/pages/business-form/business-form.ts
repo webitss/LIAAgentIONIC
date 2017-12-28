@@ -102,7 +102,7 @@ export class BusinessFormPage {
   }
 
   onGoToPayOptionsPage() {
-    this.navCtrl.push(PayOptionsPage, {StoreId : this.customerD.StoreId});
+    this.navCtrl.push(PayOptionsPage, {StoreId : this.customerD.StoreId, email: this.customerD.Owner.Email});
   }
 
 ///////////////////////////////
@@ -126,39 +126,39 @@ result;
         //    } );
   }
 ////////////////////////////////////
-  uploadFile() {
-    let loader = this.loadingCtrl.create({
-      content: "Uploading..."
-    });
-    loader.present();
-    const fileTransfer: FileTransferObject = this.transfer.create();
-    alert(" Uploaded Successfully2");
-    let options: FileUploadOptions = {
-      fileKey: "ionicfile",
-      fileName: "ionicfile",
-      chunkedMode: false,
-      mimeType: "image/jpeg",
-      headers: {}
-    };
-    alert(" Uploaded Successfully3");
-    fileTransfer
-      .upload(this.imageURI, "http://192.168.0.7:8080/api/uploadImage", options)
-      .then(
-      data => {
-        alert(" Uploaded Successfully4");
-        console.log(data + " Uploaded Successfully");
-        this.imageFileName =
-          "http://192.168.0.7:8080/static/images/ionicfile.jpg";
-        loader.dismiss();
-        this.presentToast("Image uploaded successfully");
-      },
-      err => {
-        console.log(err);
-        loader.dismiss();
-        this.presentToast(err);
-      }
-      );
-  }
+  // uploadFile() {
+  //   let loader = this.loadingCtrl.create({
+  //     content: "Uploading..."
+  //   });
+  //   loader.present();
+  //   const fileTransfer: FileTransferObject = this.transfer.create();
+  //   alert(" Uploaded Successfully2");
+  //   let options: FileUploadOptions = {
+  //     fileKey: "ionicfile",
+  //     fileName: "ionicfile",
+  //     chunkedMode: false,
+  //     mimeType: "image/jpeg",
+  //     headers: {}
+  //   };
+  //   alert(" Uploaded Successfully3");
+  //   fileTransfer
+  //     .upload(this.imageURI, "http://192.168.0.7:8080/api/uploadImage", options)
+  //     .then(
+  //     data => {
+  //       alert(" Uploaded Successfully4");
+  //       console.log(data + " Uploaded Successfully");
+  //       this.imageFileName =
+  //         "http://192.168.0.7:8080/static/images/ionicfile.jpg";
+  //       loader.dismiss();
+  //       this.presentToast("Image uploaded successfully");
+  //     },
+  //     err => {
+  //       console.log(err);
+  //       loader.dismiss();
+  //       this.presentToast(err);
+  //     }
+  //     );
+  // }
 
 
 
@@ -191,6 +191,7 @@ result;
   submitFrmMoreBusiness(frm) {
     // this.customerD.User = this.StoreObj.User;
     //this.customerD.LogoUrl=frm.logo? frm.logo : this.StoreObj.LogoUrl;
+    this.customerD.LogoUrl = this.imageURI?this.imageURI :this.StoreObj.LogoUrl;
     this.customerD.OpenHours = frm.OpeningHours ? frm.OpeningHours : this.StoreObj.OpenHours;
     this.customerD.MinPriceToTicket = frm.min ? frm.min : this.StoreObj.MinPriceToTicket;
     if (this.StoreObj){

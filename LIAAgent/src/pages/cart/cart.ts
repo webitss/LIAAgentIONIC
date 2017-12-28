@@ -5,6 +5,7 @@ import { LiaService } from '../../providers/lia.service';
 import { PersonalFormPage } from '../personal-form/personal-form';
 import { ViewChild } from '@angular/core';
 import {Content} from 'ionic-angular';
+import { packageModel } from '../../models/packageModel';
 //import { ViewController } from 'ionic-angular/navigation/view-controller';
 
 @Component({
@@ -114,6 +115,10 @@ this.navCtrl.push(PersonalFormPage);
     this.navCtrl.parent.select(TabsEnum.packages);
   }
 
-
+deletePackage(){
+this.service.packageInCart = new packageModel;
+this.service.countPackageInCart--;
+this.service.countProductsInCart--;
+}
 
 }
