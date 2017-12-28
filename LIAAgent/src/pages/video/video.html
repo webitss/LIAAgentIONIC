@@ -1,10 +1,22 @@
    <ion-content>
-     <br><br><br><br><br><br>
-   <button class="icon-icon-x_Artboard-2-01" (click)="this.navCtrl.pop(this.navCtrl)"></button>
-   <ion-row>   <video width="700" height="600"  controls>
+      <ion-grid >
+          <ion-row align-items-center align-self-center >
+            <ion-col ></ion-col>
+  
+  
+   <ion-col col-10> 
+       <video width="" height="100%"  controls>
       <source [src]="service.thisProductDetails.VideoUrl" type="video/mp4 "> 
       </video>
-      </ion-row>
+      </ion-col>
+
+      <ion-col > 
+        <button class="icon-arrow" float-left (click)="this.navCtrl.pop(this.navCtrl)">
+          <i class="icon-icon-x_Artboard-2-01"></i>
+          </button>
+        </ion-col>
+          </ion-row>
+      </ion-grid>
     </ion-content>
  <!--  <source src="../../assets/imgs/VID-20171219-WA0090.mp4" type="video/mp4 ">  -->
 
