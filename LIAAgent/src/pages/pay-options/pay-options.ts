@@ -48,23 +48,40 @@ export class PayOptionsPage {
   ionViewWillEnter(){
     // this.openSignature();
   }
-  resetAll(){
-    this.service.creatOrder(this.StoreId);
-    this.service.isTerminateOrdered=true;
-    setTimeout(() => {
-      //this.navCtrl.setRoot(TabsPage);
-      console.log( " this.service.productsOfCart "+this.service.productsOfCart);
-      this.service.productsOfCart=[];
-      this.service.countPackageInCart=0;
-      this.service.countProductsInCart=0;
-      this.service.isTerminateOrdered=false;
-      console.log( " this.service.productsOfCart "+this.service.productsOfCart);
-      this.app.getRootNav().setRoot(TabsPage);
-    }, 3000);
 
-     // this.navCtrl.setRoot(this.navCtrl.getActive().component);
-  // this.navCtrl.parent();
-  }
+
+
+async resetAll(){
+let val;
+val=await this.service.creatOrder(this.StoreId);
+console.log(val);
+switch(val.Error.ErrorCode){
+      case 0 :
+
+      this.service.isTerminateOrdered=true;
+
+      setTimeout(() => {
+        //this.navCtrl.setRoot(TabsPage);
+        console.log( " this.service.productsOfCart "+this.service.productsOfCart);
+        this.service.productsOfCart=[];
+        this.service.countPackageInCart=0;
+        this.service.countProductsInCart=0;
+        this.service.isTerminateOrdered=false;
+        console.log( " this.service.productsOfCart "+this.service.productsOfCart);
+        this.app.getRootNav().setRoot(TabsPage);
+      }, 3000);
+      break;
+      case -3: alert("משתמש לא נמצא")
+      break;
+
+      case -10: alert("אינך מורשה להיכנס לאפליקציה");
+
+      break;
+      default: alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+
+      break;
+      }
+}
 
   openSignatureModel(){
           this.events.subscribe('custom-user-events', (paramsVar) => {

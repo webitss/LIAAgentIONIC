@@ -18,10 +18,10 @@ import { OrderObj } from "../models/OrderObj";
 export class LiaProxy {
   body: any;
   friends:any;
-  userObj: SessionSell;
+  // userObj: SessionSell;
   authUser:athenticateModel;
   constructor(private http: HttpClient) {
-    this.userObj=new SessionSell;
+    // this.userObj=new SessionSell;
     // this.userObj.UserId = 372;
     // this.userObj.nvGuide = "98A42241-C752-45E9-A97C-568F7CC5D234";
         this.authUser=new athenticateModel;
@@ -92,8 +92,8 @@ obj
 createStoreDetails(customerDtl: customerDetailsModel): Promise<any>{
 let obj: SessionSell;
 obj=new SessionSell;
-obj.UserId=this.userObj.UserId;
-obj.nvGuide=this.userObj.nvGuide;
+obj.UserId=this.authUser.UserId;
+obj.nvGuide=this.authUser.LoginGuide;
 obj.ReqObj=customerDtl;
   return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/CreateStore`, {
 
@@ -105,8 +105,8 @@ obj.ReqObj=customerDtl;
 upDateStoreDetails(customerDtl: customerDetailsModel): Promise<any>{
   let obj: SessionSell;
   obj=new SessionSell;
-  obj.UserId=this.userObj.UserId;
-  obj.nvGuide=this.userObj.nvGuide;
+  obj.UserId=this.authUser.UserId;
+  obj.nvGuide=this.authUser.LoginGuide;
   obj.ReqObj=customerDtl;
   return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/UpdateStore `, {
 
@@ -130,8 +130,8 @@ RemoveGuide(): Promise<any>{
 createOrder(order: OrderObj): Promise<any>{
   let obj: SessionSell;
   obj=new SessionSell;
-  obj.UserId=this.userObj.UserId;
-  obj.nvGuide=this.userObj.nvGuide;
+  obj.UserId=this.authUser.UserId;
+  obj.nvGuide=this.authUser.LoginGuide;
   obj.ReqObj=order;
     return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/CreateOrder`, {
 
