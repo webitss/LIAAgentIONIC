@@ -42,7 +42,7 @@ export class LiaService {
             packageProduct: productsModel;
             countProductsInCart: number = 0;
             productsOfCart: productsModel[];
-            packagesOfCart: packageModel[];
+            // packagesOfCart: packageModel[];
             isPayed: boolean;
             isTerminateOrdered: boolean;
             routeOrStay: string;
