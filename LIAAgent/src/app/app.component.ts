@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Events } from 'ionic-angular/util/events';
 import { LiaProxy } from '../providers/proxy';
+import { Config } from 'ionic-angular/config/config';
 //import { EnterPage } from '../pages/enter/enter';
 //import { ProductsPage } from '../pages/products/products';
 //import { ViewChild } from '@angular/core';
@@ -30,11 +31,12 @@ export class MyApp {
     //private screenOrientation: ScreenOrientation,
     public app:App,
     public events:Events,private keyboard: Keyboard,
-    public proxy: LiaProxy
+    public proxy: LiaProxy,public config:Config
      ) {
     events.subscribe('user:login', () => {
       this.showAlert();
     });
+  
     platform.ready().then(() => {
       this.keyboard.disableScroll(true);
       statusBar.styleDefault();

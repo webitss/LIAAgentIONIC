@@ -28,7 +28,6 @@ export class PackageSelectedPage {
     this.nowPackage=this.service.getPackageById(this.PackageId);
 
     if(this.PackageId!=3)
-
     this.products=this.service.getPackageProductsById(this.PackageId);
     this.service.nowComponent="חבילות";
     //  if()
@@ -39,6 +38,7 @@ export class PackageSelectedPage {
     this.service.isOuter=false;
     this.service.isInner=true;
     this.nowPackage=this.service.getPackageById(this.PackageId);
+    if(this.PackageId!=3)
     this.products=this.service.getPackageProductsById(this.PackageId);
     }
   details(product?)

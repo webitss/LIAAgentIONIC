@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
-//import { CartPage } from '../cart/cart';
 import {TabsEnum} from '../../models/tabs-enum';
 //import { NgZone } from '@angular/core';
 //import {ItemSliding, Item} from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import {Content} from 'ionic-angular';
 import { customerModel } from './../../models/customer';
-//import { ViewController } from 'ionic-angular/navigation/view-controller';
-//import { count } from 'rxjs/operators/count';
 import { customerDetailsModel } from '../../models/customerDetails';
+
 
 @Component({
   selector: 'page-customers',
@@ -97,6 +95,10 @@ console.log("enter");
           let container: { storeId: any } = this.navParams.data.container;
           container.storeId = StoreId;
           this.navCtrl.parent.select(this.TabsEnum.cart);
+
+      
+
+
          // this.navCtrl.parent.select(this.TabsEnum.cart,{StoreId :StoreId});
       //        this.navCtrl.parent.select(this.TabsEnum.cart);
     }
@@ -114,23 +116,23 @@ console.log("enter");
 
    // customerChoosed:any;
      expandItem(item){
-   this.customerDtl = item;
-if(item.StoreId){
-    if(this.prevId == item.StoreId || (this.prevId == null)){
-         this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
-         this.prevId = item.StoreId;
-        }
+         this.customerDtl = item;
+          if(item.StoreId){
+            if(this.prevId == item.StoreId || (this.prevId == null)){
+              this.valueButton=this.valueButton==="לקוח חדש"?"עבור לסל":"לקוח חדש";
+              this.prevId = item.StoreId;
+             }
         else
         {
-      if(this.valueButton == "לקוח חדש")
-          this.valueButton="עבור לסל";
-        this.prevId = item.StoreId;
+           if(this.valueButton == "לקוח חדש")
+                 this.valueButton="עבור לסל";
+                this.prevId = item.StoreId;
         }
-        this.getCustomerDetails(item);
-        if(this.valueButton == "לקוח חדש" || !this.customerChoosed)
-        this.service.customerDetails.StoreId = null;
+          this.getCustomerDetails(item);
+          if((this.valueButton == "לקוח חדש" || !this.customerChoosed)&&this.service.customerDetails)
+          this.service.customerDetails.StoreId = null;
 
-            }
+              }
 }
 
 getCustomerDetails(item){

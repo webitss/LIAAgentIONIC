@@ -8,7 +8,7 @@
           <ion-col *ngIf="!service.isPackageProductDetailed"  class="bg-yellow part-3" col-6 [ngClass]="{'bg-pink':nowPackage.packageColor=='bg-pink','bg-green':nowPackage.packageColor=='bg-green'}">
             <ion-row justify-content-center>
                   <ion-col *ngIf="products" class="part-3-inner" align-self-center>
-                          <div    *ngFor="let p of products"  >
+                                      <div    *ngFor="let p of products"  >
                                           <div (click)="details(p)">
                                                   <span> {{p?.ProductLongName}}</span>
                                                   <i class="icon-arrow-left-03"></i>
