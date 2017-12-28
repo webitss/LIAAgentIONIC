@@ -15,6 +15,7 @@
                         מחיר:
                         <!-- {{this.service.packageInCart.}} -->
                         שקל
+                        <button float-end class="f-size-icon bg-transpare icon-icon-x_Artboard-2-01" (click)="deletePackage()"></button>
                         </ion-item>
                         <ion-item *ngFor="let p of service.productsOfCart" class="border-list">
                         {{p.ProductShortName}}

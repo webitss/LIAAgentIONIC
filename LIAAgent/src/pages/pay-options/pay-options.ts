@@ -11,6 +11,7 @@ import { App } from 'ionic-angular/components/app/app';
 import { EnterPage } from '../enter/enter';
 import { CheckboxRequiredValidator } from '@angular/forms/src/directives/validators';
 import { packageModel } from '../../models/packageModel';
+import { LiaProxy } from '../../providers/proxy';
 
 
 @Component({
@@ -21,11 +22,12 @@ export class PayOptionsPage {
 
   frmPay: FormGroup;
   StoreId: number;
+  customerEmail:string;
 
    constructor(public navCtrl: NavController,
      public navParams: NavParams,
      public service:LiaService,
-     public modalController:ModalController,public events:Events,public app :App) {
+     public modalController:ModalController,public events:Events,public app :App, public proxy: LiaProxy) {
         service.nowComponent="תשלום";
      this.frmPay = new FormGroup({
           formOfUse: new FormControl(false, Validators.requiredTrue)
@@ -35,6 +37,7 @@ export class PayOptionsPage {
         // if(navParams.get('signature1Image'))
         // this.service.signatureImage1 = navParams.get('signature1Image');
         this.StoreId = navParams.data.StoreId;
+        this.customerEmail = navParams.data.email;
   }
 
 
@@ -53,37 +56,60 @@ export class PayOptionsPage {
 
 
 async resetAll(){
+let isCreated: boolean = false;
 let val;
 val=await this.service.creatOrder(this.StoreId);
 console.log(val);
 switch(val.Error.ErrorCode){
-      case 0 :
-
-      this.service.isTerminateOrdered=true;
-
-      setTimeout(() => {
-        //this.navCtrl.setRoot(TabsPage);
-        console.log( " this.service.productsOfCart "+this.service.productsOfCart);
-        this.service.productsOfCart=[];
-        this.service.countPackageInCart=0;
-        this.service.countProductsInCart=0;
-        this.service.isTerminateOrdered=false;
-        console.log( " this.service.productsOfCart "+this.service.productsOfCart);
-        this.app.getRootNav().setRoot(TabsPage);
-      }, 3000);
+      case 0 : isCreated = true;
       break;
       case -3: alert("משתמש לא נמצא")
       break;
 
-      case -10: alert("אינך מורשה להיכנס לאפליקציה");
+      case -10: alert("אינך מורשה לבצע הזמנה");
 
       break;
       default: alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
 
       break;
       }
-}
 
+if(isCreated){
+
+await this.proxy.CreatePDF(val.Result, this.customerEmail, this.service.signatureImage, this.service.signatureImage1)
+.then(res => {
+  switch(res.ErrorCode){
+    case 0 :
+
+    this.service.isTerminateOrdered=true;
+
+                setTimeout(() => {
+                  //this.navCtrl.setRoot(TabsPage);
+                  console.log( " this.service.productsOfCart "+this.service.productsOfCart);
+                  this.service.productsOfCart=[];
+                  this.service.packageInCart=new packageModel;
+                  this.service.countPackageInCart=0;
+                  this.service.countProductsInCart=0;
+                  this.service.isTerminateOrdered=false;
+                  console.log( " this.service.productsOfCart "+this.service.productsOfCart);
+                  this.app.getRootNav().setRoot(TabsPage);
+                }, 3000);
+
+    break;
+    case -3: alert("משתמש לא נמצא")
+    break;
+
+    case -10: alert("אינך מורשה לבצע הזמנה");
+
+    break;
+    default: alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+
+    break;
+    }
+})
+.catch()
+}
+}
 
   openSignatureModel(){
           this.events.subscribe('custom-user-events', (paramsVar) => {

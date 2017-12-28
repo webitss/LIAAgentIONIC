@@ -36,7 +36,9 @@ export class MyApp {
     events.subscribe('user:login', () => {
       this.showAlert();
     });
-  
+    window.addEventListener('native.keyboardshow', function(){
+      document.body.classList.add('keyboard-open');
+    });
     platform.ready().then(() => {
       this.keyboard.disableScroll(true);
       statusBar.styleDefault();

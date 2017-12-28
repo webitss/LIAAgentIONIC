@@ -143,6 +143,21 @@ createOrder(order: OrderObj): Promise<any>{
     }).toPromise();
   }
 
+  CreatePDF(orderId, email, customerSignatureData, liaSignatureData): Promise<any>{
+    let obj: any = new Object;
+    obj.iUserId=this.authUser.UserId;
+    obj.nvGuide=this.authUser.LoginGuide;
+    obj.orderId=orderId;
+    obj.email=email;
+    obj.customerSignatureData=customerSignatureData;
+    obj.liaSignatureData=liaSignatureData;
+    return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/CreatePDF`, {
+
+            obj
+
+          }).toPromise();
+  }
+
 }
 
 
