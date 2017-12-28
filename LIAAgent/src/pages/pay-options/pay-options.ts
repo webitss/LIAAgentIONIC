@@ -10,6 +10,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { App } from 'ionic-angular/components/app/app';
 import { EnterPage } from '../enter/enter';
 import { CheckboxRequiredValidator } from '@angular/forms/src/directives/validators';
+import { packageModel } from '../../models/packageModel';
 
 
 @Component({
@@ -55,7 +56,7 @@ export class PayOptionsPage {
       //this.navCtrl.setRoot(TabsPage);
       console.log( " this.service.productsOfCart "+this.service.productsOfCart);
       this.service.productsOfCart=[];
-      this.service.packageInCart=null;
+      this.service.packageInCart=new packageModel;
       this.service.countPackageInCart=0;
       this.service.countProductsInCart=0;
       this.service.isTerminateOrdered=false;
