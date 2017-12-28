@@ -73,10 +73,6 @@ export class LiaService {
             this.nowComponent = "menu";
             this.packages=[];
             this.productsOfCart = [];
-            this.postPackageProd(1);
-            this.postPackageProd(2);
-            this.postPackageProd(3);
-            this.postCategories();
             this.isPackageProductDetailed = false;
             this.isOuter = true;
             this.isInner = false;
@@ -92,9 +88,7 @@ export class LiaService {
             this.productsDetails=[];
             this.isAuthenticatedLocal = new athenticateModel;
             this.isAuthenticated =new athenticateModel;
-            this.customers.forEach(element => {
-                element.expanded=false;
-             });
+
             //#endregion
     }
 
@@ -176,13 +170,16 @@ this.allPosts();
                         this.packages[0].packageColor="bg-yellow";
                         this.packages[1].packageColor="bg-pink";
                         this.packages[2].packageColor="bg-green";
-                        console.log("this.packages "+this.packages);
+                        console.log("this.packages "+this.packages[0]);
                         break;
                     case "GetGaleryPictures":
                         this.galeryPictures = this.getData.Result;
                         break;
                     case "GetBaseStores":
                         this.customers = this.getData.Result;
+                        this.customers.forEach(element => {
+                            element.expanded=false;
+                         });
                         break;
                     }
                     // }
@@ -223,6 +220,10 @@ this.allPosts();
             this.post("GetAdditionalProducts");
             this.post("GetPackages");
             this.post("GetBaseStores");
+            this.postPackageProd(1);
+            this.postPackageProd(2);
+            this.postPackageProd(3);
+            this.postCategories();
         }
 
 

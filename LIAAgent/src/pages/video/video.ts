@@ -15,6 +15,7 @@ export class VideoPage {
     constructor(public service: LiaService,  public navParams: NavParams, public navCtrl: NavController) {
       this.productId= navParams.data.productId;
       service.getProductById(this.productId);
+      console.log("service.thisProductDetails "+service.thisProductDetails);
     }
 }
 

@@ -9,7 +9,7 @@
                 </ion-list-header>
 
                   <ion-content  #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 60vh">
-                        <ion-item *ngIf="this.service.packageInCart.PackageId" class="border-list">
+                        <ion-item *ngIf="this.service.packageInCart?.PackageId" class="border-list">
                                               חבילת
                         {{this.service.packageInCart.PackageName}}
                         מחיר:
