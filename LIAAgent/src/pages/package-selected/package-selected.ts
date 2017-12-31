@@ -61,6 +61,6 @@ else
 this.navCtrl.pop();
   }
   ionViewDidLeave(){
-    this.navCtrl.popToRoot();
+    //this.navCtrl.popToRoot();
    }
 }

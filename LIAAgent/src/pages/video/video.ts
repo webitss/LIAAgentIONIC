@@ -18,7 +18,8 @@ export class VideoPage {
       service.getProductById(this.productId);
          }
          ionViewDidLeave(){
-          this.navCtrl.popToRoot();
+         // this.navCtrl.popToRoot();
+         this.navCtrl.pop(this.navCtrl)
          }
 }
 
