@@ -51,7 +51,7 @@ $colors: (
  gray-color:      #f3f3f3,
  transpare: rgba(255, 0, 0, 0),
 
- 
+
 // my-color
 );
 // $darker: darken($colors,$amount);
@@ -159,7 +159,7 @@ $ionicons-font-path: "../assets/fonts";
 }
 
 .bg-transpare{
-	background:color($colors,transpare); 
+	background:color($colors,transpare);
 }
 
 // bg-color
