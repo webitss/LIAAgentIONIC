@@ -327,7 +327,7 @@ if(element != null){
     for (let i = 0; i < this.products.length; i++)
       if (this.products[i].ProductId == id) {
         this.thisProductDetails = this.products[i];
-        this.productsDetails[0] =this.products[i];
+        this.productsDetails[0] = this.products[i];
         i = this.products.length;
       }
   }

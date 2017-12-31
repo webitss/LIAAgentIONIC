@@ -39,8 +39,8 @@ this.isSliderFunc();
  this.navCtrl.push(VideoPage,{ productId: this.productId } );
  }
 
- AddToCart(){
-  this.service.clickAddToCart(this.service.thisProductDetails);
+ AddToCart(pr){
+  this.service.clickAddToCart(pr);
 if(this.service.addProductToCart){
   this.service.addProductToCart = false;
 this.navCtrl.parent.select(this.TabsEnum.cart);
@@ -55,6 +55,7 @@ for(let i=0; i<this.service.products.length; i++){
   if(this.service.products[i].ProductId != this.service.productsDetails[0].ProductId)
 this.service.productsDetails.push(this.service.products[i]);
 }
+this.service.productsDetails.push(this.service.products[this.service.products.length-1]);
  }
 
  slideChanged()

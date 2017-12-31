@@ -195,7 +195,7 @@ result;
     this.customerD.LogoUrl = this.imageURI?this.imageURI :this.StoreObj.LogoUrl;
     this.customerD.OpenHours = frm.OpeningHours ? frm.OpeningHours : this.StoreObj.OpenHours;
     this.customerD.MinPriceToTicket = frm.min ? frm.min : this.StoreObj.MinPriceToTicket;
-    if (this.StoreObj){
+    if (this.StoreObj.StoreId){
        this.service.updateFrmBusiness(this.customerD);
     }
     else{
