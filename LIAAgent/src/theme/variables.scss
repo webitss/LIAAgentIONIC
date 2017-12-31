@@ -50,8 +50,11 @@ $colors: (
  red-color:       #ed1c24,
  gray-color:      #f3f3f3,
  transpare: rgba(255, 0, 0, 0),
+
+ 
 // my-color
 );
+$darker: darken($colors,$amount);
 
 $list-md-border-color:transparent;
 $button-md-border-radius:15px;
