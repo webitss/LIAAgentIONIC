@@ -60,5 +60,7 @@ this.service.changePackage = false;
 else
 this.navCtrl.pop();
   }
-
+  ionViewDidLeave(){
+    this.navCtrl.popToRoot();
+   }
 }

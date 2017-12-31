@@ -65,5 +65,7 @@ this.service.productsDetails.push(this.service.products[i]);
   else this.nextDisabled=false;
   if(currIndex==0)this.prevDisabled=true;
  }
-
+ ionViewDidLeave(){
+  this.navCtrl.popToRoot();
+ }
 }

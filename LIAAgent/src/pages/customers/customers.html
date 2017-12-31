@@ -54,8 +54,9 @@
        <ion-row justify-content-center>
          <ion-col align-self-center>
        <form class="form-50">
-          <ion-searchbar type="search" placeholder=" חיפוש לקוח קיים" (input)="onSearchInput($event)" color="green-color"></ion-searchbar>
-           <button ion-button block type="button" color="green-color" (click)="routeToCart(this.service.customerDetails.StoreId)"  >{{valueButton}}</button>
+          <ion-input type="search"  placeholder=" חיפוש לקוח קיים" (input)="onSearchInput($event)" color="green-color"></ion-input>
+          <button ion-button block type="button" color="green-color" (click)="routeToCart(this.service.customerDetails.StoreId)"  >{{valueButton}}</button>
+           
         </form>
       </ion-col>
       </ion-row>
