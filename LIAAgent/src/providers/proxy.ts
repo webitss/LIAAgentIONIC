@@ -141,37 +141,24 @@ createOrder(order: OrderObj): Promise<any>{
     }).toPromise();
   }
 
-  CreatePDF(orderId: number, email, customerSignatureData, liaSignatureData): Promise<any>{
-    let obj: any = new Object;
-    obj.iUserId=this.authUser.UserId;
-    obj.nvGuide=this.authUser.LoginGuide;
-    obj.orderId=orderId;
-    obj.email=email;
-    obj.customerSignatureData=customerSignatureData.replace(/^data:image\/(png|jpg|PNG|JPG);base64,/, "");
-    obj.liaSignatureData=liaSignatureData.replace(/^data:image\/(png|jpg|PNG|JPG);base64,/, "");
+
+  CreatePDF(orderId, email, customerSignatureData, liaSignatureData): Promise<any>{
+    let iUserId=this.authUser.UserId;
+    let nvGuide=this.authUser.LoginGuide;
+    customerSignatureData=customerSignatureData.replace(/^data:image\/(png|jpg|PNG|JPG);base64,/, "");
+    liaSignatureData=liaSignatureData.replace(/^data:image\/(png|jpg|PNG|JPG);base64,/, "");
     return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/CreatePDF`, {
 
-            obj
+      "iUserId": iUserId,
+      "nvGuide": nvGuide,
+      "orderId": orderId,
+      "email": email,
+      "customerSignatureData": customerSignatureData,
+      "liaSignatureData": liaSignatureData
 
           }).toPromise();
   }
 
-  // CreatePDF(): Promise<any>{
-
-  //   return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/CreatePDF`, {
-
-  //    obj: {
-  //       "iUserId": 13,
-  //       "orderId": 4,
-  //       "nvGuide": "D268685B-94C7-44EB-9BD2-762FE18A9FA8",
-  //       "email": "b.k@webit-sys.com",
-  //       "customerSignatureData": "BAS64 STRING",
-  //       "liaSignatureData": "BAS64 STRING"
-  //     }
-
-
-  //         }).toPromise();
-  // }
 
 }
 
