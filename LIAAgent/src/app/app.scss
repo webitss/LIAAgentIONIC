@@ -1,5 +1,7 @@
 $transition-normal:all 1s ease;
-
+body.keyboard-is-open ion-tabs {
+  display: none;
+}
  .grid  {
   height: 100%;
   width: 95%;

@@ -25,7 +25,7 @@ this.service.nowComponent="דף הבית";
 
 this.service.isNowInPageLogin=false;
     this.hour= this.date.getHours();
-         console.log(this.hour);
+        
              if(this.hour>=6&&this.hour<12 )
               this.Congratulations="בוקר טוב";
               else if(this.hour>=12&&this.hour<=14)
