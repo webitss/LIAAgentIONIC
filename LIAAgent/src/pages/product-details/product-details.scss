@@ -43,6 +43,14 @@ page-product-details {
         border-bottom: 2px solid color($colors, light-blue-color);
         border-top: 2px solid color($colors, light-blue-color);
         margin: 20px auto;
+
+        span{ font-size: 4rem;
+
+        }
+        p{
+            width: 60%;
+            display:block;
+        }
     }
     ion-item:nth-child(2){
         .item-1{
