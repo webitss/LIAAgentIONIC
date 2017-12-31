@@ -27,7 +27,7 @@
              </ion-navbar>
 </ion-header>
 
-<ion-tabs #menuTabs  [selectedIndex]="tabsIndex" preloadTabs="false">
+<ion-tabs *ngIf="service.valueforngif" #menuTabs  [selectedIndex]="tabsIndex" preloadTabs="false">
 
   <ion-tab  [root]="tab1Root" tabIcon="icon-gallery" (ionSelect)="clickTab()" > </ion-tab>
   <ion-tab  [root]="tab2Root" tabIcon="icon-packages" (ionSelect)="clearHistory($event)"></ion-tab>

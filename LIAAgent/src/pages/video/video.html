@@ -1,24 +1,24 @@
- <!-- <ion-header >
-
-    <ion-navbar hideBackButton>
-      <page-header></page-header>
-    </ion-navbar>
-
-  </ion-header> -->
-
-
-  <!-- <ion-content> -->
-
-    <!-- <div> -->
-      <div>hghfgdf</div>
-      <input type="button" value="x" (click)="this.navCtrl.pop(this.navCtrl)"/>
-      <video width="1500" height="700" autoplay controls>
-        <source [src]="service.thisProductDetails.VideoUrl" type="video/mp4 "> 
+   <ion-content padding >
+      <ion-grid >
+          <ion-row align-items-center  justify-content-center>
+            <ion-col ></ion-col>
+  
+  
+   <ion-col col-10 text-center class="full-height"> 
+       <video width="" height="100%"  controls>
+      <source [src]="service.thisProductDetails.VideoUrl" type="video/mp4 "> 
       </video>
-     
-  <!-- </div> -->
-  <!-- </ion-content> -->
-<!--  <source src="../../assets/imgs/VID-20171219-WA0090.mp4" type="video/mp4 ">  -->
+      </ion-col>
+
+      <ion-col align-self-start> 
+        <button class="icon-arrow" float-left (click)="this.navCtrl.pop(this.navCtrl)">
+          <i class="icon-icon-x_Artboard-2-01"></i>
+          </button>
+        </ion-col>
+          </ion-row>
+      </ion-grid>
+    </ion-content>
+ <!--  <source src="../../assets/imgs/VID-20171219-WA0090.mp4" type="video/mp4 ">  -->
 
   <!-- <source src="../../assets/2017-11-01-VIDEO-00000908.mp4" type="video/mp4 "> -->
             <!-- <source [src]="this.service.thisProductDetails.VideoUrl" type="video/mp4 "> -->

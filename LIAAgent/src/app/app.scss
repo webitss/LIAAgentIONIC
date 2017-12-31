@@ -1,11 +1,17 @@
 $transition-normal:all 1s ease;
-
+body.keyboard-is-open ion-tabs {
+  display: none;
+}
  .grid  {
   height: 100%;
   width: 95%;
    & .row{ height: 100%;}
 
  }
+
+.full-height
+{height:100%
+}
  
  .alert-md .alert-button {
   color: #16264e;}
@@ -30,6 +36,10 @@ ion-input, ion-textarea {
 input, textarea, select, button{
   font-size:16px;
 }
+h3{
+ color: color($colors, blue-color); 
+}
+ion-input{border-color:  color($colors, blue-color);}
 .border-input{
 border: 1px solid color($colors, blue-color);
 border-radius: 15px

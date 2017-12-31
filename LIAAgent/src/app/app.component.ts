@@ -36,14 +36,22 @@ export class MyApp {
     events.subscribe('user:login', () => {
       this.showAlert();
     });
-  
+    // window.addEventListener('native.keyboardshow', function(){
+    //   document.body.classList.add('keyboard-open');
+    // });
     platform.ready().then(() => {
+
+      // this.keyboard.onKeyboardShow().subscribe(() => {
+      //   document.body.classList.add('keyboard-is-open');
+      // });
+      // this.keyboard.onKeyboardHide().subscribe(() => {
+      //   document.body.classList.remove('keyboard-is-open');
+      // });
+
       this.keyboard.disableScroll(true);
       statusBar.styleDefault();
       splashScreen.hide();
       platform.setDir('rtl', true);
-
-
       platform.registerBackButtonAction(() => {
         let nav = this.app.getActiveNav();
         if (nav.canGoBack()) {

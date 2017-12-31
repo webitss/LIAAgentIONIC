@@ -31,7 +31,7 @@ export class CartPage {
     //  this.StoreId = navParams.get('StoreId');
     //  console.log(this.StoreId);
      this.StoreId = this.navParams.data.storeId;
-     console.log(this.StoreId);
+    
     }
 
 
@@ -41,9 +41,9 @@ export class CartPage {
     this.service.nowComponent = "סל";
     let storeId = this.navParams.data.storeId;
     //this.StoreId = this.navParams.get('StoreId');
-    console.log("storeId param"+storeId);
+    
     this.StoreId = storeId;
-    console.log(this.StoreId);
+    
     // if(this.service.customerDetails.StoreId != null)
     // this.StoreId = this.service.customerDetails.StoreId;
   }
@@ -67,13 +67,11 @@ scrollingFun(e){
   document.getElementById('demoBtn').click();
   }
 let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
-console.log("contentHeight",this.contentHandle.getContentDimensions().contentHeight);
-console.log("scrollHeight", this.contentHandle.ionScrollEnd);
-console.log(this.contentHandle.scrollTop,this.arrowDown)
+
   // if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-remainder)){
     if(this.contentHandle.scrollTop > this.contentHandle.getContentDimensions().contentHeight){
   this.arrowDown = false;
-console.log("it is false");
+
   document.getElementById('demoBtn').click();
    }
   else

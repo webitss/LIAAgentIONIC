@@ -10,10 +10,13 @@
 
 <ion-content padding>
 
-          <form [formGroup]="frmPersonal" (ngSubmit)="onGoToBusinessFormPage(frmPersonal.value, this.StoreId)" >
+          <form  [formGroup]="frmPersonal" (ngSubmit)="onGoToBusinessFormPage(frmPersonal.value, this.StoreId)" class="full-height">
               <ion-grid>
-                  <h3 color="blue-color" padding-left> פרטים אישיים</h3>
-                  <ion-row>
+                <ion-row justify-content-center >
+                  <ion-col  align-self-center>
+                  <h3  padding-left> פרטים אישיים</h3>
+                  <ion-row align-items-center >
+                  
                       <ion-col col-9>
         <ion-row>
                   <ion-col>
@@ -68,6 +71,8 @@
                         </ion-col>
 
                       </ion-row>
+                    </ion-col>
+                    </ion-row>
               </ion-grid>
             </form>
 

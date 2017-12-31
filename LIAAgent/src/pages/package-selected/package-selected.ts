@@ -45,7 +45,7 @@ export class PackageSelectedPage {
   {
      this.service.isPackageProductDetailed=!this.service.isPackageProductDetailed;
      this.product=product;
-     console.log(this.product);
+     
   }
   routeToVideo()
   {

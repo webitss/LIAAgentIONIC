@@ -59,7 +59,7 @@ export class LiaService {
             changePackage:boolean = false;
             addProductToCart:boolean = false;
             isAuthenticatedLocal: athenticateModel;
-
+            valueforngif:boolean=true;
          //#endregion
         constructor(private proxy: LiaProxy) {
           //#region initialize

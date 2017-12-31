@@ -1,11 +1,18 @@
 tabs{
+    // body.keyboard-is-open.ion-tabbar {
+    //     display: none;
+    //   }
+      
+    //   body.keyboard-is-open.scroll-content {
+    //     margin-bottom: 0 !important;
+    //   }
     // $toolbar-md-active-color: green;
     // $tab-button-md-active-color: color($colors, dark);
 
-//     ion-app.md [padding], ion-app.md [padding] .scroll-content
-// {
-//     padding-top:30px;
-// }
+    //     ion-app.md [padding], ion-app.md [padding] .scroll-content
+    // {
+    //     padding-top:30px;
+    // }
     // #notification-button {            
     //     position: relative;
     //     width: 42px;
@@ -64,8 +71,6 @@ tabs{
     }
 
     .logo-header {
-        // top: 50%;
-        // position: absolute;
         -webkit-transform: translatey(0%) scale(0.6);
         transform: translatey(0%) scale(0.6);
         
@@ -76,14 +81,13 @@ tabs{
         margin-left: 6%;
         color: white;
         font-size: 2rem;
-        // line-height: 11vh;
+
     }
 
     .header-name {
         color: #fff;
         text-align: center;
         font-size: 1.4em;
-        // line-height: 11vh;
         margin: 0;
     }
 
@@ -103,7 +107,7 @@ tabs{
         
     }
     .bar-button-default-md:hover:not(.disable-hover), .bar-button-clear-md-default:hover:not(.disable-hover), .bar-button-md-default:hover:not(.disable-hover) {
-        color: #cecece;
+        color: #a0a0a0;
     }
 
 
