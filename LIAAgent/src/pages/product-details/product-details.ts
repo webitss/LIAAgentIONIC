@@ -27,6 +27,7 @@ export class ProductDetailsPage {
     this.productId= navParams.data.productId;
     this.service.getProductById(this.productId);
 this.isSliderFunc();
+
   }
 
   ionViewDidEnter(){

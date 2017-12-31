@@ -39,8 +39,9 @@
                          <span float-right>
                          {{pr.Duration}}</span>
 
-                         <span  float-left>
-                       {{pr.DurationText}}</span>
+                         <span  float-left *ngFor="let split of pr.DurationText.split(' ')">
+                       {{split}}
+                      <br></span>
                        </ion-item>
                        <ion-item>
 
