@@ -24,7 +24,7 @@
             <p> {{product?.ProductLongName}}</p>
             <p> {{product?.ProductName}}</p>
             <!-- <i [src]="product?.IcoUrl"></i> -->
-            <button ion-button  block *ngIf="product.VideoUrl" type="button" (click)="routeToVideo()" class="btn-white" [style.color]="nowPackage.packageColor=='bg-yellow' ? '#f1bf1c ' : (nowPackage.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">לצפיה
+            <button ion-button  block *ngIf="product.VideoUrl" type="button" (click)="routeToVideo()" class="btn-white" [style.color]="nowPackage.packageColor=='bg-yellow' ? '#f1bf1c ' : (nowPackage.packageColor=='bg-green' ? '#7ec141 ':(nowPackage.packageColor=='bg-pink' ? '#e12468 ':'black'))">לצפיה
                 <i class="icon-arrow-left-03" margin-right ></i>
             </button>
           
@@ -39,19 +39,22 @@
           </ion-col>
 
           <ion-col class="bg-yellow part-4" [ngClass]="{'bg-pink':nowPackage.packageColor=='bg-pink','bg-green':nowPackage.packageColor=='bg-green'}"  [ngClass]="{'col-2':!service.isPackageProductDetailed,'col-1':service.isPackageProductDetailed}">
-             <ion-row>
+             <ion-row align-items-start justify-content-start >
 
-                <ion-col col-12 align-self-start no-padding>
+                <ion-col col-12 >
                     <button  float-left class="btn-font-transparent" (click)="navCtrl.pop(navCtrl)" >
                       <i class="icon-icon-x_Artboard-2-01 "></i>
-                    </button>
-                    <button float-left margin-left class="btn-font-transparent" *ngIf="service.isPackageProductDetailed" (click)="details()">
+                    </button> </ion-col>
+
+                    <ion-col col-12 class="height-auto" *ngIf="service.isPackageProductDetailed">   
+                    <button float-left  class="btn-font-transparent" (click)="details()">
                       <i class="icon-arrow-right-02"></i>
                     </button>
-                  </ion-col>
+                    </ion-col>
+                 
 
-               <ion-col col-12 align-self-start>
-            <button ion-button  block  type="button" *ngIf="!service.isPackageProductDetailed" 
+               <ion-col col-12 align-self-start *ngIf="!service.isPackageProductDetailed" >
+            <button ion-button  block  type="button" 
               class="btn-white"  (click)="this.BackToCart();this.service.clickAddPackageToCart(nowPackage)" [style.color]="nowPackage.packageColor=='bg-yellow' ? '#f1bf1c ' : (nowPackage.packageColor=='bg-green' ? '#7ec141 ':(nowPackage.packageColor=='bg-pink' ? '#e12468 ':'black'))">
             הוסף לסל</button>
           </ion-col>
