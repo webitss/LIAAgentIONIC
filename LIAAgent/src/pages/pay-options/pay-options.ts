@@ -23,6 +23,7 @@ export class PayOptionsPage {
   frmPay: FormGroup;
   StoreId: number;
   customerEmail:string;
+  isClicked: boolean = false;
 
    constructor(public navCtrl: NavController,
      public navParams: NavParams,
@@ -56,6 +57,8 @@ export class PayOptionsPage {
 
 
 async resetAll(){
+console.log(this.service.signatureImage);
+this.isClicked = true;
 let isCreated: boolean = false;
 let val;
 val=await this.service.creatOrder(this.StoreId);
@@ -70,7 +73,6 @@ switch(val.Error.ErrorCode){
 
       break;
       default: alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
-
       break;
       }
 
@@ -103,7 +105,7 @@ await this.proxy.CreatePDF(val.Result, this.customerEmail, this.service.signatur
 
     break;
     default: alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
-
+    console.log(res.ErrorMessage);
     break;
     }
 })
