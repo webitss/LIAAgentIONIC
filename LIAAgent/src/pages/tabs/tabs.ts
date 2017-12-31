@@ -1,3 +1,4 @@
+import { Platform } from 'ionic-angular';
 //import { SassHelperComponent } from './../../components/sass-helper/sass-helper';
 import { TabsEnum } from './../../models/tabs-enum';
 import { Events } from 'ionic-angular/util/events';
@@ -14,6 +15,7 @@ import { CustomersPage } from '../customers/customers';
 //import { BusinessFormPage } from '../business-form/business-form';
 import { Tabs, NavParams } from 'ionic-angular';
 import { LiaProxy } from '../../providers/proxy';
+import { Keyboard } from '@ionic-native/keyboard';
 //import { Popup2Page } from '../popup2/popup2';
 //import { LoginPage } from '../login/login';
 //import { first } from 'rxjs/operator/first';
@@ -40,12 +42,31 @@ export class TabsPage {
   StoreId: number;
   colorM:string;
   myContainer: { storeId?: any } = {};
-   constructor(private nav : NavController,public params: NavParams,public service: LiaService,public events: Events) {
+   constructor(private nav : NavController,public params: NavParams,public service: LiaService,public events: Events,public platform:Platform,public keyboard:Keyboard) {
     this.params = params.data;
     this.params = params;
 
-        console.log(this.service.nowComponent); // returns NavParams {data: Object}
-    this.StoreId = this.params.data;
+     // returns NavParams {data: Object}
+
+    // this.StoreId = this.params.data;
+  //   this.keyboard.onKeyboardShow().subscribe(() => {
+  //     console.log("onKeyboardShow");
+  //  });
+    this.platform.ready().then(() => {
+      this.keyboard.onKeyboardShow().subscribe(() => {console.log('keyboard is shown');this.valueforngif=false; });
+      this.keyboard.onKeyboardHide().subscribe(()=>{console.log('keyboard is hidden');this.valueforngif=true});
+      console.log("this.keyboard.show "+this.keyboard.show);
+      
+      });
+    // platform.ready().then(() => {
+      // keyboard.onKeyboardShow().subscribe(() => {
+      //     document.body.classList.add('keyboard-is-open');
+      // });
+
+      // keyboard.onKeyboardHide().subscribe(() => {
+      //     document.body.classList.remove('keyboard-is-open');
+      // });
+// });
       }
 
 
@@ -54,12 +75,22 @@ export class TabsPage {
      ev.popToRoot();
   }
   clickTab(){
-    console.log(this.service.nowComponent);
+    // console.log(this.service.nowComponent);
   }
+  valueforngif:boolean=true;
 
 ionViewDidEnter(){
- 
-
+  console.log("this.valueforngif "+this.valueforngif);
+  // this.platform.ready().then(() => {
+  // this.keyboard.onKeyboardShow().subscribe(() => {
+  //   console.log('keyboard is shown');
+  //    });
+  // this.keyboard.onKeyboardHide().subscribe(()=>{this.valueforngif=true});
+  // console.log("this.keyboard"+this.keyboard);
+  // console.log("this.valueforngif"+this.valueforngif);
+  // console.log("this.platform"+this.platform);
+  
+  // });
 }
   showConfirmAlert() {
     this.events.publish('user:login');

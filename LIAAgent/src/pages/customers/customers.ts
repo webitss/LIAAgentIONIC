@@ -53,7 +53,7 @@ export class CustomersPage {
 
 
   scrollingFun(e){
-console.log("enter");
+
   if(this.contentHandle.scrollTop >= 10){
   // if(this.arrowUp != true)
   this.arrowUp=true;//show up arrow
@@ -141,7 +141,7 @@ getCustomerDetails(item){
           listItem.expanded = !listItem.expanded;
           this.service.postStoreDetails(item.StoreId);
         // this.customerChoosed=item;
-          console.log(item);
+        
       } else {
           listItem.expanded = false;
       }

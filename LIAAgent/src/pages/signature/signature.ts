@@ -83,7 +83,7 @@ uploadFile() {
   
   fileTransfer.upload(this.service._signature, 'http://www.webit-sys.com/img/projects/project-3.jpg', options)
     .then((data) => {
-    console.log(data+" Uploaded Successfully");
+   
     this.imageFileName = "http://www.webit-sys.com/img/projects/project-3.jpg"
     loader.dismiss();
     this.presentToast("Image uploaded successfully");
