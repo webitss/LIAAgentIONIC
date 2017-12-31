@@ -108,6 +108,7 @@ upDateStoreDetails(customerDtl: customerDetailsModel): Promise<any>{
   obj.UserId=this.authUser.UserId;
   obj.nvGuide=this.authUser.LoginGuide;
   obj.ReqObj=customerDtl;
+console.log(obj);
   return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/UpdateStore `, {
 
       obj
