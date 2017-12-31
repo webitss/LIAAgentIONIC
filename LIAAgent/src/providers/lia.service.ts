@@ -132,7 +132,7 @@ this.isAuthenticatedLocal=value;
 console.log(this.isAuthenticated);
 }
 
-getLocalStorage(){
+async getLocalStorage(){
   // return sessionStorage.getItem('user');
 let value = JSON.parse(localStorage.getItem("user"));
 if(value){
@@ -146,7 +146,8 @@ this.isAuthenticated.LoginGuide=this.isAuthenticatedLocal.LoginGuide;
 this.isAuthenticated.UserId=this.isAuthenticatedLocal.UserId;
 this.isAuthenticated.UserName=this.isAuthenticatedLocal.UserName;
 this.isAuthenticated.UserType=this.isAuthenticatedLocal.UserType;
-this.proxy.authUser=this.isAuthenticated;
+this.proxy.authUser.UserId=this.isAuthenticated.UserId;
+this.proxy.authUser.LoginGuide=this.isAuthenticated.LoginGuide;
 this.allPosts();
 }
 }
