@@ -45,28 +45,14 @@ export class TabsPage {
    constructor(private nav : NavController,public params: NavParams,public service: LiaService,public events: Events,public platform:Platform,public keyboard:Keyboard) {
     this.params = params.data;
     this.params = params;
-
-     // returns NavParams {data: Object}
-
-    // this.StoreId = this.params.data;
-  //   this.keyboard.onKeyboardShow().subscribe(() => {
-  //     console.log("onKeyboardShow");
-  //  });
+ 
     this.platform.ready().then(() => {
       this.keyboard.onKeyboardShow().subscribe(() => {console.log('keyboard is shown');this.valueforngif=false; });
       this.keyboard.onKeyboardHide().subscribe(()=>{console.log('keyboard is hidden');this.valueforngif=true});
       console.log("this.keyboard.show "+this.keyboard.show);
       
       });
-    // platform.ready().then(() => {
-      // keyboard.onKeyboardShow().subscribe(() => {
-      //     document.body.classList.add('keyboard-is-open');
-      // });
-
-      // keyboard.onKeyboardHide().subscribe(() => {
-      //     document.body.classList.remove('keyboard-is-open');
-      // });
-// });
+   
       }
 
 
@@ -81,16 +67,7 @@ export class TabsPage {
 
 ionViewDidEnter(){
   console.log("this.valueforngif "+this.valueforngif);
-  // this.platform.ready().then(() => {
-  // this.keyboard.onKeyboardShow().subscribe(() => {
-  //   console.log('keyboard is shown');
-  //    });
-  // this.keyboard.onKeyboardHide().subscribe(()=>{this.valueforngif=true});
-  // console.log("this.keyboard"+this.keyboard);
-  // console.log("this.valueforngif"+this.valueforngif);
-  // console.log("this.platform"+this.platform);
-  
-  // });
+ 
 }
   showConfirmAlert() {
     this.events.publish('user:login');
