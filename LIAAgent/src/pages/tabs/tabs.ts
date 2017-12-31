@@ -46,12 +46,12 @@ export class TabsPage {
     this.params = params.data;
     this.params = params;
  
-    this.platform.ready().then(() => {
-      this.keyboard.onKeyboardShow().subscribe(() => {console.log('keyboard is shown');this.valueforngif=false; });
-      this.keyboard.onKeyboardHide().subscribe(()=>{console.log('keyboard is hidden');this.valueforngif=true});
-      console.log("this.keyboard.show "+this.keyboard.show);
+    // this.platform.ready().then(() => {
+      // this.keyboard.onKeyboardShow().subscribe(() => {console.log('keyboard is shown');this.valueforngif=false; });
+      // this.keyboard.onKeyboardHide().subscribe(()=>{console.log('keyboard is hidden');this.valueforngif=true});
+      // console.log("this.keyboard.show "+this.keyboard.show);
       
-      });
+      // });
    
       }
 

@@ -2,7 +2,7 @@ import { TabsPage } from './../tabs/tabs';
 import { Signature1Page } from './../signature1/signature1';
 import { FormOfUsePage } from './../form-of-use/form-of-use';
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
 import {SignaturePage} from '../signature/signature'
 import { Events } from 'ionic-angular/util/events';
@@ -28,7 +28,7 @@ export class PayOptionsPage {
    constructor(public navCtrl: NavController,
      public navParams: NavParams,
      public service:LiaService,
-     public modalController:ModalController,public events:Events,public app :App, public proxy: LiaProxy) {
+     public modalController:ModalController,public events:Events,public app :App, public proxy: LiaProxy,public loadingCtrl: LoadingController) {
         service.nowComponent="תשלום";
      this.frmPay = new FormGroup({
           formOfUse: new FormControl(false, Validators.requiredTrue)
@@ -58,6 +58,10 @@ export class PayOptionsPage {
 
 async resetAll(){
 console.log(this.service.signatureImage);
+let loader = this.loadingCtrl.create({
+  content: "Uploading..."
+});
+loader.present();
 this.isClicked = true;
 let isCreated: boolean = false;
 let val;
@@ -66,13 +70,16 @@ console.log(val);
 switch(val.Error.ErrorCode){
       case 0 : isCreated = true;
       break;
-      case -3: alert("משתמש לא נמצא")
+      case -3: loader.dismiss();
+      alert("משתמש לא נמצא")
       break;
 
-      case -10: alert("אינך מורשה לבצע הזמנה");
+      case -10: loader.dismiss();
+      alert("אינך מורשה לבצע הזמנה");
 
       break;
-      default: alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+      default:loader.dismiss();
+       alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
       break;
       }
 
@@ -82,9 +89,8 @@ await this.proxy.CreatePDF(val.Result, this.customerEmail, this.service.signatur
 .then(res => {
   switch(res.ErrorCode){
     case 0 :
-
     this.service.isTerminateOrdered=true;
-
+    loader.dismiss();
                 setTimeout(() => {
                   //this.navCtrl.setRoot(TabsPage);
                   console.log( " this.service.productsOfCart "+this.service.productsOfCart);
@@ -97,13 +103,20 @@ await this.proxy.CreatePDF(val.Result, this.customerEmail, this.service.signatur
                 }, 3000);
 
     break;
-    case -3: alert("משתמש לא נמצא")
+    case -3:
+    loader.dismiss();
+     alert("משתמש לא נמצא")
+    
     break;
 
-    case -10: alert("אינך מורשה לבצע הזמנה");
+    case -10:
+    loader.dismiss();
+     alert("אינך מורשה לבצע הזמנה");
 
     break;
-    default: alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+    default: 
+    loader.dismiss();
+    alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
     console.log(res.ErrorMessage);
     break;
     }

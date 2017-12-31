@@ -78,7 +78,7 @@ import { CookieService } from 'ngx-cookie-service';
   ],
   imports: [
     BrowserModule,SignaturePadModule,
-    IonicModule.forRoot(MyApp, { scrollAssist: true, autoFocusAssist: true } ),
+    IonicModule.forRoot(MyApp, { scrollAssist: true, autoFocusAssist: false } ),
     //IonicModule.forRoot(MyApp),
     HttpClientModule, FormsModule,ReactiveFormsModule,
     LongPressModule
