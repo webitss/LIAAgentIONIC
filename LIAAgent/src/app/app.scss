@@ -103,6 +103,10 @@ border-radius: 15px
   height: 106px;
 }
 
+.btn-white:hover:not(.disable-hover) {
+  background-color:$darker(primary,30%);
+}
+
 
 
 

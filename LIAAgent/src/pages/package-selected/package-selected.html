@@ -24,7 +24,7 @@
             <p> {{product?.ProductLongName}}</p>
             <p> {{product?.ProductName}}</p>
             <!-- <i [src]="product?.IcoUrl"></i> -->
-            <button ion-button  block *ngIf="product.VideoUrl" type="button" (click)="routeToVideo()" class="btn-white" [style.color]="nowPackage.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">לצפיה
+            <button ion-button  block *ngIf="product.VideoUrl" type="button" (click)="routeToVideo()" class="btn-white" [style.color]="nowPackage.packageColor=='bg-yellow' ? '#f1bf1c ' : (nowPackage.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">לצפיה
                 <i class="icon-arrow-left-03" margin-right ></i>
             </button>
           
