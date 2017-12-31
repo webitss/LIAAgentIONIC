@@ -1,16 +1,16 @@
-   <ion-content>
+   <ion-content padding >
       <ion-grid >
-          <ion-row align-items-center align-self-center >
+          <ion-row align-items-center  justify-content-center>
             <ion-col ></ion-col>
   
   
-   <ion-col col-10> 
+   <ion-col col-10 text-center class="full-height"> 
        <video width="" height="100%"  controls>
       <source [src]="service.thisProductDetails.VideoUrl" type="video/mp4 "> 
       </video>
       </ion-col>
 
-      <ion-col > 
+      <ion-col align-self-start> 
         <button class="icon-arrow" float-left (click)="this.navCtrl.pop(this.navCtrl)">
           <i class="icon-icon-x_Artboard-2-01"></i>
           </button>

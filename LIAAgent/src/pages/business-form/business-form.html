@@ -1,10 +1,12 @@
 <ion-content padding>
   <!-- <button ion-button (click) = "onGoToPayOptionsPage()"> Push </button> -->
 
-            <form [formGroup]="frmBusiness" (ngSubmit)="this.submitFrmBusiness(frmBusiness.value)" *ngIf="!this.anotherDetails">
+            <form [formGroup]="frmBusiness" (ngSubmit)="this.submitFrmBusiness(frmBusiness.value)" *ngIf="!this.anotherDetails" class="full-height" >
                 <ion-grid>
-  <h3 color="light-blue-color" padding-left> פרטי עסק</h3>
-              <ion-row >
+                    <ion-row justify-content-center >
+                        <ion-col  align-self-center>
+          <h3  padding-left> פרטי עסק</h3>
+              <ion-row align-items-center>
                   <ion-col col-9>
               <ion-row>
                   <ion-col>
@@ -59,14 +61,18 @@
                              <button ion-button type="submit" color="blue-color" block class="height-button-w">המשך</button>
                           </ion-col>
                           </ion-row>
+                        </ion-col>
+                    </ion-row>
                 </ion-grid>
             </form>
 
 
-          <form [formGroup]="frmMoredetails"  *ngIf="this.anotherDetails">
+          <form [formGroup]="frmMoredetails"  *ngIf="this.anotherDetails" class="full-height">
 
 
       <ion-grid>
+          <ion-row justify-content-center >
+              <ion-col  align-self-center>
         <ion-row>
             <ion-col col-1><p >לוגו</p></ion-col>
 
@@ -103,6 +109,8 @@
           <button no-margin block  color="blue-color" class="height-button-w" ion-button type="submit" block [disabled]="!(this.frmMoredetails.valid) && !this.StoreObj" (click)="this.submitFrmMoreBusiness(this.frmMoredetails.value);onGoToPayOptionsPage()">המשך</button>
             </ion-col>
         </ion-row>
+              </ion-col>
+          </ion-row>
         </ion-grid>
           </form>
 
