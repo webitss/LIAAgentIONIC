@@ -1,19 +1,12 @@
-//import { CustomersPage } from './../pages/customers/customers';
-
-//import { LiaService } from './../providers/lia.service';
-//import { TabsPage } from './../pages/tabs/tabs';
 import { LoginPage } from './../pages/login/login';
 import { Component } from '@angular/core';
 import { Platform, AlertController, App, Alert } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Keyboard } from '@ionic-native/keyboard';
 import { SplashScreen } from '@ionic-native/splash-screen';
-//import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Events } from 'ionic-angular/util/events';
 import { LiaProxy } from '../providers/proxy';
 import { Config } from 'ionic-angular/config/config';
-//import { EnterPage } from '../pages/enter/enter';
-//import { ProductsPage } from '../pages/products/products';
 //import { ViewChild } from '@angular/core';
 
 @Component({
@@ -23,8 +16,8 @@ export class MyApp {
   rootPage:any = LoginPage;
   //@ViewChild(Nav) nav: Nav;
 
-  alert: Alert;
-  constructor(public platform: Platform,
+    alert: Alert;
+    constructor(public platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     private alertCtrl: AlertController,
@@ -38,13 +31,13 @@ export class MyApp {
     });
    
     platform.ready().then(() => {
-      this.keyboard.disableScroll(false);
+      this.keyboard.disableScroll(true);
     
       
       statusBar.styleDefault();
-      splashScreen.hide();
+     // splashScreen.hide();
       platform.setDir('rtl', true);
-    //   
+      
 
       platform.registerBackButtonAction(() => {
         let nav = this.app.getActiveNav();
@@ -96,18 +89,6 @@ export class MyApp {
   }
 
   activePageNow:any;
-  // routeToHome(){
-  //    this.nav.push(EnterPage);
-  //   //console.log(this.navCtrl.getActive().name);
-  //   // console.log(this.app.getActiveNav().getViews()[0].name);
-
-  //  }
-// ionViewDidEnter(){
-//   this.platform.ready().then(() => { this.keyboard.disableScroll(true); });
-//  }
-//  ionViewDidLeave(){
-//   this.platform.ready().then(() => { this.keyboard.disableScroll(false); });
-//  }
 }
 
 
