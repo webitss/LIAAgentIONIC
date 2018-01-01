@@ -1,21 +1,41 @@
 ﻿<!-- <div  class="has-header has-tabs no-scroll" padding> -->
     <ion-content padding>
       <ion-grid>
-        <ion-row justify-content-center align-items-stretch>
+        <ion-row justify-content-center align-items-stretch> <!-- [expandHeight]="itemExpandHeight" -->
          <ion-col >
+
+
+
+          
+      
+    <!-- <ion-slides  >
+        <ion-slide style="vertical-align:top" class="slide-zoom">
+       
+                    
+                      <ion-item  *ngFor="let item of customersFilter" >
+                          {{item?.StoreName}}
+                          <ion-range [(ngModel)]="item.StoreName" min="0" max="10" step="2">
+                            <ion-icon range-left small name="person"></ion-icon>
+                            <ion-icon range-right name="people"></ion-icon>
+                          </ion-range>
+                      </ion-item>
+        
+        </ion-slide>
+  </ion-slides> -->
+  
+
+
+
           <ion-list-header text-center no-margin no-padding>
           <button *ngIf="this.arrowUp" ion-long-press class="icon-arrow-up-05 f-size-icon bg-transpare" (click)="this.ionViewDidEnterUp()" [interval]="300"  (onPressStart)="this.ionViewDidEnterUp($event)" (onPressing)="this.ionViewDidEnterUp($event)"></button>
            </ion-list-header>
-        <!-- <ion-scroll scrollY="true" style="height: 400px"> -->
               <ion-content  #contentRef (ionScroll)="scrollingFun($event)" >
-                <!-- <ion-list no-margin> -->
-                   <ion-item  *ngFor="let item of customersFilter"  class="border-list">
+                 <ion-item  *ngFor="let item of customersFilter"  class="border-list">
                     <button class="bg-transpare" (click)="expandItem(item) "  style="width:100%">
                       <span float-start>{{item?.StoreName}}</span>
-                      <!-- <span float-start>{{item?.Address}}</span> -->
                       <button float-end class="f-size-icon bg-transpare" [ngClass]="{'icon-arrow-down-04': !item.expanded, 'icon-icon-x_Artboard-2-01': item.expanded}" ></button>
                     </button>
-                  <!-- [expandHeight]="itemExpandHeight" -->
+                 
                       <page-expandable  [expanded]="item.expanded" >
                         <ion-scroll style="min-height: 20vh; height:auto;" scrollY="true">
                           <p *ngIf="service.customerDetails?.Address"> כתובת :   {{service.customerDetails?.Address}}</p>
@@ -40,12 +60,9 @@
                            <p *ngIf="service.customerDetails?.User?.Cellphone">מספר הפלאפון של המשתמש: {{service.customerDetails?.User.Cellphone}}</p>
                         </ion-scroll>
                       </page-expandable>
-
             </ion-item>
-                       <!-- </ion-list> -->
-
-          </ion-content>
-        <!-- </ion-scroll> -->
+              </ion-content>
+        
         <ion-list-header text-center no-margin no-padding>
           <button *ngIf="this.arrowDown" ion-long-press [interval]="300"  class="icon-arrow-up-05 f-size-icon bg-transpare" #downBtn (click)="this.ionViewDidEnterDown()" (onPressStart)="this.ionViewDidEnterDown()" (onPressing)="this.ionViewDidEnterDown()"></button>
         </ion-list-header>

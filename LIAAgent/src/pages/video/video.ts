@@ -19,7 +19,7 @@ export class VideoPage {
          }
          ionViewDidLeave(){
          // this.navCtrl.popToRoot();
-         this.navCtrl.pop(this.navCtrl)
+         //this.navCtrl.pop(this.navCtrl)
          }
 }
 

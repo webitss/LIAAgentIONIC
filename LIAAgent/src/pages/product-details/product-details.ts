@@ -28,10 +28,12 @@ export class ProductDetailsPage {
     this.service.getProductById(this.productId);
 this.isSliderFunc();
 
+
   }
 
   ionViewDidEnter(){
     this.service.nowComponent="מוצרים";
+    console.log(this.slider);
   }
 
 
@@ -39,15 +41,7 @@ this.isSliderFunc();
  this.navCtrl.push(VideoPage,{ productId: this.productId } );
  }
 
- AddToCart(pr){
-  this.service.clickAddToCart(pr);
-if(this.service.addProductToCart){
-  this.service.addProductToCart = false;
-this.navCtrl.parent.select(this.TabsEnum.cart);
-}
-else
-this.navCtrl.pop();
- }
+
 
  isSliderFunc(){
   //  this.isSlider = true;
@@ -55,18 +49,28 @@ for(let i=0; i<this.service.products.length; i++){
   if(this.service.products[i].ProductId != this.service.productsDetails[0].ProductId)
 this.service.productsDetails.push(this.service.products[i]);
 }
-this.service.productsDetails.push(this.service.products[this.service.products.length-1]);
+// this.service.productsDetails.push(this.service.products[this.service.products.length-1]);
  }
 
  slideChanged()
  {
-  let currIndex = this.slider.getActiveIndex();
-  if(currIndex==1)this.prevDisabled=false;
-  if(currIndex==this.service.galeryPictures.length-1)this.nextDisabled=true;
-  else this.nextDisabled=false;
-  if(currIndex==0)this.prevDisabled=true;
+  // let currIndex = this.slider.getActiveIndex();
+  // if(currIndex==1)this.prevDisabled=false;
+  // if(currIndex==this.service.productsDetails.length-1)this.nextDisabled=true;
+  // else this.nextDisabled=false;
+  // if(currIndex==0)this.prevDisabled=true;
  }
  ionViewDidLeave(){
   //this.navCtrl.popToRoot();
+ }
+ AddToCart(pr){
+   console.log("enter to func ");
+  this.service.clickAddToCart(pr);
+    if(this.service.addProductToCart){
+  this.service.addProductToCart = false;
+  this.navCtrl.parent.select(this.TabsEnum.cart);
+}
+else
+this.navCtrl.pop();
  }
 }
