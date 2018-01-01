@@ -1,7 +1,5 @@
 page-customers {
 
-
-//    .no-scroll div {overflow-y: hidden}
 .input-cover {
     position: static;
   }
@@ -22,16 +20,9 @@ page-customers {
         border-bottom:1px solid color($colors, green-color);
      }
 
-     .searchbar-md {
-        padding: 8px 0;
+      ion-input {
+        border-color: color($colors, green-color);
     }
-
-     .searchbar-md .searchbar-input {
-        box-shadow: none;
-        border: 1px solid color($colors, green-color);
-        text-align: right;
-        
-      }
 
       .f-size-icon {
         font-size: 2.2em;

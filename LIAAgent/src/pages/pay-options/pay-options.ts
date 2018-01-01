@@ -149,4 +149,7 @@ await this.proxy.CreatePDF(val.Result, this.customerEmail, this.service.signatur
           }, 300);
 
   }
+  ionViewDidLeave(){
+    //this.navCtrl.popToRoot();
+   }
 }

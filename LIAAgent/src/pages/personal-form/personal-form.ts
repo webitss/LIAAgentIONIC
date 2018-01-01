@@ -118,5 +118,7 @@ this.navCtrl.push(BusinessFormPage,{StoreId: StoreId, customerDtl: this.customer
 else
     this.navCtrl.push(BusinessFormPage, {customerDtl: this.customerDtl});
   }
-
+  ionViewDidLeave(){
+   // this.navCtrl.popToRoot();
+   }
 }
