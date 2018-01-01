@@ -13,6 +13,7 @@ import { customerCategoriesModel } from '../models/customerCategories';
 import { packageModel } from '../models/packageModel';
 import { customerModel } from '../models/customer';
 import { OrderObj } from '../models/OrderObj';
+import { UserObj } from '../models/UserObj';
 //import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Injectable()
@@ -358,6 +359,9 @@ if(this.packageInCart.PackageId){
  storDetails.PackageId=this.packageInCart.PackageId;
 storDetails.PackageName=this.packageInCart.PackageName;
 }
+storDetails.User = new UserObj;
+storDetails.Categories=new Array <customerCategoriesModel>();
+// storDetails.Categories[0].Value="dy";
     await this.proxy
     .createStoreDetails(storDetails)
     .then(res => {
@@ -378,6 +382,11 @@ console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר י�
       storDetails.PackageId=this.packageInCart.PackageId;
      storDetails.PackageName=this.packageInCart.PackageName;
     }
+    storDetails.User = new UserObj;
+storDetails.Categories=new Array <customerCategoriesModel>();
+storDetails.City="j";
+storDetails.LogoData="";
+storDetails.LogoExtension="";
     await this.proxy
     .upDateStoreDetails(storDetails)
     .then(res => {

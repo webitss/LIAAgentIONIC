@@ -40,7 +40,7 @@
         </ion-col>
 
         <ion-col col-2>
-        <button ion-button block color="blue-color" class="height-button-w"(click)="resetAll()" [disabled]="!this.frmPay.valid || isClicked">המשך</button>
+        <button ion-button block color="blue-color" class="height-button-w"(click)="resetAll()" [disabled]="!this.frmPay.valid || !service.signatureImage || !service.signatureImage1 || isClicked">המשך</button>
         </ion-col>
 
 </ion-row>
