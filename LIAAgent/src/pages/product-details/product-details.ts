@@ -22,6 +22,7 @@ export class ProductDetailsPage {
   @ViewChild('slider') slider: Slides;
   prevDisabled: boolean=false;
   nextDisabled: boolean=true;
+  lp: boolean = true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     this.productId= navParams.data.productId;

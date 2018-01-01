@@ -1,6 +1,7 @@
 import { storeOwnerModel } from './storeOwnerModel';
 import { LoginModel } from "./loginModel";
 import { customerCategoriesModel } from './customerCategories';
+import { UserObj } from './UserObj';
 
 export class customerDetailsModel{
       StoreId :number
@@ -21,7 +22,9 @@ export class customerDetailsModel{
       LogoUrl :string
       LogoData :string
       LogoExtension :string
-      User :LoginModel
+      User : UserObj
       Owner :storeOwnerModel
+
+
 
 }
