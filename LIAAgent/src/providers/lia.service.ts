@@ -350,7 +350,6 @@ console.log(p);
 else
 if(this.changePackage){
 this.packageInCart=p;
-this.changePackage = false;
 }
     }
 
@@ -360,8 +359,9 @@ if(this.packageInCart.PackageId){
 storDetails.PackageName=this.packageInCart.PackageName;
 }
 storDetails.User = new UserObj;
-storDetails.Categories=new Array <customerCategoriesModel>();
-// storDetails.Categories[0].Value="dy";
+// storDetails.Categories=new Array <customerCategoriesModel>();
+// storDetails.Categories[0]=new customerCategoriesModel;
+// storDetails.Categories[0].SysTableRowId=5;
     await this.proxy
     .createStoreDetails(storDetails)
     .then(res => {
@@ -384,9 +384,12 @@ console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר י�
     }
     storDetails.User = new UserObj;
 storDetails.Categories=new Array <customerCategoriesModel>();
-storDetails.City="j";
-storDetails.LogoData="";
-storDetails.LogoExtension="";
+storDetails.Categories[0]=new customerCategoriesModel;
+storDetails.Categories[0].SysTableRowId=5;
+// storDetails.City="j";
+// storDetails.LogoData="";
+// storDetails.LogoExtension="";
+
     await this.proxy
     .upDateStoreDetails(storDetails)
     .then(res => {

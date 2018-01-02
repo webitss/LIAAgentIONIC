@@ -12,6 +12,7 @@ import { SessionSell } from '../models/SessionShell';
 import { athenticateModel } from './../models/athenticateModel';
 import { OrderObj } from "../models/OrderObj";
 import { UserObj } from "../models/UserObj";
+import { storeOwnerModel } from "../models/storeOwnerModel";
 
 
 
@@ -95,7 +96,8 @@ obj=new SessionSell;
 obj.UserId=this.authUser.UserId;
 obj.nvGuide=this.authUser.LoginGuide;
 obj.ReqObj=customerDtl;
-obj.ReqObj.User=new UserObj;
+// obj.ReqObj.User=new UserObj;
+console.log(JSON.stringify(obj));
   return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/CreateStore`, {
 
       obj
@@ -110,7 +112,10 @@ upDateStoreDetails(customerDtl: customerDetailsModel): Promise<any>{
   obj.UserId=this.authUser.UserId;
   obj.nvGuide=this.authUser.LoginGuide;
   obj.ReqObj=customerDtl;
-console.log(obj);
+  obj.ReqObj.User=new UserObj;
+obj.ReqObj.HP=null;
+
+console.log(JSON.stringify(obj));
   return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/UpdateStore `, {
 
       obj

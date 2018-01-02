@@ -56,7 +56,7 @@ for(let i=0; i<this.service.products.length; i++){
   if(this.service.products[i].ProductId != this.service.productsDetails[0].ProductId)
 this.service.productsDetails.push(this.service.products[i]);
 }
-this.service.productsDetails.push(this.service.products[this.service.products.length-1]);
+//this.service.productsDetails.push(this.service.products[this.service.products.length-1]);
  }
 
  slideChanged()
