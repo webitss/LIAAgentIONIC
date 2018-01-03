@@ -31,7 +31,7 @@
            </ion-list-header>
               <ion-content  #contentRef (ionScroll)="scrollingFun($event)" >
                  <ion-item  *ngFor="let item of customersFilter"  class="border-list">
-                    <button class="bg-transpare" (click)="expandItem(item) "  style="width:100%">
+                    <button class="bg-transpare" (click)="expandItem(item) " text-right style="width:100%">
                       <span float-start>{{item?.StoreName}}</span>
                       <span >{{item?.Address}} </span>
                       <span *ngIf="item?.PackageId==1" > זהב</span>
