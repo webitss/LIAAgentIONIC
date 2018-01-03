@@ -2,7 +2,7 @@
      <!-- <ion-refresher (ionRefresh)="doRefresh($event)"></ion-refresher> -->
   <!-- (ionSlideDidChange)="slideChanged()" -->
   <!-- loop="true"  -->
-  <button id="btn"  (click)="this.func()"  >Button</button>
+  <!-- <button id="btn"  (click)="this.func()"  >Button</button> -->
 <ion-slides #slider  style="direction: ltr" class="image-slider" slidesPerView="1"  speed="200" (ionSlideWillChange)="slideChanged($event)" 
   zoom="true" loop="true" preventClicks="false" preventClicksPropagation="false" >
         <ion-slide *ngFor="let pr of service.productsDetails; let i = index">
@@ -38,7 +38,7 @@
                    <ion-row >
                      <ion-col col-12 align-self-end>
                        <ion-item>
-                         <span float-right>
+                         <span float-right class="center-center padding-40">
                          {{pr.Duration}}</span>
 
                          <p  float-left *ngFor="let split of pr.DurationText.split(' ')">

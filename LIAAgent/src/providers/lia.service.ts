@@ -336,7 +336,7 @@ if(element != null){
     if(this.changePackage){
     this.packageInCart=p;
     }
-    }
+   }
 
     clickDeleteToCart(id) {
         let index: number;

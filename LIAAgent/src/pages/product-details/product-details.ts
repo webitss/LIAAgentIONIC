@@ -78,7 +78,6 @@ ionViewDidLoad(){
 // }
  slideChanged(event)
  {
-  // this.slider.update();
   let currIndex = this.slider.getActiveIndex();
   let prevIndex=null;
   if(prevIndex === null && currIndex ===0){
@@ -89,27 +88,16 @@ ionViewDidLoad(){
       //     let index = this.viewCtrl.index;
       //     this.navCtrl.remove(index);
       //  })
-      
-   // this.slider.slideTo(7);
-   this.slider.autoplayDisableOnInteraction = false;
-   console.log(this.slider._slides[0].getAttribute('data-swiper-slide-index'));
-  // document.getElementById('addtobtn').click();
-  setTimeout(() => {
-    document.getElementById('video').click();
-  }, 2000);
-  
-  // console.log(this.slider._slides[0].setAttribute('data-swiper-slide-index','7'));
- }
+  //  this.slider.autoplayDisableOnInteraction = false;
+  //  console.log(this.slider._slides[0].getAttribute('data-swiper-slide-index'));
+   }
   prevIndex = currIndex;
   if(currIndex==1)this.prevDisabled=false;
   if(currIndex==this.service.productsDetails.length-1)
   this.nextDisabled=true;
   else this.nextDisabled=false;
   if(currIndex==0)this.prevDisabled=true;
-   console.log('Current index is ' + currIndex);
-    document.getElementById('btn').click();
-   
-  
+ 
  }
  ionViewDidLeave(){
   //this.navCtrl.popToRoot();

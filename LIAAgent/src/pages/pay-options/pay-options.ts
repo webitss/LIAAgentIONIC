@@ -12,14 +12,14 @@ import { EnterPage } from '../enter/enter';
 import { CheckboxRequiredValidator } from '@angular/forms/src/directives/validators';
 import { packageModel } from '../../models/packageModel';
 import { LiaProxy } from '../../providers/proxy';
-
+// import { TabsEnum } from '../../models/tabs-enum';
 
 @Component({
   selector: 'page-pay-options',
   templateUrl: 'pay-options.html',
 })
 export class PayOptionsPage {
-
+// TabsEnum: typeof Tabs = TabsEnum;
   frmPay: FormGroup;
   StoreId: number;
   customerEmail:string;
@@ -99,7 +99,8 @@ await this.proxy.CreatePDF(val.Result, this.customerEmail, this.service.signatur
                   this.service.countPackageInCart=0;
                   this.service.countProductsInCart=0;
                   this.service.isTerminateOrdered=false;
-                  this.app.getRootNav().setRoot(TabsPage);
+                  // this.app.getRootNav().setRoot(TabsPage);
+                this.navCtrl.parent.select(0);
                 }, 3000);
 
     break;

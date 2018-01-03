@@ -8,20 +8,20 @@
               <button *ngIf="this.arrowUp" ion-long-press [interval]="200" class="icon-arrow-up-05  f-size-icon bg-transpare" (click)="this.ionViewDidEnterUp()" (onPressStart)="this.ionViewDidEnterUp()" (onPressing)="this.ionViewDidEnterUp()" ></button>
                 </ion-list-header>
 
-                  <ion-content  #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 40vh">
+                  <ion-content  #contentRef (ionScroll)="this.scrollingFun($event)" text-right style="width:100%;">
                         <ion-item *ngIf="this.service.packageInCart?.PackageId" class="border-list">
-                                              חבילת
-                        {{this.service.packageInCart.PackageName}}
-                        מחיר:
-                        {{this.service.packageInCart.PackagePrice}}
-                        שקל
+                                  <span>            חבילת
+                        {{this.service.packageInCart.PackageName}}</span>
+                        <span> מחיר:
+                        {{this.service.packageInCart.PackagePrice}} שקל</span>
+                        
                         <button float-end class="f-size-icon bg-transpare icon-icon-x_Artboard-2-01" (click)="deletePackage()"></button>
                         </ion-item>
-                        <ion-item *ngFor="let p of service.productsOfCart" class="border-list">
-                        {{p.ProductShortName}}
-                        מחיר:
-                        {{p.Price}}
-                        שקל
+                        <ion-item *ngFor="let p of service.productsOfCart" class="border-list"  text-right style="width:100%;">
+                       <span> {{p.ProductShortName}}
+                        </span>
+                        <span>מחיר:{{p.Price}}
+                        שקל</span>
                         <button float-end class="f-size-icon bg-transpare icon-icon-x_Artboard-2-01" (click)="service.clickDeleteToCart(p.ProductId)"></button>
                     </ion-item>
                   </ion-content>
