@@ -395,7 +395,7 @@ async createFrmBusiness(storDetails: customerDetailsModel){
   {
         if(res.ErrorCode === -10)
         alert("אינך מורשה לעדכן פרטי לקוח ");
-        else
+if(res.ErrorCode === -1 || res.ErrorCode === -2)
         alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
   }
       })
