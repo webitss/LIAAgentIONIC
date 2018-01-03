@@ -26,4 +26,26 @@ page-cart {
     .list-header-md{
         height:7% ;
     }
+
+    ion-item{
+        span:nth-child(1){
+      
+            width: 50%;
+            display: inline-block;
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+        }
+
+        span:nth-child(2){
+            width: 40%;
+            display: inline-block;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            padding-right: 10px;
+        }
+
+
+    }
+
 }

@@ -88,8 +88,8 @@ ionViewDidLoad(){
       //     let index = this.viewCtrl.index;
       //     this.navCtrl.remove(index);
       //  })
-   this.slider.autoplayDisableOnInteraction = false;
-   console.log(this.slider._slides[0].getAttribute('data-swiper-slide-index'));
+  //  this.slider.autoplayDisableOnInteraction = false;
+  //  console.log(this.slider._slides[0].getAttribute('data-swiper-slide-index'));
    }
   prevIndex = currIndex;
   if(currIndex==1)this.prevDisabled=false;
