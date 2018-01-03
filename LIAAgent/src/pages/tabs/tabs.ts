@@ -16,7 +16,6 @@ import { CustomersPage } from '../customers/customers';
 import { Tabs, NavParams } from 'ionic-angular';
 import { LiaProxy } from '../../providers/proxy';
 import { Keyboard } from '@ionic-native/keyboard';
-//import { Popup2Page } from '../popup2/popup2';
 //import { LoginPage } from '../login/login';
 //import { first } from 'rxjs/operator/first';
 
