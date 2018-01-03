@@ -100,7 +100,7 @@ await this.proxy.CreatePDF(val.Result, this.customerEmail, this.service.signatur
                   this.service.countProductsInCart=0;
                   this.service.isTerminateOrdered=false;
                   // this.app.getRootNav().setRoot(TabsPage);
-                this.navCtrl.parent.select(this.TabsEnum.gallery);
+                this.navCtrl.parent.select(0);
                 }, 3000);
 
     break;
