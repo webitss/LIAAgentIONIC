@@ -42,7 +42,7 @@
                  
                       <page-expandable  [expanded]="item.expanded" >
                         <ion-scroll style="min-height: 15vh; height:auto;" scrollY="true">
-                          <!-- <p *ngIf="service.customerDetails?.Address"> כתובת :   {{service.customerDetails?.Address}}</p> -->
+                          <p *ngIf="service.customerDetails?.Address"> כתובת :   {{service.customerDetails?.Address}}</p>
                           <!-- <p  *ngIf="service.customerDetails?.Categories">קטגוריות : {{service.customerDetails?.Categories}}</p> -->
                            <p *ngIf="service.customerDetails?.Category">קטגוריה : {{service.customerDetails?.Category}}</p>
                            <!-- <p *ngIf="service.customerDetails?.City">עיר :  {{service.customerDetails?.City}}</p> -->
@@ -51,16 +51,16 @@
                            <p *ngIf="service.customerDetails?.LogoData">נתוני לוגו : {{service.customerDetails?.LogoData}}</p> -->
                            <!-- <p *ngIf="service.customerDetails?.LogoExtension">לוגו מורחב : {{service.customerDetails?.LogoExtension}}</p> -->
                            <!-- <p *ngIf="service.customerDetails?.LogoUrl">כתובת לוגו : {{service.customerDetails?.LogoUrl}}</p>
-                           <p *ngIf="service.customerDetails?.Long">ארוך : {{service.customerDetails?.Long}}</p>
-                           <!-- <p *ngIf="service.customerDetails?.MinPriceToTicket">מחיר לכרטיס : {{service.customerDetails?.MinPriceToTicket}}</p> -->
+                           <p *ngIf="service.customerDetails?.Long">ארוך : {{service.customerDetails?.Long}}</p>-->
+                           <p *ngIf="service.customerDetails?.MinPriceToTicket">מחיר לכרטיס : {{service.customerDetails?.MinPriceToTicket}}</p>
                            <p *ngIf="service.customerDetails?.MoreDetails">פרטים נוספים : {{service.customerDetails?.MoreDetails}}</p>
                            <p *ngIf="service.customerDetails?.OpenHours">שעות פתיחה : {{service.customerDetails?.OpenHours}}</p>
                            <!-- <p *ngIf="service.customerDetails?.Owner">בעלים : {{service.customerDetails?.Owner}}</p> -->
                            <!-- <p *ngIf="service.customerDetails?.PackageId">מספר חבילה : {{service.customerDetails?.PackageId}}</p> -->
                            <!-- <p *ngIf="service.customerDetails?.PackageName">שם חבילה : {{service.customerDetails?.PackageName}}</p> -->
                            <p *ngIf="service.customerDetails?.Phone">מספר פלאפון : {{service.customerDetails?.Phone}}</p>
-                           <!-- <p *ngIf="service.customerDetails?.StoreId">מזהה עסק : {{service.customerDetails?.StoreId}}</p>
-                           <p *ngIf="service.customerDetails?.StoreName">שם עסק : {{service.customerDetails?.StoreName}}</p> -->
+                           <!-- <p *ngIf="service.customerDetails?.StoreId">מזהה עסק : {{service.customerDetails?.StoreId}}</p>-->
+                           <p *ngIf="service.customerDetails?.StoreName">שם עסק : {{service.customerDetails?.StoreName}}</p> 
                            <!-- <p *ngIf="service.customerDetails?.User?.Cellphone">מספר הפלאפון של המשתמש: {{service.customerDetails?.User.Cellphone}}</p> -->
                         </ion-scroll>
                       </page-expandable>
