@@ -5,16 +5,12 @@ import { LiaProxy } from "./proxy";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
 import { LoginModel } from "../models/loginModel";
-//import { errorHandler } from "@angular/platform-browser/src/browser";
-//import { Response } from '@angular/http';
-//import {Observable} from 'rxjs/Rx';
 import { customerDetailsModel } from '../models/customerDetails';
 import { customerCategoriesModel } from '../models/customerCategories';
 import { packageModel } from '../models/packageModel';
 import { customerModel } from '../models/customer';
 import { OrderObj } from '../models/OrderObj';
 import { UserObj } from '../models/UserObj';
-//import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Injectable()
 export class LiaService {
@@ -43,7 +39,6 @@ export class LiaService {
             packageProduct: productsModel;
             countProductsInCart: number = 0;
             productsOfCart: productsModel[];
-            // packagesOfCart: packageModel[];
             isPayed: boolean;
             isTerminateOrdered: boolean;
             routeOrStay: string;
@@ -77,7 +72,6 @@ export class LiaService {
             this.isPackageProductDetailed = false;
             this.isOuter = true;
             this.isInner = false;
-            // this.productsOfCart = this.products;
             this.isPayed = false;
             this.isTerminateOrdered = false;
             this.customerDetails=new customerDetailsModel;
@@ -116,7 +110,6 @@ export class LiaService {
 }
       console.log(this.isAuthenticated);
 
-    //  return this.isAuthenticated;
   })
   .catch((error: any) => {console.log(error)
 });
@@ -134,14 +127,9 @@ console.log(this.isAuthenticated);
 }
 
 async getLocalStorage(){
-  // return sessionStorage.getItem('user');
 let value = JSON.parse(localStorage.getItem("user"));
 if(value){
 this.isAuthenticatedLocal=value;
-// value=localStorage.getItem('user');
-// console.log(value);
-// this.isAuthenticatedLocal=value;
-// console.log(this.isAuthenticatedLocal);
 this.isAuthenticated.EntityId=this.isAuthenticatedLocal.EntityId;
 this.isAuthenticated.LoginGuide=this.isAuthenticatedLocal.LoginGuide;
 this.isAuthenticated.UserId=this.isAuthenticatedLocal.UserId;
@@ -161,7 +149,6 @@ this.allPosts();
                 .then(res => {
                     this.getData = res;
                     console.log("res "+res);
-                    // for (let i = 0; i < this.getData.Result.length; i++) {
                     switch (func) {
                     case "GetAdditionalProducts":
                         this.products = this.getData.Result;
@@ -249,9 +236,6 @@ this.allPosts();
                     .postStoreDetails(storeId)
                     .then(res => {
                         this.getData = res;
-                        // this.customerDetails[0]=storeId;
-                        // this.customerDetailsArray[this.indexCustomer][0]=storeId;
-                       // this.customerDetailsArray[this.indexCustomer]=[];
                         this.customerDetails= this.getData.Result;
                         this.customerDetailsArray[this.indexCustomer]=this.customerDetails;
                         this.indexCustomer++;
@@ -359,9 +343,7 @@ if(this.packageInCart.PackageId){
 storDetails.PackageName=this.packageInCart.PackageName;
 }
 storDetails.User = new UserObj;
-// storDetails.Categories=new Array <customerCategoriesModel>();
-// storDetails.Categories[0]=new customerCategoriesModel;
-// storDetails.Categories[0].SysTableRowId=5;
+
     await this.proxy
     .createStoreDetails(storDetails)
     .then(res => {
@@ -369,9 +351,9 @@ storDetails.User = new UserObj;
 console.log("הפרטים נשמרו בהצלחה",res.Result);
 else{
 if(res.ErrorCode === -10)
-console.log("אינך מורשה ליצור לקוח חדש");
+alert("אינך מורשה ליצור לקוח חדש");
 else
-console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+alert("הנתונים שהזנת שגויים");
 }
     })
     .catch(() => console.log("error"));
@@ -386,9 +368,6 @@ console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר י�
 storDetails.Categories=new Array <customerCategoriesModel>();
 storDetails.Categories[0]=new customerCategoriesModel;
 storDetails.Categories[0].SysTableRowId=5;
-// storDetails.City="j";
-// storDetails.LogoData="";
-// storDetails.LogoExtension="";
 
     await this.proxy
     .upDateStoreDetails(storDetails)
@@ -398,9 +377,9 @@ storDetails.Categories[0].SysTableRowId=5;
       else
 {
       if(res.ErrorCode === -10)
-      console.log("אינך מורשה לעדכן פרטי לקוח ");
+      alert("אינך מורשה לעדכן פרטי לקוח ");
       else
-      console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+      alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
 }
     })
     .catch(() => console.log("error"));
@@ -433,93 +412,3 @@ console.log(obj);
   }
 }
 
-//#region garbage-things
-
-// getGalleryPictures(){
-//          return this.proxy.post("GetGaleryPictures").then((res)=>{
-//          return res.Result;
-//      }).catch(() => console.log("error"));
-
-// }
-
-//   async getPackages() {
-//     await this.proxy.getPackages().then(res => {
-//       this.getData = res;
-//       this.packages = this.getData.Result;
-//     });
-//   }
-
-//   clickDeleteFromCart(pr) {
-//     let j;
-//     for (let i = 0; i < this.productsOfCart.length; i++) {
-//       if (this.productsOfCart[i] == pr) {
-//         j = i;
-//       }
-
-//     }
-//   }
-
-/*packages: any[];
-                                    //ListShell<ProductAdditionalObj>
-                                    constructor(private proxy: LiaProxy) {
-                                        this.galeryPictures=new Array();
-                                        this.products=new Array();
-                                        this.customers=new Array();
-                                    }
-                                    source:String;
-                                    getData:any;
-                                    galeryPictures:any[];
-                                    products:any[];
-                                    customers:any[];
-                                    nowComponent:String;
-                                    async post(postFunction:String):Promise<any> {
-                                        await this.proxy.post(postFunction).then((res) => {
-                                            this.getData=res;
-                                            console.log(this.getData);
-                                            for (let i=0;i<this.getData.Result.length;i++)
-                                            {
-                                                switch (postFunction)
-                                            {
-                                                case "GetAdditionalProducts":
-                                                    this.products[i]=this.getData.Result[i];
-                                                    console.log(this.products);
-                                                    break;
-                                                case "GetGaleryPictures" :
-                                                    this.galeryPictures[i]=this.getData.Result[i];
-                                                    console.log(this.galeryPictures);
-                                                    break;
-                                            }
-
-                                        }
-                                        }).catch(() => console.log("error"));
-                                    }
-                                    product:any;
-                                    getProductById(id:number)
-                                    {
-                                        for (let i=0;i<this.products.length;i++)
-                                        {
-                                            console.log(this.products[i].ProductId+" "+id);
-                                            if(this.products[i].ProductId==id)
-                                            {
-                                                this.product=this.products[i];
-                                                i=this.products.length;
-                                            }
-                                        }
-
-                                } */
-
-// async load() {
-//     try {
-//         await this.proxy.load().then(res=>{
-//             this.getData = res;
-//             this.galeryPictures = this.getData.Result;
-//             console.log(this.galeryPictures);
-//         });
-//         //this.galeryPictures=pictures;
-//         //console.log(pictures);
-
-//     } catch (ex) {
-//         console.log(`ex: ${ex}`);
-//     }
-// }
-//#endregion

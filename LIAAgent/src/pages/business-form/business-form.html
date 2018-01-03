@@ -106,7 +106,7 @@
             </ion-col>
             <ion-col>
           <!-- <input type="submit" value="המשך" [disabled]="!frmMoredetails.valid" /> -->
-          <button no-margin block  color="blue-color" class="height-button-w" ion-button type="submit" block [disabled]="!(this.frmMoredetails.valid)" (click)="this.submitFrmMoreBusiness(this.frmMoredetails.value);onGoToPayOptionsPage()">המשך</button>
+          <button no-margin block  color="blue-color" class="height-button-w" ion-button type="submit" block [disabled]="!(this.frmMoredetails.valid) && !StoreObj.StoreId" (click)="this.submitFrmMoreBusiness(this.frmMoredetails.value);onGoToPayOptionsPage()">המשך</button>
             </ion-col>
         </ion-row>
               </ion-col>
