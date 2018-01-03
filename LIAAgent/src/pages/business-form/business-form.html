@@ -48,7 +48,7 @@
 
                           <ion-select interface="popover" formControlName="category" placeholder="קטגורית העסק" class="border-input" block multiple="true" >
 
-                          <ion-option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories : this.Categories" >{{option}}</ion-option>
+                          <ion-option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories :  this.service.categories" >{{option.Value}}</ion-option>
                           </ion-select>
                                                       </ion-item>
                                                     </ion-col>
@@ -101,12 +101,12 @@
 
         <ion-col>
             <ion-item>
-                <ion-input class="height-button-w" type="number" [placeholder]="this.StoreObj.MinPriceToTicket? this.StoreObj.MinPriceToTicket : 'מינימום לכרטיס'"   formControlName="min" pattern="[0-9]*"></ion-input>
+                <ion-input class="height-button-w" type="text" [placeholder]="this.StoreObj.MinPriceToTicket? this.StoreObj.MinPriceToTicket : 'מינימום לכרטיס'"   formControlName="min" ></ion-input>
               </ion-item>
             </ion-col>
             <ion-col>
           <!-- <input type="submit" value="המשך" [disabled]="!frmMoredetails.valid" /> -->
-          <button no-margin block  color="blue-color" class="height-button-w" ion-button type="submit" block [disabled]="!(this.frmMoredetails.valid) && !this.StoreObj" (click)="this.submitFrmMoreBusiness(this.frmMoredetails.value);onGoToPayOptionsPage()">המשך</button>
+          <button no-margin block  color="blue-color" class="height-button-w" ion-button type="submit" block [disabled]="!(this.frmMoredetails.valid)" (click)="this.submitFrmMoreBusiness(this.frmMoredetails.value);onGoToPayOptionsPage()">המשך</button>
             </ion-col>
         </ion-row>
               </ion-col>

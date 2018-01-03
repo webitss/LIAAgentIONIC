@@ -13,6 +13,7 @@ import {
 } from "@ionic-native/file-transfer";
 import { Camera, CameraOptions } from "@ionic-native/camera";
 import { FilePath } from '@ionic-native/file-path';
+import { customerCategoriesModel } from "../../models/customerCategories";
 //import { FilePath } from "@angular";
 
 @Component({
@@ -42,7 +43,7 @@ export class BusinessFormPage {
 
   frmBusiness = new FormGroup({
     name: new FormControl("", Validators.required),
-    PrivatelyHeldCompany: new FormControl("", Validators.required),
+    PrivatelyHeldCompany: new FormControl("", [Validators.required ,Validators.maxLength(9), Validators.minLength(9)]),
     phone: new FormControl("", [
       Validators.required,
       Validators.minLength(9),
@@ -56,7 +57,7 @@ export class BusinessFormPage {
   frmMoredetails = new FormGroup({
     logo: new FormControl(),
     OpeningHours: new FormControl(),
-    min: new FormControl()
+    min: new FormControl("", Validators.required)
   });
 
   constructor(
@@ -186,7 +187,17 @@ result;
     this.customerD.HP = frm.PrivatelyHeldCompany ? frm.PrivatelyHeldCompany : this.StoreObj.HP;
     this.customerD.Phone = frm.phone ? frm.phone : this.StoreObj.Phone;
     this.customerD.Address = frm.address ? frm.address : this.StoreObj.Address;
-    this.customerD.Category = frm.category? frm.category : this.StoreObj.Category;
+    // this.customerD.Category = frm.category? frm.category : this.StoreObj.Category;
+    // this.customerD.Categories.push(frm.category);
+if(frm.category){
+this.customerD.Categories=new Array <customerCategoriesModel>();
+// this.customerD.Categories=frm.category;
+for(let i=0; i<frm.category.length; i++){
+  this.customerD.Categories[i]=new customerCategoriesModel;
+this.customerD.Categories[i].Value=frm.category[i];
+}
+console.log(this.customerD.Categories);
+}
   }
 
   submitFrmMoreBusiness(frm) {
@@ -196,6 +207,7 @@ result;
     this.customerD.OpenHours = frm.OpeningHours ? frm.OpeningHours : this.StoreObj.OpenHours;
     this.customerD.MinPriceToTicket = frm.min ? frm.min : this.StoreObj.MinPriceToTicket;
     if (this.StoreObj.StoreId){
+       this.customerD.StoreId=this.StoreId;
        this.service.updateFrmBusiness(this.customerD);
     }
     else{

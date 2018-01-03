@@ -27,7 +27,7 @@
             <button ion-button  block *ngIf="product.VideoUrl" type="button" (click)="routeToVideo()" class="btn-white" [style.color]="nowPackage.packageColor=='bg-yellow' ? '#f1bf1c ' : (nowPackage.packageColor=='bg-green' ? '#7ec141 ':(nowPackage.packageColor=='bg-pink' ? '#e12468 ':'black'))">לצפיה
                 <i class="icon-arrow-left-03" margin-right ></i>
             </button>
-          
+
             </div>
           </ion-col>
 
@@ -46,19 +46,19 @@
                       <i class="icon-icon-x_Artboard-2-01 "></i>
                     </button> </ion-col>
 
-                    <ion-col col-12 class="height-auto" *ngIf="service.isPackageProductDetailed">   
+                    <ion-col col-12 class="height-auto" *ngIf="service.isPackageProductDetailed">
                     <button float-left  class="btn-font-transparent" (click)="details()">
                       <i class="icon-arrow-right-02"></i>
                     </button>
                     </ion-col>
-                 
+
 
                <ion-col col-12 align-self-start *ngIf="!service.isPackageProductDetailed" >
-            <button ion-button  block  type="button" 
-              class="btn-white"  (click)="this.BackToCart();this.service.clickAddPackageToCart(nowPackage)" [style.color]="nowPackage.packageColor=='bg-yellow' ? '#f1bf1c ' : (nowPackage.packageColor=='bg-green' ? '#7ec141 ':(nowPackage.packageColor=='bg-pink' ? '#e12468 ':'black'))">
+            <button ion-button  block  type="button"
+              class="btn-white"  (click)="this.service.clickAddPackageToCart(nowPackage);this.BackToCart()" [style.color]="nowPackage.packageColor=='bg-yellow' ? '#f1bf1c ' : (nowPackage.packageColor=='bg-green' ? '#7ec141 ':(nowPackage.packageColor=='bg-pink' ? '#e12468 ':'black'))">
             הוסף לסל</button>
           </ion-col>
-          
+
             </ion-row>
           </ion-col>
 

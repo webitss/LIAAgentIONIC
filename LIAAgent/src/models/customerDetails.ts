@@ -9,7 +9,7 @@ export class customerDetailsModel{
       PackageId:number
       PackageName: string
       HP :string
-      Category: string
+      Category:any
       Categories :customerCategoriesModel[]
       Address:string
       City :string

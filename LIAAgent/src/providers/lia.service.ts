@@ -330,6 +330,7 @@ if(element != null){
       this.countPackageInCart++;
       this.countProductsInCart+=this.countPackageInCart;
       this.packageInCart=p;
+
        }
     else
     if(this.changePackage){
@@ -353,53 +354,55 @@ if(element != null){
 
      //#region form-bussiness
 
-        async createFrmBusiness(storDetails: customerDetailsModel){
-        if(this.packageInCart.PackageId){
-        storDetails.PackageId=this.packageInCart.PackageId;
-        storDetails.PackageName=this.packageInCart.PackageName;
-        }
-        storDetails.User = new UserObj;
-        storDetails.Categories=new Array <customerCategoriesModel>();
-            await this.proxy
-            .createStoreDetails(storDetails)
-            .then(res => {
-            if(res.ErrorCode === 0)
-        console.log("הפרטים נשמרו בהצלחה",res.Result);
-        else{
-        if(res.ErrorCode === -10)
-        console.log("אינך מורשה ליצור לקוח חדש");
-        else
-        console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
-        }
-            })
-            .catch(() => console.log("error"));
-        }
 
-        async updateFrmBusiness(storDetails: customerDetailsModel){
+        async createFrmBusiness(storDetails: customerDetailsModel){
             if(this.packageInCart.PackageId){
             storDetails.PackageId=this.packageInCart.PackageId;
             storDetails.PackageName=this.packageInCart.PackageName;
             }
             storDetails.User = new UserObj;
-        storDetails.Categories=new Array <customerCategoriesModel>();
-        storDetails.City="j";
-        storDetails.LogoData="";
-        storDetails.LogoExtension="";
-            await this.proxy
-            .upDateStoreDetails(storDetails)
-            .then(res => {
-            if(res.ErrorCode === 0)
-            console.log("הפרטים עודכנו בהצלחה",res.Result);
-            else
-        {
+
+                await this.proxy
+                .createStoreDetails(storDetails)
+                .then(res => {
+                if(res.ErrorCode === 0)
+            console.log("הפרטים נשמרו בהצלחה",res.Result);
+            else{
             if(res.ErrorCode === -10)
-            console.log("אינך מורשה לעדכן פרטי לקוח ");
+            console.log("אינך מורשה ליצור לקוח חדש");
             else
             console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
-        }
-            })
-            .catch(() => console.log("error"));
-        }
+            }
+                })
+                .catch(() => console.log("error"));
+            }
+
+                    async updateFrmBusiness(storDetails: customerDetailsModel){
+                if(this.packageInCart.PackageId){
+                storDetails.PackageId=this.packageInCart.PackageId;
+                storDetails.PackageName=this.packageInCart.PackageName;
+                }
+                storDetails.User = new UserObj;
+            storDetails.Categories=new Array <customerCategoriesModel>();
+            storDetails.Categories[0]=new customerCategoriesModel;
+            storDetails.Categories[0].SysTableRowId=5;
+
+
+                await this.proxy
+                .upDateStoreDetails(storDetails)
+                .then(res => {
+                if(res.ErrorCode === 0)
+                console.log("הפרטים עודכנו בהצלחה",res.Result);
+                else
+            {
+                if(res.ErrorCode === -10)
+                console.log("אינך מורשה לעדכן פרטי לקוח ");
+                else
+                console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+            }
+                })
+                .catch(() => console.log("error"));
+            }
     //#endregion
 
      //#region  order
@@ -420,4 +423,6 @@ if(element != null){
     //#endregion
  
 }
+
+
 
