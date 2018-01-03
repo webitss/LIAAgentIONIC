@@ -11,7 +11,7 @@
       <ion-col col-7 [ngClass]="{'package-left':!service.isInner,'package-left-2':service.isInner}" [style.border-color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">
         <div class="center-center">
           <ion-item>
-           <span [style.color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">{{package?.TicketsNum}}</span> 
+           <strong [style.color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">{{package?.TicketsNum}}</strong> 
             <span class="nth-child-span" [style.color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">כרטיסים</span>
           </ion-item>
           <ion-item [style.border-color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">
@@ -22,7 +22,7 @@
              
           </ion-item>
           <ion-item text-center>
-              <span class="item-1" [style.color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">{{package?.PackagePrice}}</span>
+              <strong class="item-1" [style.color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">{{package?.PackagePrice}}</strong>
               <p class="item-2" [style.color]="package.packageColor=='bg-yellow' ? '#f1bf1c ' : (package.packageColor=='bg-green' ? '#7ec141 ':(package.packageColor=='bg-pink' ? '#e12468 ':'black'))">לא כולל מע"מ ₪</p>
           </ion-item>
         </div>
