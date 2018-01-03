@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { PayOptionsPage } from "../pay-options/pay-options";
-//import { PopupPage } from "../popup/popup";
+
 import { customerDetailsModel } from "../../models/customerDetails";
 import { LoadingController, ToastController } from "ionic-angular";
 import {
