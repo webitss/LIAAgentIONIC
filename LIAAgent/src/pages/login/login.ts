@@ -90,7 +90,9 @@ ionViewDidEnter(){
           break;
           case -10: alert("אינך מורשה להיכנס לאפליקציה");
           break;
-          default: alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+          case -2: alert("הנתונים שהזנת שגויים");
+          break
+          default: alert("הנתונים שהזנת שגויים");
           break;
           }
 
