@@ -335,8 +335,7 @@ if(element != null){
     else
     if(this.changePackage){
     this.packageInCart=p;
-    this.changePackage = false;
-    }
+        }
     }
 
     clickDeleteToCart(id) {

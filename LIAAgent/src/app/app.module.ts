@@ -42,7 +42,7 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { FilePath } from '@ionic-native/file-path';
 //import { CookieService } from 'ngx-cookie-service';
 import { CookieService } from 'ngx-cookie-service';
-
+import { SuperTabsModule } from 'ionic2-super-tabs';
 
 
 
@@ -78,7 +78,8 @@ import { CookieService } from 'ngx-cookie-service';
     IonicModule.forRoot(MyApp, { scrollAssist: true, autoFocusAssist: false } ),
     //IonicModule.forRoot(MyApp),
     HttpClientModule, FormsModule,ReactiveFormsModule,
-    LongPressModule
+    LongPressModule,
+    // SuperTabsModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -124,6 +125,7 @@ import { CookieService } from 'ngx-cookie-service';
     FilePath,
     Refresher,
     Content
+    
   ]
 })
 export class AppModule {}
