@@ -355,54 +355,53 @@ if(element != null){
      //#region form-bussiness
 
 
-        async createFrmBusiness(storDetails: customerDetailsModel){
-            if(this.packageInCart.PackageId){
-            storDetails.PackageId=this.packageInCart.PackageId;
-            storDetails.PackageName=this.packageInCart.PackageName;
-            }
-            storDetails.User = new UserObj;
+     async createFrmBusiness(storDetails: customerDetailsModel){
+        if(this.packageInCart.PackageId){
+        storDetails.PackageId=this.packageInCart.PackageId;
+        storDetails.PackageName=this.packageInCart.PackageName;
+        }
+        storDetails.User = new UserObj;
+        
+           await this.proxy
+           .createStoreDetails(storDetails)
+           .then(res => {
+             if(res.ErrorCode === 0)
+        console.log("הפרטים נשמרו בהצלחה",res.Result);
+        else{
+        if(res.ErrorCode === -10)
+        console.log("אינך מורשה ליצור לקוח חדש");
+        else
+        console.log("הנתונים שהזנת שגויים");
+        }
+           })
+           .catch(() => console.log("error"));
+         }
 
-                await this.proxy
-                .createStoreDetails(storDetails)
-                .then(res => {
-                if(res.ErrorCode === 0)
-            console.log("הפרטים נשמרו בהצלחה",res.Result);
-            else{
-            if(res.ErrorCode === -10)
-            console.log("אינך מורשה ליצור לקוח חדש");
-            else
-            console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
-            }
-                })
-                .catch(() => console.log("error"));
-            }
-
-                    async updateFrmBusiness(storDetails: customerDetailsModel){
+            async updateFrmBusiness(storDetails: customerDetailsModel){
                 if(this.packageInCart.PackageId){
-                storDetails.PackageId=this.packageInCart.PackageId;
-                storDetails.PackageName=this.packageInCart.PackageName;
+                  storDetails.PackageId=this.packageInCart.PackageId;
+                 storDetails.PackageName=this.packageInCart.PackageName;
                 }
                 storDetails.User = new UserObj;
-            storDetails.Categories=new Array <customerCategoriesModel>();
-            storDetails.Categories[0]=new customerCategoriesModel;
-            storDetails.Categories[0].SysTableRowId=5;
-
-
+             storDetails.Categories=new Array <customerCategoriesModel>();
+             storDetails.Categories[0]=new customerCategoriesModel;
+             storDetails.Categories[0].SysTableRowId=5;
+             
                 await this.proxy
                 .upDateStoreDetails(storDetails)
                 .then(res => {
-                if(res.ErrorCode === 0)
-                console.log("הפרטים עודכנו בהצלחה",res.Result);
-                else
-            {
-                if(res.ErrorCode === -10)
-                console.log("אינך מורשה לעדכן פרטי לקוח ");
-                else
-                console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
-            }
+                  if(res.ErrorCode === 0)
+                  console.log("הפרטים עודכנו בהצלחה",res.Result);
+                  else
+             {
+                  if(res.ErrorCode === -10)
+                  console.log("אינך מורשה לעדכן פרטי לקוח ");
+                  else
+                  console.log("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+             }
                 })
                 .catch(() => console.log("error"));
-            }
+             }
     //#endregion
 
      //#region  order
