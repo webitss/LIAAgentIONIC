@@ -363,12 +363,12 @@ async createFrmBusiness(storDetails: customerDetailsModel){
       await this.proxy
       .createStoreDetails(storDetails)
       .then(res => {
-        if(res.ErrorCode === 0)
+        if(res.Error.ErrorCode === 0)
   console.log("הפרטים נשמרו בהצלחה",res.Result);
   else{
-  if(res.ErrorCode === -10)
+  if(res.Error.ErrorCode === -10)
   alert("אינך מורשה ליצור לקוח חדש");
-  else
+if(res.Error.ErrorCode === -1 || res.ErrorCode === -2)
   alert("הנתונים שהזנת שגויים");
   }
       })
@@ -395,7 +395,7 @@ async createFrmBusiness(storDetails: customerDetailsModel){
         if(res.ErrorCode === -10)
         alert("אינך מורשה לעדכן פרטי לקוח ");
 if(res.ErrorCode === -1 || res.ErrorCode === -2)
-        alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+        alert("הנתונים שהזנת שגויים");
   }
       })
       .catch(() => console.log("error"));

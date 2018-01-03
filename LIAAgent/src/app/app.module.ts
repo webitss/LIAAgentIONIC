@@ -125,7 +125,6 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     FilePath,
     Refresher,
     Content
-    
   ]
 })
 export class AppModule {}
