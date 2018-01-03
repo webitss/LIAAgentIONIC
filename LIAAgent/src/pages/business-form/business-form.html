@@ -48,6 +48,7 @@
 
                           <ion-select okText="אישור" cancelText="ביטול" interface="popover" formControlName="category" placeholder="קטגורית העסק" class="border-input" block multiple="true" >
 
+
                           <ion-option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories :  this.service.categories" >{{option.Value}}</ion-option>
                           </ion-select>
                                                       </ion-item>

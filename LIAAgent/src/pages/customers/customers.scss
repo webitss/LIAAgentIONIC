@@ -43,4 +43,38 @@ page-customers {
         // height:100%;
         // height: auto;
         }
+
+        .item-md.item-block .item-inner {
+            padding-left: 0;}
+
+            .item-md {
+             
+            padding-right: 0;}
+
+
+            ion-item{
+                span:nth-child(1){
+                    width: 28%;
+                    display: inline-block;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+
+                }
+
+                span:nth-child(2){
+                    width: 50%;
+                    display: inline-block;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    padding-right: 10px;
+                }
+
+                span:nth-child(3){
+                    width: 10%;
+                    display: inline-block;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    padding-right: 10px;
+                }
+            }
 }
