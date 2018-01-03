@@ -8,9 +8,22 @@ body.keyboard-is-open ion-tabs {
    & .row{ height: 100%;}
 
  }
+ ion-app.md {
+ 
+  font-size: 1.5rem;
+  
+}
+.item-md p {
 
+  font-size: 1.5rem;}
+  
 .full-height
 {height:100%
+}
+
+.label-md[stacked], .label-md[floating] {
+ 
+  padding-right: 5px;
 }
  
  .alert-md .alert-button {
