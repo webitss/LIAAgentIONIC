@@ -66,10 +66,10 @@ scrollingFun(e){
   this.arrowUp=false;
   document.getElementById('demoBtn').click();
   }
-let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
+let remainder = ( this.contentHandle.getContentDimensions().contentHeight);
 
   // if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-remainder)){
-    if(this.contentHandle.scrollTop > this.contentHandle.getContentDimensions().contentHeight){
+    if(this.contentHandle.scrollTop > 750){
   this.arrowDown = false;
 
   document.getElementById('demoBtn').click();

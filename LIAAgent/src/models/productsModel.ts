@@ -9,5 +9,5 @@ export class productsModel{
     IcoUrl :string
     Duration :number
     DurationText :string
-
+    
 }

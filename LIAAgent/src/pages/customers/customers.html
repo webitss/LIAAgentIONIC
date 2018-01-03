@@ -43,28 +43,28 @@
                            <p *ngIf="service.customerDetails?.Category">קטגוריה : {{service.customerDetails?.Category}}</p>
                            <p *ngIf="service.customerDetails?.City">עיר :  {{service.customerDetails?.City}}</p>
                            <p *ngIf="service.customerDetails?.HP">ח"פ : {{service.customerDetails?.HP}}</p>
-                           <p *ngIf="service.customerDetails?.Lat">לאט : {{service.customerDetails?.Lat}}</p>
-                           <p *ngIf="service.customerDetails?.LogoData">נתוני לוגו : {{service.customerDetails?.LogoData}}</p>
-                           <p *ngIf="service.customerDetails?.LogoExtension">לוגו מורחב : {{service.customerDetails?.LogoExtension}}</p>
-                           <p *ngIf="service.customerDetails?.LogoUrl">כתובת לוגו : {{service.customerDetails?.LogoUrl}}</p>
+                           <!-- <p *ngIf="service.customerDetails?.Lat">לאט : {{service.customerDetails?.Lat}}</p>
+                           <p *ngIf="service.customerDetails?.LogoData">נתוני לוגו : {{service.customerDetails?.LogoData}}</p> -->
+                           <!-- <p *ngIf="service.customerDetails?.LogoExtension">לוגו מורחב : {{service.customerDetails?.LogoExtension}}</p> -->
+                           <!-- <p *ngIf="service.customerDetails?.LogoUrl">כתובת לוגו : {{service.customerDetails?.LogoUrl}}</p>
                            <p *ngIf="service.customerDetails?.Long">ארוך : {{service.customerDetails?.Long}}</p>
                            <p *ngIf="service.customerDetails?.MinPriceToTicket">מחיר לכרטיס : {{service.customerDetails?.MinPriceToTicket}}</p>
-                           <p *ngIf="service.customerDetails?.MoreDetails">פרטים נוספים : {{service.customerDetails?.MoreDetails}}</p>
+                           <p *ngIf="service.customerDetails?.MoreDetails">פרטים נוספים : {{service.customerDetails?.MoreDetails}}</p> -->
                            <p *ngIf="service.customerDetails?.OpenHours">שעות פתיחה : {{service.customerDetails?.OpenHours}}</p>
                            <p *ngIf="service.customerDetails?.Owner">בעלים : {{service.customerDetails?.Owner}}</p>
-                           <p *ngIf="service.customerDetails?.PackageId">מספר חבילה : {{service.customerDetails?.PackageId}}</p>
+                           <!-- <p *ngIf="service.customerDetails?.PackageId">מספר חבילה : {{service.customerDetails?.PackageId}}</p> -->
                            <p *ngIf="service.customerDetails?.PackageName">שם חבילה : {{service.customerDetails?.PackageName}}</p>
                            <p *ngIf="service.customerDetails?.Phone">מספר פלאפון : {{service.customerDetails?.Phone}}</p>
-                           <p *ngIf="service.customerDetails?.StoreId">מזהה עסק : {{service.customerDetails?.StoreId}}</p>
-                           <p *ngIf="service.customerDetails?.StoreName">שם עסק : {{service.customerDetails?.StoreName}}</p>
-                           <p *ngIf="service.customerDetails?.User?.Cellphone">מספר הפלאפון של המשתמש: {{service.customerDetails?.User.Cellphone}}</p>
+                           <!-- <p *ngIf="service.customerDetails?.StoreId">מזהה עסק : {{service.customerDetails?.StoreId}}</p>
+                           <p *ngIf="service.customerDetails?.StoreName">שם עסק : {{service.customerDetails?.StoreName}}</p> -->
+                           <!-- <p *ngIf="service.customerDetails?.User?.Cellphone">מספר הפלאפון של המשתמש: {{service.customerDetails?.User.Cellphone}}</p> -->
                         </ion-scroll>
                       </page-expandable>
             </ion-item>
               </ion-content>
         
         <ion-list-header text-center no-margin no-padding>
-          <button *ngIf="this.arrowDown" ion-long-press [interval]="300"  class="icon-arrow-up-05 f-size-icon bg-transpare" #downBtn (click)="this.ionViewDidEnterDown()" (onPressStart)="this.ionViewDidEnterDown()" (onPressing)="this.ionViewDidEnterDown()"></button>
+          <button *ngIf="this.arrowDown" ion-long-press [interval]="300"  class="icon-arrow-down-04 f-size-icon bg-transpare" #downBtn (click)="this.ionViewDidEnterDown()" (onPressStart)="this.ionViewDidEnterDown()" (onPressing)="this.ionViewDidEnterDown()"></button>
         </ion-list-header>
         </ion-col>
      <ion-col class="bg-gray">

@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "^3.1.6",
+    "ngx-swiper-wrapper": "^5.2.0",
     "typescript": "2.4.2"
   },
   "description": "LIA  אוטוטו מיליונר",

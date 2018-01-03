@@ -1,15 +1,11 @@
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
 import { VideoPage } from '../video/video';
 import { TabsEnum } from '../../models/tabs-enum';
-
-/**
- * Generated class for the ProductDetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { MAX_PICKER_SPEED } from 'ionic-angular/components/picker/picker-options';
+// import { Refresher } from 'ionic-angular/components/refresher/refresher';
 
 
 @Component({
@@ -21,12 +17,14 @@ export class ProductDetailsPage {
   TabsEnum: typeof TabsEnum = TabsEnum;
   @ViewChild('slider') slider: Slides;
   prevDisabled: boolean=false;
-  nextDisabled: boolean=true;
+  nextDisabled: boolean=false;
   lp: boolean = true;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
+  config:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService,public viewCtrl: ViewController) {
+    this.service.productsDetails=[];
     this.productId= navParams.data.productId;
     this.service.getProductById(this.productId);
+   
 this.isSliderFunc();
 
 
@@ -35,6 +33,7 @@ this.isSliderFunc();
   ionViewDidEnter(){
     this.service.nowComponent="מוצרים";
     console.log(this.slider);
+   // this.slider.autoplayDisableOnInteraction=false;
   }
 
 
@@ -48,30 +47,111 @@ this.isSliderFunc();
   //  this.isSlider = true;
 for(let i=0; i<this.service.products.length; i++){
   if(this.service.products[i].ProductId != this.service.productsDetails[0].ProductId)
-this.service.productsDetails.push(this.service.products[i]);
+      this.service.productsDetails.push(this.service.products[i]);
 }
 // this.service.productsDetails.push(this.service.products[this.service.products.length-1]);
  }
+ func() {
+   console.log("jhdgfh");
+  //  document.getElementById('video').click();
+ }
+//  doRefresh(refresher){
+//   console.log('Begin async operation', refresher);
+  
+//       setTimeout(() => {
+//         console.log('Async operation has ended');
+//         refresher.complete();
+//       }, 2000);
+//  }
+ionViewDidLoad(){
 
- slideChanged()
+}
+// ngAfterViewInit()
+// {
+//   setTimeout(()=>
+//   {
+//     if(this.slider)
+//     {
+//          this.slider.update();
+//     }
+//   },300);
+// }
+ slideChanged(event)
  {
-  // let currIndex = this.slider.getActiveIndex();
-  // if(currIndex==1)this.prevDisabled=false;
-  // if(currIndex==this.service.productsDetails.length-1)this.nextDisabled=true;
-  // else this.nextDisabled=false;
-  // if(currIndex==0)this.prevDisabled=true;
+  // this.slider.update();
+  let currIndex = this.slider.getActiveIndex();
+  let prevIndex=null;
+  if(prevIndex === null && currIndex ===0){
+  console.log(this.slider.realIndex);
+   
+      //  this.doRefresh(event);
+      //   this.navCtrl.push(this.navCtrl.getActive().component,{productId:24}).then(() => {
+      //     let index = this.viewCtrl.index;
+      //     this.navCtrl.remove(index);
+      //  })
+      
+   // this.slider.slideTo(7);
+   this.slider.autoplayDisableOnInteraction = false;
+   console.log(this.slider._slides[0].getAttribute('data-swiper-slide-index'));
+  // document.getElementById('addtobtn').click();
+  setTimeout(() => {
+    document.getElementById('video').click();
+  }, 2000);
+  
+  // console.log(this.slider._slides[0].setAttribute('data-swiper-slide-index','7'));
+ }
+  prevIndex = currIndex;
+  if(currIndex==1)this.prevDisabled=false;
+  if(currIndex==this.service.productsDetails.length-1)
+  this.nextDisabled=true;
+  else this.nextDisabled=false;
+  if(currIndex==0)this.prevDisabled=true;
+   console.log('Current index is ' + currIndex);
+    document.getElementById('btn').click();
+   
+  
  }
  ionViewDidLeave(){
   //this.navCtrl.popToRoot();
  }
  AddToCart(pr){
+  //console.log(this.slider._slides[this.slider.clickedIndex].getAttribute('data-swiper-slide-index'));
    console.log("enter to func ");
   this.service.clickAddToCart(pr);
     if(this.service.addProductToCart){
   this.service.addProductToCart = false;
   this.navCtrl.parent.select(this.TabsEnum.cart);
+  this.slider.autoplayDisableOnInteraction = false
 }
 else
 this.navCtrl.pop();
  }
+
+
+
+
+//  private onChangeMonth() {
+//    console.log("jjjj");
+//   this.doMyStuff().then((indexes) => {
+//     // Last slide to first slide
+//     if (indexes[0] == 6 + 1 && indexes[1] == 6) { // Change X and X + 1
+//       this.slider.slideTo(1);
+//     }
+
+//     // First slide to last slide
+//     if (indexes[0] == 0 && indexes[1] == 1){
+//       this.slider.slideTo(7,screenLeft); // Change X to the last index of your slider
+      
+//     }
+//   })
+// }
+
+// private doMyStuff() {
+//   return new Promise ((resolve, reject) => {
+//     // Here is where you update your values each time your slide change.
+//     resolve ([this.slider.getActiveIndex(), this.slider.getPreviousIndex()]);
+//     reject('some fail stuff');
+//   })
+// }
+
 }

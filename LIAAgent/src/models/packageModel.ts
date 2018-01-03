@@ -1,5 +1,4 @@
 export class packageModel{
-
    PackageId :number
    PackageName:string
    PackagePrice :number
