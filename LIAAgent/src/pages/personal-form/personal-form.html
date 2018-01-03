@@ -10,7 +10,7 @@
 
 <ion-content padding>
 
-          <form  [formGroup]="frmPersonal" (ngSubmit)="onGoToBusinessFormPage(frmPersonal.value, this.StoreId)" class="full-height">
+          <form  [formGroup]="frmPersonal" (ngSubmit)="onGoToBusinessFormPage(frmPersonal.value, this.StoreId)" class="full-height" [ngClass]="{'inputvalid':(frmPersonal.valid)}">
               <ion-grid>
                 <ion-row justify-content-center >
                   <ion-col  align-self-center>
@@ -21,7 +21,7 @@
         <ion-row>
                   <ion-col>
               <ion-item>
-                <ion-input type="text" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Name : 'שם לקוח'"  formControlName="first_name" [pattern]="this.pattern" ></ion-input>
+                <ion-input type="text" [class.ng-invalid]="!frmPersonal.get('first_name').valid" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Name : 'שם לקוח'"  formControlName="first_name" [pattern]="this.pattern" ></ion-input>
               </ion-item>
                   </ion-col>
 

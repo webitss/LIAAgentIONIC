@@ -5,6 +5,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { BusinessFormPage } from '../business-form/business-form';
 //import { customerDetailsModel } from '../../models/customerDetails';
 import { storeOwnerModel } from '../../models/storeOwnerModel';
+import { ViewChild } from '@angular/core/src/metadata/di';
+import { ElementRef } from '@angular/core/src/linker/element_ref';
 //import { AbstractControlOptions } from '@angular/forms/src/model';
 
 
@@ -29,7 +31,7 @@ export class PersonalFormPage {
   StoreId:number;
   StoreOwnerObj: any;
   customerDtl: storeOwnerModel;
-
+  // @ViewChild('quantityUnitCode', { read: ElementRef }) quantityUnitCodeElementRef: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
     this.customerDtl = new storeOwnerModel;
@@ -37,7 +39,6 @@ export class PersonalFormPage {
     this.getStorOfCustomerDetailsArray();
     service.nowComponent="טופס הזמנה";
 // this.testFunction1();
-
   }
 
 // customValidationFunction(formGroup): any {
@@ -121,4 +122,34 @@ else
   ionViewDidLeave(){
    // this.navCtrl.popToRoot();
    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+funcvalid(){
+   //I think you also have to do a setTimeout here.
+    // this.render.setElementClass(this.quantityUnitCodeElementRef.nativeElement.children[0], 'ng-invalid', false);
+    // this.render.setElementClass(this.quantityUnitCodeElementRef.nativeElement.children[0], 'ng-valid', true);
+}
 }

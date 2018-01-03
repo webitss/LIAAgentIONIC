@@ -10,6 +10,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { TabsPage } from '../tabs/tabs';
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
+import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 //import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -36,7 +37,8 @@ try: any;
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public service:LiaService,
-    public events:Events) {
+    public events:Events,
+    private alertCtrl: AlertController) {
 
     this.isClassMini = false;
     this.isClassBig = true;
@@ -77,6 +79,13 @@ ionViewDidEnter(){
 
 
    async routeToTabs(frm): Promise<any>{
+
+    let alert = this.alertCtrl.create({
+      title: '',
+      subTitle: '',
+      buttons: ['אישור']
+    });
+
     await this.service.doLogin(frm).then(()=> {
 
     this.isAuthenticated = this.service.isAuthenticated;
@@ -86,18 +95,31 @@ ionViewDidEnter(){
           this.service.setLocalStorage();
           this.navCtrl.setRoot(TabsPage)
           break;
-          case -3: alert("משתמש לא נמצא")
+          case -3:alert.setSubTitle("אינך מורשה להיכנס לאפליקציה")
+          alert.present();
           break;
-          case -10: alert("אינך מורשה להיכנס לאפליקציה");
+          case -10:alert.setSubTitle("אינך מורשה להיכנס לאפליקציה")
+          alert.present();
           break;
-          case -2: alert("הנתונים שהזנת שגויים");
+          case -2:alert.setSubTitle("הנתונים שהזנת שגויים");
+          alert.present();
           break
-          default: alert("הנתונים שהזנת שגויים");
+          default:alert.setSubTitle("הנתונים שהזנת שגויים");
+          alert.present();
           break;
           }
 
          });
 
+      }
+
+      presentAlert() {
+        let alert = this.alertCtrl.create({
+          title: '',
+          subTitle: 'הנתונים',
+          buttons: ['']
+        });
+        alert.present();
       }
 
     }
