@@ -1,3 +1,4 @@
+import { Refresher } from 'ionic-angular/components/refresher/refresher';
 import { SassHelperComponent } from './../components/sass-helper/sass-helper';
 import { ExpandablePage } from './../pages/expandable/expandable';
 import { HeaderPage } from './../pages/header/header';
@@ -9,9 +10,9 @@ import { ProductsPage } from './../pages/products/products';
 import { LiaProxy } from './../providers/proxy';
 import { HttpClientModule } from '@angular/common/http';
 import { GalleryPage } from './../pages/gallery/gallery';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, ElementRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, Content } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -26,10 +27,8 @@ import { PackageSelectedPage } from '../pages/package-selected/package-selected'
 import { FormOfUsePage } from '../pages/form-of-use/form-of-use';
 import { PayOptionsPage } from '../pages/pay-options/pay-options';
 import { ProductDetailsPage } from '../pages/product-details/product-details';
-import { PopupPage } from '../pages/popup/popup';
 import { EnterPage } from '../pages/enter/enter';
 import { SignaturePadModule } from 'angular2-signaturepad';
-import { Popup2Page } from '../pages/popup2/popup2';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LoginPage } from '../pages/login/login';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -64,10 +63,8 @@ import { CookieService } from 'ngx-cookie-service';
     FormOfUsePage,
     PayOptionsPage,
     ProductDetailsPage,
-    PopupPage,
-    EnterPage,
-    Popup2Page,
-    LoginPage,
+     EnterPage,
+     LoginPage,
     HeaderPage,
     SignaturePage,
     FormOfUsePage,
@@ -100,10 +97,8 @@ import { CookieService } from 'ngx-cookie-service';
     FormOfUsePage,
     PayOptionsPage,
     ProductDetailsPage,
-    PopupPage,
-    EnterPage,
-    Popup2Page,
-    LoginPage,
+     EnterPage,
+      LoginPage,
     HeaderPage,
     SignaturePage,
     FormOfUsePage,
@@ -126,7 +121,9 @@ import { CookieService } from 'ngx-cookie-service';
     FileTransferObject,
     Camera,
     Keyboard,
-    FilePath
+    FilePath,
+    Refresher,
+    Content
   ]
 })
 export class AppModule {}

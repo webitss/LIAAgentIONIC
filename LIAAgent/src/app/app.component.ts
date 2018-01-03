@@ -7,14 +7,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Events } from 'ionic-angular/util/events';
 import { LiaProxy } from '../providers/proxy';
 import { Config } from 'ionic-angular/config/config';
-//import { ViewChild } from '@angular/core';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = LoginPage;
-  //@ViewChild(Nav) nav: Nav;
+ 
 
     alert: Alert;
     constructor(public platform: Platform,
@@ -57,10 +56,7 @@ export class MyApp {
 
  
 
-  // initializeApp() {
-
-  //    this.keyboard.disableScroll(false);
-  //   }
+ 
 
 
   async showAlert(): Promise<any> {

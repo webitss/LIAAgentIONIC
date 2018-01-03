@@ -53,7 +53,6 @@ export class CustomersPage {
 
 
   scrollingFun(e){
-
   if(this.contentHandle.scrollTop >= 10){
   // if(this.arrowUp != true)
   this.arrowUp=true;//show up arrow
@@ -66,8 +65,11 @@ export class CustomersPage {
   document.getElementById('demoBtn').click();
   }
   let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
-  if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-remainder)){
+  if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-500)){
   this.arrowDown = false;
+  console.log("this.arrowDown "+this.arrowDown);
+  console.log("this.contentHandle.scrollTop "+this.contentHandle.scrollTop)
+  console.log("this.contentHandle.getScrollElement().scrollHeight "+this.contentHandle.getScrollElement().scrollHeight)
   document.getElementById('demoBtn').click();
    }
   else{

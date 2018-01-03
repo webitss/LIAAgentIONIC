@@ -89,7 +89,7 @@ export class LiaService {
 
 
 
-  //#login
+  //#region  login
 
   async doLogin(frm): Promise<any> {
 
@@ -109,8 +109,7 @@ export class LiaService {
       this.allPosts();
 }
       console.log(this.isAuthenticated);
-
-  })
+     })
   .catch((error: any) => {console.log(error)
 });
   }
@@ -140,8 +139,9 @@ this.proxy.authUser.LoginGuide=this.isAuthenticated.LoginGuide;
 this.allPosts();
 }
 }
+ //#endregion
 
-//#region post
+    //#region post
 
             async post(func: string): Promise<any> {
                 await this.proxy
@@ -171,7 +171,6 @@ this.allPosts();
                          });
                         break;
                     }
-                    // }
                 })
                 .catch((error) => console.log("error"));
             }
@@ -199,7 +198,7 @@ this.allPosts();
             .catch(() => console.log("error"));
             }
 
-        //#endregion
+     //#endregion
 
 
 
@@ -268,27 +267,27 @@ if(element != null){
 
 //#endregion
 
-//#region getPackageById
-        _signature: string;
-        nowpackage1: any;
-        getPackageById(id: number): any {
-        switch (id) {
-            case 1:
-            this.nowpackage1 = this.packages[0];
-            break;
-            case 2:
-            this.nowpackage1 = this.packages[1];
-            break;
-            case 3:
-            this.nowpackage1 = this.packages[2];
-            break;
-        }
-        return this.nowpackage1;
-        }
+    //#region getPackageById
+            _signature: string;
+            nowpackage1: any;
+            getPackageById(id: number): any {
+            switch (id) {
+                case 1:
+                this.nowpackage1 = this.packages[0];
+                break;
+                case 2:
+                this.nowpackage1 = this.packages[1];
+                break;
+                case 3:
+                this.nowpackage1 = this.packages[2];
+                break;
+            }
+            return this.nowpackage1;
+            }
 
-  //#endregion
+    //#endregion
 
-  //#region getPackageProductsById
+     //#region getPackageProductsById
   nowpackage: any;
   getPackageProductsById(id: number): any {
     switch (id) {
@@ -306,7 +305,7 @@ if(element != null){
   }
   //#endregion
 
-  //#region getProductById
+     //#region getProductById
 
   getProductById(id: number) {
     for (let i = 0; i < this.products.length; i++)
@@ -319,96 +318,107 @@ if(element != null){
 
   //#endregion
 
+     //#region  cart
+
   clickAddToCart(pr) {
     this.countProductsInCart++;
     this.productsOfCart.push(pr);
     }
 
     clickAddPackageToCart(p){
-if(this.countPackageInCart===0){
+    if(this.countPackageInCart===0){
       this.countPackageInCart++;
       this.countProductsInCart+=this.countPackageInCart;
       this.packageInCart=p;
-console.log(p);
-}
-else
-if(this.changePackage){
-this.packageInCart=p;
-}
+
+       }
+    else
+    if(this.changePackage){
+    this.packageInCart=p;
+    this.changePackage = false;
+    }
     }
 
-  async createFrmBusiness(storDetails: customerDetailsModel){
-if(this.packageInCart.PackageId){
- storDetails.PackageId=this.packageInCart.PackageId;
-storDetails.PackageName=this.packageInCart.PackageName;
-}
-storDetails.User = new UserObj;
-
-    await this.proxy
-    .createStoreDetails(storDetails)
-    .then(res => {
-      if(res.ErrorCode === 0)
-console.log("הפרטים נשמרו בהצלחה",res.Result);
-else{
-if(res.ErrorCode === -10)
-alert("אינך מורשה ליצור לקוח חדש");
-else
-alert("הנתונים שהזנת שגויים");
-}
-    })
-    .catch(() => console.log("error"));
-  }
-
-  async updateFrmBusiness(storDetails: customerDetailsModel){
-    if(this.packageInCart.PackageId){
-      storDetails.PackageId=this.packageInCart.PackageId;
-     storDetails.PackageName=this.packageInCart.PackageName;
-    }
-    storDetails.User = new UserObj;
-storDetails.Categories=new Array <customerCategoriesModel>();
-storDetails.Categories[0]=new customerCategoriesModel;
-storDetails.Categories[0].SysTableRowId=5;
-
-    await this.proxy
-    .upDateStoreDetails(storDetails)
-    .then(res => {
-      if(res.ErrorCode === 0)
-      console.log("הפרטים עודכנו בהצלחה",res.Result);
-      else
-{
-      if(res.ErrorCode === -10)
-      alert("אינך מורשה לעדכן פרטי לקוח ");
-      else
-      alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
-}
-    })
-    .catch(() => console.log("error"));
-}
-
-async creatOrder(storeId): Promise<any> {
-  let obj:OrderObj=new OrderObj;
-  obj.AgentId=this.isAuthenticated.EntityId;
-  obj.StoreId=storeId;
-  obj.PackageId=this.packageInCart.PackageId;
-  obj.ProductsIDs =  [];
-  for(let i=0; i<this.productsOfCart.length; i++){
-  obj.ProductsIDs.push({"EntityId":this.productsOfCart[i].ProductId});
-  }
-console.log(obj);
-  let response = await this.proxy.createOrder(obj);
-  return response;
-}
-
-  clickDeleteToCart(id) {
-    let index: number;
-    for (let i = 0; i < this.productsOfCart.length; i++)
-      if (this.productsOfCart[i].ProductId == id) {
-        index = i;
-        i = this.productsOfCart.length;
+    clickDeleteToCart(id) {
+        let index: number;
+        for (let i = 0; i < this.productsOfCart.length; i++)
+          if (this.productsOfCart[i].ProductId == id) {
+            index = i;
+            i = this.productsOfCart.length;
+          }
+        console.log(index);
+        this.productsOfCart.splice(index, 1);
+        if (this.countProductsInCart > 0) this.countProductsInCart--;
       }
-    console.log(index);
-    this.productsOfCart.splice(index, 1);
-    if (this.countProductsInCart > 0) this.countProductsInCart--;
+//#endregion
+
+     //#region form-bussiness
+
+async createFrmBusiness(storDetails: customerDetailsModel){
+  if(this.packageInCart.PackageId){
+   storDetails.PackageId=this.packageInCart.PackageId;
+  storDetails.PackageName=this.packageInCart.PackageName;
   }
+  storDetails.User = new UserObj;
+
+      await this.proxy
+      .createStoreDetails(storDetails)
+      .then(res => {
+        if(res.ErrorCode === 0)
+  console.log("הפרטים נשמרו בהצלחה",res.Result);
+  else{
+  if(res.ErrorCode === -10)
+  alert("אינך מורשה ליצור לקוח חדש");
+  else
+  alert("הנתונים שהזנת שגויים");
+  }
+      })
+      .catch(() => console.log("error"));
+    }
+
+    async updateFrmBusiness(storDetails: customerDetailsModel){
+      if(this.packageInCart.PackageId){
+        storDetails.PackageId=this.packageInCart.PackageId;
+       storDetails.PackageName=this.packageInCart.PackageName;
+      }
+      storDetails.User = new UserObj;
+  storDetails.Categories=new Array <customerCategoriesModel>();
+  storDetails.Categories[0]=new customerCategoriesModel;
+  storDetails.Categories[0].SysTableRowId=5;
+
+      await this.proxy
+      .upDateStoreDetails(storDetails)
+      .then(res => {
+        if(res.ErrorCode === 0)
+        console.log("הפרטים עודכנו בהצלחה",res.Result);
+        else
+  {
+        if(res.ErrorCode === -10)
+        alert("אינך מורשה לעדכן פרטי לקוח ");
+        else
+        alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+  }
+      })
+      .catch(() => console.log("error"));
+  }
+    //#endregion
+
+     //#region  order
+
+            async creatOrder(storeId): Promise<any> {
+            let obj:OrderObj=new OrderObj;
+            obj.AgentId=this.isAuthenticated.EntityId;
+            obj.StoreId=storeId;
+            obj.PackageId=this.packageInCart.PackageId;
+            obj.ProductsIDs =  [];
+            for(let i=0; i<this.productsOfCart.length; i++){
+            obj.ProductsIDs.push({"EntityId":this.productsOfCart[i].ProductId});
+            }
+            console.log(obj);
+            let response = await this.proxy.createOrder(obj);
+            return response;
+            }
+    //#endregion
+
 }
 

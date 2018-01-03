@@ -8,7 +8,7 @@
               <button *ngIf="this.arrowUp" ion-long-press [interval]="200" class="icon-arrow-up-05  f-size-icon bg-transpare" (click)="this.ionViewDidEnterUp()" (onPressStart)="this.ionViewDidEnterUp()" (onPressing)="this.ionViewDidEnterUp()" ></button>
                 </ion-list-header>
 
-                  <ion-content  #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 60vh">
+                  <ion-content  #contentRef (ionScroll)="this.scrollingFun($event)" style="height: 40vh">
                         <ion-item *ngIf="this.service.packageInCart?.PackageId" class="border-list">
                                               חבילת
                         {{this.service.packageInCart.PackageName}}

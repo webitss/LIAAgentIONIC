@@ -106,22 +106,22 @@ console.log(JSON.stringify(obj));
   }
 
 
-upDateStoreDetails(customerDtl: customerDetailsModel): Promise<any>{
-  let obj: SessionSell;
-  obj=new SessionSell;
-  obj.UserId=this.authUser.UserId;
-  obj.nvGuide=this.authUser.LoginGuide;
-  obj.ReqObj=customerDtl;
-  obj.ReqObj.User=new UserObj;
-obj.ReqObj.HP=null;
-
-console.log(JSON.stringify(obj));
-  return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/UpdateStore `, {
-
-      obj
-
-    }).toPromise();
-  }
+  upDateStoreDetails(customerDtl: customerDetailsModel): Promise<any>{
+    let obj: SessionSell;
+    obj=new SessionSell;
+    obj.UserId=this.authUser.UserId;
+    obj.nvGuide=this.authUser.LoginGuide;
+    obj.ReqObj=customerDtl;
+    obj.ReqObj.User=new UserObj;
+   obj.ReqObj.HP=null;
+   
+   console.log(JSON.stringify(obj));
+    return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/UpdateStore `, {
+   
+        obj
+   
+      }).toPromise();
+    }
 
 
   RemoveGuide(): Promise<any> {
@@ -136,18 +136,16 @@ console.log(JSON.stringify(obj));
   }
 
 
-createOrder(order: OrderObj): Promise<any>{
-  let obj: SessionSell;
-  obj=new SessionSell;
-  obj.UserId=this.authUser.UserId;
-  obj.nvGuide=this.authUser.LoginGuide;
-  obj.ReqObj=order;
-    return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/CreateOrder`, {
-
-      obj
-
-    }).toPromise();
-  }
+  createOrder(order: OrderObj): Promise<any>{
+    let obj: SessionSell;
+    obj=new SessionSell;
+    obj.UserId=this.authUser.UserId;
+    obj.nvGuide=this.authUser.LoginGuide;
+    obj.ReqObj=order;
+      return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/CreateOrder`, {
+           obj
+         }).toPromise();
+    }
 
 
   CreatePDF(orderId, email, customerSignatureData, liaSignatureData): Promise<any>{
