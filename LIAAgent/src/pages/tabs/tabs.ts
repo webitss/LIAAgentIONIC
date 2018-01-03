@@ -75,7 +75,6 @@ ionViewDidEnter(){
     routeToHome()  {
       //console.log( this.sassHelper.readProperty('myColor'));
       //console.log( this.sassHelper.setProperty('myColor',"green"));
-      console.log(this.service.nowComponent);
     console.log(this.nav.getActive().component);
     this.nav.setRoot(this.nav.getActive().component);
 
