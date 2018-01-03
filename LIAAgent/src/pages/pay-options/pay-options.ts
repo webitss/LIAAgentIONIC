@@ -12,14 +12,14 @@ import { EnterPage } from '../enter/enter';
 import { CheckboxRequiredValidator } from '@angular/forms/src/directives/validators';
 import { packageModel } from '../../models/packageModel';
 import { LiaProxy } from '../../providers/proxy';
-import { TabsEnum } from '../../models/tabs-enum';
+// import { TabsEnum } from '../../models/tabs-enum';
 
 @Component({
   selector: 'page-pay-options',
   templateUrl: 'pay-options.html',
 })
 export class PayOptionsPage {
-TabsEnum: typeof Tabs = TabsEnum;
+// TabsEnum: typeof Tabs = TabsEnum;
   frmPay: FormGroup;
   StoreId: number;
   customerEmail:string;
