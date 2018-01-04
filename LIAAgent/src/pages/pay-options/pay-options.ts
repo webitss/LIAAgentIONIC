@@ -159,9 +159,9 @@ else{
   openSignature1Model(){
     if(this.opendSig==false){
       this.opendSig=true;
-          this.events.subscribe('custom-user-events', (paramsVar) => {
+          this.events.subscribe('custom-user-events1', (paramsVar) => {
             this.service.signatureImage1=paramsVar;
-            this.events.unsubscribe('custom-user-events');
+            this.events.unsubscribe('custom-user-events1');
             // this.opendSig=false;
         })
           setTimeout(() => {
