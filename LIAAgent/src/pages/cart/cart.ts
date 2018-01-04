@@ -19,7 +19,7 @@ export class CartPage {
   id:number;
   i:number;
   arrowUp: boolean = false;
-  arrowDown: boolean = true;
+  arrowDown: boolean = false;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService) {
@@ -31,7 +31,7 @@ export class CartPage {
     //  this.StoreId = navParams.get('StoreId');
     //  console.log(this.StoreId);
      this.StoreId = this.navParams.data.storeId;
-    
+
     }
 
 
@@ -41,9 +41,9 @@ export class CartPage {
     this.service.nowComponent = "סל";
     let storeId = this.navParams.data.storeId;
     //this.StoreId = this.navParams.get('StoreId');
-    
+
     this.StoreId = storeId;
-    
+
     // if(this.service.customerDetails.StoreId != null)
     // this.StoreId = this.service.customerDetails.StoreId;
   }
@@ -57,6 +57,7 @@ this.i=45;
 
 scrollingFun(e){
   if(this.contentHandle.scrollTop >= 10){
+   this.arrowDown=true;
   if(this.arrowUp != true)
   this.arrowUp=true;//show up arrow
    document.getElementById('demoBtn').click();

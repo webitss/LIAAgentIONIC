@@ -24,7 +24,7 @@ export class ProductDetailsPage {
     this.service.productsDetails=[];
     this.productId= navParams.data.productId;
     this.service.getProductById(this.productId);
-   
+
 this.isSliderFunc();
 
 
@@ -57,7 +57,7 @@ for(let i=0; i<this.service.products.length; i++){
  }
 //  doRefresh(refresher){
 //   console.log('Begin async operation', refresher);
-  
+
 //       setTimeout(() => {
 //         console.log('Async operation has ended');
 //         refresher.complete();
@@ -82,7 +82,7 @@ ionViewDidLoad(){
   let prevIndex=null;
   if(prevIndex === null && currIndex ===0){
   console.log(this.slider.realIndex);
-   
+
       //  this.doRefresh(event);
       //   this.navCtrl.push(this.navCtrl.getActive().component,{productId:24}).then(() => {
       //     let index = this.viewCtrl.index;
@@ -97,7 +97,7 @@ ionViewDidLoad(){
   this.nextDisabled=true;
   else this.nextDisabled=false;
   if(currIndex==0)this.prevDisabled=true;
- 
+
  }
  ionViewDidLeave(){
   //this.navCtrl.popToRoot();
@@ -132,7 +132,7 @@ this.navCtrl.pop();
 //     // First slide to last slide
 //     if (indexes[0] == 0 && indexes[1] == 1){
 //       this.slider.slideTo(7,screenLeft); // Change X to the last index of your slider
-      
+
 //     }
 //   })
 // }

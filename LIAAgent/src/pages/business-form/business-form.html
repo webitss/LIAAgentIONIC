@@ -51,6 +51,11 @@
 
                           <ion-option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories :  this.service.categories" >{{option.Value}}</ion-option>
                           </ion-select>
+
+<!-- <select class="border-input" block formControlName="category" placeholder="קטגורית העסק" >
+<option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories :  this.service.categories">{{option.Value}}</option>
+</select> -->
+
                                                       </ion-item>
                                                     </ion-col>
                                             </ion-row>

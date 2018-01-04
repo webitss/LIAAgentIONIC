@@ -128,6 +128,7 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     Content,
     // SmartAudioProvider
     
+
   ]
 })
 export class AppModule {}
