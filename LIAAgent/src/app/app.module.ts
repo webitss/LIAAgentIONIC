@@ -43,6 +43,7 @@ import { FilePath } from '@ionic-native/file-path';
 //import { CookieService } from 'ngx-cookie-service';
 import { CookieService } from 'ngx-cookie-service';
 import { SuperTabsModule } from 'ionic2-super-tabs';
+// import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
 
 
 
@@ -124,7 +125,8 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     Keyboard,
     FilePath,
     Refresher,
-    Content
+    Content,
+    // SmartAudioProvider
     
   ]
 })

@@ -34,9 +34,9 @@
                     <button class="bg-transpare" (click)="expandItem(item) " text-right style="width:100%">
                       <span float-start>{{item?.StoreName}}</span>
                       <span >{{item?.Address}} </span>
-                      <span *ngIf="item?.PackageId==1" > זהב</span>
-                      <span *ngIf="item?.PackageId==2" > כסף</span>
-                      <span *ngIf="item?.PackageId==3" > ברונזה</span>
+                      <span *ngIf="item?.PackageId==1" >זהב</span>
+                      <span *ngIf="item?.PackageId==2" >כסף</span>
+                      <span *ngIf="item?.PackageId==3" >ברונזה</span>
                       <button float-end class="f-size-icon bg-transpare" [ngClass]="{'icon-arrow-down-04': !item.expanded, 'icon-icon-x_Artboard-2-01': item.expanded}" ></button>
                     </button>
                  
@@ -53,11 +53,11 @@
                            <!-- <p *ngIf="service.customerDetails?.LogoUrl">כתובת לוגו : {{service.customerDetails?.LogoUrl}}</p>
                            <p *ngIf="service.customerDetails?.Long">ארוך : {{service.customerDetails?.Long}}</p>-->
                            <p *ngIf="service.customerDetails?.MinPriceToTicket">מחיר לכרטיס : {{service.customerDetails?.MinPriceToTicket}}</p>
-                           <p *ngIf="service.customerDetails?.MoreDetails">פרטים נוספים : {{service.customerDetails?.MoreDetails}}</p>
+                           <!-- <p *ngIf="service.customerDetails?.MoreDetails">פרטים נוספים : {{service.customerDetails?.MoreDetails}}</p> -->
                            <p *ngIf="service.customerDetails?.OpenHours">שעות פתיחה : {{service.customerDetails?.OpenHours}}</p>
                            <!-- <p *ngIf="service.customerDetails?.Owner">בעלים : {{service.customerDetails?.Owner}}</p> -->
                            <!-- <p *ngIf="service.customerDetails?.PackageId">מספר חבילה : {{service.customerDetails?.PackageId}}</p> -->
-                           <!-- <p *ngIf="service.customerDetails?.PackageName">שם חבילה : {{service.customerDetails?.PackageName}}</p> -->
+                           <p *ngIf="service.customerDetails?.PackageName">שם חבילה : {{service.customerDetails?.PackageName}}</p>
                            <p *ngIf="service.customerDetails?.Phone">מספר פלאפון : {{service.customerDetails?.Phone}}</p>
                            <!-- <p *ngIf="service.customerDetails?.StoreId">מזהה עסק : {{service.customerDetails?.StoreId}}</p>-->
                            <p *ngIf="service.customerDetails?.StoreName">שם עסק : {{service.customerDetails?.StoreName}}</p> 

@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
 import { TabsEnum } from '../../models/tabs-enum';
-
+import { NativeAudio } from '@ionic-native/native-audio';
+// import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
 @Component({
   selector: 'page-package-selected',
   templateUrl: 'package-selected.html',
@@ -19,7 +20,12 @@ export class PackageSelectedPage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public service:LiaService) {
+    public service:LiaService
+    // ,public smartAudio:SmartAudioProvider
+    // ,public nativeAudio:NativeAudio
+  ) {
+ 
+    
     service.isOuter=false;
     service.isInner=true;
     this.nowPackage=new Array();
@@ -62,5 +68,18 @@ this.navCtrl.pop();
   }
   ionViewDidLeave(){
     //this.navCtrl.popToRoot();
+   }
+
+
+
+
+   clickAddPackageToCart(nowPackage)
+   {
+    this.service.clickAddPackageToCart(nowPackage);
+    // this.smartAudio.play('tabSwitch');
+    if(this.service.addToCartNow){
+      let audio= document.getElementById('player');
+      (audio as any).play();
+    }
    }
 }

@@ -30,6 +30,8 @@ export class PayOptionsPage {
      public service:LiaService,
      public modalController:ModalController,public events:Events,public app :App, public proxy: LiaProxy,public loadingCtrl: LoadingController) {
         service.nowComponent="תשלום";
+service.signatureImage="";
+service.signatureImage1="";
      this.frmPay = new FormGroup({
           formOfUse: new FormControl(false, Validators.requiredTrue)
         });
@@ -57,6 +59,7 @@ export class PayOptionsPage {
 
 
 async resetAll(){
+ 
 console.log(this.service.signatureImage);
 let loader = this.loadingCtrl.create({
   content: "Uploading..."
@@ -84,21 +87,29 @@ switch(val.Error.ErrorCode){
       }
 
 if(isCreated){
-
-await this.proxy.CreatePDF(val.Result, this.customerEmail, this.service.signatureImage, this.service.signatureImage1)
+  let audio= document.getElementById('player');
+  await this.proxy.CreatePDF(val.Result, this.customerEmail, this.service.signatureImage, this.service.signatureImage1)
 .then(res => {
   switch(res.ErrorCode){
-    case 0 :
-    this.service.isTerminateOrdered=true;
+    case 0 : 
+    setTimeout(() => {
+      this.service.isTerminateOrdered=true;
+      
+   }, 300);
+   
+   (audio as any).play();
     loader.dismiss();
-                setTimeout(() => {
-                  //this.navCtrl.setRoot(TabsPage);
+    
+    
+    setTimeout(() => {
+                   //this.navCtrl.setRoot(TabsPage);
                   console.log( " this.service.productsOfCart "+this.service.productsOfCart);
                   this.service.productsOfCart=[];
                   this.service.packageInCart=new packageModel;
                   this.service.countPackageInCart=0;
                   this.service.countProductsInCart=0;
                   this.service.isTerminateOrdered=false;
+                 
                   // this.app.getRootNav().setRoot(TabsPage);
                 this.navCtrl.parent.select(0);
                 }, 3000);
@@ -125,30 +136,43 @@ await this.proxy.CreatePDF(val.Result, this.customerEmail, this.service.signatur
 .catch()
 }
 }
-
+opendSig:boolean=false;
   openSignatureModel(){
+    if(this.opendSig==false){
+    this.opendSig=true;
           this.events.subscribe('custom-user-events', (paramsVar) => {
             this.service.signatureImage=paramsVar;
             this.events.unsubscribe('custom-user-events');
+            // this.opendSig=false;
         })
             setTimeout(() => {
             let modal = this.modalController.create(SignaturePage);
           modal.present();
+          this.opendSig=false;
           }, 300);
-
+}
+else{
+  console.log("no!!");
+}
   }
-
+  opendSig1:boolean=false;
   openSignature1Model(){
+    if(this.opendSig==false){
+      this.opendSig=true;
           this.events.subscribe('custom-user-events', (paramsVar) => {
-
             this.service.signatureImage1=paramsVar;
             this.events.unsubscribe('custom-user-events');
+            // this.opendSig=false;
         })
           setTimeout(() => {
             let modal = this.modalController.create(Signature1Page);
           modal.present();
-          }, 300);
-
+          this.opendSig=false;
+           }, 300);
+          }
+          else{
+            console.log("no!!");
+          }
   }
   ionViewDidLeave(){
     //this.navCtrl.popToRoot();

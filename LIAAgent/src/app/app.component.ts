@@ -7,7 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Events } from 'ionic-angular/util/events';
 import { LiaProxy } from '../providers/proxy';
 import { Config } from 'ionic-angular/config/config';
-
+// import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
 @Component({
   templateUrl: 'app.html'
 })
@@ -24,11 +24,12 @@ export class MyApp {
     public app:App,
     public events:Events,private keyboard: Keyboard,
     public proxy: LiaProxy,public config:Config
+    // ,public smartAudio:SmartAudioProvider
      ) {
     events.subscribe('user:login', () => {
       this.showAlert();
     });
-   
+  //  smartAudio.preload('tabSwitch', 'assets/imgs/video.mp4');
     platform.ready().then(() => {
       this.keyboard.disableScroll(true);
     

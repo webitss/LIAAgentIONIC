@@ -32,17 +32,20 @@
 
 <ion-row justify-content-center align-items-center>
         <ion-col col-2>
-        <ion-item class="border-input height-button-w" (click)="openSignatureModel()"><img [src]="service.signatureImage" *ngIf="service.signatureImage" /></ion-item>
+        <ion-item class="border-input height-button-w" (click)="openSignatureModel()" ><img [src]="service.signatureImage" *ngIf="service.signatureImage" /></ion-item>
         </ion-col>
-
-        <ion-col col-2 >
+        <ion-col col-2>
         <ion-item  class="border-input height-button-w" (click)="openSignature1Model()"><img [src]="service.signatureImage1" *ngIf="service.signatureImage1" /></ion-item>
         </ion-col>
-
+        <!-- [class.button-disabled]="true"  -->
+<!-- this.opendSig1               disabled="true" -->
         <ion-col col-2>
         <button ion-button block color="blue-color" class="height-button-w"(click)="resetAll()" [disabled]="!this.frmPay.valid || !service.signatureImage || !service.signatureImage1 || isClicked">המשך</button>
+        <audio id="player">
+            <source id="source" src="http://freesound.org/data/previews/397/397444_5121236-lq.mp3">
+        </audio>
         </ion-col>
-
+<!-- ../../assets/sound/ayala.mp3 -->
 </ion-row>
     </ion-col>
 

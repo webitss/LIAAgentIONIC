@@ -55,8 +55,14 @@
 
                <ion-col col-12 align-self-start *ngIf="!service.isPackageProductDetailed" >
             <button ion-button  block  type="button"
-              class="btn-white"  (click)="this.service.clickAddPackageToCart(nowPackage);this.BackToCart()" [style.color]="nowPackage.packageColor=='bg-yellow' ? '#f1bf1c ' : (nowPackage.packageColor=='bg-green' ? '#7ec141 ':(nowPackage.packageColor=='bg-pink' ? '#e12468 ':'black'))">
+              class="btn-white"  (click)="this.clickAddPackageToCart(nowPackage);this.BackToCart()" [style.color]="nowPackage.packageColor=='bg-yellow' ? '#f1bf1c ' : (nowPackage.packageColor=='bg-green' ? '#7ec141 ':(nowPackage.packageColor=='bg-pink' ? '#e12468 ':'black'))">
             הוסף לסל</button>
+            <!-- <audio id="player">
+              <source id="source" src="../../assets/sound/ayala.mp3">
+            </audio> -->
+            <audio id="player">
+              <source id="source" src="http://freesound.org/data/previews/397/397444_5121236-lq.mp3">
+          </audio>
           </ion-col>
 
             </ion-row>

@@ -106,10 +106,13 @@ ionViewDidLoad(){
   //console.log(this.slider._slides[this.slider.clickedIndex].getAttribute('data-swiper-slide-index'));
    console.log("enter to func ");
   this.service.clickAddToCart(pr);
+    let audio= document.getElementById('player');
+    (audio as any).play();
+  
     if(this.service.addProductToCart){
   this.service.addProductToCart = false;
   this.navCtrl.parent.select(this.TabsEnum.cart);
-  this.slider.autoplayDisableOnInteraction = false
+  // this.slider.autoplayDisableOnInteraction = false
 }
 else
 this.navCtrl.pop();
