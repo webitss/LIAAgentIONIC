@@ -101,6 +101,8 @@ ionViewDidLoad(){
   this.nextDisabled=true;
   else this.nextDisabled=false;
   if(currIndex==0)this.prevDisabled=true;
+// this.slider.slideNext(1);
+
  }
 
 
