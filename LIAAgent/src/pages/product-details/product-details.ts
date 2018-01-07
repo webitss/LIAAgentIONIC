@@ -5,7 +5,8 @@ import { LiaService } from '../../providers/lia.service';
 import { VideoPage } from '../video/video';
 import { TabsEnum } from '../../models/tabs-enum';
 import { MAX_PICKER_SPEED } from 'ionic-angular/components/picker/picker-options';
-// import { Refresher } from 'ionic-angular/components/refresher/refresher';
+import { Content } from 'ionic-angular/navigation/nav-interfaces';
+import { Refresher } from 'ionic-angular/components/refresher/refresher';
 
 
 @Component({
@@ -16,13 +17,15 @@ export class ProductDetailsPage {
   productId:number;
   TabsEnum: typeof TabsEnum = TabsEnum;
   @ViewChild('slider') slider: Slides;
+  // @ViewChild('Content') content: Content;
   prevDisabled: boolean=false;
   nextDisabled: boolean=false;
   lp: boolean = true;
   config:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService,public viewCtrl: ViewController) {
     this.service.productsDetails=[];
-    this.productId= navParams.data.productId;
+
+    this.productId = navParams.data.productId;
     this.service.getProductById(this.productId);
 
 this.isSliderFunc();
@@ -53,6 +56,7 @@ for(let i=0; i<this.service.products.length; i++){
  }
  func() {
    console.log("jhdgfh");
+   this.slider.resize();
   //  document.getElementById('video').click();
  }
 //  doRefresh(refresher){
@@ -97,18 +101,21 @@ ionViewDidLoad(){
   this.nextDisabled=true;
   else this.nextDisabled=false;
   if(currIndex==0)this.prevDisabled=true;
-
  }
+
+
  ionViewDidLeave(){
   //this.navCtrl.popToRoot();
  }
+
+
  AddToCart(pr){
   //console.log(this.slider._slides[this.slider.clickedIndex].getAttribute('data-swiper-slide-index'));
    console.log("enter to func ");
   this.service.clickAddToCart(pr);
     let audio= document.getElementById('player');
     (audio as any).play();
-  
+
     if(this.service.addProductToCart){
   this.service.addProductToCart = false;
   this.navCtrl.parent.select(this.TabsEnum.cart);

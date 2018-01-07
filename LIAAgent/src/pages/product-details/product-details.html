@@ -3,7 +3,7 @@
   <!-- (ionSlideDidChange)="slideChanged()" -->
   <!-- loop="true"  -->
   <!-- <button id="btn"  (click)="this.func()"  >Button</button> -->
-<ion-slides #slider  style="direction: ltr" class="image-slider" slidesPerView="1"  speed="200" (ionSlideWillChange)="slideChanged($event)" 
+<ion-slides #slider  style="direction: ltr" class="image-slider" slidesPerView="1"  speed="200" (ionSlideWillChange)="slideChanged($event)"
   zoom="true" loop="true" preventClicks="false" preventClicksPropagation="false" >
         <ion-slide *ngFor="let pr of service.productsDetails; let i = index">
        <ion-grid style="direction: rtl">
@@ -68,7 +68,7 @@
 <!-- [ngClass]="{'icon-arrow-right-02':nextDisabled, 'icon-arrow-left-03':!nextDisabled}" -->
      <i margin-right  class=" f-size-big icon-arrow-left-03" (click)="slider.slideNext()"  ></i>
 
-     
+
    </ion-col>
 
      </ion-row>
