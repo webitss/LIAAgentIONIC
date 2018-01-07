@@ -1,10 +1,12 @@
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Slides } from 'ionic-angular';
+import { NavController, NavParams, Slides, Content } from 'ionic-angular';
 import { LiaService } from '../../providers/lia.service';
 import { VideoPage } from '../video/video';
 import { TabsEnum } from '../../models/tabs-enum';
 import { MAX_PICKER_SPEED } from 'ionic-angular/components/picker/picker-options';
+import { NgZone } from '@angular/core/src/zone/ng_zone';
+import { ApplicationRef } from '@angular/core';
 // import { Refresher } from 'ionic-angular/components/refresher/refresher';
 
 
@@ -15,12 +17,13 @@ import { MAX_PICKER_SPEED } from 'ionic-angular/components/picker/picker-options
 export class ProductDetailsPage {
   productId:number;
   TabsEnum: typeof TabsEnum = TabsEnum;
+  @ViewChild(Content) content: Content;
   @ViewChild('slider') slider: Slides;
   prevDisabled: boolean=false;
   nextDisabled: boolean=false;
   lp: boolean = true;
   config:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService,public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public service:LiaService,public viewCtrl: ViewController, public zone:ApplicationRef) {
     this.service.productsDetails=[];
     this.productId= navParams.data.productId;
     this.service.getProductById(this.productId);
@@ -97,7 +100,9 @@ ionViewDidLoad(){
   this.nextDisabled=true;
   else this.nextDisabled=false;
   if(currIndex==0)this.prevDisabled=true;
-
+  // this.content.resize();
+  // document.getElementById('video').click();
+ this.zone.tick();
  }
  ionViewDidLeave(){
   //this.navCtrl.popToRoot();
@@ -108,8 +113,7 @@ ionViewDidLoad(){
   this.service.clickAddToCart(pr);
     let audio= document.getElementById('player');
     (audio as any).play();
-  
-    if(this.service.addProductToCart){
+      if(this.service.addProductToCart){
   this.service.addProductToCart = false;
   this.navCtrl.parent.select(this.TabsEnum.cart);
   // this.slider.autoplayDisableOnInteraction = false

@@ -59,8 +59,11 @@
                            <!-- <p *ngIf="service.customerDetails?.PackageId">מספר חבילה : {{service.customerDetails?.PackageId}}</p> -->
                            <p *ngIf="service.customerDetails?.PackageName">שם חבילה : {{service.customerDetails?.PackageName}}</p>
                            <p *ngIf="service.customerDetails?.Phone">מספר פלאפון : {{service.customerDetails?.Phone}}</p>
-                           <!-- <p *ngIf="service.customerDetails?.StoreId">מזהה עסק : {{service.customerDetails?.StoreId}}</p>-->
+                           <p *ngIf="service.customerDetails?.StoreId">מזהה עסק : {{service.customerDetails?.StoreId}}</p>
                            <p *ngIf="service.customerDetails?.StoreName">שם עסק : {{service.customerDetails?.StoreName}}</p> 
+                            <div *ngIf="service.customerDetails?.OrderItemsHistory" >
+                              <p *ngFor="let item of service.customerDetails?.OrderItemsHistory">שם מוצר שרכש בעבר : {{item.ProductName}}</p> 
+                             </div> 
                            <!-- <p *ngIf="service.customerDetails?.User?.Cellphone">מספר הפלאפון של המשתמש: {{service.customerDetails?.User.Cellphone}}</p> -->
                         </ion-scroll>
                       </page-expandable>
