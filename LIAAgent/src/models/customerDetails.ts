@@ -2,6 +2,7 @@ import { storeOwnerModel } from './storeOwnerModel';
 import { LoginModel } from "./loginModel";
 import { customerCategoriesModel } from './customerCategories';
 import { UserObj } from './UserObj';
+import { OrderItemsHistory } from './OrderItemsHistory';
 
 export class customerDetailsModel{
       StoreId :number
@@ -24,7 +25,7 @@ export class customerDetailsModel{
       LogoExtension :string
       User : UserObj
       Owner :storeOwnerModel
-
+      OrderItemsHistory:OrderItemsHistory[]
 
 
 }

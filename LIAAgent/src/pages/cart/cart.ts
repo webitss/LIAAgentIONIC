@@ -68,9 +68,8 @@ scrollingFun(e){
   document.getElementById('demoBtn').click();
   }
 let remainder = ( this.contentHandle.getContentDimensions().contentHeight);
-
   // if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-remainder)){
-    if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-480)){
+    if(this.contentHandle.scrollTop +500>= ((this.contentHandle.getScrollElement().scrollHeight))){
       this.arrowDown = false;
        document.getElementById('demoBtn').click();
    }
@@ -116,11 +115,12 @@ checkArrows(){
     if(this.contentHandle.scrollTop <= (this.service.productsOfCart.length)-5){
         this.arrowUp=false;
         document.getElementById('demoBtn').click();}
-        console.log((this.contentHandle.getScrollElement().scrollHeight)-480);
-        if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight-480))){
+        // alert("this.contentHandle.getScrollElement().scrollHeight "+(this.contentHandle.getScrollElement().scrollHeight));
+        if(this.contentHandle.scrollTop+500 >= (this.contentHandle.getScrollElement().scrollHeight))
+        {
         this.arrowDown = false;
         document.getElementById('demoBtn').click();
-}
+        }
 }
 deleteProduct(productId){
   this.service.clickDeleteToCart(productId);
