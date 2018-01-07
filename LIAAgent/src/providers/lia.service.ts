@@ -324,18 +324,20 @@ if(element != null){
     this.countProductsInCart++;
     this.productsOfCart.push(pr);
     }
-
+    addToCartNow:boolean=false;
     clickAddPackageToCart(p){
     if(this.countPackageInCart===0){
       this.countPackageInCart++;
       this.countProductsInCart+=this.countPackageInCart;
       this.packageInCart=p;
-
+      this.addToCartNow=true;
        }
     else
     if(this.changePackage){
     this.packageInCart=p;
+    this.addToCartNow=true;
     }
+    else this.addToCartNow=false;
    }
 
     clickDeleteToCart(id) {

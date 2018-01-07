@@ -42,6 +42,7 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { FilePath } from '@ionic-native/file-path';
 //import { CookieService } from 'ngx-cookie-service';
 import { CookieService } from 'ngx-cookie-service';
+// import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
 
 
 
@@ -124,7 +125,10 @@ import { CookieService } from 'ngx-cookie-service';
     Keyboard,
     FilePath,
     Refresher,
-    Content
+    Content,
+    // SmartAudioProvider
+
+
   ]
 })
 export class AppModule {}

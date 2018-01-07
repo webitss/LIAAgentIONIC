@@ -42,7 +42,7 @@ export class Signature1Page {
     this.service._signature=this.signature1Image;
     this.navCtrl.pop().then(() => {
       /// Trigger custom event and pass data to be send back
-      this.events.publish('custom-user-events', this.signature1Image);
+      this.events.publish('custom-user-events1', this.signature1Image);
   });
      //this.uploadFile();
   }

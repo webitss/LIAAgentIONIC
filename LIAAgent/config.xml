@@ -45,6 +45,7 @@
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="fullscreen" value="false" />
     <platform name="android">
+        <preference name="Fullscreen" value="true" />
         <preference name="ShowSplashScreenSpinner" value="true" />
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -116,5 +117,6 @@
     <plugin name="cordova-plugin-filepath" spec="^1.1.0" />
     <plugin name="cordova-plugin-keyboard" spec="^1.2.0" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
+    <plugin name="cordova-plugin-nativeaudio" spec="^3.0.9" />
     <engine name="android" spec="6.4.0" />
 </widget>
