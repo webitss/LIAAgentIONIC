@@ -324,7 +324,9 @@ if(element != null){
     this.countProductsInCart++;
     this.productsOfCart.push(pr);
     }
+
     addToCartNow:boolean=false;
+
     clickAddPackageToCart(p){
     if(this.countPackageInCart===0){
       this.countPackageInCart++;

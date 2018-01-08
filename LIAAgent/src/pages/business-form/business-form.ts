@@ -39,7 +39,8 @@ export class BusinessFormPage {
   imageURI: any;
   imageFileName: any;
   Categories = ["מזון","ריהוט","הלבשה"];
-
+  FilterCategories: any[];
+  listOpen = false;
 
   frmBusiness = new FormGroup({
     name: new FormControl("", Validators.required),
@@ -77,6 +78,7 @@ export class BusinessFormPage {
     this.StoreObj = new customerDetailsModel;
     this.customerD.Owner = navParams.data.customerDtl;
     if (this.StoreId != null) this.getStorOfCustomerDetailsArray();
+    this.FilterCategories = service.categories;
   }
   //
   base64Image: any;
@@ -91,6 +93,12 @@ export class BusinessFormPage {
     });
   }
 
+  onSearchInput(event)
+  {
+this.listOpen = true;
+    this.FilterCategories=this.service.categories.filter(i => i.Value.includes(event.target.value));
+    // document.getElementById('selectList').click();
+  }
 
 
   //

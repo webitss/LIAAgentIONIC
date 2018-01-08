@@ -65,7 +65,7 @@ export class CustomersPage {
   document.getElementById('demoBtn').click();
   }
   let remainder = ( this.contentHandle.getContentDimensions().contentHeight)+5;
-  if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-500)){
+  if(this.contentHandle.scrollTop +500> ((this.contentHandle.getScrollElement().scrollHeight))){
   this.arrowDown = false;
   console.log("this.arrowDown "+this.arrowDown);
   console.log("this.contentHandle.scrollTop "+this.contentHandle.scrollTop)

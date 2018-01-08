@@ -23,7 +23,7 @@
 
                   <ion-col>
                     <ion-item>
-                        <ion-input type="number" [placeholder]="this.StoreObj.Phone? this.StoreObj.Phone : 'טלפון בית עסק'"  formControlName="phone" pattern="[0-9]*" ></ion-input>
+                        <ion-input type="number" [placeholder]="this.StoreObj.Phone? this.StoreObj.Phone : 'טלפון בית עסק'"  formControlName="phone" pattern="[0]+[0-9]*" ></ion-input>
                       </ion-item>
                     </ion-col>
 
@@ -44,19 +44,20 @@
                         </ion-col>
 
                           <ion-col block>
-                          <ion-item>
-
-                          <ion-select okText="אישור" cancelText="ביטול" interface="popover" formControlName="category" placeholder="קטגורית העסק" class="border-input" block multiple="true" >
+<ion-item>
+                          <ion-select okText="אישור" cancelText="ביטול"  interface="popover" formControlName="category" placeholder="קטגורית העסק" class="border-input" block multiple="true" >
 
 
                           <ion-option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories :  this.service.categories" >{{option.Value}}</ion-option>
                           </ion-select>
-
+                        </ion-item>
 <!-- <select class="border-input" block formControlName="category" placeholder="קטגורית העסק" >
 <option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories :  this.service.categories">{{option.Value}}</option>
 </select> -->
 
-                                                      </ion-item>
+
+
+
                                                     </ion-col>
                                             </ion-row>
 

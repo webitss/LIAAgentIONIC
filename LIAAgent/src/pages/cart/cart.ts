@@ -68,12 +68,10 @@ scrollingFun(e){
   document.getElementById('demoBtn').click();
   }
 let remainder = ( this.contentHandle.getContentDimensions().contentHeight);
-
   // if(this.contentHandle.scrollTop > ((this.contentHandle.getScrollElement().scrollHeight)-remainder)){
-    if(this.contentHandle.scrollTop > 750){
-  this.arrowDown = false;
-
-  document.getElementById('demoBtn').click();
+    if(this.contentHandle.scrollTop +500>= ((this.contentHandle.getScrollElement().scrollHeight))){
+      this.arrowDown = false;
+       document.getElementById('demoBtn').click();
    }
   else
 {
@@ -99,25 +97,40 @@ let remainder = ( this.contentHandle.getContentDimensions().contentHeight);
   }
 
   onGoToPersonalFormPage(StoreId){
-if(this.service.packageInCart.PackageId || this.service.productsOfCart.length){
-if(StoreId){
-    this.navCtrl.push(PersonalFormPage,{StoreId: StoreId});
-    console.log(StoreId);
-}
-else
-this.navCtrl.push(PersonalFormPage);
-}
+      if(this.service.packageInCart.PackageId || this.service.productsOfCart.length){
+      if(StoreId){
+          this.navCtrl.push(PersonalFormPage,{StoreId: StoreId});
+          console.log(StoreId);
+      }
+      else
+      this.navCtrl.push(PersonalFormPage);
+      }
   }
 
   routeToPackages(){
     this.service.changePackage=true;
     this.navCtrl.parent.select(TabsEnum.packages);
   }
-
+checkArrows(){
+    if(this.contentHandle.scrollTop <= (this.service.productsOfCart.length)-5){
+        this.arrowUp=false;
+        document.getElementById('demoBtn').click();}
+        // alert("this.contentHandle.getScrollElement().scrollHeight "+(this.contentHandle.getScrollElement().scrollHeight));
+        if(this.contentHandle.scrollTop+500 >= (this.contentHandle.getScrollElement().scrollHeight))
+        {
+        this.arrowDown = false;
+        document.getElementById('demoBtn').click();
+        }
+}
+deleteProduct(productId){
+  this.service.clickDeleteToCart(productId);
+  this.checkArrows();
+}
 deletePackage(){
 this.service.packageInCart = new packageModel;
 this.service.countPackageInCart--;
-this.service.countProductsInCart--;
+this.service.countProductsInCart--;document.getElementById('demoBtn').click();
+      this.checkArrows();
 }
 
 }

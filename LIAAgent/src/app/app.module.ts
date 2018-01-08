@@ -42,8 +42,8 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { FilePath } from '@ionic-native/file-path';
 //import { CookieService } from 'ngx-cookie-service';
 import { CookieService } from 'ngx-cookie-service';
-import { SuperTabsModule } from 'ionic2-super-tabs';
 // import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
+
 
 
 
@@ -127,7 +127,7 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     Refresher,
     Content,
     // SmartAudioProvider
-    
+
 
   ]
 })

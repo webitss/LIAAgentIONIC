@@ -73,4 +73,13 @@ page-login {
     transform: translate(-50%, -50%);
     transition:all 0.9s ease;;
   }
+  ion-backdrop{
+    opacity: 1 !important;
+  }
+  .modal-backdrop {
+    height: 100%;
+    background-color: rgba(0,0,0,.6);
+    position: relative;
+    z-index: 10;
+    }
 }

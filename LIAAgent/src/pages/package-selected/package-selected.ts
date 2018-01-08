@@ -24,8 +24,8 @@ export class PackageSelectedPage {
     // ,public smartAudio:SmartAudioProvider
     // ,public nativeAudio:NativeAudio
   ) {
- 
-    
+
+
     service.isOuter=false;
     service.isInner=true;
     this.nowPackage=new Array();
@@ -51,7 +51,7 @@ export class PackageSelectedPage {
   {
      this.service.isPackageProductDetailed=!this.service.isPackageProductDetailed;
      this.product=product;
-     
+
   }
   routeToVideo()
   {
@@ -69,8 +69,6 @@ this.navCtrl.pop();
   ionViewDidLeave(){
     //this.navCtrl.popToRoot();
    }
-
-
 
 
    clickAddPackageToCart(nowPackage)
