@@ -59,7 +59,7 @@ service.signatureImage1="";
 
 
 async resetAll(){
- 
+
 console.log(this.service.signatureImage);
 let loader = this.loadingCtrl.create({
   content: "Uploading..."
@@ -91,16 +91,16 @@ if(isCreated){
   await this.proxy.CreatePDF(val.Result, this.customerEmail, this.service.signatureImage, this.service.signatureImage1)
 .then(res => {
   switch(res.ErrorCode){
-    case 0 : 
+    case 0 :
     setTimeout(() => {
       this.service.isTerminateOrdered=true;
-      
+
    }, 300);
-   
+
    (audio as any).play();
     loader.dismiss();
-    
-    
+
+
     setTimeout(() => {
                    //this.navCtrl.setRoot(TabsPage);
                   console.log( " this.service.productsOfCart "+this.service.productsOfCart);
@@ -109,7 +109,7 @@ if(isCreated){
                   this.service.countPackageInCart=0;
                   this.service.countProductsInCart=0;
                   this.service.isTerminateOrdered=false;
-                 
+
                   // this.app.getRootNav().setRoot(TabsPage);
                 this.navCtrl.parent.select(0);
                 }, 3000);
@@ -118,7 +118,7 @@ if(isCreated){
     case -3:
     loader.dismiss();
      alert("משתמש לא נמצא")
-    
+
     break;
 
     case -10:
@@ -126,7 +126,7 @@ if(isCreated){
      alert("אינך מורשה לבצע הזמנה");
 
     break;
-    default: 
+    default:
     loader.dismiss();
     alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
     console.log(res.ErrorMessage);

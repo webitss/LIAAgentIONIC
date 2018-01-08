@@ -357,6 +357,30 @@ if(element != null){
 
      //#region form-bussiness
 
+// async createFrmBusiness(storDetails: customerDetailsModel){
+//   if(this.packageInCart.PackageId){
+//    storDetails.PackageId=this.packageInCart.PackageId;
+//   storDetails.PackageName=this.packageInCart.PackageName;
+//   }
+//   storDetails.User = new UserObj;
+
+//   let response = await this.proxy
+//       .createStoreDetails(storDetails)
+//       .then(res => {
+//         if(res.Error.ErrorCode === 0){
+//           console.log("הפרטים נשמרו בהצלחה",res.Result);
+//         }
+//   else{
+//   if(res.Error.ErrorCode === -10)
+//   alert("אינך מורשה ליצור לקוח חדש");
+// if(res.Error.ErrorCode === -1 || res.ErrorCode === -2)
+//   alert("הנתונים שהזנת שגויים");
+//   }
+//       })
+//       .catch(() => console.log("error"));
+// return response;
+//     }
+
 async createFrmBusiness(storDetails: customerDetailsModel){
   if(this.packageInCart.PackageId){
    storDetails.PackageId=this.packageInCart.PackageId;
@@ -364,19 +388,9 @@ async createFrmBusiness(storDetails: customerDetailsModel){
   }
   storDetails.User = new UserObj;
 
-      await this.proxy
+  let response = await this.proxy
       .createStoreDetails(storDetails)
-      .then(res => {
-        if(res.Error.ErrorCode === 0)
-  console.log("הפרטים נשמרו בהצלחה",res.Result);
-  else{
-  if(res.Error.ErrorCode === -10)
-  alert("אינך מורשה ליצור לקוח חדש");
-if(res.Error.ErrorCode === -1 || res.ErrorCode === -2)
-  alert("הנתונים שהזנת שגויים");
-  }
-      })
-      .catch(() => console.log("error"));
+return response;
     }
 
     async updateFrmBusiness(storDetails: customerDetailsModel){

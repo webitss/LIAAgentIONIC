@@ -15,6 +15,8 @@ import { Camera, CameraOptions } from "@ionic-native/camera";
 import { FilePath } from '@ionic-native/file-path';
 import { customerCategoriesModel } from "../../models/customerCategories";
 //import { FilePath } from "@angular";
+import { AlertController } from 'ionic-angular/components/alert/alert-controller';
+
 
 @Component({
   selector: "page-business-form",
@@ -68,7 +70,8 @@ export class BusinessFormPage {
     private camera: Camera,
     private transfer: FileTransfer,
     public loadingCtrl: LoadingController,
-    public toastCtrl: ToastController,public filePath:FilePath
+    public toastCtrl: ToastController,public filePath:FilePath,
+    private alertCtrl: AlertController
   ) {
     // ) {
     service.routeOrStay = "businessForm";
@@ -115,7 +118,7 @@ this.listOpen = true;
   }
 
   onGoToPayOptionsPage() {
-    this.navCtrl.push(PayOptionsPage, {StoreId : this.customerD.StoreId, email: this.customerD.Owner.Email});
+    this.navCtrl.push(PayOptionsPage, {StoreId : this.StoreId, email: this.customerD.Owner.Email});
   }
 
 ///////////////////////////////
@@ -211,7 +214,7 @@ console.log(this.customerD.Categories);
 }
   }
 
-  submitFrmMoreBusiness(frm) {
+  async submitFrmMoreBusiness(frm) {
     // this.customerD.User = this.StoreObj.User;
     //this.customerD.LogoUrl=frm.logo? frm.logo : this.StoreObj.LogoUrl;
     this.customerD.LogoUrl = this.imageURI?this.imageURI :this.StoreObj.LogoUrl;
@@ -222,7 +225,33 @@ console.log(this.customerD.Categories);
        this.service.updateFrmBusiness(this.customerD);
     }
     else{
-      this.service.createFrmBusiness(this.customerD);
+      let alert = this.alertCtrl.create({
+        title: '',
+        subTitle: '',
+        buttons: ['אישור']
+      });
+
+       let res;
+       res = await this.service.createFrmBusiness(this.customerD);
+
+       switch(res.Error.ErrorCode){
+        case 0 : this.StoreId = res.Result.EntityId;
+           this.onGoToPayOptionsPage();
+        break;
+        case -3:
+        alert.setSubTitle("משתמש לא נמצא")
+        alert.present();
+        break;
+
+        case -10:
+        alert.setSubTitle("אינך מורשה ליצור בית עסק חדש");
+        alert.present();
+        break;
+        default:
+        alert.setSubTitle("הנתונים שהזנת שגויים");
+        alert.present();
+        break;
+        }
     }
   }
 
