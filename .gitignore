@@ -2,3 +2,4 @@
 *.json
 myApp/.bowerrc
 myApp/.editorconfig
+*.json
