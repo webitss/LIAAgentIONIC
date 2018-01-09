@@ -12,8 +12,8 @@ opacity: 0.5;
     .uploader input {
         display: none;
       }
-      
-      .uploader 
+
+      .uploader
         {
         -webkit-align-items: center;
         align-items: center;
@@ -30,12 +30,12 @@ opacity: 0.5;
         position: relative;
         width: 150px;
       }
-      
+
       .uploader img,
       .uploader .icon {
         pointer-events: none;
       }
-      
+
       .uploader,
       .uploader .icon {
         -webkit-transition: all 100ms ease-in;
@@ -44,12 +44,12 @@ opacity: 0.5;
         -o-transition: all 100ms ease-in;
         transition: all 100ms ease-in;
       }
-      
+
       .uploader .icon {
         color: #eee;
         color: rgba(0, 0, 0, 0.2);
         font-size: 5em;    }
-      
+
         .uploader img {
         left: 50%;
         opacity: 0;
@@ -69,8 +69,10 @@ opacity: 0.5;
         transform: translate(-50%, -50%);
         z-index: -1;
       }
-      
+
       .uploader img.loaded {
         opacity: 1;
               }
 }
+
+
