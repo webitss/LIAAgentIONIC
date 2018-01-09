@@ -429,7 +429,7 @@ if(res.ErrorCode === -1 || res.ErrorCode === -2)
             obj.PackageId=this.packageInCart.PackageId;
             obj.ProductsIDs =  [];
             for(let i=0; i<this.productsOfCart.length; i++){
-            obj.ProductsIDs.push({"EntityId":this.productsOfCart[i].ProductId});
+            obj.ProductsIDs.push({"iEntityId":this.productsOfCart[i].ProductId});
             }
             console.log(obj);
             let response = await this.proxy.createOrder(obj);

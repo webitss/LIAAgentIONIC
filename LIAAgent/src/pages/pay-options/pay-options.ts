@@ -128,7 +128,7 @@ if(isCreated){
     break;
     default:
     loader.dismiss();
-    alert("תקלה זמנית בשרת, אנא נסה שנית מאוחר יותר");
+    alert("הנתונים שהזנת שגויים או חסרים");
     console.log(res.ErrorMessage);
     break;
     }
