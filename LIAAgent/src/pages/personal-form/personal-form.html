@@ -18,11 +18,14 @@
                   <ion-row align-items-center >
 
                       <ion-col col-9>
-        <ion-row>
+        <ion-row> 
+          <!-- <p *ngIf="frmPersonal.controls.first_name" class="danger" >Name is not valid.</p> -->
                   <ion-col>
+                     
               <ion-item>
                 <ion-input type="text" [class.ng-invalid]="!frmPersonal.get('first_name').valid" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.Name : 'שם לקוח'"  formControlName="first_name" [pattern]="this.pattern" ></ion-input>
               </ion-item>
+              
                   </ion-col>
 
              <ion-col>
@@ -55,7 +58,8 @@
 
                     <ion-col>
                       <ion-item>
-                          <ion-input type="number" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.CellPhone : 'נייד'"  formControlName="callPhone" pattern="[0]+[5]+[0-9]*"></ion-input>
+                          <ion-input type="number" [placeholder]="this.StoreOwnerObj? this.StoreOwnerObj.CellPhone : 'נייד'"  formControlName="callPhone" ></ion-input>
+                          <!-- pattern="[0]+[5]+[0-9]*" -->
                         </ion-item>
                       </ion-col>
 

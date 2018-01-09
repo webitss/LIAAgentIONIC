@@ -7,7 +7,6 @@ export class productsModel{
     PictureUrl :string
     VideoUrl :string
     IcoUrl :string
-    Duration :number
-    DurationText :string
+    Comment :string
     
 }
