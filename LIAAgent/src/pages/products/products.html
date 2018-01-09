@@ -6,7 +6,7 @@
                    <ion-col margin><a (click)="select(this.service.products[0].ProductId)" >
                   <div class="app-products">
                   <div class="bg-icon-app-products">
-                      <img [src]="this.service.products[0].IcoUrl"/>
+                 <img [src]="this.service.products[0].IcoUrl"/>
                   <!-- <img src="assets/imgs/icon-lia.png"/> -->
                   </div>
                   <p>אתר מכירות</p>
@@ -25,10 +25,11 @@
 
                  <ion-col margin> <a (click)="select(this.service.products[2].ProductId)">
                   <div class="app-products">
-                  <div class="bg-icon-app-products bg-light-blue">
-                      <img [src]="this.service.products[2].IcoUrl"/>
+                  <!-- <div class="bg-icon-app-products bg-light-blue"> -->
+                     <img src="assets/imgs/icon-lia.png"/>
+                      <!-- <img [src]="this.service.products[2].IcoUrl"/> -->
                   <!-- <i class="icon-social" ></i> -->
-                  </div>
+                  <!-- </div> -->
                   <p>פרסום באפליקציה שלנו</p>
                   </div>
                   </a></ion-col>
@@ -79,7 +80,6 @@
                   <ion-col margin><a (click)="select(this.service.products[7].ProductId)">
                   <div class="app-products">
                   <div class="bg-icon-app-products bg-pink">
-                      
                   <img [src]="this.service.products[7].IcoUrl"/>
                   <!-- <img [src]="this.service.products[7].IcoUrl"/> -->
                   <!-- <i  class="icon-star-14"></i> -->
@@ -88,6 +88,61 @@
                   </div>
                   </a></ion-col>
             
+                  <ion-col margin><a (click)="select(this.service.products[8].ProductId)">
+                      <div class="app-products">
+                      <div class="bg-icon-app-products bg-pink">
+                      <img [src]="this.service.products[8].IcoUrl"/>
+                      <!-- <img [src]="this.service.products[7].IcoUrl"/> -->
+                      <!-- <i  class="icon-star-14"></i> -->
+                      </div>
+                      <p>סרטון תדמית</p>
+                      </div>
+                      </a></ion-col>
+
+                      <ion-col margin><a (click)="select(this.service.products[9].ProductId)">
+                          <div class="app-products">
+                          <div class="bg-icon-app-products bg-pink">
+                          <img [src]="this.service.products[9].IcoUrl"/>
+                          <!-- <img [src]="this.service.products[7].IcoUrl"/> -->
+                          <!-- <i  class="icon-star-14"></i> -->
+                          </div>
+                          <p> קידום בגוגל </p>
+                          </div>
+                          </a></ion-col>
+
+                          <ion-col margin><a (click)="select(this.service.products[10].ProductId)">
+                              <div class="app-products">
+                              <div class="bg-icon-app-products bg-pink">
+                              <img [src]="this.service.products[10].IcoUrl"/>
+                              <!-- <img [src]="this.service.products[7].IcoUrl"/> -->
+                              <!-- <i  class="icon-star-14"></i> -->
+                              </div>
+                              <p> קידום קמפיינים ממומנים </p>
+                              </div>
+                              </a></ion-col>
+
+                              <ion-col margin><a (click)="select(this.service.products[11].ProductId)">
+                                  <div class="app-products">
+                                  <div class="bg-icon-app-products bg-pink">
+                                  <img [src]="this.service.products[11].IcoUrl"/>
+                                  <!-- <img [src]="this.service.products[7].IcoUrl"/> -->
+                                  <!-- <i  class="icon-star-14"></i> -->
+                                  </div>
+                                  <p> קמפיין פייסבוק </p>
+                                  </div>
+                                  </a></ion-col>
+
+                                  <ion-col margin><a (click)="select(this.service.products[12].ProductId)">
+                                      <div class="app-products">
+                                      <div class="bg-icon-app-products bg-pink">
+                                      <img [src]="this.service.products[12].IcoUrl"/>
+                                      <!-- <img [src]="this.service.products[7].IcoUrl"/> -->
+                                      <!-- <i  class="icon-star-14"></i> -->
+                                      </div>
+                                      <p> הקמת/ניהול דף 
+                                        פייסבוק עסקי </p>
+                                      </div>
+                                      </a></ion-col>
             </ion-row>
         
   </ion-grid>
