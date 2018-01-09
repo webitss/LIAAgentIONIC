@@ -3,31 +3,33 @@
   <ion-grid>
       
                     <ion-row align-items-stretch justify-content-center  >
-                             
-                  <ion-col margin><a (click)="select(this.service.products[0].ProductId)" >
+                   <ion-col margin><a (click)="select(this.service.products[0].ProductId)" >
                   <div class="app-products">
                   <div class="bg-icon-app-products">
-                  <img src="assets/imgs/icon-lia.png"/>
+                      <img [src]="this.service.products[0].PictureUrl"/>
+                  <!-- <img src="assets/imgs/icon-lia.png"/> -->
                   </div>
-                  <p>אפליקציה</p>
+                  <p>אתר מכירות</p>
                   </div>
                   </a></ion-col>
 
                   <ion-col margin><a (click)="select(this.service.products[1].ProductId)">
                   <div class="app-products">
                   <div class="bg-icon-app-products bg-blue-2">
-                  <i class="icon-social" ></i>
+                      <img [src]="this.service.products[1].PictureUrl"/>
+                  <!-- <i class="icon-social" ></i> -->
                   </div>
-                  <p>פייסבוק</p>
+                  <p>אתר תדמית</p>
                   </div>
                   </a></ion-col>
 
                  <ion-col margin> <a (click)="select(this.service.products[2].ProductId)">
                   <div class="app-products">
                   <div class="bg-icon-app-products bg-light-blue">
-                  <i class="icon-social" ></i>
+                      <img [src]="this.service.products[2].PictureUrl"/>
+                  <!-- <i class="icon-social" ></i> -->
                   </div>
-                  <p>קמפיין פייסבוק</p>
+                  <p>פרסום באפליקציה שלנו</p>
                   </div>
                   </a></ion-col>
 
@@ -35,9 +37,10 @@
                   <ion-col margin><a (click)="select(this.service.products[3].ProductId)">
                   <div class="app-products">
                   <div class="bg-icon-app-products bg-yellow">
-                  <i class="icon-cart" ></i>
+                      <img [src]="this.service.products[3].PictureUrl"/>
+                  <!-- <i class="icon-cart" ></i> -->
                   </div>
-                  <p>אתר החברה</p>
+                  <p>התראה חמה</p>
                   </div>
                   </a></ion-col>
 
@@ -45,9 +48,10 @@
                   <ion-col margin><a (click)="select(this.service.products[4].ProductId)">
                   <div class="app-products">
                   <div class="bg-icon-app-products bg-yellow">
-                  <i class="icon-bell-15" ></i>
+                  <img [src]="this.service.products[4].PictureUrl"/>
+                  <!-- <i class="icon-bell-15" ></i> -->
                   </div>
-                  <p>התראה רגילה</p>
+                  <p>התראה קופצת</p>
                   </div>
                   </a></ion-col>
 
@@ -55,27 +59,32 @@
                   <ion-col margin><a (click)="select(this.service.products[5].ProductId)">
                   <div class="app-products">
                   <div class="bg-icon-app-products bg-red">
-                  <i class="icon-alarm-1" ></i>
+                  <img [src]="this.service.products[5].PictureUrl"/>
+                  <!-- <i class="icon-alarm-1" ></i> -->
                   </div>
-                  <p>התראה חמה</p>
+                  <p>התראה קרה באפליקציה</p>
                   </div>
                   </a></ion-col>
 
                   <ion-col margin><a (click)="select(this.service.products[6].ProductId)">
                   <div class="app-products">
                   <div class="bg-icon-app-products bg-green">
-                  <i class="icon-music"></i>
+                  <img [src]="this.service.products[6].PictureUrl"/>
+                  <!-- <i class="icon-music"></i> -->
                   </div>
-                  <p>התראה קופצת</p>
+                  <p>מודעת פרסום</p>
                   </div>
                   </a></ion-col>
 
-                  <ion-col margin><a (click)="select(this.service.products[6].ProductId)">
+                  <ion-col margin><a (click)="select(this.service.products[7].ProductId)">
                   <div class="app-products">
                   <div class="bg-icon-app-products bg-pink">
-                  <i  class="icon-star-14"></i>
+                      
+                  <img [src]="this.service.products[7].PictureUrl"/>
+                  <!-- <img [src]="this.service.products[7].IcoUrl"/> -->
+                  <!-- <i  class="icon-star-14"></i> -->
                   </div>
-                  <p>מבצעים מועדפים</p>
+                  <p>מיתוג כללי </p>
                   </div>
                   </a></ion-col>
             

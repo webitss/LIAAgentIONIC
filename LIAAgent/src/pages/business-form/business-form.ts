@@ -1,3 +1,4 @@
+// import { SELECT_DIRECTIVES } from 'md/select';
 import { LiaService } from "./../../providers/lia.service";
 import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
@@ -16,7 +17,8 @@ import { FilePath } from '@ionic-native/file-path';
 import { customerCategoriesModel } from "../../models/customerCategories";
 //import { FilePath } from "@angular";
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
-
+import {MatSelectModule} from '@angular/material/select';
+// import {Md2SelectModule} from 'md2-select/select';
 
 @Component({
   selector: "page-business-form",

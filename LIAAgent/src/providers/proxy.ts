@@ -142,6 +142,7 @@ console.log(JSON.stringify(obj));
     obj.UserId=this.authUser.UserId;
     obj.nvGuide=this.authUser.LoginGuide;
     obj.ReqObj=order;
+        console.log("obj "+JSON.stringify(obj));
       return this.http.post(`http://ws.webit-track.com/LiaWS_QA/Agents.svc/CreateOrder`, {
            obj
          }).toPromise();

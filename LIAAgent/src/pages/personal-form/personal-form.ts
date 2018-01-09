@@ -20,12 +20,12 @@ export class PersonalFormPage {
 
   pattern =/^[a-zA-Zא-ת\s]*$/;
   frmPersonal: FormGroup = new FormGroup({
-    first_name: new FormControl("", Validators.required),
+    first_name: new FormControl("", [Validators.required,Validators.maxLength(20)]),
     id: new FormControl("", [Validators.maxLength(9), Validators.minLength(9)]),
     phoneNumber: new FormControl("", [Validators.required ,Validators.maxLength(9), Validators.minLength(9)]),
-    address: new FormControl(),
+    address: new FormControl("",Validators.maxLength(50)),
     email: new FormControl("",  Validators.email),
-    callPhone: new FormControl("",[Validators.required ,Validators.maxLength(10), Validators.minLength(10)] )
+    callPhone: new FormControl("",[Validators.required ,Validators.maxLength(10), Validators.minLength(10),Validators.pattern('[0]+[5]+[0-9]*')] )
     // [Validators.required ,Validators.maxLength(10), Validators.minLength(10)]
 } );
   StoreId:number;

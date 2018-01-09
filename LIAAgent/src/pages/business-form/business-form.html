@@ -46,11 +46,18 @@
                           <ion-col block>
 <ion-item>
                           <ion-select okText="אישור" cancelText="ביטול"  interface="popover" formControlName="category" placeholder="קטגורית העסק" class="border-input" block multiple="true" >
-
-
-                          <ion-option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories :  this.service.categories" >{{option.Value}}</ion-option>
+                         <ion-option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories :  this.service.categories" >{{option.Value}}</ion-option>
                           </ion-select>
 
+                          <!-- <mat-form-field>
+                              <mat-select placeholder="Toppings" [formControl]="toppings" multiple>
+                                <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                              </mat-select>
+                            </mat-form-field> -->
+
+                               <!-- <md2-select>
+                                <md2-option *ngFor="let option of this.StoreObj.Categories? this.StoreObj.Categories :  this.service.categories">{{option.Value}}</md2-option>
+                               </md2-select> -->
 
                         </ion-item>
 <!-- <select class="border-input" block formControlName="category" placeholder="קטגורית העסק" >

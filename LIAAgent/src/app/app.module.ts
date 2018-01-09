@@ -1,3 +1,4 @@
+// import { MdSelectDispatcher, SELECT_DIRECTIVES } from 'md/select';
 import { Refresher } from 'ionic-angular/components/refresher/refresher';
 import { SassHelperComponent } from './../components/sass-helper/sass-helper';
 import { ExpandablePage } from './../pages/expandable/expandable';
@@ -43,8 +44,8 @@ import { FilePath } from '@ionic-native/file-path';
 //import { CookieService } from 'ngx-cookie-service';
 import { CookieService } from 'ngx-cookie-service';
 // import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
-
-
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+// import {Md2SelectModule} from 'md2-select/select';
 
 
 @NgModule({
@@ -79,7 +80,7 @@ import { CookieService } from 'ngx-cookie-service';
     IonicModule.forRoot(MyApp, { scrollAssist: true, autoFocusAssist: false } ),
     //IonicModule.forRoot(MyApp),
     HttpClientModule, FormsModule,ReactiveFormsModule,
-    LongPressModule,
+    LongPressModule,MatCheckboxModule,MatButtonModule
     // SuperTabsModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -109,6 +110,7 @@ import { CookieService } from 'ngx-cookie-service';
     Signature1Page,
     SassHelperComponent
      ],
+    
   providers: [
     StatusBar,
     SplashScreen,
@@ -129,6 +131,7 @@ import { CookieService } from 'ngx-cookie-service';
     // SmartAudioProvider
 
 
-  ]
+  ],
+  
 })
 export class AppModule {}
